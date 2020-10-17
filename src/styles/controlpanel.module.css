@@ -1,0 +1,35 @@
+.ControlPanel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  z-index: 9999;
+}
+
+.ControlPanel span {
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: default;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.darkMode span {
+  color: #d3fc03;
+}
+
+.lightMode span {
+  color: #202020;
+}
+
+.toggle {
+  cursor: pointer !important;
+}
