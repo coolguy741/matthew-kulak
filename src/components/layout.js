@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { connect } from "react-redux"
 
 import Header from "./header"
-import Canvas from "./Canvas"
 import ControlPanel from "../components/ControlPanel"
 import "./layout.css"
 

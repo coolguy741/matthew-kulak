@@ -3,10 +3,11 @@ import { connect } from "react-redux"
 import { Stage, Container, Text, withApp } from "react-pixi-fiber"
 import { GlitchFilter } from "@pixi/filter-glitch"
 import { CRTFilter } from "@pixi/filter-crt"
-import { StateContext } from "../layout"
-import FullScreen from "../Canvas/FullScreen"
-import styles from "../../styles/Canvas.module.css"
+import { StateContext } from "../../layout"
+import FullScreen from "../FullScreen"
+import styles from "../../../styles/Canvas.module.css"
 import { navigate } from "gatsby"
+import CursorContainer from "../CursorContainer"
 
 const Projects = props => {
   const containersRef = useRef(null)
@@ -47,7 +48,7 @@ const Projects = props => {
 
   const crtFilter = new CRTFilter({
     noise: 0.6,
-    vignetting: 0.38,
+    vignetting: 0.45,
     noiseSize: null,
     lineWidth: 0.1,
   })
@@ -69,59 +70,68 @@ const Projects = props => {
   })
 
   useEffect(() => {
-    let i
-    for (i = 0; i < stateContext.projects.length; i++) {
+    for (let i = 0; i < stateContext.projects.length; i++) {
       glitchFilters[i].slices = 0
     }
 
-    const animateFilter = () => {
+    const animate = () => {
       crtFilter.seed = Math.random()
       crtFilter.time += 0.3
-      for (i = 0; i < stateContext.projects.length; i++) {
+
+      for (let i = 0; i < stateContext.projects.length; i++) {
         glitchFilters[i].offset = Math.random() * 7
       }
     }
 
-    props.app.ticker.add(animateFilter)
+    props.app.ticker.add(animate)
   }, [])
 
   return (
-    <Container filters={[crtFilter]}>
-      {stateContext.projects.map((e, i) => {
-        return (
-          <Container filters={[glitchFilters[i]]} key={i} ref={containersRef}>
-            <FullScreen x={0} y={0} width={width} height={height} />
-            <Text
-              key={e.slug}
-              text={e.name}
-              x={x}
-              y={y + i * 90}
-              interactive="true"
-              buttonMode="true"
-              style={style}
-              anchor="0.5"
-              mouseover={() => {
-                glitchFilters[i].slices = Math.floor(
-                  Math.random() * Math.floor(5) + 45
-                )
-              }}
-              mouseout={() => {
-                glitchFilters[i].slices = 0
-              }}
-              mouseup={() => {
-                navigate(`/work/${e.slug}`)
-              }}
-            />
-          </Container>
-        )
-      })}
-    </Container>
+    <>
+      <Container filters={[crtFilter]}>
+        <FullScreen x={0} y={0} width={width} height={height} />
+        {props.location
+          ? stateContext.projects.map((e, i) => {
+              return (
+                <Container
+                  filters={[glitchFilters[i]]}
+                  key={i}
+                  ref={containersRef}
+                >
+                  <Text
+                    key={e.slug}
+                    text={e.name}
+                    x={x}
+                    y={y + i * 90}
+                    interactive="true"
+                    buttonMode="true"
+                    style={style}
+                    anchor="0.5"
+                    mouseover={() => {
+                      glitchFilters[i].slices = Math.floor(
+                        Math.random() * Math.floor(5) + 45
+                      )
+                    }}
+                    mouseout={() => {
+                      glitchFilters[i].slices = 0
+                    }}
+                    mouseup={() => {
+                      navigate(`/work/${e.slug}`)
+                    }}
+                  />
+                </Container>
+              )
+            })
+          : null}
+      </Container>
+      <CursorContainer app={props.app} darkMode={props.isDarkMode} />
+    </>
   )
 }
 
 const ProjectsWithApp = withApp(Projects)
 
-const ProjectsCanvas = props => {
+const Canvas = props => {
   const width = window.innerWidth
   const height = window.innerHeight
 
@@ -154,4 +164,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectsCanvas)
+export default connect(mapStateToProps, mapDispatchToProps)(Canvas)

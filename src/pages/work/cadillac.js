@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import Canvas from "../../components/Canvas"
+import Canvas from "../../components/Pixi/Canvas"
 import Layout from "../../components/layout"
 import styles from "../../styles/project.module.css"
 

@@ -2,13 +2,15 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectsCanvas from "../components/ProjectsCanvas"
+import Canvas from "../components/Pixi/Canvas"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="FRMR" />
-    <ProjectsCanvas />
-  </Layout>
-)
+const IndexPage = props => {
+  return (
+    <Layout>
+      <SEO title="FRMR" />
+      <Canvas location={props.location} />
+    </Layout>
+  )
+}
 
 export default IndexPage

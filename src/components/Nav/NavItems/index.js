@@ -45,7 +45,6 @@ const NavItems = props => {
       }`}
     >
       <Link
-        exact
         activeStyle={style}
         to="/"
         ref={workRef}
