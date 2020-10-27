@@ -1,6 +1,6 @@
 import { CustomPIXIComponent } from "react-pixi-fiber"
 import * as PIXI from "pixi.js"
-import { TweenLite, Power2 } from "gsap"
+import { TweenLite } from "gsap"
 
 const TYPE = "Cursor"
 

@@ -1,0 +1,98 @@
+.toggle-switch {
+  position: absolute;
+  width: 60px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: left;
+  right: 0;
+  margin-right: 30px;
+  &-checkbox {
+    display: none;
+  }
+  &-label {
+    display: block;
+    overflow: hidden;
+    border: 0 solid #555;
+    border-radius: 20px;
+    margin: 0;
+  }
+  &-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    cursor: pointer !important;
+    &:before,
+    &:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 25px;
+      padding: 0;
+      line-height: 25px;
+      font-size: 14px;
+      color: white;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    &:before {
+      content: "";
+      background-image: url(../images/moon.svg);
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: 8px;
+      text-transform: uppercase;
+      padding-left: 10px;
+      background-color: #d3fc03;
+      color: #333;
+    }
+  }
+  &-disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    &:before {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  }
+  &-inner:after {
+    content: "";
+    background-image: url(../images/sun.svg);
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 36px;
+    text-transform: uppercase;
+    padding-right: 10px;
+    background-color: #d0d0d0;
+    color: #555;
+    text-align: right;
+  }
+  &-switch {
+    display: block;
+    width: 19px;
+    margin: 3px;
+    background: #333;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 35px;
+    border: 0 solid #bbb;
+    cursor: pointer !important;
+    border-radius: 25px;
+    transition: all 0.3s ease-in 0s;
+  }
+  &-switch:checked {
+    background: #555 !important;
+  }
+  &-checkbox:checked + &-label {
+    .toggle-switch-inner {
+      margin-left: 0;
+    }
+    .toggle-switch-switch {
+      right: 0px;
+    }
+  }
+}

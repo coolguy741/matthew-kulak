@@ -4,6 +4,11 @@
   padding: 10px;
 }
 
+.projectMain {
+  width: 50%;
+  margin: auto;
+}
+
 .darkMode {
   color: #d3fc03;
 }

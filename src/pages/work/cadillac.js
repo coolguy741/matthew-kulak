@@ -5,7 +5,7 @@ import Canvas from "../../components/Pixi/Canvas"
 import Layout from "../../components/layout"
 import styles from "../../styles/project.module.css"
 
-const about = props => (
+const Cadillac = props => (
   <Layout>
     <Canvas />
     <h1
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(about)
+export default connect(mapStateToProps, mapDispatchToProps)(Cadillac)

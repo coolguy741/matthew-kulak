@@ -10,6 +10,10 @@ import "./layout.css"
 const state = {
   projects: [
     {
+      name: "Tripwire",
+      slug: "tripwire",
+    },
+    {
       name: "GNOS Clothing",
       slug: "gnos",
     },

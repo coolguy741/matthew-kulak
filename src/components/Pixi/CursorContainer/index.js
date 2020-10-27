@@ -5,11 +5,12 @@ const CursorContainer = props => {
   const [darkMode, setDarkMode] = useState(props.darkMode)
   const [cursor, setCursor] = useState(new Array(500).fill(null))
   var counter = 0
+  const mousePos = props.app.renderer.plugins.interaction.mouse.global
 
   useEffect(() => {
     const animate = () => {
-      let x = props.app.renderer.plugins.interaction.mouse.global.x
-      let y = props.app.renderer.plugins.interaction.mouse.global.y
+      let x = mousePos.x
+      let y = mousePos.y
       let radius = Math.random() * (20 * Math.random())
       let negOrPos1 = Math.random() < 0.5 ? -1 : 1
       let negOrPos2 = Math.random() < 0.5 ? -1 : 1
@@ -23,7 +24,7 @@ const CursorContainer = props => {
     }
 
     props.app.ticker.add(animate)
-  }, [])
+  }, [counter, mousePos, props.app.ticker])
 
   useEffect(() => {
     setDarkMode(props.darkMode)

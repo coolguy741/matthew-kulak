@@ -1,6 +1,10 @@
 const initialState = {
   projects: [
     {
+      name: "Tripwire",
+      slug: "tripwire",
+    },
+    {
       name: "GNOS Clothing",
       slug: "gnos",
     },

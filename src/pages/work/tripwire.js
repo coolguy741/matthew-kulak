@@ -1,11 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import Img from "gatsby-image"
+import tripwire from "../../images/tripwire.png"
 import Canvas from "../../components/Pixi/Canvas"
 import Layout from "../../components/layout"
 import styles from "../../styles/project.module.css"
 
-const GnosClothing = props => (
+const Tripwire = props => (
   <Layout>
     <Canvas />
     <h1
@@ -13,7 +15,7 @@ const GnosClothing = props => (
         props.isDarkMode ? styles.darkMode : styles.lightMode
       }`}
     >
-      GNOS CLOTHING
+      TRIPWIRE
     </h1>
   </Layout>
 )
@@ -30,4 +32,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GnosClothing)
+export default connect(mapStateToProps, mapDispatchToProps)(Tripwire)
