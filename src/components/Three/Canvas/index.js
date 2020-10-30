@@ -1,49 +1,44 @@
 import React, { useRef, useState } from "react"
 import { connect } from "react-redux"
 
+import * as THREE from "three"
 import Effects from "../Effects"
 import { Canvas, useFrame } from "react-three-fiber"
-import ParticleField from "../Canvas/Particles"
 import styles from "../../../styles/Canvas.module.css"
 import Project from "../Project"
-import config from "./Particles/config"
-import merge from "lodash.merge"
+import Crystal from "../Crystal"
 
 const MainCanvas = () => {
   const [rotation, setRotation] = useState([0, 0, 0, 0])
 
-  const onMouseMove = e => {
-    setRotation([
-      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
-      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
-      0,
-    ])
-  }
+  // const onMouseMove = e => {
+  //   setRotation([
+  //     ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 50,
+  //     ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 50,
+  //     0,
+  //   ])
+  // }
 
   return (
     <Canvas
       className={styles.Canvas}
       gl={{
-        antialias: true,
+        antialias: false,
         alpha: false,
         stencil: false,
         depth: false,
       }}
-      camera={{
-        fov: 120,
-        // z: 40,
+      // onMouseMove={onMouseMove}
+      onCreated={({ gl }) => {
+        gl.setClearColor("#f6f6f6")
+        gl.toneMapping = THREE.ACESFilmicToneMapping
+        gl.outputEncoding = THREE.sRGBEncoding
       }}
-      onMouseMove={onMouseMove}
     >
-      <pointLight color={0x2003fc} position={[-350, 0, -160]} />
-      <pointLight color={0x8400ff} position={[-250, 0, -160]} />
-      <pointLight color={0xfc03eb} position={[-150, 0, -170]} />
-      <pointLight color={0xff0000} position={[0, 0, -170]} />
-      <pointLight color={0xfc03eb} position={[150, 0, -170]} />
-      <pointLight color={0x8400ff} position={[250, 0, -160]} />
-      <pointLight color={0x2003fc} position={[350, 0, -160]} />
-      <Project slug={"GNOS CLOTHING"} rotation={rotation} />
-      <ParticleField {...config} />
+      {/* <ambientLight intensity={0.1} /> */}
+      {/* <pointLight /> */}
+      <Crystal />
+      {/* <Project slug={"GNOS CLOTHING"} rotation={rotation} /> */}
       <Effects />
     </Canvas>
   )

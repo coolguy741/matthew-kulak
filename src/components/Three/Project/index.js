@@ -13,31 +13,31 @@ function Project(props) {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  const textureLoader = new THREE.TextureLoader()
+  // const textureLoader = new THREE.TextureLoader()
 
-  const uniforms = {
-    fogDensity: { value: 0.45 },
-    fogColor: { value: new THREE.Vector3(0, 0, 0) },
-    time: { value: 1.0 },
-    uvScale: { value: new THREE.Vector2(3.0, 1.0) },
-    texture1: {
-      value: textureLoader.load(cloud),
-    },
-    texture2: {
-      value: textureLoader.load(lava),
-    },
-  }
+  // const uniforms = {
+  //   fogDensity: { value: 0.45 },
+  //   fogColor: { value: new THREE.Vector3(0, 0, 0) },
+  //   time: { value: 1.0 },
+  //   uvScale: { value: new THREE.Vector2(3.0, 1.0) },
+  //   texture1: {
+  //     value: textureLoader.load(cloud),
+  //   },
+  //   texture2: {
+  //     value: textureLoader.load(lava),
+  //   },
+  // }
 
-  uniforms["texture1"].value.wrapS = uniforms["texture1"].value.wrapT =
-    THREE.RepeatWrapping
-  uniforms["texture2"].value.wrapS = uniforms["texture2"].value.wrapT =
-    THREE.RepeatWrapping
+  // uniforms["texture1"].value.wrapS = uniforms["texture1"].value.wrapT =
+  //   THREE.RepeatWrapping
+  // uniforms["texture2"].value.wrapS = uniforms["texture2"].value.wrapT =
+  //   THREE.RepeatWrapping
 
-  const shaderMaterial = new THREE.ShaderMaterial({
-    uniforms: uniforms,
-    vertexShader: vertShader,
-    fragmentShader: fragShader,
-  })
+  // const shaderMaterial = new THREE.ShaderMaterial({
+  //   uniforms: uniforms,
+  //   vertexShader: vertShader,
+  //   fragmentShader: fragShader,
+  // })
 
   const material = new THREE.MeshPhongMaterial({
     color: "#202020",
@@ -50,9 +50,9 @@ function Project(props) {
       material-toneMapped={false}
       // color="#2e00b8"
       // facade="Text3DFacade"
-      outlineWidth={2}
+      outlineWidth={1}
       outlineColor="#ff0000"
-      fontSize="120"
+      fontSize="50"
       anchorX="center"
       anchorY="middle"
       font={Origami}
