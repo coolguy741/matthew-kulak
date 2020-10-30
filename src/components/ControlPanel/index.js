@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
-import ToggleSwitch from "../ToggleSwitch"
 import styles from "../../styles/ControlPanel.module.css"
 import axios from "axios"
 
@@ -48,11 +47,6 @@ const ControlPanel = props => {
         props.isDarkMode ? styles.darkMode : styles.lightMode
       }`}
     >
-      <ToggleSwitch
-        name={"darkModeToggle"}
-        checked={props.isDarkMode}
-        onChange={props.onDarkModeToggle}
-      />
       <div className={styles.timeLocation}>
         <span>
           {fullTime} IN {userData.city}, {userData.countryCode}

@@ -1,14 +1,14 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import Canvas from "../components/Pixi/Canvas"
+import MainCanvas from "../components/Three/Canvas"
 import Layout from "../components/layout"
 import styles from "../styles/page.module.css"
 
 const about = props => {
   return (
     <Layout>
-      <Canvas />
+      <MainCanvas />
       <h1
         className={`${styles.h1Container} ${
           props.isDarkMode ? styles.darkMode : styles.lightMode

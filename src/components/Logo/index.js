@@ -2,8 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "gatsby"
 
-import mainLogo from "../../images/logo.svg"
-import greenLogo from "../../images/logo-green.svg"
+import mainLogo from "../../assets/images/logo.svg"
+import greenLogo from "../../assets/images/logo-green.svg"
 import styles from "../../styles/Logo.module.css"
 
 const Logo = props => {

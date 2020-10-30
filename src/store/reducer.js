@@ -13,7 +13,7 @@ const initialState = {
       slug: "basscoast",
     },
   ],
-  darkMode: false,
+  darkMode: true,
 }
 
 const reducer = (state = initialState, action) => {
