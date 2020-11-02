@@ -10,37 +10,40 @@ import { HalftonePass } from "three/examples/jsm/postprocessing/HalftonePass"
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass"
 
 extend({
-  EffectComposer,
-  ShaderPass,
-  RenderPass,
-  UnrealBloomPass,
-  FilmPass,
-  GlitchPass,
-  DotScreenPass,
-  HalftonePass,
+    EffectComposer,
+    ShaderPass,
+    RenderPass,
+    UnrealBloomPass,
+    FilmPass,
+    GlitchPass,
+    DotScreenPass,
+    HalftonePass,
 })
 
 const Effects = () => {
-  const composer = useRef()
-  const { scene, gl, size, camera } = useThree()
+    const composer = useRef()
+    const { scene, gl, size, camera } = useThree()
 
-  useEffect(() => void composer.current.setSize(size.width, size.height), [
-    size,
-  ])
+    useEffect(() => void composer.current.setSize(size.width, size.height), [
+        size,
+    ])
 
-  useFrame(() => composer.current.render(), 1)
+    useFrame(() => composer.current.render(), 1)
 
-  return (
-    <effectComposer ref={composer} args={[gl]}>
-      <renderPass attachArray="passes" scene={scene} camera={camera} />
-      <filmPass attachArray="passes" args={[1000, 10, 0, true]} />
-      {/* <halftonePass attachArray="passes" /> */}
-      <dotScreenPass attachArray="passes" />
-      <unrealBloomPass attachArray="passes" args={[undefined, 0.4, 1, 0]} />
-      <filmPass attachArray="passes" args={[0.4, 0, 0, false]} />
-      {/* <glitchPass attachArray="passes" args={[100]} /> */}
-    </effectComposer>
-  )
+    return (
+        <effectComposer ref={composer} args={[gl]}>
+            <renderPass attachArray="passes" scene={scene} camera={camera} />
+            <filmPass attachArray="passes" args={[1000, 10, 0, false]} />
+            <unrealBloomPass
+                attachArray="passes"
+                args={[undefined, 0.1, 1, 0]}
+            />
+            {/* <halftonePass attachArray="passes" /> */}
+            {/* <dotScreenPass attachArray="passes" /> */}
+            {/* <filmPass attachArray="passes" args={[0.4, 0, 0, false]} /> */}
+            {/* <glitchPass attachArray="passes" args={[100]} /> */}
+        </effectComposer>
+    )
 }
 
 export default Effects
