@@ -33,14 +33,14 @@ const Effects = () => {
     return (
         <effectComposer ref={composer} args={[gl]}>
             <renderPass attachArray="passes" scene={scene} camera={camera} />
-            <filmPass attachArray="passes" args={[1000, 10, 0, false]} />
-            <unrealBloomPass
+            {/* <filmPass attachArray="passes" args={[1000, 10, 0, false]} /> */}
+            {/* <unrealBloomPass
                 attachArray="passes"
                 args={[undefined, 0.1, 1, 0]}
-            />
+            /> */}
             {/* <halftonePass attachArray="passes" /> */}
-            {/* <dotScreenPass attachArray="passes" /> */}
-            {/* <filmPass attachArray="passes" args={[0.4, 0, 0, false]} /> */}
+            <filmPass attachArray="passes" args={[0, 0, 2000, true]} />
+            <dotScreenPass attachArray="passes" />
             {/* <glitchPass attachArray="passes" args={[100]} /> */}
         </effectComposer>
     )

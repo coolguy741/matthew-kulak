@@ -1,29 +1,29 @@
 const initialState = {
-  projects: [
-    {
-      name: "Tripwire",
-      slug: "tripwire",
-    },
-    {
-      name: "GNOS Clothing",
-      slug: "gnos",
-    },
-    {
-      name: "Basscoast",
-      slug: "basscoast",
-    },
-  ],
-  darkMode: true,
+    projects: [
+        {
+            name: "Tripwire",
+            slug: "tripwire",
+        },
+        {
+            name: "GNOS Clothing",
+            slug: "gnos",
+        },
+        {
+            name: "Basscoast",
+            slug: "basscoast",
+        },
+    ],
+    darkMode: false,
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === "TOGGLE") {
-    return {
-      ...state,
-      darkMode: !state.darkMode,
+    if (action.type === "TOGGLE") {
+        return {
+            ...state,
+            darkMode: !state.darkMode,
+        }
     }
-  }
-  return state
+    return state
 }
 
 export default reducer

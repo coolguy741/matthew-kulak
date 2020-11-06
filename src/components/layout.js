@@ -4,64 +4,65 @@ import { useStaticQuery, graphql } from "gatsby"
 import { connect } from "react-redux"
 
 import Header from "./header"
+import ToolBar from "../components/ToolBar"
 import ControlPanel from "../components/ControlPanel"
 import "./layout.css"
 
 const state = {
-  projects: [
-    {
-      name: "Tripwire",
-      slug: "tripwire",
-    },
-    {
-      name: "GNOS Clothing",
-      slug: "gnos",
-    },
-    {
-      name: "Cadillac",
-      slug: "cadillac",
-    },
-  ],
+    projects: [
+        {
+            name: "Tripwire",
+            slug: "tripwire",
+        },
+        {
+            name: "GNOS Clothing",
+            slug: "gnos",
+        },
+        {
+            name: "Cadillac",
+            slug: "cadillac",
+        },
+    ],
 }
 
 const StateContext = React.createContext(state)
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    const data = useStaticQuery(graphql`
+        query SiteTitleQuery {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
         }
-      }
-    }
-  `)
+    `)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <main>{children}</main>
-      <footer>
-        <ControlPanel />
-      </footer>
-    </>
-  )
+    return (
+        <>
+            <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+            <main>{children}</main>
+            <footer>
+                <ToolBar />
+            </footer>
+        </>
+    )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 const mapStateToProps = state => {
-  return {
-    isDarkMode: state.darkMode,
-  }
+    return {
+        isDarkMode: state.darkMode,
+    }
 }
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-  }
+    return {
+        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)
