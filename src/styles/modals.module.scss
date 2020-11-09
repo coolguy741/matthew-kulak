@@ -1,15 +1,15 @@
 .modal {
-    height: 200px;
     background-color: #fff;
     border: 1px solid #202020;
     box-shadow: 5px 5px 0 rgba(20, 20, 20, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
     &Visible {
         visibility: visible;
-        width: 300px;
     }
     &Hidden {
         visibility: hidden;
-        width: 300px;
     }
     & p,
     span {

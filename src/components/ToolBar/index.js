@@ -17,9 +17,7 @@ const ToolBar = () => {
             <div className={styles.logo}>
                 <Logo />
             </div>
-            <div className={styles.work}>
-                <Work />
-            </div>
+            <Work />
             <About />
             <Contact />
             <div className={styles.frmr}>

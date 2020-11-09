@@ -5,10 +5,10 @@ import { connect } from "react-redux"
 import x from "../../../assets/images/x.svg"
 import styles from "../../../styles/modals.module.scss"
 
-class About extends React.Component {
+class Work extends React.Component {
     render() {
-        const width = this.props.width / 3
-        const height = this.props.height / 1.5
+        const width = this.props.width / 4
+        const height = this.props.height / 2
 
         const xPos = Math.random() * (this.props.width - width)
         const yPos = Math.random() * (this.props.height - height - 170) // Screen height minus modal, toolbars
@@ -21,7 +21,7 @@ class About extends React.Component {
             >
                 <div
                     className={`${styles.modal} ${
-                        this.props.isAboutOpen
+                        this.props.isWorkOpen
                             ? styles.modalVisible
                             : styles.modalHidden
                     }`}
@@ -31,19 +31,16 @@ class About extends React.Component {
                     }}
                 >
                     <div className={`${styles.modalBar} handle`}>
-                        <span className={styles.heading}>About</span>
+                        <span className={styles.heading}>Work</span>
                         <img
                             className={styles.close}
-                            onClick={this.props.onAboutClose}
+                            onClick={this.props.onWorkClose}
                             src={x}
                             width={12}
                         />
                     </div>
                     <div className={styles.body} style={{ height: height }}>
-                        <p>
-                            FRMR is a designer, developer and music producer
-                            based in Canada.
-                        </p>
+                        <p>TRIPWIRE CADILLAC GNOS CLOTHING</p>
                     </div>
                 </div>
             </Draggable>
@@ -54,15 +51,15 @@ class About extends React.Component {
 const mapStateToProps = state => {
     return {
         isDarkMode: state.darkMode,
-        isAboutOpen: state.isAboutOpen,
+        isWorkOpen: state.isWorkOpen,
         zIndex: state.zIndex,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAboutClose: () => dispatch({ type: "CLOSE_ABOUT" }),
+        onWorkClose: () => dispatch({ type: "CLOSE_WORK" }),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About)
+export default connect(mapStateToProps, mapDispatchToProps)(Work)

@@ -25,6 +25,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 darkMode: !state.darkMode,
             }
+        case "TOGGLE_WORK":
+            return {
+                ...state,
+                isWorkOpen: !state.isWorkOpen,
+            }
+        case "CLOSE_WORK":
+            return {
+                ...state,
+                isWorkOpen: false,
+            }
         case "TOGGLE_ABOUT":
             return {
                 ...state,

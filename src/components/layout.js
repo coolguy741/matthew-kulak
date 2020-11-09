@@ -7,6 +7,7 @@ import Header from "./header"
 import ToolBar from "../components/ToolBar"
 import Contact from "../components/Modals/Contact"
 import About from "../components/Modals/About"
+import Work from "../components/Modals/Work"
 import "./layout.css"
 
 const state = {
@@ -43,8 +44,9 @@ const Layout = ({ children }) => {
         <>
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
             <main>{children}</main>
-            <About />
-            <Contact />
+            <Work width={window.innerWidth} height={window.innerHeight} />
+            <About width={window.innerWidth} height={window.innerHeight} />
+            <Contact width={window.innerWidth} height={window.innerHeight} />
             <footer>
                 <ToolBar />
             </footer>

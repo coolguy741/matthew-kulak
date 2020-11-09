@@ -1,34 +1,13 @@
 import React, { useRef } from "react"
-import { connect } from "react-redux"
 
-import { Link } from "gatsby"
-import { TweenLite, Power2 } from "gsap"
+import { connect } from "react-redux"
 import styles from "../../../../styles/toolbar.module.scss"
 
 const Work = props => {
-    const workRef = useRef(null)
-
-    const workLinkAnimateIn = () => {
-        TweenLite.to(workRef.current, 0.3, { ease: Power2.easeInOut, right: 5 })
-    }
-
-    const workLinkAnimateOut = () => {
-        TweenLite.to(workRef.current, 0.3, { ease: Power2.easeInOut, right: 0 })
-    }
-
     return (
-        <>
-            <Link
-                // activeStyle={style}
-                to="/"
-                ref={workRef}
-                onMouseOver={workLinkAnimateIn}
-                onMouseLeave={workLinkAnimateOut}
-                className={styles.navlink}
-            >
-                WORK
-            </Link>
-        </>
+        <div className={styles.nav} onClick={props.onOpenWork}>
+            <span className={styles.navlink}>Work</span>
+        </div>
     )
 }
 
@@ -40,7 +19,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
+        onOpenWork: () => dispatch({ type: "TOGGLE_WORK" }),
     }
 }
 

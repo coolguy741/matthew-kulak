@@ -5,8 +5,8 @@ import styles from "../../../../styles/toolbar.module.scss"
 
 const About = props => {
     return (
-        <div className={styles.work} onClick={props.onOpenAbout}>
-            <span className={styles.navlink}>ABOUT</span>
+        <div className={styles.nav} onClick={props.onOpenAbout}>
+            <span className={styles.navlink}>About</span>
         </div>
     )
 }

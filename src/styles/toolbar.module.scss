@@ -23,9 +23,7 @@
     margin: 0;
 }
 
-.work,
-.contact,
-.about,
+.nav,
 .weather,
 .location,
 .time,
@@ -40,9 +38,7 @@
     justify-content: center;
 }
 
-.work:hover,
-.contact:hover,
-.about:hover {
+.nav:hover {
     background-color: #eaeaea;
     cursor: pointer;
 }
