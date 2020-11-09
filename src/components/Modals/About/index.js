@@ -11,7 +11,7 @@ class About extends React.Component {
         const height = this.props.height / 1.5
 
         const xPos = Math.random() * (this.props.width - width)
-        const yPos = Math.random() * (this.props.height - height - 170) // Screen height minus modal, toolbars
+        const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
 
         return (
             <Draggable
