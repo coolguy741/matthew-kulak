@@ -3,6 +3,9 @@ import React from "react"
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
 import x from "../../../assets/images/x.svg"
+import cadillac from "../../../assets/images/cadillac.svg"
+import gnos from "../../../assets/images/gnos.svg"
+import tripwire from "../../../assets/images/tripwire.svg"
 import styles from "../../../styles/modals.module.scss"
 
 class Work extends React.Component {
@@ -27,7 +30,6 @@ class Work extends React.Component {
                     }`}
                     style={{
                         zIndex: this.props.zIndex,
-                        width: width,
                     }}
                 >
                     <div className={`${styles.modalBar} handle`}>
@@ -39,8 +41,36 @@ class Work extends React.Component {
                             width={12}
                         />
                     </div>
-                    <div className={styles.body} style={{ height: height }}>
-                        <p>TRIPWIRE CADILLAC GNOS CLOTHING</p>
+                    <div
+                        className={styles.body}
+                        style={{ height: height, width: width }}
+                    >
+                        <div className={styles.workIcons}>
+                            <div
+                                className={styles.workIcon}
+                                onClick={this.props.onGNOSOpen}
+                            >
+                                <img src={gnos} width={60} />
+                                <br />
+                                <span>GNOS</span>
+                            </div>
+                            <div
+                                className={styles.workIcon}
+                                onClick={this.props.onCadillacOpen}
+                            >
+                                <img src={cadillac} width={60} />
+                                <br />
+                                <span>Cadillac</span>
+                            </div>
+                            <div
+                                className={styles.workIcon}
+                                onClick={this.props.onTripwireOpen}
+                            >
+                                <img src={tripwire} width={60} />
+                                <br />
+                                <span>Tripwire</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Draggable>
@@ -59,6 +89,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onWorkClose: () => dispatch({ type: "CLOSE_WORK" }),
+        onGNOSOpen: () => dispatch({ type: "OPEN_GNOS" }),
+        onCadillacOpen: () => dispatch({ type: "OPEN_CADILLAC" }),
+        onTripwireOpen: () => dispatch({ type: "OPEN_TRIPWIRE" }),
     }
 }
 

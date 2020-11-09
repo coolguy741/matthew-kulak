@@ -30,7 +30,6 @@ class Contact extends React.Component {
                     }`}
                     style={{
                         zIndex: this.props.zIndex,
-                        width: width,
                     }}
                 >
                     <div className={`${styles.modalBar} handle`}>
@@ -42,8 +41,11 @@ class Contact extends React.Component {
                             width={12}
                         />
                     </div>
-                    <div className={styles.body} style={{ height: height }}>
-                        <ul className={styles.ul}>
+                    <div
+                        className={styles.body}
+                        style={{ height: height, width: width }}
+                    >
+                        <ul>
                             <li>
                                 <a href="mailto:frmr@frmr.dev">
                                     <img

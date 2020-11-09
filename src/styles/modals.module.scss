@@ -20,6 +20,21 @@
         -ms-user-select: none;
         user-select: none;
     }
+    & ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        & li {
+            margin-bottom: 12px;
+        }
+        & a {
+            text-decoration: none;
+            color: #202020;
+        }
+        & img {
+            margin-bottom: -3px;
+        }
+    }
 }
 
 .modalBar {
@@ -30,6 +45,10 @@
 
 .body {
     padding: 15px 10px;
+    min-width: 200px;
+    min-height: 100px;
+    resize: both;
+    overflow: scroll;
 }
 
 .heading {
@@ -42,22 +61,17 @@
     margin-top: 3px;
 }
 
-.ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    & li {
-        margin-bottom: 12px;
-    }
-    & a {
-        text-decoration: none;
-        color: #202020;
-    }
-    & img {
-        margin-bottom: -3px;
-    }
-}
-
 .mail {
     margin-left: 1px;
+}
+
+.workIcons {
+    padding-left: 10px;
+    display: flex;
+    justify-content: left;
+    text-align: center;
+}
+
+.workIcon {
+    padding-right: 40px;
 }

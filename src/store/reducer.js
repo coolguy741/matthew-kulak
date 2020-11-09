@@ -9,13 +9,16 @@ const initialState = {
             slug: "gnos",
         },
         {
-            name: "Basscoast",
-            slug: "basscoast",
+            name: "Cadillac",
+            slug: "cadillac",
         },
     ],
     darkMode: false,
     isContactOpen: false,
     isAboutOpen: false,
+    isGNOSOpen: false,
+    isCadillacOpen: false,
+    isTripwireOpen: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +57,36 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isContactOpen: false,
+            }
+        case "OPEN_GNOS":
+            return {
+                ...state,
+                isGNOSOpen: true,
+            }
+        case "CLOSE_GNOS":
+            return {
+                ...state,
+                isGNOSOpen: false,
+            }
+        case "OPEN_CADILLAC":
+            return {
+                ...state,
+                isCadillacOpen: true,
+            }
+        case "CLOSE_CADILLAC":
+            return {
+                ...state,
+                isCadillacOpen: false,
+            }
+        case "OPEN_TRIPWIRE":
+            return {
+                ...state,
+                isTripwireOpen: true,
+            }
+        case "CLOSE_TRIPWIRE":
+            return {
+                ...state,
+                isTripwireOpen: false,
             }
         default:
             return state

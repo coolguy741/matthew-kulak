@@ -2,10 +2,10 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../assets/images/x.svg"
-import styles from "../../../styles/modals.module.scss"
+import x from "../../../../assets/images/x.svg"
+import styles from "../../../../styles/modals.module.scss"
 
-class About extends React.Component {
+class GNOS extends React.Component {
     render() {
         const width = this.props.width / 3
         const height = this.props.height / 1.5
@@ -21,7 +21,7 @@ class About extends React.Component {
             >
                 <div
                     className={`${styles.modal} ${
-                        this.props.isAboutOpen
+                        this.props.isGNOSOpen
                             ? styles.modalVisible
                             : styles.modalHidden
                     }`}
@@ -30,10 +30,10 @@ class About extends React.Component {
                     }}
                 >
                     <div className={`${styles.modalBar} handle`}>
-                        <span className={styles.heading}>About</span>
+                        <span className={styles.heading}>GNOS</span>
                         <img
                             className={styles.close}
-                            onClick={this.props.onAboutClose}
+                            onClick={this.props.onGNOSClose}
                             src={x}
                             width={12}
                         />
@@ -42,10 +42,7 @@ class About extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <p>
-                            FRMR is a designer, developer and music producer
-                            based in Canada.
-                        </p>
+                        <p>GNOS is a sick clothing brand.</p>
                     </div>
                 </div>
             </Draggable>
@@ -56,15 +53,15 @@ class About extends React.Component {
 const mapStateToProps = state => {
     return {
         isDarkMode: state.darkMode,
-        isAboutOpen: state.isAboutOpen,
+        isGNOSOpen: state.isGNOSOpen,
         zIndex: state.zIndex,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAboutClose: () => dispatch({ type: "CLOSE_ABOUT" }),
+        onGNOSClose: () => dispatch({ type: "CLOSE_GNOS" }),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About)
+export default connect(mapStateToProps, mapDispatchToProps)(GNOS)
