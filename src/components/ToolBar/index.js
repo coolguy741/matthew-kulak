@@ -3,6 +3,11 @@ import React from "react"
 import Logo from "./Logo"
 import FRMR from "./FRMR"
 import DarkMode from "./DarkMode"
+import Location from "./Location"
+import Work from "./Nav/Work"
+import About from "./Nav/About"
+import Contact from "./Nav/Contact"
+import Time from "./Time"
 import { Link } from "gatsby"
 import styles from "../../styles/toolbar.module.scss"
 
@@ -13,20 +18,22 @@ const ToolBar = () => {
                 <Logo />
             </div>
             <div className={styles.work}>
-                <Link>WORK</Link>
+                <Work />
             </div>
-            <div className={styles.work}>
-                <Link>ABOUT</Link>
-            </div>
-            <div className={styles.work}>
-                <Link>CONTACT</Link>
-            </div>
+            <About />
+            <Contact />
             <div className={styles.frmr}>
                 <FRMR />
             </div>
-            <div className={styles.time}>TIME</div>
-            <div className={styles.weather}>WEATHER</div>
-            <div className={styles.location}>LOCATION</div>
+            <div className={styles.time}>
+                <Time />
+            </div>
+            <div className={styles.weather}>
+                <span>WEATHER</span>
+            </div>
+            <div className={styles.location}>
+                <Location />
+            </div>
             <div className={styles.darkmode}>
                 <DarkMode />
             </div>

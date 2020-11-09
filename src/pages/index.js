@@ -8,7 +8,7 @@ const IndexPage = props => {
     return (
         <Layout>
             <SEO title="FRMR" />
-            {/* <MainCanvas location={props.location} /> */}
+            <MainCanvas location={props.location} />
         </Layout>
     )
 }

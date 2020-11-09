@@ -1,14 +1,14 @@
 import React, { useRef, useMemo } from "react"
 
 import * as THREE from "three"
-import { useFrame, useLoader } from "react-three-fiber"
+import { useFrame, useLoader, useThree } from "react-three-fiber"
 import { vertShader } from "../shaders/vertex"
 import { fragShader } from "../shaders/fragment"
-import wall from "../../../assets/textures/wall.jpg"
 import fence from "../../../assets/textures/fence.jpg"
-import { noise } from "../Noise"
+import { AsciiEffect } from "../Effects/AsciiEffect"
 
 const Geometry = props => {
+    const { gl, scene, camera } = useThree()
     const texture = useLoader(THREE.TextureLoader, fence)
 
     const uniforms = {
@@ -25,8 +25,12 @@ const Geometry = props => {
         uniforms.u_mouse.value.y = e.touches ? e.touches[0].clientY : e.clientY
     }
 
+    const effect = new AsciiEffect(gl, " .:-+*=%@#")
+    effect.setSize(window.innerWidth, window.innerHeight)
+
     useFrame((_, delta) => {
         uniforms.u_time.value += delta
+        // effect.render(camera, scene)
     })
 
     return (
@@ -37,7 +41,6 @@ const Geometry = props => {
                     uniforms={uniforms}
                     vertexShader={vertShader}
                     fragmentShader={fragShader}
-                    // wireframe={true}
                 />
             </mesh>
         </>

@@ -1,0 +1,63 @@
+.modal {
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #202020;
+    box-shadow: 5px 5px 0 rgba(20, 20, 20, 0.5);
+    &Visible {
+        visibility: visible;
+        width: 300px;
+    }
+    &Hidden {
+        visibility: hidden;
+        width: 300px;
+    }
+    & p,
+    span {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+.modalBar {
+    padding: 10px;
+    border-bottom: 1px solid #202020;
+    cursor: move;
+}
+
+.body {
+    padding: 15px 10px;
+}
+
+.heading {
+    text-transform: uppercase;
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+    margin-top: 3px;
+}
+
+.ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    & li {
+        margin-bottom: 12px;
+    }
+    & a {
+        text-decoration: none;
+        color: #202020;
+    }
+    & img {
+        margin-bottom: -3px;
+    }
+}
+
+.mail {
+    margin-left: 1px;
+}

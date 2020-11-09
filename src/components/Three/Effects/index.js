@@ -8,6 +8,7 @@ import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass"
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass"
 import { HalftonePass } from "three/examples/jsm/postprocessing/HalftonePass"
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass"
+import { AsciiEffect } from "../Effects/AsciiEffect"
 
 extend({
     EffectComposer,
@@ -18,6 +19,7 @@ extend({
     GlitchPass,
     DotScreenPass,
     HalftonePass,
+    AsciiEffect,
 })
 
 const Effects = () => {
@@ -39,8 +41,12 @@ const Effects = () => {
                 args={[undefined, 0.1, 1, 0]}
             /> */}
             {/* <halftonePass attachArray="passes" /> */}
-            <filmPass attachArray="passes" args={[0, 0, 2000, true]} />
-            <dotScreenPass attachArray="passes" />
+            <filmPass attachArray="passes" args={[0.5, 0.5, 2000, false]} />
+            {/* <AsciiEffect
+                attachArray="passes"
+                setSize={(window.innerWidth, window.innerHeight)}
+            /> */}
+            {/* <dotScreenPass attachArray="passes" /> */}
             {/* <glitchPass attachArray="passes" args={[100]} /> */}
         </effectComposer>
     )

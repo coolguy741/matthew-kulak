@@ -57,8 +57,8 @@ const MainCanvas = () => {
                 intensity={0.2}
             />
             <Suspense fallback={null}>
-                {/* <Geometry /> */}
-                <Project slug={"GNOS CLOTHING"} />
+                <Geometry />
+                {/* <Project slug={"GNOS CLOTHING"} /> */}
             </Suspense>
             <Effects />
         </Canvas>

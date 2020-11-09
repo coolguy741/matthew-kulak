@@ -5,7 +5,8 @@ import { connect } from "react-redux"
 
 import Header from "./header"
 import ToolBar from "../components/ToolBar"
-import ControlPanel from "../components/ControlPanel"
+import Contact from "../components/Modals/Contact"
+import About from "../components/Modals/About"
 import "./layout.css"
 
 const state = {
@@ -42,6 +43,8 @@ const Layout = ({ children }) => {
         <>
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
             <main>{children}</main>
+            <About />
+            <Contact />
             <footer>
                 <ToolBar />
             </footer>
@@ -59,12 +62,6 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default connect(mapStateToProps)(Layout)
 
 export { StateContext }
