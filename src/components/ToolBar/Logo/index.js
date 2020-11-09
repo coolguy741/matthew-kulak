@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 import mainLogo from "../../../assets/images/logo.svg"
 import greenLogo from "../../../assets/images/logo-green.svg"
-import styles from "../../../styles/logo.module.css"
+import styles from "../../../styles/logo.module.scss"
 
 const Logo = props => {
     return (
