@@ -13,7 +13,6 @@ import Weather from "./Weather"
 import styles from "../../styles/toolbar.module.scss"
 
 const Toolbar = props => {
-    console.log(props.isDarkMode)
     return (
         <div
             className={`${styles.toolbar} ${
