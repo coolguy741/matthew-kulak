@@ -5,11 +5,15 @@ import styles from "../../../styles/toolbar.module.scss"
 
 const DarkMode = props => {
     return (
-        <>
+        <div
+            className={`${styles.darkmode} ${
+                props.isDarkMode ? styles.darkmodedark : ""
+            }`}
+        >
             <span onClick={props.onDarkModeToggle} className={styles.span}>
                 DARK
             </span>
-        </>
+        </div>
     )
 }
 
@@ -21,7 +25,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
+        onDarkModeToggle: () => dispatch({ type: "DARKMODE_TOGGLE" }),
     }
 }
 

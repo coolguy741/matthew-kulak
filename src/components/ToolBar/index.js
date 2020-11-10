@@ -1,5 +1,6 @@
 import React from "react"
 
+import { connect } from "react-redux"
 import Logo from "./Logo"
 import FRMR from "./FRMR"
 import DarkMode from "./DarkMode"
@@ -8,35 +9,34 @@ import Work from "./Nav/Work"
 import About from "./Nav/About"
 import Contact from "./Nav/Contact"
 import Time from "./Time"
-import { Link } from "gatsby"
+import Weather from "./Weather"
 import styles from "../../styles/toolbar.module.scss"
 
-const ToolBar = () => {
+const Toolbar = props => {
+    console.log(props.isDarkMode)
     return (
-        <div className={styles.toolBar}>
-            <div className={styles.logo}>
-                <Logo />
-            </div>
+        <div
+            className={`${styles.toolbar} ${
+                props.isDarkMode ? styles.toolbardark : ""
+            }`}
+        >
+            <Logo />
             <Work />
             <About />
             <Contact />
-            <div className={styles.frmr}>
-                <FRMR />
-            </div>
-            <div className={styles.time}>
-                <Time />
-            </div>
-            <div className={styles.weather}>
-                <span>WEATHER</span>
-            </div>
-            <div className={styles.location}>
-                <Location />
-            </div>
-            <div className={styles.darkmode}>
-                <DarkMode />
-            </div>
+            <FRMR />
+            <Time />
+            <Weather />
+            <Location />
+            <DarkMode />
         </div>
     )
 }
 
-export default ToolBar
+const mapStateToProps = state => {
+    return {
+        isDarkMode: state.darkMode,
+    }
+}
+
+export default connect(mapStateToProps)(Toolbar)

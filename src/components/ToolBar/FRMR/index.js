@@ -2,16 +2,22 @@ import React from "react"
 import { connect } from "react-redux"
 
 import frmr from "../../../assets/images/frmr.svg"
+import frmrWhite from "../../../assets/images/frmr-white.svg"
+import styles from "../../../styles/toolbar.module.scss"
 
-const Logo = props => {
+const FRMR = props => {
     return (
-        <>
+        <div
+            className={`${styles.frmr} ${
+                props.isDarkMode ? styles.frmrdark : ""
+            }`}
+        >
             <img
-                src={props.isDarkMode ? frmr : frmr}
+                src={props.isDarkMode ? frmrWhite : frmr}
                 alt="FRMR"
                 width="110px"
             />
-        </>
+        </div>
     )
 }
 
@@ -27,4 +33,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Logo)
+export default connect(mapStateToProps, mapDispatchToProps)(FRMR)

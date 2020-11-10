@@ -1,10 +1,24 @@
+$light-bg-color: #fff;
+$dark-bg-color: #202020;
+$light-border-color: #202020;
+$dark-border-color: #fff;
+$light-text-color: #202020;
+$dark-text-color: #fff;
+$light-box-shadow: rgba(20, 20, 20, 0.5);
+$dark-box-shadow: rgba(200, 200, 200, 0.5);
+
 .modal {
-    background-color: #fff;
-    border: 1px solid #202020;
-    box-shadow: 5px 5px 0 rgba(20, 20, 20, 0.5);
+    background-color: $light-bg-color;
+    border: 1px solid $light-border-color;
+    box-shadow: 5px 5px 0 $light-box-shadow;
     position: absolute;
     top: 0;
     left: 0;
+    &dark {
+        background-color: $dark-bg-color;
+        border: 1px solid $dark-border-color;
+        box-shadow: 5px 5px 0 $dark-box-shadow;
+    }
     &Visible {
         visibility: visible;
     }
@@ -19,6 +33,11 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        color: $light-text-color;
+    }
+    &dark p,
+    &dark span {
+        color: $dark-text-color;
     }
     & ul {
         list-style: none;
@@ -29,23 +48,29 @@
         }
         & a {
             text-decoration: none;
-            color: #202020;
+            color: $light-text-color;
         }
         & img {
             margin-bottom: -3px;
         }
     }
+    &dark ul li a {
+        color: $dark-text-color;
+    }
 }
 
 .modalBar {
     padding: 10px;
-    border-bottom: 1px solid #202020;
+    border-bottom: 1px solid $light-border-color;
     cursor: move;
+    &dark {
+        border-bottom: 1px solid $dark-border-color;
+    }
 }
 
 .body {
     padding: 15px 10px;
-    min-width: 200px;
+    min-width: 230px;
     min-height: 100px;
     resize: both;
     overflow: scroll;
@@ -66,12 +91,14 @@
 }
 
 .workIcons {
-    padding-left: 10px;
+    padding: 10px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
     text-align: center;
 }
 
 .workIcon {
-    padding-right: 40px;
+    padding: 0 20px;
+    flex-shrink: 0;
 }

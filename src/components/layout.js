@@ -14,20 +14,7 @@ import Tripwire from "../components/Modals/Work/Tripwire"
 import "./layout.scss"
 
 const state = {
-    projects: [
-        {
-            name: "Tripwire",
-            slug: "tripwire",
-        },
-        {
-            name: "GNOS Clothing",
-            slug: "gnos",
-        },
-        {
-            name: "Cadillac",
-            slug: "cadillac",
-        },
-    ],
+    zIndex: 0,
 }
 
 const StateContext = React.createContext(state)

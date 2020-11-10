@@ -13,6 +13,14 @@ const initialState = {
             slug: "cadillac",
         },
     ],
+    zIndexes: {
+        work: 0,
+        about: 0,
+        contact: 0,
+        gnos: 0,
+        cadillac: 0,
+        tripwire: 0,
+    },
     darkMode: false,
     isContactOpen: false,
     isAboutOpen: false,
@@ -21,37 +29,87 @@ const initialState = {
     isTripwireOpen: false,
 }
 
+const getNextZ = zIndexes => Math.max(...Object.values(zIndexes)) + 1
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case "INC_Z_WORK":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    work: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_ABOUT":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    about: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_CONTACT":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    contact: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_GNOS":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    gnos: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_CADILLAC":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    cadillac: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_TRIPWIRE":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    tripwire: getNextZ(state.zIndexes),
+                },
+            }
         case "DARKMODE_TOGGLE":
             return {
                 ...state,
                 darkMode: !state.darkMode,
             }
-        case "TOGGLE_WORK":
+        case "OPEN_WORK":
             return {
                 ...state,
-                isWorkOpen: !state.isWorkOpen,
+                isWorkOpen: true,
             }
         case "CLOSE_WORK":
             return {
                 ...state,
                 isWorkOpen: false,
             }
-        case "TOGGLE_ABOUT":
+        case "OPEN_ABOUT":
             return {
                 ...state,
-                isAboutOpen: !state.isAboutOpen,
+                isAboutOpen: true,
             }
         case "CLOSE_ABOUT":
             return {
                 ...state,
                 isAboutOpen: false,
             }
-        case "TOGGLE_CONTACT":
+        case "OPEN_CONTACT":
             return {
                 ...state,
-                isContactOpen: !state.isContactOpen,
+                isContactOpen: true,
             }
         case "CLOSE_CONTACT":
             return {

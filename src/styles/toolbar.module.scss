@@ -1,12 +1,25 @@
-.toolBar {
+$light-bg-color: #fff;
+$dark-bg-color: #202020;
+$light-border-color: #202020;
+$dark-border-color: #fff;
+$light-text-color: #202020;
+$dark-text-color: #fff;
+$light-hover-color: #eaeaea;
+$dark-hover-color: #303030;
+
+.toolbar {
     z-index: 9999;
-    background-color: #fff;
+    background-color: $light-bg-color;
     width: 100%;
     height: 70px;
     bottom: 0;
     display: flex;
     position: fixed;
-    border-top: 1px solid #202020;
+    border-top: 1px solid $light-border-color;
+    &dark {
+        background-color: $dark-bg-color;
+        border-top: 1px solid $dark-border-color;
+    }
 }
 
 .logo {
@@ -15,12 +28,10 @@
     display: flex;
     flex: 0 0 auto;
     width: 100px;
-    border-right: 1px solid #202020;
-}
-
-.logo img,
-.frmr img {
-    margin: 0;
+    border-right: 1px solid $light-border-color;
+    &dark {
+        border-right: 1px solid $dark-border-color;
+    }
 }
 
 .nav,
@@ -34,13 +45,36 @@
     height: 100%;
     position: relative;
     align-items: center;
-    border-right: 1px solid #202020;
     justify-content: center;
+    & span {
+        color: $light-text-color;
+    }
+    &dark {
+        & span {
+            color: $dark-text-color;
+        }
+    }
 }
 
-.nav:hover {
-    background-color: #eaeaea;
-    cursor: pointer;
+.nav,
+.weather,
+.location,
+.time {
+    border-right: 1px solid $light-border-color;
+    &dark {
+        border-right: 1px solid $dark-border-color;
+    }
+}
+
+.nav {
+    &:hover {
+        background-color: $light-hover-color;
+        cursor: pointer;
+    }
+    &dark:hover {
+        background-color: $dark-hover-color;
+        cursor: pointer;
+    }
 }
 
 .frmr {
@@ -49,8 +83,11 @@
     width: auto;
     position: relative;
     align-items: center;
-    border-right: 1px solid #202020;
+    border-right: 1px solid $light-border-color;
     justify-content: center;
+    &dark {
+        border-right: 1px solid $dark-border-color;
+    }
 }
 
 .span,
@@ -66,8 +103,4 @@
 
 .span {
     cursor: default;
-}
-
-.navlink {
-    color: #202020;
 }

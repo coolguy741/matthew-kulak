@@ -11,9 +11,13 @@ const Time = props => {
     const fullTime = `${hours}:${minutes}`
 
     return (
-        <>
+        <div
+            className={`${styles.time} ${
+                props.isDarkMode ? styles.timedark : ""
+            }`}
+        >
             <span className={styles.span}>{fullTime}</span>
-        </>
+        </div>
     )
 }
 

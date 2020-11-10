@@ -37,12 +37,16 @@ const Location = props => {
     }, [])
 
     return (
-        <>
+        <div
+            className={`${styles.location} ${
+                props.isDarkMode ? styles.locationdark : ""
+            }`}
+        >
             <span className={styles.span}>
                 {userData.city} <br></br>
                 {userData.region}, {userData.countryCode}
             </span>
-        </>
+        </div>
     )
 }
 
@@ -52,10 +56,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Location)
+export default connect(mapStateToProps)(Location)
