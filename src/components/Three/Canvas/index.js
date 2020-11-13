@@ -7,7 +7,6 @@ import { Canvas, useFrame } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
 import CameraControls from "../CameraControls"
-import Project from "../Project"
 import Geometry from "../Geometry"
 
 const MainCanvas = () => {
@@ -16,12 +15,12 @@ const MainCanvas = () => {
     return (
         <Canvas
             className={styles.Canvas}
-            // gl={{
-            //     antialias: false,
-            //     alpha: false,
-            //     stencil: false,
-            //     depth: false,
-            // }}
+            gl={{
+                antialias: true,
+                alpha: false,
+                stencil: false,
+                depth: false,
+            }}
             // onMouseMove={onMouseMove}
             // onCreated={({ gl }) => {
             //     gl.setClearColor("#f6f6f6")
@@ -34,7 +33,7 @@ const MainCanvas = () => {
                 aspect={window.innerWidth / window.innerHeight}
                 near={1}
                 far={1000}
-                position={[0, 0, 700]}
+                position={[0, 0, 500]}
             />
             {/* <Camera
                 left={-1}
