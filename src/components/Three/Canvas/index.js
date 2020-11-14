@@ -9,23 +9,17 @@ import Camera from "../Camera"
 import CameraControls from "../CameraControls"
 import Geometry from "../Geometry"
 
-const MainCanvas = () => {
+const MainCanvas = props => {
     // const [rotation, setRotation] = useState([0, 0, 0, 0])
 
     return (
         <Canvas
             className={styles.Canvas}
-            gl={{
-                antialias: true,
-                alpha: false,
-                stencil: false,
-                depth: false,
-            }}
-            // onMouseMove={onMouseMove}
-            // onCreated={({ gl }) => {
-            //     gl.setClearColor("#f6f6f6")
-            //     gl.toneMapping = THREE.ACESFilmicToneMapping
-            //     gl.outputEncoding = THREE.sRGBEncoding
+            // gl={{
+            //     antialias: true,
+            //     alpha: false,
+            //     stencil: false,
+            //     depth: false,
             // }}
         >
             <Camera
@@ -33,7 +27,7 @@ const MainCanvas = () => {
                 aspect={window.innerWidth / window.innerHeight}
                 near={1}
                 far={1000}
-                position={[0, 0, 500]}
+                position={[0, 0, 5]}
             />
             {/* <Camera
                 left={-1}
@@ -45,21 +39,10 @@ const MainCanvas = () => {
                 position={[0, 0, 1]}
             /> */}
             <CameraControls />
-            <hemisphereLight
-                skyColor={0xffffff}
-                groundColor={0x000000}
-                intensity={1}
-            />
-            <directionalLight
-                position={[20, 6, 250]}
-                color={0xffffff}
-                intensity={0.2}
-            />
             <Suspense fallback={null}>
-                <Geometry />
-                {/* <Project slug={"GNOS CLOTHING"} /> */}
+                <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>
-            <Effects />
+            {/* <Effects /> */}
         </Canvas>
     )
 }
@@ -70,10 +53,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainCanvas)
+export default connect(mapStateToProps)(MainCanvas)
