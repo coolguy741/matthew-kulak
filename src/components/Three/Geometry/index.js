@@ -28,7 +28,7 @@ const Geometry = props => {
                 value: 0,
             },
             u_ratio: {
-                value: 1.5,
+                value: window.innerWidth / window.innerHeight,
             },
             u_image: {
                 value: graf,
