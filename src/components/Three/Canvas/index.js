@@ -8,6 +8,7 @@ import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
 import CameraControls from "../CameraControls"
 import Geometry from "../Geometry"
+import { Trail } from "../Geometry"
 
 const MainCanvas = props => {
     // const [rotation, setRotation] = useState([0, 0, 0, 0])
@@ -15,12 +16,12 @@ const MainCanvas = props => {
     return (
         <Canvas
             className={styles.Canvas}
-            // gl={{
-            //     antialias: true,
-            //     alpha: false,
-            //     stencil: false,
-            //     depth: false,
-            // }}
+            gl={{
+                antialias: true,
+                alpha: true,
+                stencil: false,
+                depth: false,
+            }}
         >
             <Camera
                 fov={45}
@@ -39,7 +40,9 @@ const MainCanvas = props => {
                 position={[0, 0, 1]}
             /> */}
             <CameraControls />
+            <ambientLight />
             <Suspense fallback={null}>
+                {/* <Trail isDarkMode={props.isDarkMode} /> */}
                 <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>
             {/* <Effects /> */}
