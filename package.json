@@ -20,6 +20,7 @@
     "gatsby-plugin-sharp": "^2.6.42",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
+    "gltfjsx": "^3.0.0",
     "gsap": "^3.4.2",
     "hex-rgb": "^4.2.0",
     "is-hexcolor": "^1.0.0",

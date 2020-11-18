@@ -21,9 +21,10 @@ const MainCanvas = props => {
                 alpha: true,
                 stencil: false,
                 depth: false,
+                preserveDrawingBuffer: true,
             }}
             onCreated={({ gl }) => {
-                gl.setClearColor(0xffffff, 0.5)
+                gl.setClearColor(0xffffff, 0.0)
             }}
         >
             <Camera
@@ -31,7 +32,7 @@ const MainCanvas = props => {
                 aspect={window.innerWidth / window.innerHeight}
                 near={1}
                 far={1000}
-                position={[0, 0, 500]}
+                position={[0, 0, 10]}
             />
             {/* <Camera
                 left={-1}
@@ -42,7 +43,8 @@ const MainCanvas = props => {
                 far={10}
                 position={[0, 0, 1]}
             /> */}
-            {/* <CameraControls /> */}
+            <CameraControls />
+            <pointLight args={[0xff0000, 1, 10, 0]} position={[10, 10, 10]} />
             <Suspense fallback={null}>
                 {/* <Trail isDarkMode={props.isDarkMode} /> */}
                 <Geometry isDarkMode={props.isDarkMode} />

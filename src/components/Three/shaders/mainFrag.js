@@ -10,12 +10,6 @@ uniform sampler2D u_image;
 uniform sampler2D u_disp;
 uniform int u_n1;
 uniform int u_n2;
-uniform int u_n3;
-uniform int u_n4;
-uniform int u_n5;
-uniform int u_n6;
-uniform int u_n7;
-uniform int u_n8;
 uniform float u_bw1;
 uniform float u_bw2;
 uniform sampler2D u_trail;
@@ -42,41 +36,66 @@ float character(int n, vec2 p) {
 	return u_bw2;
 }
 
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float snoise(vec2 v) {
+    const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0
+                        0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)
+                        -0.577350269189626,  // -1.0 + 2.0 * C.x
+                        0.024390243902439); // 1.0 / 41.0
+    vec2 i  = floor(v + dot(v, C.yy) );
+    vec2 x0 = v -   i + dot(i, C.xx);
+    vec2 i1;
+    i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289(i); // Avoid truncation effects in permutation
+    vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+        + i.x + vec3(0.0, i1.x, 1.0 ));
+
+    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+    m = m*m ;
+    m = m*m ;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+    vec3 g;
+    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
 void main() {
 	
 	// =======================
-	//        OLD CODE
+	//        NOISE
 	// =======================
 
-    float bpm = 0.935;
-    
-	vec2 uv = vec2( gl_FragCoord.xy - 0.* u_resolution.xy );
-    uv = 30. * uv.xy/u_resolution.y;
-    uv.x -= 12. * ((sin(abs(sin(u_time/1.) * 5.) * uv.y * 50.) + 15.) / 15.);
-    
-    vec2 pos = vec2(15.)-uv;
-    float r = length(pos)*2.0;
-    float a = atan(pos.y,pos.x);
-    
-    float f = 2.;
-    vec3 ring1 = vec3(1.-smoothstep(f,f+0.1,r) - (1.-smoothstep(f-0.1,f,r)));
-    f = 6.-ceil(abs(pow(cos(a),2.)*2.)*2.);
-    vec3 ring2 = vec3(1.-smoothstep(f,f+0.2,r) - (1.-smoothstep(f-0.2,f,r)));
-    f = 6.+ceil(abs(pow(cos(a),2.)*2.)*2.);
-    vec3 ring3 = vec3(1.-smoothstep(f,f+.3,r) - (1.-smoothstep(f-.3,f,r)));
-    f = 7.+ceil(abs(pow(cos(a),2.)*2.)*2.) + abs(tan(a));
-    vec3 ring4 = vec3(1.-smoothstep(f,f+.4,r) - (1.-smoothstep(f-.4,f,r)));
-    f = 8.+ceil(abs(pow(cos(a),2.)*2.)*2.) + abs(tan(a)) + abs(tan(a+3.1459/2.));
-    vec3 ring5 = vec3(1.-smoothstep(f,f+.5,r) - (1.-smoothstep(f-.5,f,r)));
-    f = 8.-ceil(abs(cos(a)*2.)*2.)+min(ceil(abs(tan(a)*0.3)),6.);
-    vec3 ring6 = vec3(1.-smoothstep(f,f+.6,r) - (1.-smoothstep(f-.6,f,r)));
-    f = 10.+ceil(abs(pow(cos(a),2.)*2.)*2.)+abs(tan(a))+abs(tan(a+3.1459/2.))+abs(tan(a*8.));
-    vec3 ring7 = vec3(1.-smoothstep(f,f+9.25,r) - (1.-smoothstep(f-3.25,f,r)));
-    
-    vec3 color = ring1 + ring2 + ring3 + ring4 + ring5 + ring6 + ring7;
-    color *= vec3(abs(sin(u_time * bpm + r/(20.))) * 2., abs(cos(u_time/2. + r)), abs(log(sin(u_time + r))));
-    color = pow(color, vec3(abs(sin(u_time * bpm))) * 5.);
-    gl_FragColor = vec4(color, 1.0);
+	vec2 uv = gl_FragCoord.xy/u_resolution.xy;
+    uv.x *= u_resolution.x/u_resolution.y;
+    vec3 color1 = vec3(0.0);
+    vec2 pos = vec2(uv*3.);
+
+    float DF = 0.0;
+
+    // Add a random position
+    float a = 0.0;
+    vec2 vel = vec2(u_time*.1);
+    DF += snoise(pos+vel)*.25+.25;
+
+    // Add a random position
+    a = snoise(pos*vec2(cos(u_time*0.15),sin(u_time*0.1))*0.1)*3.1415;
+    vel = vec2(cos(a),sin(a));
+    DF += snoise(pos+vel)*.55+.25;
+
+    color1 = vec3( smoothstep(.7,.75,fract(DF)) );
+
+    gl_FragColor = vec4(1.0-color1,1.0);
+
 
 
     // =========================
@@ -84,19 +103,22 @@ void main() {
 	// =========================
 
 	// vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-	// vec4 color = texture2D(u_image, v_uv + vec2(0.0, -0.002));
+	// vec4 color = texture2D(u_texture, v_uv + vec2(0.0, -0.002));
+    uv.x /= u_resolution.x/u_resolution.y;
+	vec4 color = vec4(color1, 1.0);
 	
-	// vec2 center = (u_mouse.xy) / 2. + .5;
-	// uv.x *= u_ratio;
-	// center.x *= u_ratio;
+	vec2 center = (u_mouse.xy) / 2. + .5;
+	uv.x *= u_ratio;
+	center.x *= u_ratio;
 	
-	// color.r += circle(uv, center, 0.0, .08) * u_speed;
-	// color.r = mix(color.r, 0.0, .009);
-	// color.r = clamp(color.r, 0.0, 1.0);
+	color.r += circle(uv, center, 0.04, 0.02) * u_speed;
+	color.r = mix(color.r, 0.0, .009);
+	color.r = clamp(color.r, 0.0, 1.0);
 	
-	// color.g = color.r;
+	color.g = color.r;
+	color.b = color.r;
 	
-	// gl_FragColor = vec4(color, 1.0);
+	gl_FragColor = color;
 
 
 	// =========================
@@ -108,19 +130,13 @@ void main() {
     float gray = col.x;
 
     int n = u_n1;
-	if (gray > 0.2) n = u_n2;
-	if (gray > 0.3) n = u_n3;
-	if (gray > 0.4) n = u_n4;
-	if (gray > 0.5) n = u_n5;
-	if (gray > 0.6) n = u_n6;
-	if (gray > 0.7) n = u_n7;
-	if (gray > 0.8) n = u_n8;
+	if (gray > 0.5) n = u_n2;
 
 	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
 	if (u_mouse.z > 0.5)	col = gray*vec3(character(n, p));
 	else col = vec3(character(n, p));
 
-	gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
+	gl_FragColor = vec4(col.x, col.x, col.x, 1.0);
 
 }
 `

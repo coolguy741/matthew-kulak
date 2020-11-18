@@ -9,7 +9,7 @@ const Camera = props => {
     useEffect(() => void setDefaultCamera(ref.current), [])
 
     // Update it every frame
-    useFrame(() => ref.current.updateMatrixWorld())
+    // useFrame(() => ref.current.updateMatrixWorld())
 
     // return <orthographicCamera ref={ref} {...props} />
     return <perspectiveCamera ref={ref} {...props} />
