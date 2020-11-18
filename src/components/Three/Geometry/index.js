@@ -1,6 +1,7 @@
 import React, { useMemo, useRef } from "react"
 
 import * as THREE from "three"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import MouseSpeed from "mouse-speed"
 import { useFrame, useLoader, useThree, createPortal } from "react-three-fiber"
 import { trailVert } from "../shaders/trailVert"
@@ -9,6 +10,7 @@ import { mainVert } from "../shaders/mainVert"
 import { mainFrag } from "../shaders/mainFrag"
 import fence from "../../../assets/textures/tokyo.png"
 import dispMap from "../../../assets/textures/fire.jpg"
+import frmr from "../../../static/frmr.glb"
 
 // export const Trail = () => {
 //     const width = window.innerWidth
@@ -67,12 +69,15 @@ import dispMap from "../../../assets/textures/fire.jpg"
 const Geometry = props => {
     const graf = useLoader(THREE.TextureLoader, fence)
     const disp = useLoader(THREE.TextureLoader, dispMap)
+    const frmrObj = useLoader(GLTFLoader, frmr)
 
     const width = window.innerWidth
     const height = window.innerHeight
 
     const pointer = new THREE.Vector2()
     let speed = 0
+
+    const obj = useRef()
 
     const uniforms = useMemo(
         () => ({
@@ -86,15 +91,11 @@ const Geometry = props => {
                 value: window.innerWidth / window.innerHeight,
             },
             u_texture: {
-                value: new THREE.DataTexture(
-                    new Float32Array(width * height * 4),
-                    width,
-                    height
-                ),
+                value: new THREE.DataTexture(new Float32Array(width * height)),
             },
-            u_image: {
-                value: graf,
-            },
+            // u_image: {
+            //     value: texture,
+            // },
             u_disp: {
                 value: disp,
             },
@@ -133,13 +134,7 @@ const Geometry = props => {
     )
 
     var diff = new MouseSpeed()
-
-    var onCalcSpeed = function () {
-        var speedX = diff.speedX
-        var speedY = diff.speedY
-    }
-
-    diff.init(onCalcSpeed)
+    diff.init()
 
     // const [scene, target] = useMemo(() => {
     //     const scene = new THREE.Scene()
@@ -184,8 +179,10 @@ const Geometry = props => {
 
         const diffSpeed =
             Math.max(Math.abs(diff.speedX), Math.abs(diff.speedY)) * 0.05
-        speed += diffSpeed
-        speed *= 0.9
+        speed += Math.min(diffSpeed, 0.1)
+        speed *= 0.95
+
+        speed = Math.min(2, speed)
 
         // state.gl.setRenderTarget(target)
         // state.gl.render(scene, state.camera)
@@ -195,7 +192,7 @@ const Geometry = props => {
     return (
         <>
             {/* {createPortal(<Trail />, scene)} */}
-            <mesh onPointerMove={pointerMove}>
+            {/* <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry args={[width, height, 1, 1]} />
                 <shaderMaterial
                     uniforms={uniforms}
@@ -203,7 +200,8 @@ const Geometry = props => {
                     fragmentShader={mainFrag}
                     onUpdate={self => (self.needsUpdate = true)}
                 />
-            </mesh>
+            </mesh> */}
+            <primitive object={frmrObj.scene} ref={obj} />
         </>
     )
 }
