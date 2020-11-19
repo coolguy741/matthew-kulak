@@ -21,10 +21,18 @@ $dark-link: #ddd;
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+    transition: background-color 0.3s ease-out, border 0.3s ease-out;
     &dark {
         background-color: $dark-bg;
         border: 1px solid $dark-border;
         box-shadow: 5px 5px 0 $dark-box-shadow;
+        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        transition: background-color 0.3s ease-out, border 0.3s ease-out;
     }
     &Visible {
         visibility: visible;
@@ -43,6 +51,10 @@ $dark-link: #ddd;
         -ms-user-select: none;
         user-select: none;
         color: $light-text;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     & p {
         margin-top: 15px;
@@ -58,6 +70,10 @@ $dark-link: #ddd;
     &dark h4,
     &dark li {
         color: $dark-text;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     & ul {
         list-style-position: inside;
@@ -73,6 +89,10 @@ $dark-link: #ddd;
         & a {
             text-decoration: none;
             color: $light-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
         }
         & img {
             margin-bottom: -3px;
@@ -85,33 +105,33 @@ $dark-link: #ddd;
             list-style: none;
             & a {
                 color: $light-link;
-                -webkit-transition: color 0.2s ease-out;
-                -moz-transition: color 0.2s ease-out;
-                -o-transition: color 0.2s ease-out;
-                transition: color 0.2s ease-out;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
             }
             & a:hover {
                 color: $light-text;
-                -webkit-transition: color 0.2s ease-out;
-                -moz-transition: color 0.2s ease-out;
-                -o-transition: color 0.2s ease-out;
-                transition: color 0.2s ease-out;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
             }
         }
     }
     &dark ul.contact li a {
         color: $dark-link;
-        -webkit-transition: color 0.2s ease-out;
-        -moz-transition: color 0.2s ease-out;
-        -o-transition: color 0.2s ease-out;
-        transition: color 0.2s ease-out;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     &dark ul.contact li a:hover {
         color: $dark-text;
-        -webkit-transition: color 0.2s ease-out;
-        -moz-transition: color 0.2s ease-out;
-        -o-transition: color 0.2s ease-out;
-        transition: color 0.2s ease-out;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     & .btn {
         display: inline-block;
@@ -124,42 +144,66 @@ $dark-link: #ddd;
         text-align: center;
         margin: 20px 15px 0 0;
         border-radius: 3px;
-        -webkit-transition: background-color 0.2s ease-out;
-        -moz-transition: background-color 0.2s ease-out;
-        -o-transition: background-color 0.2s ease-out;
-        transition: background-color 0.2s ease-out;
+        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
     }
     & .btn:hover {
         background-color: $light-btn-hover;
-        -webkit-transition: background-color 0.2s ease-out;
-        -moz-transition: background-color 0.2s ease-out;
-        -o-transition: background-color 0.2s ease-out;
-        transition: background-color 0.2s ease-out;
+        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
     }
     &dark .btn {
         background-color: $dark-btn;
         color: $dark-text;
+        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
     }
     &dark .btn:hover {
         background-color: $dark-btn-hover;
+        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
     }
     & .heading {
         text-transform: uppercase;
         font-family: "PixelMix";
         font-size: 12px;
         color: $light-heading !important;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     &dark .heading {
         color: $dark-text !important;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
 }
 
 .modalBar {
     padding: 10px;
     border-bottom: 1px solid $light-border;
+    -webkit-transition: border 0.3s ease-out;
+    -moz-transition: border 0.3s ease-out;
+    -o-transition: border 0.3s ease-out;
+    transition: border 0.3s ease-out;
     cursor: move;
     &dark {
         border-bottom: 1px solid $dark-border;
+        -webkit-transition: border 0.3s ease-out;
+        -moz-transition: border 0.3s ease-out;
+        -o-transition: border 0.3s ease-out;
+        transition: border 0.3s ease-out;
     }
 }
 
