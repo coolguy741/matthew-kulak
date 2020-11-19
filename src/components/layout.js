@@ -30,16 +30,19 @@ const Layout = ({ children }) => {
         }
     `)
 
+    const width = window.innerWidth
+    const height = window.innerHeight
+
     return (
         <>
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
             <main>{children}</main>
-            <Work width={window.innerWidth} height={window.innerHeight} />
-            <About width={window.innerWidth} height={window.innerHeight} />
-            <Contact width={window.innerWidth} height={window.innerHeight} />
-            <GNOS width={window.innerWidth} height={window.innerHeight} />
-            <Cadillac width={window.innerWidth} height={window.innerHeight} />
-            <Tripwire width={window.innerWidth} height={window.innerHeight} />
+            <Work width={width} height={height} />
+            <About width={width} height={height} />
+            <Contact width={width} height={height} />
+            <GNOS width={width} height={height} />
+            <Cadillac width={width} height={height} />
+            <Tripwire width={width} height={height} />
             <footer>
                 <ToolBar />
             </footer>
