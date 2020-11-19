@@ -63,7 +63,7 @@ class Contact extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <ul>
+                        <ul className={styles.contact}>
                             <li>
                                 <a href="mailto:frmr@frmr.dev">
                                     <img
@@ -79,22 +79,20 @@ class Contact extends React.Component {
                                 </a>
                             </li>
                             <li>
-                                <span>
-                                    <a
-                                        href="https://twitter.com/frmr_"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src={
-                                                this.props.isDarkMode
-                                                    ? twitterWhite
-                                                    : twitter
-                                            }
-                                            width={19}
-                                        />{" "}
-                                        @frmr_
-                                    </a>
-                                </span>
+                                <a
+                                    href="https://twitter.com/frmr_"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src={
+                                            this.props.isDarkMode
+                                                ? twitterWhite
+                                                : twitter
+                                        }
+                                        width={19}
+                                    />{" "}
+                                    @frmr_
+                                </a>
                             </li>
                             <li>
                                 <a

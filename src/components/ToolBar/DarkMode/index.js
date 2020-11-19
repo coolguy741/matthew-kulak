@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import sun from "../../../assets/images/sun.svg"
+import moon from "../../../assets/images/moon.svg"
 import styles from "../../../styles/toolbar.module.scss"
 
 const DarkMode = props => {
@@ -11,7 +13,10 @@ const DarkMode = props => {
             }`}
         >
             <span onClick={props.onDarkModeToggle} className={styles.span}>
-                DARK
+                <img
+                    src={props.isDarkMode ? sun : moon}
+                    width={props.isDarkMode ? 30 : 20}
+                />
             </span>
         </div>
     )

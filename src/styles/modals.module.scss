@@ -3,9 +3,13 @@ $dark-bg-color: #202020;
 $light-border-color: #202020;
 $dark-border-color: #fff;
 $light-text-color: #202020;
-$dark-text-color: #fff;
-$light-box-shadow: rgba(20, 20, 20, 0.5);
-$dark-box-shadow: rgba(200, 200, 200, 0.5);
+$dark-text-color: #eee;
+$light-box-shadow: rgba(20, 20, 20, 0.2);
+$dark-box-shadow: rgba(200, 200, 200, 0.2);
+$light-btn: #ccc;
+$light-btn-hover: #bbb;
+$dark-btn: #404040;
+$dark-btn-hover: #474747;
 
 .modal {
     background-color: $light-bg-color;
@@ -27,7 +31,8 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
     }
     & p,
     span,
-    h4 {
+    h4,
+    li {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -36,17 +41,28 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
         user-select: none;
         color: $light-text-color;
     }
+    & p {
+        margin-top: 15px;
+    }
+    & h4 {
+        margin-bottom: 10px;
+    }
     &dark p,
     &dark span,
-    &dark h4 {
+    &dark h4,
+    &dark li {
         color: $dark-text-color;
     }
     & ul {
-        list-style: none;
-        margin: 0;
+        list-style-position: inside;
+        margin: 0 0 10px;
         padding: 0;
         & li {
-            margin-bottom: 12px;
+            margin-bottom: 3px;
+            list-style-type: "+";
+        }
+        & li span {
+            margin-left: 10px;
         }
         & a {
             text-decoration: none;
@@ -56,8 +72,45 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
             margin-bottom: -3px;
         }
     }
+    & ul.contact {
+        list-style: none;
+        & li {
+            margin-bottom: 12px;
+            list-style: none;
+        }
+    }
     &dark ul li a {
         color: $dark-text-color;
+    }
+    & .btn {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        background-color: $light-btn;
+        color: $light-text-color;
+        text-decoration: none;
+        padding: 0 15px;
+        text-align: center;
+        margin: 20px 15px 0 0;
+        border-radius: 3px;
+        -webkit-transition: background-color 0.2s ease-out;
+        -moz-transition: background-color 0.2s ease-out;
+        -o-transition: background-color 0.2s ease-out;
+        transition: background-color 0.2s ease-out;
+    }
+    & .btn:hover {
+        background-color: $light-btn-hover;
+        -webkit-transition: background-color 0.2s ease-out;
+        -moz-transition: background-color 0.2s ease-out;
+        -o-transition: background-color 0.2s ease-out;
+        transition: background-color 0.2s ease-out;
+    }
+    &dark .btn {
+        background-color: $dark-btn;
+        color: $dark-text-color;
+    }
+    &dark .btn:hover {
+        background-color: $dark-btn-hover;
     }
 }
 
@@ -71,7 +124,7 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
 }
 
 .body {
-    padding: 15px 10px;
+    padding: 20px 20px;
     min-width: 230px;
     min-height: 100px;
     resize: both;
@@ -94,6 +147,7 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
 
 .workIcons {
     padding: 10px 0;
+    margin: 0 -10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -103,4 +157,8 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
 .workIcon {
     padding: 0 20px;
     flex-shrink: 0;
+}
+
+.btnContainer {
+    margin-bottom: 20px;
 }

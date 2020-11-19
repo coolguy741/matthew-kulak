@@ -58,15 +58,31 @@ class Cadillac extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img src={cadillac} width={200} />
+                        <img src={cadillac} width={120} />
                         <p>The Cadillac website is built using Three.js.</p>
-                        <a href="#" target="_blank">
-                            View Live
-                        </a>
-                        <br></br>
-                        <a href="#" target="_blank">
-                            View Source
-                        </a>
+                        <h4>Tech Stack</h4>
+                        <ul>
+                            <li>
+                                <span>React</span>
+                            </li>
+                            <li>
+                                <span>Next.js</span>
+                            </li>
+                            <li>
+                                <span>GraphQL</span>
+                            </li>
+                            <li>
+                                <span>Apollo Server/Client</span>
+                            </li>
+                        </ul>
+                        <div className={styles.btnContainer}>
+                            <a className={styles.btn} href="#" target="_blank">
+                                View Live
+                            </a>
+                            <a className={styles.btn} href="#" target="_blank">
+                                View Source
+                            </a>
+                        </div>
                     </div>
                 </div>
             </Draggable>

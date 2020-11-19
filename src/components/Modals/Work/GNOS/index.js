@@ -61,19 +61,35 @@ class GNOS extends React.Component {
                     >
                         <img
                             src={this.props.isDarkMode ? gnosWhite : gnos}
-                            width={200}
+                            width={120}
                         />
                         <p>
                             GNOS is a clothing brand founded and operated by
                             FRMR.
                         </p>
-                        <a href="#" target="_blank">
-                            View Live
-                        </a>
-                        <br></br>
-                        <a href="#" target="_blank">
-                            View Source
-                        </a>
+                        <h4>Tech Stack</h4>
+                        <ul>
+                            <li>
+                                <span>React</span>
+                            </li>
+                            <li>
+                                <span>Next.js</span>
+                            </li>
+                            <li>
+                                <span>GraphQL</span>
+                            </li>
+                            <li>
+                                <span>Apollo Server/Client</span>
+                            </li>
+                        </ul>
+                        <div className={styles.btnContainer}>
+                            <a className={styles.btn} href="#" target="_blank">
+                                View Live
+                            </a>
+                            <a className={styles.btn} href="#" target="_blank">
+                                View Source
+                            </a>
+                        </div>
                     </div>
                 </div>
             </Draggable>

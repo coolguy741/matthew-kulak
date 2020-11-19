@@ -58,29 +58,40 @@ class Tripwire extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img src={tripwire} width={150} />
+                        <img src={tripwire} width={120} />
                         <p>
                             Tripwire is an open-source project which fetches
                             adventure tour data from the G-Adventures API and
                             maps the locational itinerary data to a Mapbox
                             instance.
                         </p>
-                        <h4>Tech Stack:</h4>
+                        <h4>Tech Stack</h4>
                         <ul>
-                            <li>React</li>
-                            <li>GraphQL</li>
-                            <li>Apollo Server/Client</li>
+                            <li>
+                                <span>React</span>
+                            </li>
+                            <li>
+                                <span>Next.js</span>
+                            </li>
+                            <li>
+                                <span>GraphQL</span>
+                            </li>
+                            <li>
+                                <span>Apollo Server/Client</span>
+                            </li>
                         </ul>
-                        <a href="#" target="_blank">
-                            View Live
-                        </a>
-                        <br></br>
-                        <a
-                            href="https://github.com/FRMR1/tripwire"
-                            target="_blank"
-                        >
-                            View Source
-                        </a>
+                        <div className={styles.btnContainer}>
+                            <a className={styles.btn} href="#" target="_blank">
+                                View Live
+                            </a>
+                            <a
+                                className={styles.btn}
+                                href="https://github.com/frmr1/tripwire"
+                                target="_blank"
+                            >
+                                View Source
+                            </a>
+                        </div>
                     </div>
                 </div>
             </Draggable>
