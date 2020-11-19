@@ -59,10 +59,7 @@ class Cadillac extends React.Component {
                         style={{ height: height, width: width }}
                     >
                         <img src={cadillac} width={200} />
-                        <p>
-                            Cadillac is a band from Saskatchewan, Canada.
-                            They're the best band in the world.
-                        </p>
+                        <p>The Cadillac website is built using Three.js.</p>
                         <a href="#" target="_blank">
                             View Live
                         </a>

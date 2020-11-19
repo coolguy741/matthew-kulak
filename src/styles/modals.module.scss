@@ -26,7 +26,8 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
         visibility: hidden;
     }
     & p,
-    span {
+    span,
+    h4 {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -36,7 +37,8 @@ $dark-box-shadow: rgba(200, 200, 200, 0.5);
         color: $light-text-color;
     }
     &dark p,
-    &dark span {
+    &dark span,
+    &dark h4 {
         color: $dark-text-color;
     }
     & ul {

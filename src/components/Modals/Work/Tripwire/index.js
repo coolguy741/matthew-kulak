@@ -65,6 +65,12 @@ class Tripwire extends React.Component {
                             maps the locational itinerary data to a Mapbox
                             instance.
                         </p>
+                        <h4>Tech Stack:</h4>
+                        <ul>
+                            <li>React</li>
+                            <li>GraphQL</li>
+                            <li>Apollo Server/Client</li>
+                        </ul>
                         <a href="#" target="_blank">
                             View Live
                         </a>

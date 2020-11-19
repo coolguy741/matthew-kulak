@@ -1,14 +1,11 @@
-import React, { useRef, useState, Suspense } from "react"
+import React, { Suspense } from "react"
 import { connect } from "react-redux"
 
-import * as THREE from "three"
 import Effects from "../Effects"
-import { Canvas, useFrame } from "react-three-fiber"
+import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
-import CameraControls from "../CameraControls"
 import Geometry from "../Geometry"
-import { Trail } from "../Geometry"
 
 const MainCanvas = props => {
     // const [rotation, setRotation] = useState([0, 0, 0, 0])
@@ -23,18 +20,8 @@ const MainCanvas = props => {
                 depth: false,
                 preserveDrawingBuffer: true,
             }}
-            onCreated={({ gl }) => {
-                gl.setClearColor(0xffffff, 0.0)
-            }}
         >
             <Camera
-                fov={45}
-                aspect={window.innerWidth / window.innerHeight}
-                near={1}
-                far={1000}
-                position={[0, 0, 10]}
-            />
-            {/* <Camera
                 left={-1}
                 right={1}
                 top={1}
@@ -42,11 +29,8 @@ const MainCanvas = props => {
                 near={0.1}
                 far={10}
                 position={[0, 0, 1]}
-            /> */}
-            <CameraControls />
-            <pointLight args={[0xff0000, 1, 10, 0]} position={[10, 10, 10]} />
+            />
             <Suspense fallback={null}>
-                {/* <Trail isDarkMode={props.isDarkMode} /> */}
                 <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>
             {/* <Effects /> */}

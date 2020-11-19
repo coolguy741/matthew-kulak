@@ -63,10 +63,7 @@ class About extends React.Component {
                             src={this.props.isDarkMode ? whiteLogo : mainLogo}
                             width={150}
                         />
-                        <p>
-                            FRMR is a designer, developer and music producer
-                            based in Canada.
-                        </p>
+                        <p>FRMR is a developer and designer based in Canada.</p>
                     </div>
                 </div>
             </Draggable>

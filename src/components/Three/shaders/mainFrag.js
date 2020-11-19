@@ -111,7 +111,7 @@ void main() {
 	uv.x *= u_ratio;
 	center.x *= u_ratio;
 	
-	color.r += circle(uv, center, 0.04, 0.02) * u_speed;
+	color.r += circle(uv, center, 0.04, 0.04) * u_speed;
 	color.r = mix(color.r, 0.0, .009);
 	color.r = clamp(color.r, 0.0, 1.0);
 	
