@@ -5,10 +5,20 @@ import styles from "../../../styles/toolbar.module.scss"
 import axios from "axios"
 
 const Time = props => {
-    const date = new Date()
-    const hours = date.getHours()
-    const minutes = date.getMinutes()
-    const fullTime = `${hours}:${minutes}`
+    const startTime = () => {
+        const time = new Date().toLocaleTimeString("en", {
+                hour: "numeric",
+                hour12: false,
+                minute: "numeric",
+            }),
+            t = setTimeout(function () {
+                startTime()
+            }, 500)
+
+        return time
+    }
+
+    startTime()
 
     return (
         <div
@@ -16,7 +26,7 @@ const Time = props => {
                 props.isDarkMode ? styles.timedark : ""
             }`}
         >
-            <span className={styles.span}>{fullTime}</span>
+            <span className={styles.span}>{startTime()}</span>
         </div>
     )
 }
@@ -27,10 +37,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Time)
+export default connect(mapStateToProps)(Time)

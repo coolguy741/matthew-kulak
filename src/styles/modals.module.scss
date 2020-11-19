@@ -1,26 +1,29 @@
-$light-bg-color: #fff;
-$dark-bg-color: #202020;
-$light-border-color: #202020;
-$dark-border-color: #fff;
-$light-text-color: #202020;
-$dark-text-color: #eee;
+$light-bg: #fff;
+$dark-bg: #202020;
+$light-border: #202020;
+$dark-border: #fff;
+$light-text: #202020;
+$dark-text: #fff;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
 $dark-box-shadow: rgba(200, 200, 200, 0.2);
 $light-btn: #ccc;
 $light-btn-hover: #bbb;
 $dark-btn: #404040;
 $dark-btn-hover: #474747;
+$light-heading: #303030;
+$light-link: #404040;
+$dark-link: #ddd;
 
 .modal {
-    background-color: $light-bg-color;
-    border: 1px solid $light-border-color;
+    background-color: $light-bg;
+    border: 1px solid $light-border;
     box-shadow: 5px 5px 0 $light-box-shadow;
     position: absolute;
     top: 0;
     left: 0;
     &dark {
-        background-color: $dark-bg-color;
-        border: 1px solid $dark-border-color;
+        background-color: $dark-bg;
+        border: 1px solid $dark-border;
         box-shadow: 5px 5px 0 $dark-box-shadow;
     }
     &Visible {
@@ -39,19 +42,22 @@ $dark-btn-hover: #474747;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        color: $light-text-color;
+        color: $light-text;
     }
     & p {
         margin-top: 15px;
     }
     & h4 {
+        font-family: "PixelMix";
         margin-bottom: 10px;
+        font-size: 12px;
+        text-transform: uppercase;
     }
     &dark p,
     &dark span,
     &dark h4,
     &dark li {
-        color: $dark-text-color;
+        color: $dark-text;
     }
     & ul {
         list-style-position: inside;
@@ -66,7 +72,7 @@ $dark-btn-hover: #474747;
         }
         & a {
             text-decoration: none;
-            color: $light-text-color;
+            color: $light-text;
         }
         & img {
             margin-bottom: -3px;
@@ -77,17 +83,42 @@ $dark-btn-hover: #474747;
         & li {
             margin-bottom: 12px;
             list-style: none;
+            & a {
+                color: $light-link;
+                -webkit-transition: color 0.2s ease-out;
+                -moz-transition: color 0.2s ease-out;
+                -o-transition: color 0.2s ease-out;
+                transition: color 0.2s ease-out;
+            }
+            & a:hover {
+                color: $light-text;
+                -webkit-transition: color 0.2s ease-out;
+                -moz-transition: color 0.2s ease-out;
+                -o-transition: color 0.2s ease-out;
+                transition: color 0.2s ease-out;
+            }
         }
     }
-    &dark ul li a {
-        color: $dark-text-color;
+    &dark ul.contact li a {
+        color: $dark-link;
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out;
+    }
+    &dark ul.contact li a:hover {
+        color: $dark-text;
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out;
     }
     & .btn {
         display: inline-block;
         height: 40px;
         line-height: 40px;
         background-color: $light-btn;
-        color: $light-text-color;
+        color: $light-text;
         text-decoration: none;
         padding: 0 15px;
         text-align: center;
@@ -107,19 +138,28 @@ $dark-btn-hover: #474747;
     }
     &dark .btn {
         background-color: $dark-btn;
-        color: $dark-text-color;
+        color: $dark-text;
     }
     &dark .btn:hover {
         background-color: $dark-btn-hover;
+    }
+    & .heading {
+        text-transform: uppercase;
+        font-family: "PixelMix";
+        font-size: 12px;
+        color: $light-heading !important;
+    }
+    &dark .heading {
+        color: $dark-text !important;
     }
 }
 
 .modalBar {
     padding: 10px;
-    border-bottom: 1px solid $light-border-color;
+    border-bottom: 1px solid $light-border;
     cursor: move;
     &dark {
-        border-bottom: 1px solid $dark-border-color;
+        border-bottom: 1px solid $dark-border;
     }
 }
 
@@ -129,10 +169,6 @@ $dark-btn-hover: #474747;
     min-height: 100px;
     resize: both;
     overflow: scroll;
-}
-
-.heading {
-    text-transform: uppercase;
 }
 
 .close {
