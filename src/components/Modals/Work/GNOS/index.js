@@ -2,10 +2,10 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../../assets/images/x.svg"
-import xWhite from "../../../../assets/images/x-white.svg"
-import gnos from "../../../../assets/images/gnos.svg"
-import gnosWhite from "../../../../assets/images/gnos-white.svg"
+import X from "../../../../assets/images/svg/x.svg"
+import XWhite from "../../../../assets/images/svg/x-white.svg"
+import GnosSVG from "../../../../assets/images/svg/gnos.svg"
+import GnosWhite from "../../../../assets/images/svg/gnos-white.svg"
 import styles from "../../../../styles/modals.module.scss"
 
 class GNOS extends React.Component {
@@ -48,21 +48,29 @@ class GNOS extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>GNOS</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onGNOSClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onGNOSClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onGNOSClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img
-                            src={this.props.isDarkMode ? gnosWhite : gnos}
-                            width={120}
-                        />
+                        {this.props.isDarkMode ? (
+                            <GnosWhite width={120} />
+                        ) : (
+                            <GnosSVG width={120} />
+                        )}
                         <p>
                             GNOS is a clothing brand founded and operated by
                             FRMR.

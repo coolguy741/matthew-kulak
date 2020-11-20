@@ -1,8 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import frmr from "../../../assets/images/frmr.svg"
-import frmrWhite from "../../../assets/images/frmr-white.svg"
+import FRMRSVG from "../../../assets/images/svg/frmr.svg"
+import FRMRWhite from "../../../assets/images/svg/frmr-white.svg"
 import styles from "../../../styles/toolbar.module.scss"
 
 const FRMR = props => {
@@ -12,11 +12,11 @@ const FRMR = props => {
                 props.isDarkMode ? styles.frmrdark : ""
             }`}
         >
-            <img
-                src={props.isDarkMode ? frmrWhite : frmr}
-                alt="FRMR"
-                width="110px"
-            />
+            {props.isDarkMode ? (
+                <FRMRWhite width={110} />
+            ) : (
+                <FRMRSVG width={110} />
+            )}
         </div>
     )
 }

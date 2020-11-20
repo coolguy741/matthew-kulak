@@ -2,10 +2,10 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../assets/images/x.svg"
-import xWhite from "../../../assets/images/x-white.svg"
-import mainLogo from "../../../assets/images/logo.svg"
-import whiteLogo from "../../../assets/images/logo-white.svg"
+import X from "../../../assets/images/svg/x.svg"
+import XWhite from "../../../assets/images/svg/x-white.svg"
+import MainLogo from "../../../assets/images/svg/logo.svg"
+import WhiteLogo from "../../../assets/images/svg/logo-white.svg"
 import styles from "../../../styles/modals.module.scss"
 
 class About extends React.Component {
@@ -48,21 +48,29 @@ class About extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>About</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onAboutClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onAboutClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onAboutClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img
-                            src={this.props.isDarkMode ? whiteLogo : mainLogo}
-                            width={150}
-                        />
+                        {this.props.isDarkMode ? (
+                            <WhiteLogo width={150} />
+                        ) : (
+                            <MainLogo width={150} />
+                        )}
                         <p>FRMR is a developer and designer based in Canada.</p>
                     </div>
                 </div>

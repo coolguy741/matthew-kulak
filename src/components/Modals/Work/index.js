@@ -2,12 +2,12 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../assets/images/x.svg"
-import xWhite from "../../../assets/images/x-white.svg"
-import cadillac from "../../../assets/images/cadillac.svg"
-import gnos from "../../../assets/images/gnos.svg"
-import gnosWhite from "../../../assets/images/gnos-white.svg"
-import tripwire from "../../../assets/images/tripwire.svg"
+import X from "../../../assets/images/svg/x.svg"
+import XWhite from "../../../assets/images/svg/x-white.svg"
+import Cadillac from "../../../assets/images/svg/cadillac.svg"
+import Gnos from "../../../assets/images/svg/gnos.svg"
+import GnosWhite from "../../../assets/images/svg/gnos-white.svg"
+import Tripwire from "../../../assets/images/svg/tripwire.svg"
 import styles from "../../../styles/modals.module.scss"
 
 class Work extends React.Component {
@@ -68,12 +68,19 @@ class Work extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Work</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onWorkClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onWorkClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onWorkClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
@@ -84,12 +91,11 @@ class Work extends React.Component {
                                 className={styles.workIcon}
                                 onClick={onClickGNOS}
                             >
-                                <img
-                                    src={
-                                        this.props.isDarkMode ? gnosWhite : gnos
-                                    }
-                                    width={60}
-                                />
+                                {this.props.isDarkMode ? (
+                                    <GnosWhite width={60} />
+                                ) : (
+                                    <Gnos width={60} />
+                                )}
                                 <br />
                                 <span>GNOS</span>
                             </div>
@@ -97,7 +103,7 @@ class Work extends React.Component {
                                 className={styles.workIcon}
                                 onClick={onClickCadillac}
                             >
-                                <img src={cadillac} width={60} />
+                                <Cadillac width={60} />
                                 <br />
                                 <span>Cadillac</span>
                             </div>
@@ -105,7 +111,7 @@ class Work extends React.Component {
                                 className={styles.workIcon}
                                 onClick={onClickTripwire}
                             >
-                                <img src={tripwire} width={60} />
+                                <Tripwire width={60} />
                                 <br />
                                 <span>Tripwire</span>
                             </div>

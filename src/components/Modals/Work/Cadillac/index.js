@@ -2,9 +2,9 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../../assets/images/x.svg"
-import xWhite from "../../../../assets/images/x-white.svg"
-import cadillac from "../../../../assets/images/cadillac.svg"
+import X from "../../../../assets/images/svg/x.svg"
+import XWhite from "../../../../assets/images/svg/x-white.svg"
+import CadillacSVG from "../../../../assets/images/svg/cadillac.svg"
 import styles from "../../../../styles/modals.module.scss"
 
 class Cadillac extends React.Component {
@@ -47,18 +47,25 @@ class Cadillac extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Cadillac</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onCadillacClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onCadillacClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onCadillacClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img src={cadillac} width={120} />
+                        <CadillacSVG width={120} />
                         <p>The Cadillac website is built using Three.js.</p>
                         <h4>Tech Stack</h4>
                         <ul>

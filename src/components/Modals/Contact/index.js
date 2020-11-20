@@ -2,14 +2,14 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import x from "../../../assets/images/x.svg"
-import xWhite from "../../../assets/images/x-white.svg"
-import github from "../../../assets/images/github.svg"
-import githubWhite from "../../../assets/images/github-white.svg"
-import mail from "../../../assets/images/mail.svg"
-import mailWhite from "../../../assets/images/mail-white.svg"
-import twitter from "../../../assets/images/twitter.svg"
-import twitterWhite from "../../../assets/images/twitter-white.svg"
+import X from "../../../assets/images/svg/x.svg"
+import XWhite from "../../../assets/images/svg/x-white.svg"
+import Github from "../../../assets/images/svg/github.svg"
+import GithubWhite from "../../../assets/images/svg/github-white.svg"
+import Mail from "../../../assets/images/svg/mail.svg"
+import MailWhite from "../../../assets/images/svg/mail-white.svg"
+import Twitter from "../../../assets/images/svg/twitter.svg"
+import TwitterWhite from "../../../assets/images/svg/twitter-white.svg"
 import styles from "../../../styles/modals.module.scss"
 
 class Contact extends React.Component {
@@ -52,12 +52,19 @@ class Contact extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Contact</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onContactClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onContactClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onContactClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
@@ -66,15 +73,17 @@ class Contact extends React.Component {
                         <ul className={styles.contact}>
                             <li>
                                 <a href="mailto:frmr@frmr.dev">
-                                    <img
-                                        src={
-                                            this.props.isDarkMode
-                                                ? mailWhite
-                                                : mail
-                                        }
-                                        className={styles.mail}
-                                        width={16}
-                                    />{" "}
+                                    {this.props.isDarkMode ? (
+                                        <MailWhite
+                                            className={styles.mail}
+                                            width={16}
+                                        />
+                                    ) : (
+                                        <Mail
+                                            className={styles.mail}
+                                            width={16}
+                                        />
+                                    )}{" "}
                                     frmr@frmr.dev
                                 </a>
                             </li>
@@ -83,14 +92,11 @@ class Contact extends React.Component {
                                     href="https://twitter.com/frmr_"
                                     target="_blank"
                                 >
-                                    <img
-                                        src={
-                                            this.props.isDarkMode
-                                                ? twitterWhite
-                                                : twitter
-                                        }
-                                        width={19}
-                                    />{" "}
+                                    {this.props.isDarkMode ? (
+                                        <TwitterWhite width={19} />
+                                    ) : (
+                                        <Twitter width={19} />
+                                    )}{" "}
                                     @frmr_
                                 </a>
                             </li>
@@ -99,14 +105,11 @@ class Contact extends React.Component {
                                     href="https://github.com/frmr1"
                                     target="_blank"
                                 >
-                                    <img
-                                        src={
-                                            this.props.isDarkMode
-                                                ? githubWhite
-                                                : github
-                                        }
-                                        width={18}
-                                    />{" "}
+                                    {this.props.isDarkMode ? (
+                                        <GithubWhite width={18} />
+                                    ) : (
+                                        <Github width={18} />
+                                    )}{" "}
                                     @frmr1
                                 </a>
                             </li>

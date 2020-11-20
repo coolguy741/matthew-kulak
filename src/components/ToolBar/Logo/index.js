@@ -1,8 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import LogoBlack from "../../../assets/images/logo.svg"
-import LogoWhite from "../../../assets/images/logo-white.svg"
+import LogoBlack from "../../../assets/images/svg/logo.svg"
+import LogoWhite from "../../../assets/images/svg/logo-white.svg"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Logo = props => {
@@ -12,16 +12,11 @@ const Logo = props => {
                 props.isDarkMode ? styles.logodark : ""
             }`}
         >
-            {/* {props.isDarkMode ? (
+            {props.isDarkMode ? (
                 <LogoWhite alt={"FRMR"} width={155} />
             ) : (
                 <LogoBlack alt={"FRMR"} width={155} />
-            )} */}
-            <img
-                src={props.isDarkMode ? LogoWhite : LogoBlack}
-                alt="FRMR"
-                width="155px"
-            />
+            )}
         </div>
     )
 }

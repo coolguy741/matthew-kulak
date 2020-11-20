@@ -2,9 +2,9 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import tripwire from "../../../../assets/images/tripwire.svg"
-import x from "../../../../assets/images/x.svg"
-import xWhite from "../../../../assets/images/x-white.svg"
+import TripwireSVG from "../../../../assets/images/svg/tripwire.svg"
+import X from "../../../../assets/images/svg/x.svg"
+import XWhite from "../../../../assets/images/svg/x-white.svg"
 import styles from "../../../../styles/modals.module.scss"
 
 class Tripwire extends React.Component {
@@ -47,18 +47,25 @@ class Tripwire extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Tripwire</span>
-                        <img
-                            className={styles.close}
-                            onClick={this.props.onTripwireClose}
-                            src={this.props.isDarkMode ? xWhite : x}
-                            width={12}
-                        />
+                        {this.props.isDarkMode ? (
+                            <X
+                                className={styles.close}
+                                onClick={this.props.onTripwireClose}
+                                width={12}
+                            />
+                        ) : (
+                            <XWhite
+                                className={styles.close}
+                                onClick={this.props.onTripwireClose}
+                                width={12}
+                            />
+                        )}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <img src={tripwire} width={120} />
+                        <TripwireSVG width={120} />
                         <p>
                             Tripwire is an open-source project which fetches
                             adventure tour data from the G-Adventures API and
