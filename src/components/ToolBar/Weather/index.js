@@ -10,10 +10,12 @@ const Time = props => {
         desc: null,
     })
 
+    const cityName = "Canmore"
+
     useEffect(() => {
         axios
             .get(
-                `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`
+                `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.GATSBY_WEATHER_API}`
             )
             .then(response => {
                 setWeather({
