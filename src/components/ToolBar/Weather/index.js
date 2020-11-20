@@ -10,9 +10,6 @@ const Time = props => {
         desc: null,
     })
 
-    const APIkey = "720cc76de16cef79bc83cf4b4a7eb0ec"
-    const cityName = "Canmore"
-
     useEffect(() => {
         axios
             .get(

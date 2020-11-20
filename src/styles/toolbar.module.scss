@@ -6,12 +6,17 @@ $light-text: #202020;
 $dark-text: #fff;
 $light-hover: #eee;
 $dark-hover: #303030;
+$breakpoint-laptop: 1200px;
+$breakpoint-tablet-landscape: 821px;
+$breakpoint-tablet-portrait: 560px;
+
+// MOBILE
 
 .toolbar {
     z-index: 999;
     background-color: $light-bg;
     width: 100%;
-    height: 70px;
+    height: 50px;
     bottom: 0;
     display: flex;
     position: fixed;
@@ -31,11 +36,11 @@ $dark-hover: #303030;
 }
 
 .logo {
-    padding: 8px 20px;
+    padding: 6px 0;
     position: relative;
     display: flex;
     flex: 0 0 auto;
-    width: 100px;
+    width: 70px;
     border-right: 1px solid $light-border;
     -webkit-transition: border 0.3s ease-out;
     -moz-transition: border 0.3s ease-out;
@@ -50,14 +55,25 @@ $dark-hover: #303030;
     }
 }
 
+.darkmode {
+    display: flex;
+    flex: 1 0 auto;
+    width: 70px;
+    width: auto;
+    height: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav,
 .weather,
 .location,
-.time,
-.darkmode {
+.time {
     display: flex;
-    flex: 0 0 auto;
-    width: 100px;
+    flex: 1 0 auto;
+    width: 70px;
+    width: auto;
     height: 100%;
     position: relative;
     align-items: center;
@@ -79,6 +95,11 @@ $dark-hover: #303030;
             transition: color 0.3s ease-out;
         }
     }
+}
+
+.weather,
+.location {
+    display: none;
 }
 
 .time span {
@@ -144,20 +165,26 @@ $dark-hover: #303030;
     display: flex;
     flex: 1 0 auto;
     width: auto;
-    position: relative;
+    position: fixed;
+    height: 50px;
+    bottom: 50px;
+    width: 100%;
+    background-color: $light-bg;
+    padding: 20px 0;
+    border-top: 1px solid $light-border;
     align-items: center;
-    border-right: 1px solid $light-border;
-    -webkit-transition: border 0.3s ease-out;
-    -moz-transition: border 0.3s ease-out;
-    -o-transition: border 0.3s ease-out;
-    transition: border 0.3s ease-out;
+    -webkit-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+    -moz-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+    -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+    transition: border 0.3s ease-out, background-color 0.3s ease-out;
     justify-content: center;
     &dark {
-        border-right: 1px solid $dark-border;
-        -webkit-transition: border 0.3s ease-out;
-        -moz-transition: border 0.3s ease-out;
-        -o-transition: border 0.3s ease-out;
-        transition: border 0.3s ease-out;
+        border-top: 1px solid $dark-border;
+        background-color: $dark-bg;
+        -webkit-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        transition: border 0.3s ease-out, background-color 0.3s ease-out;
     }
 }
 
@@ -174,4 +201,70 @@ $dark-hover: #303030;
 
 .span {
     cursor: default;
+}
+
+// TABLET PORTRAIT
+
+@media (min-width: $breakpoint-tablet-portrait) {
+    .weather,
+    .location {
+        display: flex;
+    }
+}
+
+// TABLET LANDSCAPE
+
+@media (min-width: $breakpoint-tablet-landscape) {
+    .toolbar {
+        height: 60px;
+    }
+
+    .nav,
+    .weather,
+    .location,
+    .time,
+    .darkmode,
+    .logo {
+        width: 80px;
+        flex: 0 0 auto;
+        text-align: center;
+    }
+
+    .logo {
+        padding: 8px 0;
+    }
+
+    .frmr {
+        position: relative;
+        bottom: 0;
+        width: auto;
+        border-top: none;
+        border-right: 1px solid $light-border;
+        padding: 0;
+        height: 60px;
+        &dark {
+            border-right: 1px solid $dark-border;
+        }
+    }
+}
+
+// LAPTOP +
+
+@media (min-width: $breakpoint-laptop) {
+    .toolbar {
+        height: 70px;
+    }
+
+    .nav,
+    .weather,
+    .location,
+    .time,
+    .darkmode,
+    .logo {
+        width: 100px;
+    }
+
+    .frmr {
+        height: 70px;
+    }
 }
