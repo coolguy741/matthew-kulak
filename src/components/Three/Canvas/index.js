@@ -6,6 +6,7 @@ import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
 import Geometry from "../Geometry"
+import { OrbitControls } from "@react-three/drei"
 
 const MainCanvas = props => {
     // const [rotation, setRotation] = useState([0, 0, 0, 0])
@@ -30,6 +31,8 @@ const MainCanvas = props => {
                 far={10}
                 position={[0, 0, 1]}
             />
+            <OrbitControls />
+            <ambientLight />
             <Suspense fallback={null}>
                 <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>

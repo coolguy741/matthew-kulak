@@ -1,4 +1,4 @@
-export const mainVert = `
+export const trailVert = `
 precision highp float;
 
 varying vec2 v_uv;
