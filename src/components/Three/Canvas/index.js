@@ -18,8 +18,9 @@ const MainCanvas = props => {
                 antialias: true,
                 alpha: true,
                 stencil: false,
-                depth: false,
-                preserveDrawingBuffer: false,
+                depth: true,
+                preserveDrawingBuffer: true,
+                powerPreference: "high-performance",
             }}
         >
             <Camera

@@ -83,7 +83,7 @@ void main() {
 	// =========================
 
 	vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    vec4 color = texture2D(u_texture, uv + vec2(0.0, -0.002));
+    vec4 color = texture2D(u_texture, uv);
     
     // uv.x /= u_resolution.x/u_resolution.y;
     // vec4 color = vec4(color1, 1.0);

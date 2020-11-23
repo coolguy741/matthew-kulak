@@ -7,7 +7,6 @@ import { mainVert } from "../shaders/mainVert"
 import { trailVert } from "../shaders/trailVert"
 import { mainFrag } from "../shaders/mainFrag"
 import { trailFrag } from "../shaders/trailFrag"
-import { TorusKnot, Box, PerspectiveCamera } from "@react-three/drei"
 
 const Trail = props => {
     const mat = useRef()
@@ -19,12 +18,17 @@ const Trail = props => {
     let rtIndex = 0
     let speed = 0
 
-    const pointer = new THREE.Vector2()
+    const pointer = useMemo(() => {
+        return new THREE.Vector2()
+    })
 
     var diff = new MouseSpeed()
     diff.init()
 
-    const texture = new THREE.DataTexture(new Float32Array(width * height))
+    const texture = useMemo(() => {
+        return new THREE.DataTexture(new Float32Array(width * height))
+    })
+
     texture.needsUpdate = true
 
     const uniforms = useMemo(
@@ -45,13 +49,13 @@ const Trail = props => {
         []
     )
 
-    const createRT1 = useMemo(() => {
+    const createRT = useMemo(() => {
         return new THREE.WebGLRenderTarget(
             width,
             height,
             Object.assign({
-                minFilter: THREE.NearestFilter,
-                magFilter: THREE.NearestFilter,
+                minFilter: THREE.LinearFilter,
+                magFilter: THREE.LinearFilter,
                 stencilBuffer: false,
                 depthBuffer: false,
                 depthWrite: false,
@@ -60,22 +64,7 @@ const Trail = props => {
         )
     })
 
-    const createRT2 = useMemo(() => {
-        return new THREE.WebGLRenderTarget(
-            width,
-            height,
-            Object.assign({
-                minFilter: THREE.NearestFilter,
-                magFilter: THREE.NearestFilter,
-                stencilBuffer: false,
-                depthBuffer: false,
-                depthWrite: false,
-                depthTest: false,
-            })
-        )
-    })
-
-    const rt = [createRT1, createRT2]
+    const rt = [createRT, createRT]
 
     const updateRT = (renderer, scene, camera) => {
         // toggle rtIndex 0 <-> 1
@@ -90,8 +79,6 @@ const Trail = props => {
         renderer.setRenderTarget(dest)
         renderer.render(scene, camera)
         renderer.setRenderTarget(oldMainTarget)
-
-        console.log(scene)
 
         rtIndex = destIndex
         copyData = false
@@ -111,7 +98,7 @@ const Trail = props => {
         uniforms.u_mouse.value.lerp(pointer, 0.2)
         uniforms.u_speed.value = speed
 
-        updateRT(state.gl, state.scene, state.camera, state)
+        updateRT(state.gl, state.scene, state.camera)
 
         const diffSpeed =
             Math.max(Math.abs(diff.speedX), Math.abs(diff.speedY)) * 0.05
