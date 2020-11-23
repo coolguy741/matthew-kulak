@@ -37,22 +37,21 @@ void main() {
 
     vec4 col = texture2D(u_trail, uv);
 
-    // vec3 col = vec3(gl_FragColor);
-    uv = gl_FragCoord.xy;
+    // // vec3 col = vec3(gl_FragColor);
+    // uv = gl_FragCoord.xy;
 
 
-    float gray = col.x;
+    // float gray = col.x;
 
-    int n = u_n1;
-	if (gray > 0.5) n = u_n2;
+    // int n = u_n1;
+	// if (gray > 0.5) n = u_n2;
 
-	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
-	// col.xyz = gray*vec3(character(n, p));
-	col.xyz = vec3(character(n, p));
+	// vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
+	// // col.xyz = gray*vec3(character(n, p));
+	// col.xyz = vec3(character(n, p));
 
-    gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
-    
-    // gl_FragColor = texture2D(u_trail, uv);
-
+	// gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
+	
+	gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
 }
 `

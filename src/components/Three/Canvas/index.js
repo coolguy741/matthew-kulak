@@ -19,7 +19,7 @@ const MainCanvas = props => {
                 alpha: true,
                 stencil: false,
                 depth: false,
-                preserveDrawingBuffer: true,
+                preserveDrawingBuffer: false,
             }}
         >
             <Camera

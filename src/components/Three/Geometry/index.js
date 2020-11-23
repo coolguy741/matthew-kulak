@@ -24,9 +24,8 @@ const Trail = props => {
     var diff = new MouseSpeed()
     diff.init()
 
-    const texture = useMemo(() => {
-        new THREE.DataTexture(new Float32Array(width * height))
-    }, [])
+    const texture = new THREE.DataTexture(new Float32Array(width * height))
+    texture.needsUpdate = true
 
     const uniforms = useMemo(
         () => ({
@@ -46,7 +45,7 @@ const Trail = props => {
         []
     )
 
-    const createRT = useMemo(() => {
+    const createRT1 = useMemo(() => {
         return new THREE.WebGLRenderTarget(
             width,
             height,
@@ -61,23 +60,38 @@ const Trail = props => {
         )
     })
 
-    const rt = [createRT, createRT]
+    const createRT2 = useMemo(() => {
+        return new THREE.WebGLRenderTarget(
+            width,
+            height,
+            Object.assign({
+                minFilter: THREE.NearestFilter,
+                magFilter: THREE.NearestFilter,
+                stencilBuffer: false,
+                depthBuffer: false,
+                depthWrite: false,
+                depthTest: false,
+            })
+        )
+    })
+
+    const rt = [createRT1, createRT2]
 
     const updateRT = (renderer, scene, camera) => {
+        // toggle rtIndex 0 <-> 1
         const destIndex = rtIndex === 0 ? 1 : 0
+
         const old = rt[rtIndex]
         const dest = rt[destIndex]
 
-        if (mat.current?.uniforms?.texture !== undefined) {
-            mat.current.uniforms.texture.value = copyData
-                ? texture
-                : old.texture
-        }
+        mat.current.uniforms.u_texture.value = old.texture
 
         const oldMainTarget = renderer.getRenderTarget()
         renderer.setRenderTarget(dest)
         renderer.render(scene, camera)
         renderer.setRenderTarget(oldMainTarget)
+
+        console.log(scene)
 
         rtIndex = destIndex
         copyData = false
@@ -94,10 +108,10 @@ const Trail = props => {
     }
 
     useFrame((state, delta) => {
-        // uniforms.u_mouse.value.lerp(pointer, 0.2)
+        uniforms.u_mouse.value.lerp(pointer, 0.2)
         uniforms.u_speed.value = speed
 
-        // updateRT(state.gl, state.scene, state.camera)
+        updateRT(state.gl, state.scene, state.camera, state)
 
         const diffSpeed =
             Math.max(Math.abs(diff.speedX), Math.abs(diff.speedY)) * 0.05
@@ -129,10 +143,12 @@ const Geometry = props => {
 
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
-        scene.background = new THREE.Color("orange")
         const target = new THREE.WebGLRenderTarget(width, height, {
             format: THREE.RGBFormat,
             stencilBuffer: false,
+            depthBuffer: false,
+            depthWrite: false,
+            depthTest: false,
         })
         return [scene, target]
     }, [])
@@ -168,6 +184,7 @@ const Geometry = props => {
         uniforms.u_n2.value = props.isDarkMode ? 0 : 4357252
         uniforms.u_bw1.value = props.isDarkMode ? 1.0 : 0.125
         uniforms.u_bw2.value = props.isDarkMode ? 0.125 : 1.0
+
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)
         state.gl.setRenderTarget(null)
@@ -177,7 +194,7 @@ const Geometry = props => {
         <>
             {createPortal(<Trail />, scene)}
             <mesh>
-                <planeBufferGeometry args={[width / height, 1, 0, 0]} />
+                <planeBufferGeometry args={[width / height, 1, 1, 1]} />
                 <shaderMaterial
                     uniforms={uniforms}
                     vertexShader={mainVert}
