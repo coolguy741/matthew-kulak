@@ -2,15 +2,16 @@ export const mainFrag = `
 precision highp float;
 
 uniform vec2 u_resolution;
-uniform float u_time;
 uniform float u_ratio;
+uniform vec2 u_mouse;
 uniform int u_n1;
 uniform int u_n2;
 uniform float u_bw1;
 uniform float u_bw2;
-uniform sampler2D u_trail;
+uniform sampler2D u_noise;
 
 varying vec2 v_uv;
+varying vec3 v_position;
 
 
 float character(int n, vec2 p) {
@@ -26,32 +27,40 @@ float character(int n, vec2 p) {
 	return u_bw2;
 }
 
+float map(float value, float min1, float max1, float min2, float max2) {
+    return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+}
+
 void main() {
 
-	// =========================
-    //     ASCII CONVERSION
-	// =========================
-
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    uv *= u_resolution.xy/u_resolution.xy;
-
-    vec4 col = texture2D(u_trail, uv);
-
-    // // vec3 col = vec3(gl_FragColor);
-    // uv = gl_FragCoord.xy;
-
-
-    // float gray = col.x;
-
-    // int n = u_n1;
-	// if (gray > 0.5) n = u_n2;
-
-	// vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
-	// // col.xyz = gray*vec3(character(n, p));
-	// col.xyz = vec3(character(n, p));
-
-	// gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
+	uv *= u_resolution.xy/u_resolution.xy;
 	
-	gl_FragColor = vec4(col.x, col.y, col.z, 1.0);
+	// vec2 direction = normalize(v_position.xy - u_mouse);
+    // float dist = distance(v_position.xy, u_mouse);
+
+    // float prox = map(dist, 0., 0.4, 0., 1.);
+
+	// prox = clamp(prox, 0., 2.1);
+	
+	// vec2 zoomedUV = uv + direction * prox * 0.7;
+	// vec2 zoomedUV1 = mix(uv, u_mouse.xy + vec2(0.5), prox);
+
+    // vec4 col = texture2D(u_noise, zoomedUV1);
+    vec4 col = texture2D(u_noise, uv);
+    uv = gl_FragCoord.xy;
+
+    float gray = col.x;
+
+    int n = u_n1;
+	if (gray > 0.5) n = u_n2;
+
+	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
+	// col.xyz = gray*vec3(character(n, p));
+	col.xyz = vec3(character(n, p));
+
+	gl_FragColor = vec4(col.xyz, 1.0);
+	// gl_FragColor = vec4(direction, 0.0, 1.0);
+
 }
 `

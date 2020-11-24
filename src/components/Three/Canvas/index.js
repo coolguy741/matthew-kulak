@@ -6,22 +6,21 @@ import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
 import Geometry from "../Geometry"
+import Noise from "../Noise"
 import { OrbitControls } from "@react-three/drei"
 
 const MainCanvas = props => {
-    // const [rotation, setRotation] = useState([0, 0, 0, 0])
-
     return (
         <Canvas
             className={styles.Canvas}
-            gl={{
-                antialias: true,
-                alpha: true,
-                stencil: false,
-                depth: true,
-                preserveDrawingBuffer: true,
-                powerPreference: "high-performance",
-            }}
+            gl={
+                {
+                    // antialias: true,
+                    // alpha: true,
+                    // stencil: false,
+                    // depth: false,
+                }
+            }
         >
             <Camera
                 left={-1}
@@ -33,11 +32,9 @@ const MainCanvas = props => {
                 position={[0, 0, 1]}
             />
             <OrbitControls />
-            <ambientLight />
             <Suspense fallback={null}>
                 <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>
-            {/* <Effects /> */}
         </Canvas>
     )
 }

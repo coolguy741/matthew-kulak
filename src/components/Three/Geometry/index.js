@@ -1,141 +1,27 @@
-import React, { useMemo, useRef } from "react"
+import React, { useMemo } from "react"
 
 import * as THREE from "three"
-import MouseSpeed from "mouse-speed"
 import { useFrame, createPortal } from "react-three-fiber"
 import { mainVert } from "../shaders/mainVert"
-import { trailVert } from "../shaders/trailVert"
 import { mainFrag } from "../shaders/mainFrag"
-import { trailFrag } from "../shaders/trailFrag"
-
-const Trail = props => {
-    const mat = useRef()
-
-    const width = window.innerWidth
-    const height = window.innerHeight
-
-    let copyData = true
-    let rtIndex = 0
-    let speed = 0
-
-    const pointer = useMemo(() => {
-        return new THREE.Vector2()
-    })
-
-    var diff = new MouseSpeed()
-    diff.init()
-
-    const texture = useMemo(() => {
-        return new THREE.DataTexture(new Float32Array(width * height))
-    })
-
-    texture.needsUpdate = true
-
-    const uniforms = useMemo(
-        () => ({
-            u_mouse: { value: new THREE.Vector2() },
-            u_speed: {
-                value: 0,
-            },
-            u_time: { value: 0.0 },
-            u_resolution: { value: { x: width, y: height } },
-            u_ratio: {
-                value: window.innerWidth / window.innerHeight,
-            },
-            u_texture: {
-                value: texture,
-            },
-        }),
-        []
-    )
-
-    const createRT = useMemo(() => {
-        return new THREE.WebGLRenderTarget(
-            width,
-            height,
-            Object.assign({
-                minFilter: THREE.LinearFilter,
-                magFilter: THREE.LinearFilter,
-                stencilBuffer: false,
-                depthBuffer: false,
-                depthWrite: false,
-                depthTest: false,
-            })
-        )
-    })
-
-    const rt = [createRT, createRT]
-
-    const updateRT = (renderer, scene, camera) => {
-        // toggle rtIndex 0 <-> 1
-        const destIndex = rtIndex === 0 ? 1 : 0
-
-        const old = rt[rtIndex]
-        const dest = rt[destIndex]
-
-        mat.current.uniforms.u_texture.value = old.texture
-
-        const oldMainTarget = renderer.getRenderTarget()
-        renderer.setRenderTarget(dest)
-        renderer.render(scene, camera)
-        renderer.setRenderTarget(oldMainTarget)
-
-        rtIndex = destIndex
-        copyData = false
-    }
-
-    const pointerMove = e => {
-        pointer.set(e.x / window.innerWidth, 1 - e.y / window.innerHeight)
-
-        pointer.x = (e.clientX / window.innerWidth) * 2 - 1
-        pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
-
-        uniforms.u_mouse.value.x = pointer.x
-        uniforms.u_mouse.value.y = pointer.y
-    }
-
-    useFrame((state, delta) => {
-        uniforms.u_mouse.value.lerp(pointer, 0.2)
-        uniforms.u_speed.value = speed
-
-        updateRT(state.gl, state.scene, state.camera)
-
-        const diffSpeed =
-            Math.max(Math.abs(diff.speedX), Math.abs(diff.speedY)) * 0.05
-        speed += Math.min(diffSpeed, 0.1)
-        speed *= 0.95
-
-        speed = Math.min(2, speed)
-    })
-
-    return (
-        <mesh onPointerMove={pointerMove}>
-            <planeBufferGeometry args={[width, height, 1, 1]} />
-            <shaderMaterial
-                ref={mat}
-                uniforms={uniforms}
-                vertexShader={trailVert}
-                fragmentShader={trailFrag}
-                onUpdate={self => (self.needsUpdate = true)}
-            />
-        </mesh>
-    )
-}
+import Noise from "../Noise"
 
 const Geometry = props => {
     const width = window.innerWidth
     const height = window.innerHeight
 
-    const cam = useRef()
+    const pointer = useMemo(() => {
+        return new THREE.Vector2()
+    })
 
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
         const target = new THREE.WebGLRenderTarget(width, height, {
             format: THREE.RGBFormat,
             stencilBuffer: false,
-            depthBuffer: false,
-            depthWrite: false,
-            depthTest: false,
+            depthBuffer: true,
+            depthWrite: true,
+            depthTest: true,
         })
         return [scene, target]
     }, [])
@@ -147,8 +33,12 @@ const Geometry = props => {
             u_ratio: {
                 value: window.innerWidth / window.innerHeight,
             },
-            u_trail: {
+            u_noise: {
                 value: target.texture,
+            },
+            u_mouse: { value: new THREE.Vector2() },
+            u_speed: {
+                value: 0,
             },
             u_n1: {
                 value: 4096,
@@ -177,10 +67,18 @@ const Geometry = props => {
         state.gl.setRenderTarget(null)
     })
 
+    const pointerMove = e => {
+        pointer.set(e.x / window.innerWidth, 1 - e.y / window.innerHeight)
+        pointer.x = (e.clientX / window.innerWidth) * 2 - 1
+        pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
+        uniforms.u_mouse.value.x = pointer.x
+        uniforms.u_mouse.value.y = pointer.y
+    }
+
     return (
         <>
-            {createPortal(<Trail />, scene)}
-            <mesh>
+            {createPortal(<Noise />, scene)}
+            <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry args={[width / height, 1, 1, 1]} />
                 <shaderMaterial
                     uniforms={uniforms}
