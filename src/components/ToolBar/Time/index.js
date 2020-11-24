@@ -2,23 +2,21 @@ import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
 import styles from "../../../styles/toolbar.module.scss"
-import axios from "axios"
 
 const Time = props => {
-    const startTime = () => {
-        const time = new Date().toLocaleTimeString("en", {
-                hour: "numeric",
-                hour12: false,
-                minute: "numeric",
-            }),
-            t = setTimeout(function () {
-                startTime()
-            }, 500)
+    const [curTime, setTime] = useState()
 
-        return time
-    }
-
-    startTime()
+    useEffect(() => {
+        setInterval(() => {
+            setTime(
+                new Date().toLocaleTimeString("en", {
+                    hour: "numeric",
+                    hour12: false,
+                    minute: "numeric",
+                })
+            )
+        }, 1000)
+    })
 
     return (
         <div
@@ -26,7 +24,7 @@ const Time = props => {
                 props.isDarkMode ? styles.timedark : ""
             }`}
         >
-            <span className={styles.span}>{startTime()}</span>
+            <span className={styles.span}>{curTime}</span>
         </div>
     )
 }
