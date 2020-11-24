@@ -67,9 +67,9 @@ class GNOS extends React.Component {
                         style={{ height: height, width: width }}
                     >
                         {this.props.isDarkMode ? (
-                            <GnosWhite width={120} />
+                            <GnosWhite id={styles.gnosWhite} width={120} />
                         ) : (
-                            <GnosSVG width={120} />
+                            <GnosSVG id={styles.gnos} width={120} />
                         )}
                         <p>
                             GNOS is a clothing brand founded and operated by

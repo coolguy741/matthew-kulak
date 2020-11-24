@@ -31,7 +31,7 @@ const MainCanvas = props => {
                 far={10}
                 position={[0, 0, 1]}
             />
-            <OrbitControls />
+            {/* <OrbitControls /> */}
             <Suspense fallback={null}>
                 <Geometry isDarkMode={props.isDarkMode} />
             </Suspense>
