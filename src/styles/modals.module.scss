@@ -1,15 +1,15 @@
 $light-bg: #fff;
 $dark-bg: #202020;
 $light-border: #202020;
-$dark-border: #fff;
+$dark-border: #f2a11d;
 $light-text: #202020;
-$dark-text: #fff;
+$dark-text: #f2a11d;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
-$dark-box-shadow: rgba(200, 200, 200, 0.2);
-$light-btn: #ccc;
-$light-btn-hover: #bbb;
-$dark-btn: #404040;
-$dark-btn-hover: #474747;
+$dark-box-shadow: rgba(242, 160, 29, 0.2);
+$light-btn: #eee;
+$light-btn-hover: #ddd;
+$dark-btn: #272727;
+$dark-btn-hover: #373737;
 $light-heading: #303030;
 $light-link: #404040;
 $dark-link: #ddd;
@@ -17,6 +17,7 @@ $dark-link: #ddd;
 .modal {
     background-color: $light-bg;
     border: 1px solid $light-border;
+    border-radius: 3px;
     box-shadow: 5px 5px 0 $light-box-shadow;
     position: absolute;
     top: 0;
@@ -135,6 +136,9 @@ $dark-link: #ddd;
     }
     & .btn {
         display: inline-block;
+        font-family: "White Rabbit";
+        text-transform: uppercase;
+        border: 1px solid $light-border;
         height: 40px;
         line-height: 40px;
         background-color: $light-btn;
@@ -158,6 +162,7 @@ $dark-link: #ddd;
     }
     &dark .btn {
         background-color: $dark-btn;
+        border: 1px solid $dark-border;
         color: $dark-text;
         -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
         -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
@@ -173,8 +178,8 @@ $dark-link: #ddd;
     }
     & .heading {
         text-transform: uppercase;
-        font-family: "PixelMix";
-        font-size: 12px;
+        font-family: "White Rabbit";
+        font-size: 15px;
         color: $light-heading !important;
         -webkit-transition: color 0.3s ease-out;
         -moz-transition: color 0.3s ease-out;

@@ -1,3 +1,21 @@
+/* Monospace 821 */
+@font-face {
+    font-family: "Monospace 821 Regular";
+    font-style: normal;
+    font-weight: 300;
+    src: local(""),
+        url("../assets/fonts/Monospace 821 Regular.ttf") format("truetype");
+}
+
+/* White Rabbit */
+@font-face {
+    font-family: "WhiteRabbit";
+    font-style: normal;
+    font-weight: 300;
+    src: local(""),
+        url("../assets/fonts/WhiteRabbit-47pD.ttf") format("truetype");
+}
+
 /* Alarm Clock */
 @font-face {
     font-family: "Alarm Clock";
@@ -102,7 +120,7 @@ html {
     overflow: hidden;
 }
 body {
-    font-family: "Roboto Mono";
+    font-family: "White Rabbit";
     font-size: 0.7em;
     margin: 0;
     font-weight: 300;
@@ -125,8 +143,9 @@ p,
 li,
 a,
 span {
-    font-family: "Roboto Mono";
+    font-family: "Monospace 821 Regular";
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
 .header {
     position: fixed;
