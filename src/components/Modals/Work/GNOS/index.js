@@ -76,7 +76,7 @@ class GNOS extends React.Component {
                             FRMR.
                         </p>
                         <h4>Tech Stack</h4>
-                        <ul>
+                        <ul className={styles.tech}>
                             <li>
                                 <span>React</span>
                             </li>

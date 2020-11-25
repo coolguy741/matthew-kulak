@@ -73,7 +73,7 @@ class Tripwire extends React.Component {
                             instance.
                         </p>
                         <h4>Tech Stack</h4>
-                        <ul>
+                        <ul className={styles.tech}>
                             <li>
                                 <span>React</span>
                             </li>

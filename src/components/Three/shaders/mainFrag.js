@@ -59,7 +59,7 @@ void main() {
 	// col.xyz = gray*vec3(character(n, p));
 	col.xyz = vec3(character(n, p));
 
-	if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.949, 0.627, 0.102); 
+	// if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.949, 0.627, 0.102); 
 
 	gl_FragColor = vec4(col.xyz, 1.0);
 

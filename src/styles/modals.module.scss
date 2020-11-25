@@ -1,16 +1,17 @@
 $light-bg: #fff;
 $dark-bg: #202020;
 $light-border: #202020;
-$dark-border: #f2a11d;
+$dark-border: #505050;
 $light-text: #202020;
-$dark-text: #f2a11d;
+$dark-text: #777;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
-$dark-box-shadow: rgba(242, 160, 29, 0.2);
+$dark-box-shadow: rgba(50, 50, 50, 0.2);
 $light-btn: #eee;
 $light-btn-hover: #ddd;
-$dark-btn: #272727;
-$dark-btn-hover: #373737;
+$dark-btn: #202020;
+$dark-btn-hover: #272727;
 $light-heading: #303030;
+$dark-heading: #fff;
 $light-link: #404040;
 $dark-link: #ddd;
 
@@ -61,16 +62,21 @@ $dark-link: #ddd;
         margin-top: 15px;
     }
     & h4 {
-        font-family: "PixelMix";
         margin-bottom: 10px;
-        font-size: 12px;
+        font-size: 14px;
         text-transform: uppercase;
     }
     &dark p,
     &dark span,
-    &dark h4,
     &dark li {
         color: $dark-text;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
+    }
+    &dark h4 {
+        color: $dark-heading;
         -webkit-transition: color 0.3s ease-out;
         -moz-transition: color 0.3s ease-out;
         -o-transition: color 0.3s ease-out;
@@ -82,7 +88,7 @@ $dark-link: #ddd;
         padding: 0;
         & li {
             margin-bottom: 3px;
-            list-style-type: "+";
+            list-style-type: none;
         }
         & li span {
             margin-left: 10px;
@@ -98,6 +104,9 @@ $dark-link: #ddd;
         & img {
             margin-bottom: -3px;
         }
+    }
+    & ul.tech li::before {
+        content: "+";
     }
     & ul.contact {
         list-style: none;
@@ -126,6 +135,9 @@ $dark-link: #ddd;
         -moz-transition: color 0.3s ease-out;
         -o-transition: color 0.3s ease-out;
         transition: color 0.3s ease-out;
+    }
+    &dark ul.tech li::before {
+        color: $dark-heading;
     }
     &dark ul.contact li a:hover {
         color: $dark-text;
@@ -163,7 +175,7 @@ $dark-link: #ddd;
     &dark .btn {
         background-color: $dark-btn;
         border: 1px solid $dark-border;
-        color: $dark-text;
+        color: $dark-heading;
         -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
         -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
         -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
@@ -187,11 +199,14 @@ $dark-link: #ddd;
         transition: color 0.3s ease-out;
     }
     &dark .heading {
-        color: $dark-text !important;
+        color: $dark-heading !important;
         -webkit-transition: color 0.3s ease-out;
         -moz-transition: color 0.3s ease-out;
         -o-transition: color 0.3s ease-out;
         transition: color 0.3s ease-out;
+    }
+    &dark .workIcon span {
+        color: $dark-heading;
     }
 }
 

@@ -59,7 +59,7 @@ const Geometry = props => {
     useFrame((state, delta) => {
         uniforms.u_time.value += delta
         uniforms.u_n2.value = props.isDarkMode ? 0 : 4357252
-        uniforms.u_bw1.value = props.isDarkMode ? 1.0 : 0.125
+        uniforms.u_bw1.value = props.isDarkMode ? 0.6 : 0.125
         uniforms.u_bw2.value = props.isDarkMode ? 0.125 : 1.0
 
         state.gl.setRenderTarget(target)

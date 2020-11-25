@@ -68,7 +68,7 @@ class Cadillac extends React.Component {
                         <CadillacSVG width={120} />
                         <p>The Cadillac website is built using Three.js.</p>
                         <h4>Tech Stack</h4>
-                        <ul>
+                        <ul className={styles.tech}>
                             <li>
                                 <span>React</span>
                             </li>
