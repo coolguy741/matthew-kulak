@@ -1,4 +1,4 @@
-<img src="https://github.com/FRMR1/portfolio/blob/master/src/assets/images/svg/frmr.svg" width="400">
+## FRMR
 
 ## Summary
 
