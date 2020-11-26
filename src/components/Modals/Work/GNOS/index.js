@@ -22,6 +22,63 @@ class GNOS extends React.Component {
 
         const dragHandlers = { onStart: this.onStart }
 
+        const cssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return styles.light
+                case "DARK":
+                    return styles.dark
+                case "GREY":
+                    return styles.grey
+                default:
+                    return
+            }
+        }
+
+        const xSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return (
+                        <XWhite
+                            className={styles.close}
+                            onClick={this.props.onGnosClose}
+                            width={12}
+                        />
+                    )
+                case "GREY":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onGnosClose}
+                            width={12}
+                        />
+                    )
+                case "LIGHT":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onGnosClose}
+                            width={12}
+                        />
+                    )
+                default:
+                    return
+            }
+        }
+
+        const gnosSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <GnosWhite width={120} />
+                case "GREY":
+                    return <GnosSVG width={120} />
+                case "LIGHT":
+                    return <GnosSVG width={120} />
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -30,9 +87,9 @@ class GNOS extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${
-                        this.props.isDarkMode ? styles.modaldark : ""
-                    } ${
+                    className={`${styles.modal} ${cssSwitch(
+                        this.props.theme
+                    )} ${
                         this.props.isGNOSOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -48,29 +105,13 @@ class GNOS extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>GNOS</span>
-                        {this.props.isDarkMode ? (
-                            <X
-                                className={styles.close}
-                                onClick={this.props.onGNOSClose}
-                                width={12}
-                            />
-                        ) : (
-                            <XWhite
-                                className={styles.close}
-                                onClick={this.props.onGNOSClose}
-                                width={12}
-                            />
-                        )}
+                        {xSwitch(this.props.theme)}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        {this.props.isDarkMode ? (
-                            <GnosWhite id={styles.gnosWhite} width={120} />
-                        ) : (
-                            <GnosSVG id={styles.gnos} width={120} />
-                        )}
+                        {gnosSwitch(this.props.theme)}
                         <p>
                             GNOS is a clothing brand founded and operated by
                             FRMR.
@@ -107,7 +148,7 @@ class GNOS extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         isGNOSOpen: state.isGNOSOpen,
         zIndex: state.zIndexes.gnos,
     }
@@ -115,7 +156,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGNOSClose: () => dispatch({ type: "CLOSE_GNOS" }),
+        onGnosClose: () => dispatch({ type: "CLOSE_GNOS" }),
         onIncZIndex: () => dispatch({ type: "INC_Z_GNOS" }),
     }
 }

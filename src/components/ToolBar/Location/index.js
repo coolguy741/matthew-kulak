@@ -36,12 +36,21 @@ const Location = props => {
             })
     }, [])
 
+    const cssSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return styles.light
+            case "DARK":
+                return styles.dark
+            case "GREY":
+                return styles.grey
+            default:
+                return
+        }
+    }
+
     return (
-        <div
-            className={`${styles.location} ${
-                props.isDarkMode ? styles.locationdark : ""
-            }`}
-        >
+        <div className={`${styles.location} ${cssSwitch(props.theme)}`}>
             <span className={styles.span}>
                 {userData.city} <br></br>
                 {userData.region}, {userData.countryCode}
@@ -52,7 +61,7 @@ const Location = props => {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
     }
 }
 

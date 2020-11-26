@@ -21,6 +21,50 @@ class Cadillac extends React.Component {
 
         const dragHandlers = { onStart: this.onStart }
 
+        const cssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return styles.light
+                case "DARK":
+                    return styles.dark
+                case "GREY":
+                    return styles.grey
+                default:
+                    return
+            }
+        }
+
+        const xSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return (
+                        <XWhite
+                            className={styles.close}
+                            onClick={this.props.onCadillacClose}
+                            width={12}
+                        />
+                    )
+                case "GREY":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onCadillacClose}
+                            width={12}
+                        />
+                    )
+                case "LIGHT":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onCadillacClose}
+                            width={12}
+                        />
+                    )
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -29,9 +73,9 @@ class Cadillac extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${
-                        this.props.isDarkMode ? styles.modaldark : ""
-                    } ${
+                    className={`${styles.modal} ${cssSwitch(
+                        this.props.theme
+                    )} ${
                         this.props.isCadillacOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -47,19 +91,7 @@ class Cadillac extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Cadillac</span>
-                        {this.props.isDarkMode ? (
-                            <X
-                                className={styles.close}
-                                onClick={this.props.onCadillacClose}
-                                width={12}
-                            />
-                        ) : (
-                            <XWhite
-                                className={styles.close}
-                                onClick={this.props.onCadillacClose}
-                                width={12}
-                            />
-                        )}
+                        {xSwitch(this.props.theme)}
                     </div>
                     <div
                         className={styles.body}
@@ -99,7 +131,7 @@ class Cadillac extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         isCadillacOpen: state.isCadillacOpen,
         zIndex: state.zIndexes.cadillac,
     }

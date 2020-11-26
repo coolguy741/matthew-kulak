@@ -26,6 +26,89 @@ class Contact extends React.Component {
 
         const dragHandlers = { onStart: this.onStart }
 
+        const cssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return styles.light
+                case "DARK":
+                    return styles.dark
+                case "GREY":
+                    return styles.grey
+                default:
+                    return
+            }
+        }
+
+        const xSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return (
+                        <XWhite
+                            className={styles.close}
+                            onClick={this.props.onContactClose}
+                            width={12}
+                        />
+                    )
+                case "GREY":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onContactClose}
+                            width={12}
+                        />
+                    )
+                case "LIGHT":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onContactClose}
+                            width={12}
+                        />
+                    )
+                default:
+                    return
+            }
+        }
+
+        const mailSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <MailWhite className={styles.mail} width={16} />
+                case "GREY":
+                    return <Mail className={styles.mail} width={16} />
+                case "LIGHT":
+                    return <Mail className={styles.mail} width={16} />
+                default:
+                    return
+            }
+        }
+
+        const twitterSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <TwitterWhite width={19} />
+                case "GREY":
+                    return <Twitter width={19} />
+                case "LIGHT":
+                    return <Twitter width={19} />
+                default:
+                    return
+            }
+        }
+
+        const githubSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <GithubWhite width={18} />
+                case "GREY":
+                    return <Github width={18} />
+                case "LIGHT":
+                    return <Github width={18} />
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -34,9 +117,9 @@ class Contact extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${
-                        this.props.isDarkMode ? styles.modaldark : ""
-                    } ${
+                    className={`${styles.modal} ${cssSwitch(
+                        this.props.theme
+                    )} ${
                         this.props.isContactOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -47,24 +130,12 @@ class Contact extends React.Component {
                     onClick={this.props.onIncZIndex}
                 >
                     <div
-                        className={`${styles.modalBar} ${
-                            this.props.isDarkMode ? styles.modalBardark : ""
-                        } handle`}
+                        className={`${styles.modalBar} ${cssSwitch(
+                            this.props.theme
+                        )} handle`}
                     >
                         <span className={styles.heading}>Contact</span>
-                        {this.props.isDarkMode ? (
-                            <X
-                                className={styles.close}
-                                onClick={this.props.onContactClose}
-                                width={12}
-                            />
-                        ) : (
-                            <XWhite
-                                className={styles.close}
-                                onClick={this.props.onContactClose}
-                                width={12}
-                            />
-                        )}
+                        {xSwitch(this.props.theme)}
                     </div>
                     <div
                         className={styles.body}
@@ -73,18 +144,7 @@ class Contact extends React.Component {
                         <ul className={styles.contact}>
                             <li>
                                 <a href="mailto:frmr@frmr.dev">
-                                    {this.props.isDarkMode ? (
-                                        <MailWhite
-                                            className={styles.mail}
-                                            width={16}
-                                        />
-                                    ) : (
-                                        <Mail
-                                            className={styles.mail}
-                                            width={16}
-                                        />
-                                    )}{" "}
-                                    frmr@frmr.dev
+                                    {mailSwitch(this.props.theme)} frmr@frmr.dev
                                 </a>
                             </li>
                             <li>
@@ -92,12 +152,7 @@ class Contact extends React.Component {
                                     href="https://twitter.com/frmr_"
                                     target="_blank"
                                 >
-                                    {this.props.isDarkMode ? (
-                                        <TwitterWhite width={19} />
-                                    ) : (
-                                        <Twitter width={19} />
-                                    )}{" "}
-                                    @frmr_
+                                    {twitterSwitch(this.props.theme)} @frmr_
                                 </a>
                             </li>
                             <li>
@@ -105,12 +160,7 @@ class Contact extends React.Component {
                                     href="https://github.com/frmr1"
                                     target="_blank"
                                 >
-                                    {this.props.isDarkMode ? (
-                                        <GithubWhite width={18} />
-                                    ) : (
-                                        <Github width={18} />
-                                    )}{" "}
-                                    @frmr1
+                                    {githubSwitch(this.props.theme)} @frmr1
                                 </a>
                             </li>
                         </ul>
@@ -123,7 +173,7 @@ class Contact extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         isContactOpen: state.isContactOpen,
         zIndex: state.zIndexes.contact,
     }

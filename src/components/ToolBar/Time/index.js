@@ -18,12 +18,21 @@ const Time = props => {
         }, 1000)
     })
 
+    const cssSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return styles.light
+            case "DARK":
+                return styles.dark
+            case "GREY":
+                return styles.grey
+            default:
+                return
+        }
+    }
+
     return (
-        <div
-            className={`${styles.time} ${
-                props.isDarkMode ? styles.timedark : ""
-            }`}
-        >
+        <div className={`${styles.time} ${cssSwitch(props.theme)}`}>
             <span className={styles.span}>{curTime}</span>
         </div>
     )
@@ -31,7 +40,7 @@ const Time = props => {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
     }
 }
 

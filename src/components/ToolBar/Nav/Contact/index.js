@@ -8,11 +8,23 @@ const Contact = props => {
         props.onOpenContact()
         props.onIncZIndex()
     }
+
+    const cssSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return styles.light
+            case "DARK":
+                return styles.dark
+            case "GREY":
+                return styles.grey
+            default:
+                return
+        }
+    }
+
     return (
         <div
-            className={`${styles.nav} ${
-                props.isDarkMode ? styles.navdark : ""
-            }`}
+            className={`${styles.nav} ${cssSwitch(props.theme)}`}
             onClick={onClickFn}
         >
             <span className={styles.navlink}>Contact</span>
@@ -22,7 +34,7 @@ const Contact = props => {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         zIndex: state.zIndexes.contact,
     }
 }

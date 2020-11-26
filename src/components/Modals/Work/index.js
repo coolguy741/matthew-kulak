@@ -42,6 +42,63 @@ class Work extends React.Component {
 
         const dragHandlers = { onStart: this.onStart }
 
+        const cssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return styles.light
+                case "DARK":
+                    return styles.dark
+                case "GREY":
+                    return styles.grey
+                default:
+                    return
+            }
+        }
+
+        const xSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return (
+                        <XWhite
+                            className={styles.close}
+                            onClick={this.props.onWorkClose}
+                            width={12}
+                        />
+                    )
+                case "GREY":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onWorkClose}
+                            width={12}
+                        />
+                    )
+                case "LIGHT":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onWorkClose}
+                            width={12}
+                        />
+                    )
+                default:
+                    return
+            }
+        }
+
+        const gnosSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <GnosWhite width={60} />
+                case "GREY":
+                    return <Gnos width={60} />
+                case "LIGHT":
+                    return <Gnos width={60} />
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -50,9 +107,9 @@ class Work extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${
-                        this.props.isDarkMode ? styles.modaldark : ""
-                    } ${
+                    className={`${styles.modal} ${cssSwitch(
+                        this.props.theme
+                    )} ${
                         this.props.isWorkOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -68,19 +125,7 @@ class Work extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Work</span>
-                        {this.props.isDarkMode ? (
-                            <X
-                                className={styles.close}
-                                onClick={this.props.onWorkClose}
-                                width={12}
-                            />
-                        ) : (
-                            <XWhite
-                                className={styles.close}
-                                onClick={this.props.onWorkClose}
-                                width={12}
-                            />
-                        )}
+                        {xSwitch(this.props.theme)}
                     </div>
                     <div
                         className={styles.body}
@@ -91,11 +136,7 @@ class Work extends React.Component {
                                 className={styles.workIcon}
                                 onClick={onClickGNOS}
                             >
-                                {this.props.isDarkMode ? (
-                                    <GnosWhite width={60} />
-                                ) : (
-                                    <Gnos width={60} />
-                                )}
+                                {gnosSwitch(this.props.theme)}
                                 <br />
                                 <span>GNOS</span>
                             </div>
@@ -125,7 +166,7 @@ class Work extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         isWorkOpen: state.isWorkOpen,
         zIndex: state.zIndexes.work,
     }

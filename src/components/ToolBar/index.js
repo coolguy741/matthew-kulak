@@ -13,12 +13,21 @@ import Weather from "./Weather"
 import styles from "../../styles/toolbar.module.scss"
 
 const Toolbar = props => {
+    const cssSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return styles.light
+            case "DARK":
+                return styles.dark
+            case "GREY":
+                return styles.grey
+            default:
+                return
+        }
+    }
+
     return (
-        <div
-            className={`${styles.toolbar} ${
-                props.isDarkMode ? styles.toolbardark : ""
-            }`}
-        >
+        <div className={`${styles.toolbar} ${cssSwitch(props.theme)}`}>
             <Logo />
             <Work />
             <About />
@@ -34,7 +43,7 @@ const Toolbar = props => {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
     }
 }
 

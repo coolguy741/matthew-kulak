@@ -4,8 +4,8 @@ import Draggable from "react-draggable"
 import { connect } from "react-redux"
 import X from "../../../assets/images/svg/x.svg"
 import XWhite from "../../../assets/images/svg/x-white.svg"
-import MainLogo from "../../../assets/images/svg/logo.svg"
-import WhiteLogo from "../../../assets/images/svg/logo-white.svg"
+import Logo from "../../../assets/images/svg/logo.svg"
+import LogoWhite from "../../../assets/images/svg/logo-white.svg"
 import Github from "../../../assets/images/svg/github.svg"
 import GithubWhite from "../../../assets/images/svg/github-white.svg"
 import Mail from "../../../assets/images/svg/mail.svg"
@@ -31,6 +31,102 @@ class About extends React.Component {
 
         const dragHandlers = { onStart: this.onStart }
 
+        const cssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return styles.light
+                case "DARK":
+                    return styles.dark
+                case "GREY":
+                    return styles.grey
+                default:
+                    return
+            }
+        }
+
+        const xSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return (
+                        <XWhite
+                            className={styles.close}
+                            onClick={this.props.onAboutClose}
+                            width={12}
+                        />
+                    )
+                case "GREY":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onAboutClose}
+                            width={12}
+                        />
+                    )
+                case "LIGHT":
+                    return (
+                        <X
+                            className={styles.close}
+                            onClick={this.props.onAboutClose}
+                            width={12}
+                        />
+                    )
+                default:
+                    return
+            }
+        }
+
+        const logoSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <LogoWhite width={80} />
+                case "GREY":
+                    return <Logo width={80} />
+                case "LIGHT":
+                    return <Logo width={80} />
+                default:
+                    return
+            }
+        }
+
+        const mailSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <MailWhite className={styles.mail} width={19} />
+                case "GREY":
+                    return <Mail className={styles.mail} width={19} />
+                case "LIGHT":
+                    return <Mail className={styles.mail} width={19} />
+                default:
+                    return
+            }
+        }
+
+        const twitterSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <TwitterWhite width={20} />
+                case "GREY":
+                    return <Twitter width={20} />
+                case "LIGHT":
+                    return <Twitter width={20} />
+                default:
+                    return
+            }
+        }
+
+        const githubSwitch = param => {
+            switch (param) {
+                case "DARK":
+                    return <GithubWhite width={18} />
+                case "GREY":
+                    return <Github width={18} />
+                case "LIGHT":
+                    return <Github width={18} />
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -39,9 +135,9 @@ class About extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${
-                        this.props.isDarkMode ? styles.modaldark : ""
-                    } ${
+                    className={`${styles.modal} ${cssSwitch(
+                        this.props.theme
+                    )} ${
                         this.props.isAboutOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -52,35 +148,19 @@ class About extends React.Component {
                     onClick={this.props.onIncZIndex}
                 >
                     <div
-                        className={`${styles.modalBar} ${
-                            this.props.isDarkMode ? styles.modalBardark : ""
-                        } handle`}
+                        className={`${styles.modalBar} ${cssSwitch(
+                            this.props.theme
+                        )} handle`}
                     >
                         <span className={styles.heading}>About</span>
-                        {this.props.isDarkMode ? (
-                            <X
-                                className={styles.close}
-                                onClick={this.props.onAboutClose}
-                                width={12}
-                            />
-                        ) : (
-                            <XWhite
-                                className={styles.close}
-                                onClick={this.props.onAboutClose}
-                                width={12}
-                            />
-                        )}
+                        {xSwitch(this.props.theme)}
                     </div>
                     <div
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
                         <div className={styles.aboutLogoContainer}>
-                            {this.props.isDarkMode ? (
-                                <WhiteLogo width={80} />
-                            ) : (
-                                <MainLogo width={80} />
-                            )}
+                            {logoSwitch(this.props.theme)}
                         </div>
                         <div className={styles.about}>
                             <div className={styles.aboutTitle}>
@@ -112,37 +192,19 @@ class About extends React.Component {
                                 className={`${styles.aboutDesc} ${styles.connect}`}
                             >
                                 <a href="mailto:frmr@frmr.dev">
-                                    {this.props.isDarkMode ? (
-                                        <MailWhite
-                                            className={styles.mail}
-                                            width={19}
-                                        />
-                                    ) : (
-                                        <Mail
-                                            className={styles.mail}
-                                            width={19}
-                                        />
-                                    )}
+                                    {mailSwitch(this.props.theme)}
                                 </a>
                                 <a
                                     href="https://twitter.com/frmr_"
                                     target="_blank"
                                 >
-                                    {this.props.isDarkMode ? (
-                                        <TwitterWhite width={20} />
-                                    ) : (
-                                        <Twitter width={20} />
-                                    )}
+                                    {twitterSwitch(this.props.theme)}
                                 </a>
                                 <a
                                     href="https://github.com/frmr1"
                                     target="_blank"
                                 >
-                                    {this.props.isDarkMode ? (
-                                        <GithubWhite width={18} />
-                                    ) : (
-                                        <Github width={18} />
-                                    )}
+                                    {githubSwitch(this.props.theme)}
                                 </a>
                             </div>
                             <span className={styles.copyright}>
@@ -158,7 +220,7 @@ class About extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
         isAboutOpen: state.isAboutOpen,
         zIndex: state.zIndexes.about,
     }

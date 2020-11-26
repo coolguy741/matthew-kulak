@@ -6,24 +6,40 @@ import LogoWhite from "../../../assets/images/svg/logo-white.svg"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Logo = props => {
+    const cssSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return styles.light
+            case "DARK":
+                return styles.dark
+            case "GREY":
+                return styles.grey
+            default:
+                return
+        }
+    }
+
+    const svgSwitch = param => {
+        switch (param) {
+            case "DARK":
+                return <LogoWhite width={155} />
+            case "GREY":
+                return <LogoBlack width={155} />
+            case "LIGHT":
+                return <LogoBlack width={155} />
+        }
+    }
+
     return (
-        <div
-            className={`${styles.logo} ${
-                props.isDarkMode ? styles.logodark : ""
-            }`}
-        >
-            {props.isDarkMode ? (
-                <LogoWhite alt={"FRMR"} width={155} />
-            ) : (
-                <LogoBlack alt={"FRMR"} width={155} />
-            )}
+        <div className={`${styles.logo} ${cssSwitch(props.theme)}`}>
+            {svgSwitch(props.theme)}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
     }
 }
 

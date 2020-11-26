@@ -21,7 +21,7 @@ const initialState = {
         cadillac: 0,
         tripwire: 0,
     },
-    darkMode: false,
+    theme: "LIGHT",
     isContactOpen: false,
     isAboutOpen: false,
     isGNOSOpen: false,
@@ -29,6 +29,7 @@ const initialState = {
     isTripwireOpen: false,
 }
 
+// add 1 to the current (highest) z-index
 const getNextZ = zIndexes => Math.max(...Object.values(zIndexes)) + 1
 
 const reducer = (state = initialState, action) => {
@@ -81,10 +82,20 @@ const reducer = (state = initialState, action) => {
                     tripwire: getNextZ(state.zIndexes),
                 },
             }
-        case "DARKMODE_TOGGLE":
+        case "LIGHT_THEME":
             return {
                 ...state,
-                darkMode: !state.darkMode,
+                theme: "LIGHT",
+            }
+        case "DARK_THEME":
+            return {
+                ...state,
+                theme: "DARK",
+            }
+        case "GREY_THEME":
+            return {
+                ...state,
+                theme: "GREY",
             }
         case "OPEN_WORK":
             return {

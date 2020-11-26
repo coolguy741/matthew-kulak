@@ -223,9 +223,17 @@ $dark-link: #ddd;
     &dark .about .aboutDesc span {
         background-color: rgba(255, 255, 255, 0.07);
         color: $dark-heading;
+        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
     }
     &dark .about .status span {
         color: #74f269;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     &dark .about .copyright {
         background-color: transparent;
@@ -275,15 +283,23 @@ $dark-link: #ddd;
         content: ":";
     }
     & .about span {
-        background-color: #eee;
+        background-color: rgba(0, 0, 0, 0.07);
         display: inline-block;
         padding: 0 10px;
+        -webkit-transition: background-color 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out;
+        transition: background-color 0.3s ease-out;
     }
     & .aboutTitle {
         margin-bottom: 10px;
     }
     & .status span {
         color: #2ec821;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     & .connect {
         margin-top: 30px;
