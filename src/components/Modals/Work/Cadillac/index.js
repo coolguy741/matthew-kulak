@@ -2,8 +2,6 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import X from "../../../../assets/images/svg/x.svg"
-import XWhite from "../../../../assets/images/svg/x-white.svg"
 import CadillacSVG from "../../../../assets/images/svg/cadillac.svg"
 import styles from "../../../../styles/modals.module.scss"
 
@@ -29,37 +27,6 @@ class Cadillac extends React.Component {
                     return styles.dark
                 case "GREY":
                     return styles.grey
-                default:
-                    return
-            }
-        }
-
-        const xSwitch = param => {
-            switch (param) {
-                case "DARK":
-                    return (
-                        <XWhite
-                            className={styles.close}
-                            onClick={this.props.onCadillacClose}
-                            width={12}
-                        />
-                    )
-                case "GREY":
-                    return (
-                        <X
-                            className={styles.close}
-                            onClick={this.props.onCadillacClose}
-                            width={12}
-                        />
-                    )
-                case "LIGHT":
-                    return (
-                        <X
-                            className={styles.close}
-                            onClick={this.props.onCadillacClose}
-                            width={12}
-                        />
-                    )
                 default:
                     return
             }
@@ -91,7 +58,29 @@ class Cadillac extends React.Component {
                         } handle`}
                     >
                         <span className={styles.heading}>Cadillac</span>
-                        {xSwitch(this.props.theme)}
+                        <svg
+                            width="12"
+                            class={styles.close}
+                            onClick={this.props.onCadillacClose}
+                            viewBox="0 0 32.78 32.78"
+                        >
+                            <rect
+                                class={styles.xPath}
+                                x="-2.61"
+                                y="12.21"
+                                width="38"
+                                height="8.36"
+                                transform="translate(16.39 -6.79) rotate(45)"
+                            />
+                            <rect
+                                class={styles.xPath}
+                                x="-2.61"
+                                y="12.21"
+                                width="38"
+                                height="8.36"
+                                transform="translate(39.57 16.39) rotate(135)"
+                            />
+                        </svg>
                     </div>
                     <div
                         className={styles.body}

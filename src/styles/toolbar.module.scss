@@ -1,11 +1,18 @@
 $light-bg: #fff;
-$dark-bg: #202020;
 $light-border: #202020;
-$dark-border: #505050;
 $light-text: #202020;
-$dark-text: #ccc;
 $light-hover: #eee;
+
+$dark-bg: #202020;
+$dark-border: #505050;
+$dark-text: #ccc;
 $dark-hover: #303030;
+
+$grey-bg: #757575;
+$grey-border: #202020;
+$grey-text: #202020;
+$grey-hover: #656565;
+
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
 $breakpoint-tablet-portrait: 560px;
@@ -148,6 +155,14 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
     }
+    .logoPath,
+    .frmrPath {
+        fill: #202020;
+        -webkit-transition: fill 0.3s ease-out;
+        -moz-transition: fill 0.3s ease-out;
+        -o-transition: fill 0.3s ease-out;
+        transition: fill 0.3s ease-out;
+    }
     &.dark {
         background-color: $dark-bg;
         border-top: 1px solid $dark-border;
@@ -203,16 +218,24 @@ $breakpoint-tablet-portrait: 560px;
             -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
+        .logoPath,
+        .frmrPath {
+            fill: #fff;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
     }
     &.grey {
-        background-color: $dark-bg;
-        border-top: 1px solid $dark-border;
+        background-color: $grey-bg;
+        border-top: 1px solid $grey-border;
         -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         .logo {
-            border-right: 1px solid $dark-border;
+            border-right: 1px solid $grey-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
             -o-transition: border 0.3s ease-out;
@@ -222,13 +245,13 @@ $breakpoint-tablet-portrait: 560px;
         .weather,
         .location,
         .time {
-            border-right: 1px solid $dark-border;
+            border-right: 1px solid $grey-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
             -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
-                color: $dark-text;
+                color: $grey-text;
                 -webkit-transition: color 0.3s ease-out;
                 -moz-transition: color 0.3s ease-out;
                 -o-transition: color 0.3s ease-out;
@@ -236,13 +259,13 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         .nav {
-            background-color: $dark-bg;
+            background-color: $grey-bg;
             -webkit-transition: background-color 0.3s ease-out;
             -moz-transition: background-color 0.3s ease-out;
             -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
             &:hover {
-                background-color: $dark-hover;
+                background-color: $grey-hover;
                 -webkit-transition: background-color 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out;
                 -o-transition: background-color 0.3s ease-out;
@@ -250,14 +273,22 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         .frmr {
-            background-color: $dark-bg;
-            border-top: 1px solid $dark-border;
+            background-color: $grey-bg;
+            border-top: 1px solid $grey-border;
             -webkit-transition: border 0.3s ease-out,
                 background-color 0.3s ease-out;
             -moz-transition: border 0.3s ease-out,
                 background-color 0.3s ease-out;
             -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
         }
     }
 }

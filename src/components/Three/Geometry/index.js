@@ -56,11 +56,50 @@ const Geometry = props => {
         []
     )
 
+    const n2Switch = param => {
+        switch (param) {
+            case "LIGHT":
+                return 4357252
+            case "DARK":
+                return 0
+            case "GREY":
+                return 18157905
+            default:
+                return
+        }
+    }
+
+    const bw1Switch = param => {
+        switch (param) {
+            case "LIGHT":
+                return 0.125
+            case "DARK":
+                return 0.6
+            case "GREY":
+                return 0.125
+            default:
+                return
+        }
+    }
+
+    const bw2Switch = param => {
+        switch (param) {
+            case "LIGHT":
+                return 1.0
+            case "DARK":
+                return 0.125
+            case "GREY":
+                return 0.45
+            default:
+                return
+        }
+    }
+
     useFrame((state, delta) => {
         uniforms.u_time.value += delta
-        uniforms.u_n2.value = props.isDarkMode ? 0 : 4357252
-        uniforms.u_bw1.value = props.isDarkMode ? 0.6 : 0.125
-        uniforms.u_bw2.value = props.isDarkMode ? 0.125 : 1.0
+        uniforms.u_n2.value = n2Switch(props.theme)
+        uniforms.u_bw1.value = bw1Switch(props.theme)
+        uniforms.u_bw2.value = bw2Switch(props.theme)
 
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)

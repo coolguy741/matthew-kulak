@@ -1,48 +1,48 @@
 $light-bg: #fff;
-$dark-bg: #202020;
 $light-border: #202020;
-$dark-border: #505050;
 $light-text: #202020;
-$dark-text: #626262;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
-$dark-box-shadow: rgba(50, 50, 50, 0.2);
 $light-btn: #eee;
 $light-btn-hover: #ddd;
+$light-heading: #303030;
+$light-link: #404040;
+$light-x: #202020;
+$light-tripwire: #ff5c6e;
+
+$dark-bg: #202020;
+$dark-border: #505050;
+$dark-text: #626262;
+$dark-box-shadow: rgba(50, 50, 50, 0.2);
 $dark-btn: #202020;
 $dark-btn-hover: #272727;
-$light-heading: #303030;
 $dark-heading: #fff;
-$light-link: #404040;
 $dark-link: #ddd;
+$dark-x: #fff;
+$dark-tripwire: #ff5c6e;
+
+$grey-bg: #757575;
+$grey-border: #202020;
+$grey-text: #202020;
+$grey-box-shadow: rgba(50, 50, 50, 0.2);
+$grey-btn: #707070;
+$grey-btn-hover: #656565;
+$grey-heading: #202020;
+$grey-link: #303030;
+$grey-x: #202020;
+$grey-tripwire: #202020;
 
 .modal {
-    background-color: $light-bg;
-    border: 1px solid $light-border;
-    border-radius: 3px;
-    box-shadow: 5px 5px 0 $light-box-shadow;
-    position: absolute;
     top: 0;
     left: 0;
-    -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-    -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-    -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-    transition: background-color 0.3s ease-out, border 0.3s ease-out;
-    &dark {
-        background-color: $dark-bg;
-        border: 1px solid $dark-border;
-        box-shadow: 5px 5px 0 $dark-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
-    }
+    border-radius: 3px;
+    position: absolute;
     &Visible {
         visibility: visible;
     }
     &Hidden {
         visibility: hidden;
     }
-    & p,
+    p,
     span,
     h4,
     h2,
@@ -53,295 +53,570 @@ $dark-link: #ddd;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        color: $light-text;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
     }
-    & p {
+    p {
         margin-top: 15px;
     }
-    & h4 {
+    h4 {
         margin-bottom: 10px;
         font-size: 14px;
         text-transform: uppercase;
     }
-    &dark p,
-    &dark span,
-    &dark li {
-        color: $dark-text;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark h4 {
-        color: $dark-heading;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    & ul {
+    ul {
         list-style-position: inside;
         margin: 0 0 10px;
         padding: 0;
-        & li {
+        li {
             margin-bottom: 3px;
             list-style-type: none;
         }
-        & li span {
+        li span {
             margin-left: 10px;
         }
-        & a {
+        a {
             text-decoration: none;
+        }
+        & img {
+            margin-bottom: -3px;
+        }
+    }
+    ul.tech li::before {
+        content: "+";
+    }
+    ul.contact {
+        list-style: none;
+        li {
+            margin-bottom: 12px;
+            list-style: none;
+        }
+    }
+    .btn {
+        display: inline-block;
+        font-family: "White Rabbit";
+        text-transform: uppercase;
+        height: 40px;
+        line-height: 40px;
+        text-decoration: none;
+        padding: 0 15px;
+        text-align: center;
+        margin: 20px 15px 0 0;
+        border-radius: 3px;
+    }
+    .heading {
+        text-transform: uppercase;
+        font-family: "White Rabbit";
+        font-size: 15px;
+    }
+    .modalBar {
+        padding: 10px;
+        cursor: move;
+    }
+    .body {
+        padding: 20px 20px;
+        min-width: 230px;
+        min-height: 100px;
+        resize: both;
+        overflow: scroll;
+        .aboutLogoContainer {
+            margin: 15px 0 30px;
+        }
+        .about {
+            display: grid;
+            grid-template-columns: 100px auto;
+        }
+        h2 {
+            font-size: 13px;
+            color: $light-text;
+            text-transform: uppercase;
+            font-family: "Monospace 821 Regular";
+            font-weight: 300;
+            display: inline;
+        }
+        h2::after {
+            content: ":";
+        }
+        .about span {
+            display: inline-block;
+            padding: 0 10px;
+        }
+        .aboutTitle {
+            margin-bottom: 10px;
+        }
+        .connect {
+            margin-top: 30px;
+        }
+        .about .copyright {
+            margin-top: 50px;
+            padding: 0;
+        }
+        .about .aboutDesc a {
+            margin-right: 12px;
+        }
+    }
+    .close {
+        cursor: pointer;
+        float: right;
+        margin-top: 3px;
+    }
+    .mail {
+        margin-left: 1px;
+    }
+    .workIcons {
+        padding: 10px 0;
+        margin: 0 -10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        text-align: center;
+    }
+    .workIcon {
+        padding: 0 20px;
+        flex-shrink: 0;
+    }
+    .btnContainer {
+        margin-bottom: 20px;
+    }
+    #gnos .st0 {
+        fill: #202020;
+    }
+    &.light {
+        background-color: $light-bg;
+        border: 1px solid $light-border;
+        box-shadow: 5px 5px 0 $light-box-shadow;
+        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        p,
+        span,
+        h4,
+        h2,
+        li {
             color: $light-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
-        & img {
-            margin-bottom: -3px;
+        ul.contact a {
+            color: $light-link;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact a:hover {
+            color: $light-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.tech li::before {
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .btn {
+            color: $light-text;
+            background-color: $light-btn;
+            border: 1px solid $light-border;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .btn:hover {
+            background-color: $light-btn-hover;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .heading {
+            color: $light-heading !important;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .modalBar {
+            border-bottom: 1px solid $light-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+        }
+        .body .about {
+            color: $light-text;
+        }
+        .body span {
+            background-color: rgba(0, 0, 0, 0.07);
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
+        }
+        .about .status span {
+            color: #2ec821;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .about .copyright {
+            background-color: transparent;
+        }
+        .gnosPathDark,
+        .gnosPathR {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .gnosPathLight,
+        .gnosPathOutline {
+            fill: #fff;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .xPath {
+            fill: $light-x;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .tripwirePath {
+            fill: $light-tripwire;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .mailPath,
+        .githubPath,
+        .twitterPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
         }
     }
-    & ul.tech li::before {
-        content: "+";
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    & ul.contact {
-        list-style: none;
-        & li {
-            margin-bottom: 12px;
-            list-style: none;
-            & a {
-                color: $light-link;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
-                transition: color 0.3s ease-out;
-            }
-            & a:hover {
-                color: $light-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
-                transition: color 0.3s ease-out;
-            }
-        }
-    }
-    &dark ul.contact li a {
-        color: $dark-link;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark ul.tech li::before {
-        color: $dark-heading;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark ul.contact li a:hover {
-        color: $dark-text;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    & .btn {
-        display: inline-block;
-        font-family: "White Rabbit";
-        text-transform: uppercase;
-        border: 1px solid $light-border;
-        height: 40px;
-        line-height: 40px;
-        background-color: $light-btn;
-        color: $light-text;
-        text-decoration: none;
-        padding: 0 15px;
-        text-align: center;
-        margin: 20px 15px 0 0;
-        border-radius: 3px;
-        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        transition: color 0.3s ease-out, background-color 0.3s ease-out;
-    }
-    & .btn:hover {
-        background-color: $light-btn-hover;
-        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        transition: color 0.3s ease-out, background-color 0.3s ease-out;
-    }
-    &dark .btn {
-        background-color: $dark-btn;
+    &.dark {
+        background-color: $dark-bg;
         border: 1px solid $dark-border;
-        color: $dark-heading;
-        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        box-shadow: 5px 5px 0 $dark-box-shadow;
+        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        p,
+        span,
+        h2,
+        li {
+            color: $dark-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        h4 {
+            color: $dark-heading;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact li a {
+            color: $dark-link;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.tech li::before {
+            color: $dark-heading;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact li a:hover {
+            color: $dark-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .btn {
+            background-color: $dark-btn;
+            border: 1px solid $dark-border;
+            color: $dark-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .btn:hover {
+            background-color: $dark-btn-hover;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .heading {
+            color: $dark-heading !important;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .workIcon span {
+            color: $dark-heading;
+        }
+        .about h2 {
+            color: $dark-text;
+        }
+        .about .aboutDesc span {
+            background-color: rgba(255, 255, 255, 0.07);
+            color: $dark-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .about .status span {
+            color: #74f269;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .about .copyright {
+            background-color: transparent;
+        }
+        .modalBar {
+            border-bottom: 1px solid $dark-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+        }
+        .gnosPathDark {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .gnosPathLight,
+        .gnosPathR {
+            fill: #fff;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath {
+            fill: #fff;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .xPath {
+            fill: $dark-x;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .tripwirePath {
+            fill: $dark-tripwire;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .mailPath,
+        .githubPath,
+        .twitterPath {
+            fill: #fff;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
     }
-    &dark .btn:hover {
-        background-color: $dark-btn-hover;
-        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        transition: color 0.3s ease-out, background-color 0.3s ease-out;
+    &.grey {
+        background-color: $grey-bg;
+        border: 1px solid $grey-border;
+        box-shadow: 5px 5px 0 $grey-box-shadow;
+        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        p,
+        span,
+        h2,
+        li {
+            color: $grey-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        h4 {
+            color: $grey-heading;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact li a {
+            color: $grey-link;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.tech li::before {
+            color: $grey-heading;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact li a:hover {
+            color: $grey-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .btn {
+            background-color: $grey-btn;
+            border: 1px solid $grey-border;
+            color: $grey-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .btn:hover {
+            background-color: $grey-btn-hover;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .heading {
+            color: $grey-heading !important;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .workIcon span {
+            color: $grey-heading;
+        }
+        .about h2 {
+            color: $grey-text;
+        }
+        .about .aboutDesc span {
+            background-color: rgba(255, 255, 255, 0.07);
+            color: $grey-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .about .status span {
+            color: #74f269;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .about .copyright {
+            background-color: transparent;
+        }
+        .modalBar {
+            border-bottom: 1px solid $grey-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+        }
+        .gnosPathDark,
+        .gnosPathR {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .gnosPathLight,
+        .gnosPathOutline {
+            fill: #757575;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .xPath {
+            fill: $grey-x;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .tripwirePath {
+            fill: $grey-tripwire;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .mailPath,
+        .githubPath,
+        .twitterPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
     }
-    & .heading {
-        text-transform: uppercase;
-        font-family: "White Rabbit";
-        font-size: 15px;
-        color: $light-heading !important;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark .heading {
-        color: $dark-heading !important;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark .workIcon span {
-        color: $dark-heading;
-    }
-    &dark .about h2 {
-        color: $dark-text;
-    }
-    &dark .about .aboutDesc span {
-        background-color: rgba(255, 255, 255, 0.07);
-        color: $dark-heading;
-        -webkit-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-        transition: color 0.3s ease-out, background-color 0.3s ease-out;
-    }
-    &dark .about .status span {
-        color: #74f269;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    &dark .about .copyright {
-        background-color: transparent;
-    }
-}
-
-.modalBar {
-    padding: 10px;
-    border-bottom: 1px solid $light-border;
-    -webkit-transition: border 0.3s ease-out;
-    -moz-transition: border 0.3s ease-out;
-    -o-transition: border 0.3s ease-out;
-    transition: border 0.3s ease-out;
-    cursor: move;
-    &dark {
-        border-bottom: 1px solid $dark-border;
-        -webkit-transition: border 0.3s ease-out;
-        -moz-transition: border 0.3s ease-out;
-        -o-transition: border 0.3s ease-out;
-        transition: border 0.3s ease-out;
-    }
-}
-
-.body {
-    padding: 20px 20px;
-    min-width: 230px;
-    min-height: 100px;
-    resize: both;
-    overflow: scroll;
-    & .aboutLogoContainer {
-        margin: 15px 0 30px;
-    }
-    & .about {
-        color: $light-text;
-        display: grid;
-        grid-template-columns: 100px auto;
-    }
-    & h2 {
-        font-size: 13px;
-        color: $light-text;
-        text-transform: uppercase;
-        font-family: "Monospace 821 Regular";
-        font-weight: 300;
-        display: inline;
-    }
-    & h2::after {
-        content: ":";
-    }
-    & .about span {
-        background-color: rgba(0, 0, 0, 0.07);
-        display: inline-block;
-        padding: 0 10px;
-        -webkit-transition: background-color 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out;
-        transition: background-color 0.3s ease-out;
-    }
-    & .aboutTitle {
-        margin-bottom: 10px;
-    }
-    & .status span {
-        color: #2ec821;
-        -webkit-transition: color 0.3s ease-out;
-        -moz-transition: color 0.3s ease-out;
-        -o-transition: color 0.3s ease-out;
-        transition: color 0.3s ease-out;
-    }
-    & .connect {
-        margin-top: 30px;
-    }
-    & .about .copyright {
-        margin-top: 50px;
-        background-color: transparent;
-        padding: 0;
-    }
-    & .about .aboutDesc a {
-        margin-right: 12px;
-    }
-}
-
-.close {
-    cursor: pointer;
-    float: right;
-    margin-top: 3px;
-}
-
-.mail {
-    margin-left: 1px;
-}
-
-.workIcons {
-    padding: 10px 0;
-    margin: 0 -10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    text-align: center;
-}
-
-.workIcon {
-    padding: 0 20px;
-    flex-shrink: 0;
-}
-
-.btnContainer {
-    margin-bottom: 20px;
-}
-
-#gnos .st0 {
-    fill: #202020;
 }

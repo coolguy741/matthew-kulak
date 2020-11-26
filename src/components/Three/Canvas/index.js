@@ -33,7 +33,7 @@ const MainCanvas = props => {
             />
             {/* <OrbitControls /> */}
             <Suspense fallback={null}>
-                <Geometry isDarkMode={props.isDarkMode} />
+                <Geometry theme={props.theme} />
             </Suspense>
         </Canvas>
     )
@@ -41,7 +41,7 @@ const MainCanvas = props => {
 
 const mapStateToProps = state => {
     return {
-        isDarkMode: state.darkMode,
+        theme: state.theme,
     }
 }
 

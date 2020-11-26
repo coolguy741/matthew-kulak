@@ -22,7 +22,11 @@ const DarkMode = props => {
     return (
         <div className={`${styles.darkmode} ${cssSwitch(props.theme)}`}>
             <span onClick={props.onDarkModeToggle} className={styles.span}>
-                <Moon width={20} onClick={props.setDarkTheme} />
+                <span onClick={props.setLightTheme}>LIGHT</span>
+                <br />
+                <span onClick={props.setGreyTheme}>GREY</span>
+                <br />
+                <span onClick={props.setDarkTheme}>DARK</span>
             </span>
         </div>
     )
