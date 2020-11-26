@@ -3,7 +3,7 @@ $dark-bg: #202020;
 $light-border: #202020;
 $dark-border: #505050;
 $light-text: #202020;
-$dark-text: #777;
+$dark-text: #626262;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
 $dark-box-shadow: rgba(50, 50, 50, 0.2);
 $light-btn: #eee;
@@ -45,6 +45,7 @@ $dark-link: #ddd;
     & p,
     span,
     h4,
+    h2,
     li {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -107,6 +108,10 @@ $dark-link: #ddd;
     }
     & ul.tech li::before {
         content: "+";
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     & ul.contact {
         list-style: none;
@@ -138,6 +143,10 @@ $dark-link: #ddd;
     }
     &dark ul.tech li::before {
         color: $dark-heading;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
     }
     &dark ul.contact li a:hover {
         color: $dark-text;
@@ -208,6 +217,19 @@ $dark-link: #ddd;
     &dark .workIcon span {
         color: $dark-heading;
     }
+    &dark .about h2 {
+        color: $dark-text;
+    }
+    &dark .about .aboutDesc span {
+        background-color: rgba(255, 255, 255, 0.07);
+        color: $dark-heading;
+    }
+    &dark .about .status span {
+        color: #74f269;
+    }
+    &dark .about .copyright {
+        background-color: transparent;
+    }
 }
 
 .modalBar {
@@ -233,6 +255,47 @@ $dark-link: #ddd;
     min-height: 100px;
     resize: both;
     overflow: scroll;
+    & .aboutLogoContainer {
+        margin: 15px 0 30px;
+    }
+    & .about {
+        color: $light-text;
+        display: grid;
+        grid-template-columns: 100px auto;
+    }
+    & h2 {
+        font-size: 13px;
+        color: $light-text;
+        text-transform: uppercase;
+        font-family: "Monospace 821 Regular";
+        font-weight: 300;
+        display: inline;
+    }
+    & h2::after {
+        content: ":";
+    }
+    & .about span {
+        background-color: #eee;
+        display: inline-block;
+        padding: 0 10px;
+    }
+    & .aboutTitle {
+        margin-bottom: 10px;
+    }
+    & .status span {
+        color: #2ec821;
+    }
+    & .connect {
+        margin-top: 30px;
+    }
+    & .about .copyright {
+        margin-top: 50px;
+        background-color: transparent;
+        padding: 0;
+    }
+    & .about .aboutDesc a {
+        margin-right: 12px;
+    }
 }
 
 .close {

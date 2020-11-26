@@ -3,8 +3,8 @@ import React, { useMemo, useRef } from "react"
 import * as THREE from "three"
 import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
-import { noiseVert } from "../shaders/noiseVert"
-import { noiseFrag } from "../shaders/noiseFrag"
+import { noiseVert } from "../Shaders/noiseVert"
+import { noiseFrag } from "../Shaders/noiseFrag"
 
 const Noise = props => {
     const width = window.innerWidth

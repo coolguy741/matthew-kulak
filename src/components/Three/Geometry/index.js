@@ -2,8 +2,8 @@ import React, { useMemo } from "react"
 
 import * as THREE from "three"
 import { useFrame, createPortal } from "react-three-fiber"
-import { mainVert } from "../shaders/mainVert"
-import { mainFrag } from "../shaders/mainFrag"
+import { mainVert } from "../Shaders/mainVert"
+import { mainFrag } from "../Shaders/mainFrag"
 import Noise from "../Noise"
 
 const Geometry = props => {
