@@ -7,6 +7,7 @@ $dark-bg: #202020;
 $dark-border: #505050;
 $dark-text: #ccc;
 $dark-hover: #303030;
+$dark-heading: #fff;
 
 $grey-bg: #757575;
 $grey-border: #202020;
@@ -33,15 +34,31 @@ $breakpoint-tablet-portrait: 560px;
         flex: 0 0 auto;
         width: 70px;
     }
-    .darkmode {
-        display: flex;
-        flex: 1 0 auto;
+    .themePicker {
+        display: block;
+        margin-top: -1px;
+        margin-left: -1px;
         width: 70px;
-        width: auto;
-        height: 100%;
+        height: 50px;
         position: relative;
-        align-items: center;
-        justify-content: center;
+        .iconContainer {
+            padding: 15px;
+        }
+        .themeDrawer {
+            margin-left: -1px;
+            span {
+                padding-bottom: 4px;
+                display: block;
+                cursor: pointer;
+            }
+            h3 {
+                font-size: 13px;
+                font-family: "Monospace 821 Regular";
+                text-transform: uppercase;
+                font-weight: 300;
+                margin-bottom: 12px;
+            }
+        }
     }
     .nav,
     .weather,
@@ -154,14 +171,45 @@ $breakpoint-tablet-portrait: 560px;
             -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
-    }
-    .logoPath,
-    .frmrPath {
-        fill: #202020;
-        -webkit-transition: fill 0.3s ease-out;
-        -moz-transition: fill 0.3s ease-out;
-        -o-transition: fill 0.3s ease-out;
-        transition: fill 0.3s ease-out;
+        .logoPath,
+        .frmrPath,
+        .themePickerPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .themePicker {
+            background-color: $light-bg;
+            border-top: 1px solid $light-border;
+            border-left: 1px solid $light-border;
+            -webkit-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            h3,
+            span {
+                color: $light-text;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
+            }
+            .themeDrawer {
+                background-color: $light-bg;
+                border-left: 1px solid $light-border;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+        }
     }
     &.dark {
         background-color: $dark-bg;
@@ -194,6 +242,15 @@ $breakpoint-tablet-portrait: 560px;
                 transition: color 0.3s ease-out;
             }
         }
+        .time span {
+            color: #f00;
+            background-color: #432020;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
         .nav {
             background-color: $dark-bg;
             -webkit-transition: background-color 0.3s ease-out;
@@ -219,12 +276,43 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .logoPath,
-        .frmrPath {
+        .frmrPath,
+        .themePickerPath {
             fill: #fff;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
+        }
+        .themePicker {
+            background-color: $dark-bg;
+            border-top: 1px solid $dark-border;
+            border-left: 1px solid $dark-border;
+            -webkit-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            h3,
+            span {
+                color: $dark-text;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
+            }
+            .themeDrawer {
+                background-color: $dark-bg;
+                border-left: 1px solid $dark-border;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
         }
     }
     &.grey {
@@ -283,12 +371,43 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .logoPath,
-        .frmrPath {
+        .frmrPath,
+        .themePickerPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
+        }
+        .themePicker {
+            background-color: $grey-bg;
+            border-top: 1px solid $light-border;
+            border-left: 1px solid $light-border;
+            -webkit-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out,
+                border 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            h3,
+            span {
+                color: $grey-text;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
+            }
+            .themeDrawer {
+                background-color: $grey-bg;
+                border-left: 1px solid $grey-border;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
         }
     }
 }
@@ -313,17 +432,15 @@ $breakpoint-tablet-portrait: 560px;
         .weather,
         .location,
         .time,
-        .darkmode,
+        .themePicker,
         .logo {
             width: 80px;
             flex: 0 0 auto;
             text-align: center;
         }
-
         .logo {
             padding: 8px 0;
         }
-
         .frmr {
             position: relative;
             bottom: 0;
@@ -333,9 +450,15 @@ $breakpoint-tablet-portrait: 560px;
             padding: 0;
             height: 60px;
         }
-
         .frmr.dark {
             border-right: 1px solid $dark-border;
+        }
+        .themePicker {
+            // height: 60px;
+            width: 80px;
+        }
+        .themeDrawer {
+            bottom: 60px;
         }
     }
 }
@@ -349,13 +472,22 @@ $breakpoint-tablet-portrait: 560px;
         .weather,
         .location,
         .time,
-        .darkmode,
+        .themePicker,
         .logo {
             width: 100px;
         }
-
         .frmr {
             height: 70px;
+        }
+        .themePicker {
+            height: 71px;
+            width: 100px;
+            .iconContainer {
+                height: 70px;
+            }
+        }
+        .themeDrawer {
+            width: 101px;
         }
     }
 }

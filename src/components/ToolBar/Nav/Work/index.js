@@ -27,13 +27,7 @@ const Work = props => {
             className={`${styles.nav} ${cssSwitch(props.theme)}`}
             onClick={onClickFn}
         >
-            <span
-                className={`${styles.navlink} ${
-                    props.isDarkMode ? styles.navlinkdark : ""
-                }`}
-            >
-                Work
-            </span>
+            <span className={styles.navlink}>Work</span>
         </div>
     )
 }

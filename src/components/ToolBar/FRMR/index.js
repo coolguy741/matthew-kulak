@@ -56,10 +56,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDarkModeToggle: () => dispatch({ type: "TOGGLE" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FRMR)
+export default connect(mapStateToProps)(FRMR)

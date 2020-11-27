@@ -3,7 +3,7 @@ import React from "react"
 import { connect } from "react-redux"
 import Logo from "./Logo"
 import FRMR from "./FRMR"
-import DarkMode from "./DarkMode"
+import ThemePicker from "./ThemePicker"
 import Location from "./Location"
 import Work from "./Nav/Work"
 import About from "./Nav/About"
@@ -27,17 +27,19 @@ const Toolbar = props => {
     }
 
     return (
-        <div className={`${styles.toolbar} ${cssSwitch(props.theme)}`}>
-            <Logo />
-            <Work />
-            <About />
-            <Contact />
-            <FRMR />
-            <Time />
-            <Weather />
-            <Location />
-            <DarkMode />
-        </div>
+        <>
+            <div className={`${styles.toolbar} ${cssSwitch(props.theme)}`}>
+                <Logo />
+                <Work />
+                <About />
+                <Contact />
+                <FRMR />
+                <Time />
+                <Weather />
+                <Location />
+                <ThemePicker />
+            </div>
+        </>
     )
 }
 

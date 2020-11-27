@@ -54,12 +54,6 @@ Layout.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-const mapStateToProps = state => {
-    return {
-        isDarkMode: state.darkMode,
-    }
-}
-
-export default connect(mapStateToProps)(Layout)
+export default Layout
 
 export { StateContext }

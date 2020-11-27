@@ -52,11 +52,7 @@ class Cadillac extends React.Component {
                     }}
                     onClick={this.props.onIncZIndex}
                 >
-                    <div
-                        className={`${styles.modalBar} ${
-                            this.props.isDarkMode ? styles.modalBardark : ""
-                        } handle`}
-                    >
+                    <div className={`${styles.modalBar} handle`}>
                         <span className={styles.heading}>Cadillac</span>
                         <svg
                             width="12"
