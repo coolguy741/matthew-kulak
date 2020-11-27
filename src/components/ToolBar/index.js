@@ -33,11 +33,12 @@ const Toolbar = props => {
                 <Work />
                 <About />
                 <Contact />
+                <div className={styles.break}></div>
                 <FRMR />
-                <Time />
                 <Weather />
                 <Location />
                 <ThemePicker />
+                <Time />
             </div>
         </>
     )

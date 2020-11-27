@@ -191,7 +191,9 @@ $grey-tripwire: #202020;
         span,
         h4,
         h2,
-        li {
+        li,
+        ul.contact a:hover,
+        .body .about {
             color: $light-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
@@ -200,13 +202,6 @@ $grey-tripwire: #202020;
         }
         ul.contact a {
             color: $light-link;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
-            transition: color 0.3s ease-out;
-        }
-        ul.contact a:hover {
-            color: $light-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
@@ -250,9 +245,6 @@ $grey-tripwire: #202020;
             -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
         }
-        .body .about {
-            color: $light-text;
-        }
         .body span {
             background-color: rgba(0, 0, 0, 0.07);
             -webkit-transition: background-color 0.3s ease-out;
@@ -270,14 +262,6 @@ $grey-tripwire: #202020;
         .about .copyright {
             background-color: transparent;
         }
-        .gnosPathDark,
-        .gnosPathR {
-            fill: #202020;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
         .gnosPathLight,
         .gnosPathOutline {
             fill: #fff;
@@ -287,7 +271,12 @@ $grey-tripwire: #202020;
             transition: fill 0.3s ease-out;
         }
         .logoPath,
-        .frmrPath {
+        .frmrPath,
+        .gnosPathDark,
+        .gnosPathR,
+        .mailPath,
+        .githubPath,
+        .twitterPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -308,15 +297,6 @@ $grey-tripwire: #202020;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
-        .mailPath,
-        .githubPath,
-        .twitterPath {
-            fill: #202020;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
     }
     &.dark {
         background-color: $dark-bg;
@@ -329,14 +309,18 @@ $grey-tripwire: #202020;
         p,
         span,
         h2,
-        li {
+        li,
+        ul.contact li a:hover,
+        .about h2 {
             color: $dark-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
-        h4 {
+        h4,
+        ul.tech li::before,
+        .workIcon span {
             color: $dark-heading;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
@@ -345,20 +329,6 @@ $grey-tripwire: #202020;
         }
         ul.contact li a {
             color: $dark-link;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
-            transition: color 0.3s ease-out;
-        }
-        ul.tech li::before {
-            color: $dark-heading;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
-            transition: color 0.3s ease-out;
-        }
-        ul.contact li a:hover {
-            color: $dark-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
@@ -388,12 +358,6 @@ $grey-tripwire: #202020;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
-        }
-        .workIcon span {
-            color: $dark-heading;
-        }
-        .about h2 {
-            color: $dark-text;
         }
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
@@ -428,16 +392,13 @@ $grey-tripwire: #202020;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
+        .logoPath,
+        .frmrPath,
+        .mailPath,
+        .githubPath,
+        .twitterPath,
         .gnosPathLight,
         .gnosPathR {
-            fill: #fff;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
-        .logoPath,
-        .frmrPath {
             fill: #fff;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -458,15 +419,6 @@ $grey-tripwire: #202020;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
-        .mailPath,
-        .githubPath,
-        .twitterPath {
-            fill: #fff;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
     }
     &.grey {
         background-color: $grey-bg;
@@ -479,15 +431,10 @@ $grey-tripwire: #202020;
         p,
         span,
         h2,
-        li {
+        li,
+        ul.contact li a:hover,
+        .about h2 {
             color: $grey-text;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
-            transition: color 0.3s ease-out;
-        }
-        h4 {
-            color: $grey-heading;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
@@ -500,15 +447,10 @@ $grey-tripwire: #202020;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
-        ul.tech li::before {
+        ul.tech li::before,
+        h4,
+        .workIcon span {
             color: $grey-heading;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
-            transition: color 0.3s ease-out;
-        }
-        ul.contact li a:hover {
-            color: $grey-text;
             -webkit-transition: color 0.3s ease-out;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
@@ -539,12 +481,6 @@ $grey-tripwire: #202020;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
-        .workIcon span {
-            color: $grey-heading;
-        }
-        .about h2 {
-            color: $grey-text;
-        }
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
             color: $grey-heading;
@@ -571,14 +507,6 @@ $grey-tripwire: #202020;
             -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
         }
-        .gnosPathDark,
-        .gnosPathR {
-            fill: #202020;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
         .gnosPathLight,
         .gnosPathOutline {
             fill: #757575;
@@ -588,7 +516,12 @@ $grey-tripwire: #202020;
             transition: fill 0.3s ease-out;
         }
         .logoPath,
-        .frmrPath {
+        .frmrPath,
+        .mailPath,
+        .githubPath,
+        .twitterPath,
+        .gnosPathDark,
+        .gnosPathR {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -604,15 +537,6 @@ $grey-tripwire: #202020;
         }
         .tripwirePath {
             fill: $grey-tripwire;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
-            transition: fill 0.3s ease-out;
-        }
-        .mailPath,
-        .githubPath,
-        .twitterPath {
-            fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;

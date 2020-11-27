@@ -13,6 +13,7 @@ const Time = props => {
                     hour: "numeric",
                     hour12: false,
                     minute: "numeric",
+                    second: "numeric",
                 })
             )
         }, 1000)

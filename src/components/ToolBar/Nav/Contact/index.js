@@ -9,24 +9,8 @@ const Contact = props => {
         props.onIncZIndex()
     }
 
-    const cssSwitch = param => {
-        switch (param) {
-            case "LIGHT":
-                return styles.light
-            case "DARK":
-                return styles.dark
-            case "GREY":
-                return styles.grey
-            default:
-                return
-        }
-    }
-
     return (
-        <div
-            className={`${styles.nav} ${cssSwitch(props.theme)}`}
-            onClick={onClickFn}
-        >
+        <div className={styles.nav} onClick={onClickFn}>
             <span className={styles.navlink}>Contact</span>
         </div>
     )

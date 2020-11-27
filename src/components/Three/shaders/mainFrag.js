@@ -35,18 +35,7 @@ void main() {
 
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
 	uv *= u_resolution.xy/u_resolution.xy;
-	
-	// vec2 direction = normalize(v_position.xy - u_mouse);
-    // float dist = distance(v_position.xy, u_mouse);
 
-    // float prox = map(dist, 0., 0.4, 0., 1.);
-
-	// prox = clamp(prox, 0., 2.1);
-	
-	// vec2 zoomedUV = uv + direction * prox * 0.7;
-	// vec2 zoomedUV1 = mix(uv, u_mouse.xy + vec2(0.5), prox);
-
-    // vec4 col = texture2D(u_noise, zoomedUV1);
     vec4 col = texture2D(u_noise, uv);
     uv = gl_FragCoord.xy;
 

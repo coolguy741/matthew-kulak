@@ -56,12 +56,12 @@ class Cadillac extends React.Component {
                         <span className={styles.heading}>Cadillac</span>
                         <svg
                             width="12"
-                            class={styles.close}
+                            className={styles.close}
                             onClick={this.props.onCadillacClose}
                             viewBox="0 0 32.78 32.78"
                         >
                             <rect
-                                class={styles.xPath}
+                                className={styles.xPath}
                                 x="-2.61"
                                 y="12.21"
                                 width="38"
@@ -69,7 +69,7 @@ class Cadillac extends React.Component {
                                 transform="translate(16.39 -6.79) rotate(45)"
                             />
                             <rect
-                                class={styles.xPath}
+                                className={styles.xPath}
                                 x="-2.61"
                                 y="12.21"
                                 width="38"
