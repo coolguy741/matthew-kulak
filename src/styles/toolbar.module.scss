@@ -1,18 +1,18 @@
 $light-bg: #fff;
 $light-border: #202020;
 $light-text: #202020;
-$light-hover: #eee;
+$light-hover: #f2f2f2;
 
 $dark-bg: #202020;
 $dark-border: #505050;
 $dark-text: #ccc;
-$dark-hover: #303030;
+$dark-hover: #252525;
 $dark-heading: #fff;
 
 $grey-bg: #757575;
 $grey-border: #202020;
 $grey-text: #202020;
-$grey-hover: #656565;
+$grey-hover: #707070;
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
@@ -30,6 +30,7 @@ $breakpoint-tablet-portrait: 560px;
     box-sizing: border-box;
     text-align: center;
     flex-wrap: wrap-reverse;
+    font-size: 12px;
     .logo {
         padding: 6px 0;
         svg {
@@ -116,13 +117,9 @@ $breakpoint-tablet-portrait: 560px;
     .time {
         margin-left: -1px;
         span {
-            font-size: 14px;
+            font-size: 17px;
             font-family: "Alarm Clock";
         }
-    }
-    .weather span {
-        font-size: 15px;
-        font-family: "Alarm Clock";
     }
     .nav {
         cursor: pointer;
@@ -200,7 +197,8 @@ $breakpoint-tablet-portrait: 560px;
             transition: fill 0.3s ease-out;
         }
         .themePicker {
-            span {
+            span,
+            .themePickerSpacer {
                 color: $light-text;
                 border-bottom: 1px solid $light-border;
                 background-color: transparent;
@@ -213,7 +211,8 @@ $breakpoint-tablet-portrait: 560px;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
-            span:hover {
+            span:hover,
+            .themePickerSpacer:hover {
                 background-color: $light-hover;
                 -webkit-transition: background-color 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out;
@@ -315,7 +314,8 @@ $breakpoint-tablet-portrait: 560px;
             transition: fill 0.3s ease-out;
         }
         .themePicker {
-            span {
+            span,
+            .themePickerSpacer {
                 color: $dark-text;
                 border-bottom: 1px solid $dark-border;
                 background-color: transparent;
@@ -328,7 +328,8 @@ $breakpoint-tablet-portrait: 560px;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
-            span:hover {
+            span:hover,
+            .themePickerSpacer:hover {
                 background-color: $dark-hover;
                 -webkit-transition: background-color 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out;
@@ -421,7 +422,8 @@ $breakpoint-tablet-portrait: 560px;
             transition: fill 0.3s ease-out;
         }
         .themePicker {
-            span {
+            span,
+            .themePickerSpacer {
                 color: $grey-text;
                 border-bottom: 1px solid $grey-border;
                 background-color: transparent;
@@ -434,7 +436,8 @@ $breakpoint-tablet-portrait: 560px;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
-            span:hover {
+            span:hover,
+            .themePickerSpacer:hover {
                 background-color: $grey-hover;
                 -webkit-transition: background-color 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out;
@@ -480,6 +483,7 @@ $breakpoint-tablet-portrait: 560px;
 
 @media (min-width: $breakpoint-tablet-portrait) {
     .toolbar {
+        font-size: 12px;
         .nav,
         .weather,
         .location,
@@ -512,6 +516,9 @@ $breakpoint-tablet-portrait: 560px;
         }
         .time {
             order: 7;
+            span {
+                font-size: 13px;
+            }
         }
         .logo svg {
             width: 35px;
@@ -662,6 +669,7 @@ $breakpoint-tablet-portrait: 560px;
 @media (min-width: $breakpoint-laptop) {
     .toolbar {
         height: 70px;
+        font-size: 14px;
         .nav,
         .weather,
         .location,
