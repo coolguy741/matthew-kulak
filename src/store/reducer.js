@@ -97,6 +97,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 theme: "GREY",
             }
+        case "TERMINAL_THEME":
+            return {
+                ...state,
+                theme: "TERMINAL",
+            }
         case "OPEN_WORK":
             return {
                 ...state,

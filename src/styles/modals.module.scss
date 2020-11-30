@@ -31,6 +31,17 @@ $grey-link: #303030;
 $grey-x: #202020;
 $grey-tripwire: #202020;
 
+$terminal-bg: #202020;
+$terminal-border: #348524;
+$terminal-text: #348524;
+$terminal-box-shadow: rgba(50, 50, 50, 0.2);
+$terminal-btn: #202020;
+$terminal-btn-hover: #252525;
+$terminal-heading: #348524;
+$terminal-link: #348524;
+$terminal-x: #348524;
+$terminal-tripwire: #348524;
+
 .modal {
     top: 0;
     left: 0;
@@ -522,7 +533,7 @@ $grey-tripwire: #202020;
         .twitterPath,
         .gnosPathDark,
         .gnosPathR {
-            fill: #202020;
+            fill: $grey-x;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;
@@ -537,6 +548,125 @@ $grey-tripwire: #202020;
         }
         .tripwirePath {
             fill: $grey-tripwire;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+    }
+    &.terminal {
+        background-color: $terminal-bg;
+        border: 1px solid $terminal-border;
+        box-shadow: 5px 5px 0 $terminal-box-shadow;
+        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        p,
+        span,
+        h2,
+        li,
+        ul.contact li a:hover,
+        .about h2 {
+            color: $terminal-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.contact li a {
+            color: $terminal-link;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        ul.tech li::before,
+        h4,
+        .workIcon span {
+            color: $terminal-heading;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .btn {
+            background-color: $terminal-btn;
+            border: 1px solid $terminal-border;
+            color: $terminal-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .btn:hover {
+            background-color: $terminal-btn-hover;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .heading {
+            color: $terminal-heading !important;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .about .aboutDesc span {
+            background-color: rgba(255, 255, 255, 0.07);
+            color: $terminal-heading;
+            -webkit-transition: color 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .about .status span {
+            color: #74f269;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .about .copyright {
+            background-color: transparent;
+        }
+        .modalBar {
+            border-bottom: 1px solid $terminal-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+        }
+        .gnosPathR,
+        .gnosPathLight,
+        .gnosPathOutline {
+            fill: $terminal-text;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .gnosPathDark {
+            fill: $terminal-bg;
+        }
+        .logoPath,
+        .frmrPath,
+        .mailPath,
+        .githubPath,
+        .twitterPath,
+        .xPath {
+            fill: $terminal-x;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .tripwirePath {
+            fill: $terminal-tripwire;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;

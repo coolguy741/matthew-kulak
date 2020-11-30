@@ -14,6 +14,11 @@ $grey-border: #202020;
 $grey-text: #202020;
 $grey-hover: #707070;
 
+$terminal-bg: #202020;
+$terminal-border: #348524;
+$terminal-text: #348524;
+$terminal-hover: #252525;
+
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
 $breakpoint-tablet-portrait: 560px;
@@ -477,6 +482,121 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
     }
+    &.terminal {
+        .logo,
+        .nav,
+        .weather,
+        .location,
+        .frmr {
+            border-right: 1px solid $terminal-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+            span {
+                color: $terminal-text;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
+            }
+        }
+        .time span {
+            color: $terminal-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .nav,
+        .frmr,
+        .logo,
+        .weather,
+        .location,
+        .time {
+            background-color: $terminal-bg;
+            border-top: 1px solid $terminal-border;
+            -webkit-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+            transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .nav:hover,
+        .themePicker .iconContainer:hover {
+            background-color: $terminal-hover;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath,
+        .themePickerPath,
+        .returnPath {
+            fill: $terminal-text;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .themePicker {
+            span,
+            .themePickerSpacer {
+                color: $terminal-text;
+                border-bottom: 1px solid $terminal-border;
+                background-color: transparent;
+                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+            }
+            span:hover,
+            .themePickerSpacer:hover {
+                background-color: $terminal-hover;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .themeDrawer {
+                background-color: $terminal-bg;
+                border-left: 1px solid $terminal-border;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .iconContainer {
+                border-left: 1px solid $terminal-border;
+                border-top: 1px solid $terminal-border;
+                border-bottom: 1px solid $terminal-border;
+                background-color: $terminal-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                &:hover {
+                    background-color: $terminal-hover;
+                    -webkit-transition: background-color 0.3s ease-out;
+                    -moz-transition: background-color 0.3s ease-out;
+                    -o-transition: background-color 0.3s ease-out;
+                    transition: background-color 0.3s ease-out;
+                }
+            }
+        }
+    }
 }
 
 // TABLET PORTRAIT
@@ -588,6 +708,19 @@ $breakpoint-tablet-portrait: 560px;
             }
             .time {
                 border-left: 1px solid $grey-border;
+            }
+        }
+        &.terminal {
+            .themePicker .themeDrawer,
+            .themePicker .iconContainer {
+                border-right: 1px solid $terminal-border !important;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
+            .time {
+                border-left: 1px solid $terminal-border;
             }
         }
     }

@@ -56,6 +56,15 @@ const Geometry = props => {
         []
     )
 
+    const n1Switch = param => {
+        switch (param) {
+            case "TERMINAL":
+                return 14815366
+            default:
+                return 4096
+        }
+    }
+
     const n2Switch = param => {
         switch (param) {
             case "LIGHT":
@@ -64,6 +73,8 @@ const Geometry = props => {
                 return 0
             case "GREY":
                 return 18157905
+            case "TERMINAL":
+                return 15018318
             default:
                 return
         }
@@ -77,6 +88,8 @@ const Geometry = props => {
                 return 0.6
             case "GREY":
                 return 0.125
+            case "TERMINAL":
+                return 1.0
             default:
                 return
         }
@@ -90,6 +103,8 @@ const Geometry = props => {
                 return 0.125
             case "GREY":
                 return 0.45
+            case "TERMINAL":
+                return 0.125
             default:
                 return
         }
@@ -97,6 +112,7 @@ const Geometry = props => {
 
     useFrame((state, delta) => {
         uniforms.u_time.value += delta
+        uniforms.u_n1.value = n1Switch(props.theme)
         uniforms.u_n2.value = n2Switch(props.theme)
         uniforms.u_bw1.value = bw1Switch(props.theme)
         uniforms.u_bw2.value = bw2Switch(props.theme)
