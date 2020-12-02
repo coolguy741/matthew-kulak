@@ -107,7 +107,7 @@ class Tripwire extends React.Component {
                                 />
                             </g>
                         </svg>
-                        <p>
+                        <p className={styles.workDesc}>
                             Tripwire is an open-source project which fetches
                             adventure tour data from the G-Adventures API and
                             maps the locational itinerary data to a Mapbox

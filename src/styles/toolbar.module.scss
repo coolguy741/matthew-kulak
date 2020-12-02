@@ -19,10 +19,10 @@ $terminal-border: #348524;
 $terminal-text: #348524;
 $terminal-hover: #252525;
 
-$acid-bg: #fff;
-$acid-border: #202020;
-$acid-text: #f0f;
-$acid-hover: #252525;
+$acid-bg: rgba(32, 32, 32, 0.96);
+$acid-border: #f0f;
+$acid-text: #8fdb0a;
+$acid-hover: rgba(37, 37, 37, 0.96);
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
@@ -651,15 +651,30 @@ $breakpoint-tablet-portrait: 560px;
             -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
+        .work span,
+        .about span,
+        .contact span {
+            color: $acid-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
         .logoPath,
         .frmrPath,
         .themePickerPath,
         .returnPath {
-            fill: #202020;
+            fill: $acid-text;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
+        }
+        .smileyPath1 {
+            fill: #202020;
+        }
+        .smileyPath2 {
+            fill: #ff0;
         }
         .themePicker {
             span,
@@ -795,10 +810,14 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $light-border !important;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
-                transition: border 0.3s ease-out;
+                background-color: $light-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
                 border-left: 1px solid $light-border;
@@ -808,10 +827,14 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $dark-border !important;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
-                transition: border 0.3s ease-out;
+                background-color: $dark-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
                 border-left: 1px solid $dark-border;
@@ -821,10 +844,14 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $grey-border !important;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
-                transition: border 0.3s ease-out;
+                background-color: $grey-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
                 border-left: 1px solid $grey-border;
@@ -834,10 +861,14 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $terminal-border !important;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
-                transition: border 0.3s ease-out;
+                background-color: $terminal-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
                 border-left: 1px solid $terminal-border;
@@ -847,10 +878,14 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $acid-border !important;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
-                transition: border 0.3s ease-out;
+                background-color: $acid-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
                 border-left: 1px solid $acid-border;

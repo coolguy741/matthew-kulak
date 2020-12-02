@@ -10,7 +10,7 @@ const About = props => {
     }
 
     return (
-        <div className={styles.nav} onClick={onClickFn}>
+        <div className={`${styles.nav} ${styles.about}`} onClick={onClickFn}>
             <span className={styles.navlink}>About</span>
         </div>
     )

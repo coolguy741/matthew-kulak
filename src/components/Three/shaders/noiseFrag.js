@@ -40,7 +40,7 @@ float snoise(vec2 v) {
     vec3 g;
     g.x  = a0.x  * x0.x  + h.x  * x0.y;
     g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 130.0 * dot(m, g);
+    return 120.0 * dot(m, g);
 }
 
 void main() {
@@ -52,7 +52,7 @@ void main() {
     
     uv.x *= u_resolution.x / u_resolution.y;
     
-    vec2 pos = vec2(uv*3.);
+    vec2 pos = vec2(uv*2.);
 
     float DF = 0.0;
     

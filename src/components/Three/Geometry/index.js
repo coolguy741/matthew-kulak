@@ -16,7 +16,7 @@ const Geometry = props => {
 
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
-        const target = new THREE.WebGLRenderTarget(width, height, {
+        const target = new THREE.WebGLMultisampleRenderTarget(width, height, {
             format: THREE.RGBFormat,
             stencilBuffer: false,
             depthBuffer: true,
@@ -75,6 +75,8 @@ const Geometry = props => {
                 return 18157905
             case "TERMINAL":
                 return 15018318
+            case "ACID":
+                return 15237130
             default:
                 return
         }
@@ -108,7 +110,7 @@ const Geometry = props => {
             case "TERMINAL":
                 return 0.125
             case "ACID":
-                return 0.99
+                return 0.125
             default:
                 return
         }

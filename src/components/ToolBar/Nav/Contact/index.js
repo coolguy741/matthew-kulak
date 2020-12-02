@@ -10,7 +10,7 @@ const Contact = props => {
     }
 
     return (
-        <div className={styles.nav} onClick={onClickFn}>
+        <div className={`${styles.nav} ${styles.contact}`} onClick={onClickFn}>
             <span className={styles.navlink}>Contact</span>
         </div>
     )

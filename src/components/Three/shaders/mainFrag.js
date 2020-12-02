@@ -4,6 +4,7 @@ precision highp float;
 uniform vec2 u_resolution;
 uniform float u_ratio;
 uniform vec2 u_mouse;
+uniform float u_time;
 uniform int u_n1;
 uniform int u_n2;
 uniform float u_bw1;
@@ -46,15 +47,16 @@ void main() {
 
 	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
 	// col.xyz = gray*vec3(character(n, p));
-	if (u_bw2 != 0.99) col.xyz = vec3(character(n, p));
+	if (u_bw1 != 0.99) col.xyz = vec3(character(n, p));
 
+	// Terminal theme
 	if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.204, 0.522, 0.141);
-	if (u_bw2 == 0.99 && col.x == 1.0) col.xyz = vec3(1.0, 0., 1.0);
-	if (u_bw2 == 0.99 && col.x == 0.0) col.xyz = vec3(1.0, 1.0, 0.0);
+
+	// Acid theme
+	// if (u_bw1 == 0.99) col.xyz = 1. - col.xyz;
+	if (u_bw1 == 0.99) col.xyz += vec3(abs(sin(u_time / 2.4)) + gl_FragCoord.x / u_resolution.x, 0., abs(cos(u_time / 2.)) + gl_FragCoord.y / u_resolution.y);
 
 	gl_FragColor = vec4(col.xyz, 1.0);
-
-	// (0.949, 0.627, 0.102)
 
 }
 `

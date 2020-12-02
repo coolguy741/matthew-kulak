@@ -133,7 +133,7 @@ class GNOS extends React.Component {
 	                            C98.1,11.1,98.1,7.8,96.3,5.4z"
                             />
                         </svg>
-                        <p>
+                        <p className={styles.workDesc}>
                             GNOS is a clothing brand founded and operated by
                             FRMR.
                         </p>
