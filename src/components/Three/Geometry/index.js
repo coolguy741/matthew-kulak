@@ -76,7 +76,7 @@ const Geometry = props => {
             case "TERMINAL":
                 return 15018318
             case "ACID":
-                return 15237130
+                return 4357252
             default:
                 return
         }
@@ -106,7 +106,7 @@ const Geometry = props => {
             case "DARK":
                 return 0.125
             case "GREY":
-                return 0.45
+                return 0.55
             case "TERMINAL":
                 return 0.125
             case "ACID":

@@ -46,11 +46,12 @@ void main() {
 	if (gray > 0.5) n = u_n2;
 
 	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
-	// col.xyz = gray*vec3(character(n, p));
+	col.xyz = gray*vec3(character(n, p));
 	if (u_bw1 != 0.99) col.xyz = vec3(character(n, p));
 
 	// Terminal theme
 	if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.204, 0.522, 0.141);
+	// if (u_bw1 == 1.0 && col.x == 0.0) col.xyz = vec3(0.404, 0.622, 0.441);
 
 	// Acid theme
 	// if (u_bw1 == 0.99) col.xyz = 1. - col.xyz;

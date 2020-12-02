@@ -9,20 +9,20 @@ $dark-text: #ccc;
 $dark-hover: #252525;
 $dark-heading: #fff;
 
-$grey-bg: #757575;
+$grey-bg: #888;
 $grey-border: #202020;
 $grey-text: #202020;
-$grey-hover: #707070;
+$grey-hover: #838383;
 
 $terminal-bg: #202020;
-$terminal-border: #348524;
-$terminal-text: #348524;
+$terminal-border: #31da10;
+$terminal-text: #31da10;
 $terminal-hover: #252525;
 
-$acid-bg: rgba(32, 32, 32, 0.96);
-$acid-border: #f0f;
-$acid-text: #8fdb0a;
-$acid-hover: rgba(37, 37, 37, 0.96);
+$acid-bg: rgba(255, 255, 255, 0.4);
+$acid-border: #fff;
+$acid-text: #fff;
+$acid-hover: rgba(255, 255, 255, 0.5);
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
@@ -603,6 +603,12 @@ $breakpoint-tablet-portrait: 560px;
         }
     }
     &.acid {
+        background: linear-gradient(
+            90deg,
+            rgba(255, 64, 236, 0.8) 0%,
+            rgba(255, 0, 213, 0.8) 49%,
+            rgba(147, 0, 255, 0.8) 100%
+        );
         .logo,
         .nav,
         .weather,
@@ -634,7 +640,7 @@ $breakpoint-tablet-portrait: 560px;
         .weather,
         .location,
         .time {
-            background-color: $acid-bg;
+            // background: $acid-bg;
             border-top: 1px solid $acid-border;
             -webkit-transition: border 0.3s ease-out,
                 background-color 0.3s ease-out;
@@ -670,18 +676,12 @@ $breakpoint-tablet-portrait: 560px;
             -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
-        .smileyPath1 {
-            fill: #202020;
-        }
-        .smileyPath2 {
-            fill: #ff0;
-        }
         .themePicker {
             span,
             .themePickerSpacer {
                 color: $acid-text;
                 border-bottom: 1px solid $acid-border;
-                background-color: transparent;
+                // background-color: transparent;
                 -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
                 -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
@@ -700,7 +700,7 @@ $breakpoint-tablet-portrait: 560px;
                 transition: background-color 0.3s ease-out;
             }
             .themeDrawer {
-                background-color: $acid-bg;
+                // background-color: $acid-bg;
                 border-left: 1px solid $acid-border;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -714,7 +714,7 @@ $breakpoint-tablet-portrait: 560px;
                 border-left: 1px solid $acid-border;
                 border-top: 1px solid $acid-border;
                 border-bottom: 1px solid $acid-border;
-                background-color: $acid-bg;
+                // background-color: $acid-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -878,7 +878,7 @@ $breakpoint-tablet-portrait: 560px;
             .themePicker .themeDrawer,
             .themePicker .iconContainer {
                 border-right: 1px solid $acid-border !important;
-                background-color: $acid-bg;
+                // background-color: $acid-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,

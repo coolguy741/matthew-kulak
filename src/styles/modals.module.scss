@@ -20,7 +20,7 @@ $dark-link: #ddd;
 $dark-x: #fff;
 $dark-tripwire: #ff5c6e;
 
-$grey-bg: #757575;
+$grey-bg: #888;
 $grey-border: #202020;
 $grey-text: #202020;
 $grey-box-shadow: rgba(50, 50, 50, 0.2);
@@ -37,21 +37,21 @@ $terminal-text: #348524;
 $terminal-box-shadow: rgba(50, 50, 50, 0.2);
 $terminal-btn: #202020;
 $terminal-btn-hover: #252525;
-$terminal-heading: #348524;
-$terminal-link: #348524;
+$terminal-heading: #31da10;
+$terminal-link: #31da10;
 $terminal-x: #348524;
 $terminal-tripwire: #348524;
 
-$acid-bg: rgba(32, 32, 32, 0.96);
+$acid-bg: rgba(255, 200, 255, 0.7);
 $acid-border: #f0f;
-$acid-text: #6c6c6c;
-$acid-text2: #c8c8c8;
+$acid-text: #424242;
+$acid-text2: #424242;
 $acid-box-shadow: rgba(50, 50, 50, 0.2);
-$acid-btn: #202020;
+$acid-btn: #424242;
 $acid-btn-hover: #252525;
-$acid-heading: #8fdb0a;
-$acid-link: #8fdb0a;
-$acid-x: #8fdb0a;
+$acid-heading: #424242;
+$acid-link: #424242;
+$acid-x: #424242;
 $acid-tripwire: #f0f;
 
 .modal {
@@ -504,10 +504,14 @@ $acid-tripwire: #f0f;
         }
         .modalBar {
             border-bottom: 1px solid $grey-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
-            transition: border 0.3s ease-out;
+            background-color: #717171;
+            color: #bbb;
+            -webkit-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+            transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,
         .gnosPathOutline {
