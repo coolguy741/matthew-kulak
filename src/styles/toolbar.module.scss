@@ -19,6 +19,11 @@ $terminal-border: #348524;
 $terminal-text: #348524;
 $terminal-hover: #252525;
 
+$acid-bg: #fff;
+$acid-border: #202020;
+$acid-text: #f0f;
+$acid-hover: #252525;
+
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
 $breakpoint-tablet-portrait: 560px;
@@ -597,6 +602,121 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
     }
+    &.acid {
+        .logo,
+        .nav,
+        .weather,
+        .location,
+        .frmr {
+            border-right: 1px solid $acid-border;
+            -webkit-transition: border 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out;
+            -o-transition: border 0.3s ease-out;
+            transition: border 0.3s ease-out;
+            span {
+                color: $acid-text;
+                -webkit-transition: color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out;
+                transition: color 0.3s ease-out;
+            }
+        }
+        .time span {
+            color: $acid-text;
+            -webkit-transition: color 0.3s ease-out;
+            -moz-transition: color 0.3s ease-out;
+            -o-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+        }
+        .nav,
+        .frmr,
+        .logo,
+        .weather,
+        .location,
+        .time {
+            background-color: $acid-bg;
+            border-top: 1px solid $acid-border;
+            -webkit-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -moz-transition: border 0.3s ease-out,
+                background-color 0.3s ease-out;
+            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
+            transition: border 0.3s ease-out, background-color 0.3s ease-out;
+        }
+        .nav:hover,
+        .themePicker .iconContainer:hover {
+            background-color: $acid-hover;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
+        }
+        .logoPath,
+        .frmrPath,
+        .themePickerPath,
+        .returnPath {
+            fill: #202020;
+            -webkit-transition: fill 0.3s ease-out;
+            -moz-transition: fill 0.3s ease-out;
+            -o-transition: fill 0.3s ease-out;
+            transition: fill 0.3s ease-out;
+        }
+        .themePicker {
+            span,
+            .themePickerSpacer {
+                color: $acid-text;
+                border-bottom: 1px solid $acid-border;
+                background-color: transparent;
+                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+                transition: color 0.3s ease-out, border 0.3s ease-out,
+                    background-color 0.3s ease-out;
+            }
+            span:hover,
+            .themePickerSpacer:hover {
+                background-color: $acid-hover;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .themeDrawer {
+                background-color: $acid-bg;
+                border-left: 1px solid $acid-border;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .iconContainer {
+                border-left: 1px solid $acid-border;
+                border-top: 1px solid $acid-border;
+                border-bottom: 1px solid $acid-border;
+                background-color: $acid-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                &:hover {
+                    background-color: $acid-hover;
+                    -webkit-transition: background-color 0.3s ease-out;
+                    -moz-transition: background-color 0.3s ease-out;
+                    -o-transition: background-color 0.3s ease-out;
+                    transition: background-color 0.3s ease-out;
+                }
+            }
+        }
+    }
 }
 
 // TABLET PORTRAIT
@@ -721,6 +841,19 @@ $breakpoint-tablet-portrait: 560px;
             }
             .time {
                 border-left: 1px solid $terminal-border;
+            }
+        }
+        &.acid {
+            .themePicker .themeDrawer,
+            .themePicker .iconContainer {
+                border-right: 1px solid $acid-border !important;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
+            .time {
+                border-left: 1px solid $acid-border;
             }
         }
     }

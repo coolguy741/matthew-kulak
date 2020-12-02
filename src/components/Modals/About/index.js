@@ -31,6 +31,8 @@ class About extends React.Component {
                     return styles.grey
                 case "TERMINAL":
                     return styles.terminal
+                case "ACID":
+                    return styles.acid
                 default:
                     return
             }

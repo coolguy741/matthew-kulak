@@ -46,9 +46,11 @@ void main() {
 
 	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
 	// col.xyz = gray*vec3(character(n, p));
-	col.xyz = vec3(character(n, p));
+	if (u_bw2 != 0.99) col.xyz = vec3(character(n, p));
 
 	if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.204, 0.522, 0.141);
+	if (u_bw2 == 0.99 && col.x == 1.0) col.xyz = vec3(1.0, 0., 1.0);
+	if (u_bw2 == 0.99 && col.x == 0.0) col.xyz = vec3(1.0, 1.0, 0.0);
 
 	gl_FragColor = vec4(col.xyz, 1.0);
 

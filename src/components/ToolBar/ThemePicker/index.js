@@ -50,7 +50,7 @@ const ThemePicker = props => {
                     <span onClick={props.setDarkTheme}>Dark</span>
                     <span onClick={props.setGreyTheme}>Grey</span>
                     <span onClick={props.setTerminalTheme}>Terminal</span>
-                    <span onClick={props.setGreyTheme}>Acid</span>
+                    <span onClick={props.setAcidTheme}>Acid</span>
                     <div className={styles.themePickerSpacer}>
                         <svg
                             version="1.1"
@@ -87,6 +87,7 @@ const mapDispatchToProps = dispatch => {
         setDarkTheme: () => dispatch({ type: "DARK_THEME" }),
         setGreyTheme: () => dispatch({ type: "GREY_THEME" }),
         setTerminalTheme: () => dispatch({ type: "TERMINAL_THEME" }),
+        setAcidTheme: () => dispatch({ type: "ACID_THEME" }),
     }
 }
 

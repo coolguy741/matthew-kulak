@@ -6,6 +6,10 @@ export const cssSwitch = param => {
             return styles.dark
         case "GREY":
             return styles.grey
+        case "TERMINAL":
+            return styles.terminal
+        case "ACID":
+            return styles.acid
         default:
             return
     }

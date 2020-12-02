@@ -13,14 +13,12 @@ const MainCanvas = props => {
     return (
         <Canvas
             className={styles.Canvas}
-            gl={
-                {
-                    // antialias: true,
-                    // alpha: true,
-                    // stencil: false,
-                    // depth: false,
-                }
-            }
+            gl={{
+                antialias: true,
+                // alpha: true,
+                // stencil: false,
+                // depth: false,
+            }}
         >
             <Camera
                 left={-1}
