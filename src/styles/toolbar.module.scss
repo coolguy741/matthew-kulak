@@ -19,15 +19,10 @@ $terminal-border: #31da10;
 $terminal-text: #31da10;
 $terminal-hover: #252525;
 
-$acid-bg: linear-gradient(
-    90deg,
-    rgba(255, 133, 64, 0.8) 0%,
-    rgba(255, 0, 213, 0.8) 49%,
-    rgba(190, 0, 255, 0.8) 100%
-);
+$acid-bg: rgba(255, 0, 161, 0.96);
 $acid-border: #9dff00;
 $acid-text: #9dff00;
-$acid-hover: rgba(255, 255, 255, 0.5);
+$acid-hover: rgba(255, 82, 191, 0.96);
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
@@ -608,7 +603,6 @@ $breakpoint-tablet-portrait: 560px;
         }
     }
     &.acid {
-        background: $acid-bg;
         .logo,
         .nav,
         .weather,
@@ -640,7 +634,7 @@ $breakpoint-tablet-portrait: 560px;
         .weather,
         .location,
         .time {
-            // background: $acid-bg;
+            background: $acid-bg;
             border-top: 1px solid $acid-border;
             -webkit-transition: border 0.3s ease-out,
                 background-color 0.3s ease-out;
@@ -681,7 +675,7 @@ $breakpoint-tablet-portrait: 560px;
             .themePickerSpacer {
                 color: $acid-text;
                 border-bottom: 1px solid $acid-border;
-                // background-color: transparent;
+                background-color: transparent;
                 -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
                 -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
@@ -700,7 +694,7 @@ $breakpoint-tablet-portrait: 560px;
                 transition: background-color 0.3s ease-out;
             }
             .themeDrawer {
-                // background-color: $acid-bg;
+                background-color: $acid-bg;
                 border-left: 1px solid $acid-border;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -714,7 +708,7 @@ $breakpoint-tablet-portrait: 560px;
                 border-left: 1px solid $acid-border;
                 border-top: 1px solid $acid-border;
                 border-bottom: 1px solid $acid-border;
-                // background-color: $acid-bg;
+                background-color: $acid-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,

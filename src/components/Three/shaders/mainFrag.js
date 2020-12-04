@@ -84,20 +84,16 @@ void main() {
 
 	vec3 hsbCol = hsb2rgb(col.rgb);
 
-
-
 	if (u_bw1 == 0.99) col.r -= .8;
 	if (u_bw1 == 0.99) col.b -= 1.;
 
-	vec3 col1 = mix(vec3(.8, 0., 1.), vec3(.8, 0.5, .2), gl_FragCoord.x / u_resolution.x);
-	vec3 col2 = mix(vec3(.2, 0.1, 1.), vec3(.8, 0.1, .6), gl_FragCoord.y / u_resolution.y);
+	vec3 col1 = mix(vec3(1., 0., .631), vec3(.847, 0., 1.), gl_FragCoord.y / u_resolution.y);
 	
 	if (u_bw1 == 0.99 && col.r != 1.0 && col.g != 1.0 && col.b != 1.0) col.rgb += vec3(1.8, 0., 2.);
-	
 	if (u_bw1 == 0.99 && (col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(-1.5, 0.5, -1.5);
 	if (u_bw1 == 0.99 && (col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(.1, 0., .1);
 
-	if (u_bw1 == 0.99 && col.r <= 1.0 && col.g <= 0.5) col.rgb = mix(col1, col2, .5);
+	if (u_bw1 == 0.99 && col.r <= 1.0 && col.g <= 0.5) col.rgb = col1;
 
 	gl_FragColor = vec4(col.rgb, 1.0);
 
