@@ -8,6 +8,7 @@ import ToolBar from "../components/ToolBar"
 import Contact from "../components/Modals/Contact"
 import About from "../components/Modals/About"
 import Work from "../components/Modals/Work"
+import UserSettings from "../components/Modals/UserSettings"
 import GNOS from "../components/Modals/Work/GNOS"
 import Cadillac from "../components/Modals/Work/Cadillac"
 import Tripwire from "../components/Modals/Work/Tripwire"
@@ -40,6 +41,7 @@ const Layout = ({ children }) => {
             <Work width={width} height={height} />
             <About width={width} height={height} />
             <Contact width={width} height={height} />
+            <UserSettings width={width} height={height} />
             <GNOS width={width} height={height} />
             <Cadillac width={width} height={height} />
             <Tripwire width={width} height={height} />

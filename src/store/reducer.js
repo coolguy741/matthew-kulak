@@ -17,6 +17,7 @@ const initialState = {
         work: 0,
         about: 0,
         contact: 0,
+        settings: 0,
         gnos: 0,
         cadillac: 0,
         tripwire: 0,
@@ -24,6 +25,7 @@ const initialState = {
     theme: "LIGHT",
     isContactOpen: false,
     isAboutOpen: false,
+    isSettingsOpen: false,
     isGNOSOpen: false,
     isCadillacOpen: false,
     isTripwireOpen: false,
@@ -56,6 +58,14 @@ const reducer = (state = initialState, action) => {
                 zIndexes: {
                     ...state.zIndexes,
                     contact: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_SETTINGS":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    settings: getNextZ(state.zIndexes),
                 },
             }
         case "INC_Z_GNOS":
@@ -136,6 +146,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isContactOpen: false,
+            }
+        case "OPEN_SETTINGS":
+            return {
+                ...state,
+                isSettingsOpen: true,
+            }
+        case "CLOSE_SETTINGS":
+            return {
+                ...state,
+                isSettingsOpen: false,
             }
         case "OPEN_GNOS":
             return {

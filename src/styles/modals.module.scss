@@ -48,12 +48,12 @@ $acid-text: #424242;
 $acid-text2: #fff;
 $acid-box-shadow: rgba(50, 50, 50, 0.2);
 $acid-btn: rgba(139, 0, 255, 1);
-$acid-btn-hover: rgba(115, 0, 212, 1);
+$acid-btn-hover: rgba(125, 0, 222, 1);
 $acid-heading: #9dff00;
 $acid-link: #fff;
 $acid-x: #9dff00;
-$acid-svg: #8b00ff;
-$acid-gradient: linear-gradient(90deg, #8b00ff 0%, #8b00ff 100%);
+$acid-svg: #5f2ed2;
+$acid-gradient: rgba(143, 0, 255, 0.96);
 
 .modal {
     top: 0;
@@ -733,7 +733,7 @@ $acid-gradient: linear-gradient(90deg, #8b00ff 0%, #8b00ff 100%);
             color: $acid-heading !important;
         }
         .about .aboutDesc span {
-            background-color: rgba(112, 0, 255, 0.5);
+            background-color: rgba(95, 46, 210, 0.5);
             color: $acid-text2;
             -webkit-transition: color 0.3s ease-out,
                 background-color 0.3s ease-out;
@@ -746,14 +746,14 @@ $acid-gradient: linear-gradient(90deg, #8b00ff 0%, #8b00ff 100%);
         }
         .about .status span {
             color: $acid-heading;
-            background-color: rgba(112, 0, 255, 0.5);
+            background-color: rgba(95, 46, 210, 0.5);
         }
         .about .copyright {
             background-color: transparent;
         }
         .modalBar {
             border-bottom: 1px solid $acid-border;
-            background: $acid-gradient;
+            background-color: $acid-gradient;
             -webkit-transition: border 0.3s ease-out,
                 background-color 0.3s ease-out;
             -moz-transition: border 0.3s ease-out,

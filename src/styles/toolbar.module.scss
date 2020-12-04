@@ -20,9 +20,9 @@ $terminal-text: #31da10;
 $terminal-hover: #252525;
 
 $acid-bg: rgba(139, 0, 255, 0.96);
-$acid-border: #9dff00;
+$acid-border: #353535;
 $acid-text: #9dff00;
-$acid-hover: rgba(115, 0, 212, 0.96);
+$acid-hover: rgba(125, 0, 222, 0.96);
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
@@ -71,7 +71,7 @@ $breakpoint-tablet-portrait: 560px;
             height: 120px;
             padding: 14px;
             svg {
-                width: 25px;
+                width: 28px;
             }
         }
     }
@@ -81,12 +81,12 @@ $breakpoint-tablet-portrait: 560px;
     }
     .themePicker,
     .weather,
-    .location {
+    .userSettings {
         .iconContainer {
-            padding: 11px;
+            padding: 12px;
             height: 51px;
             svg {
-                width: 28px;
+                width: 27px;
             }
         }
     }
@@ -96,7 +96,7 @@ $breakpoint-tablet-portrait: 560px;
     .weather {
         order: 5;
     }
-    .location {
+    .userSettings {
         order: 6;
     }
     .themePicker {
@@ -113,7 +113,7 @@ $breakpoint-tablet-portrait: 560px;
     }
     .nav,
     .weather,
-    .location,
+    .userSettings,
     .time,
     .logo {
         width: 25%;
@@ -131,7 +131,8 @@ $breakpoint-tablet-portrait: 560px;
             font-family: "Alarm Clock";
         }
     }
-    .nav {
+    .nav,
+    .userSettings {
         cursor: pointer;
     }
     .frmr {
@@ -158,7 +159,7 @@ $breakpoint-tablet-portrait: 560px;
         .logo,
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .frmr {
             border-right: 1px solid $light-border;
             -webkit-transition: border 0.3s ease-out;
@@ -177,7 +178,7 @@ $breakpoint-tablet-portrait: 560px;
         .frmr,
         .logo,
         .weather,
-        .location,
+        .userSettings,
         .time {
             background-color: $light-bg;
             border-top: 1px solid $light-border;
@@ -189,7 +190,8 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
-        .themePicker iconContainer:hover {
+        .userSettings:hover,
+        .themePicker .iconContainer:hover {
             background-color: $light-hover;
             -webkit-transition: background-color 0.3s ease-out;
             -moz-transition: background-color 0.3s ease-out;
@@ -199,7 +201,8 @@ $breakpoint-tablet-portrait: 560px;
         .logoPath,
         .frmrPath,
         .themePickerPath,
-        .returnPath {
+        .returnPath,
+        .userSettingsPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -266,7 +269,7 @@ $breakpoint-tablet-portrait: 560px;
         .logo,
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .frmr {
             border-right: 1px solid $dark-border;
             -webkit-transition: border 0.3s ease-out;
@@ -294,7 +297,7 @@ $breakpoint-tablet-portrait: 560px;
         .frmr,
         .logo,
         .weather,
-        .location,
+        .userSettings,
         .time {
             background-color: $dark-bg;
             border-top: 1px solid $dark-border;
@@ -306,6 +309,7 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
+        .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $dark-hover;
             -webkit-transition: background-color 0.3s ease-out;
@@ -316,7 +320,8 @@ $breakpoint-tablet-portrait: 560px;
         .logoPath,
         .frmrPath,
         .themePickerPath,
-        .returnPath {
+        .returnPath,
+        .userSettingsPath {
             fill: #fff;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -383,7 +388,7 @@ $breakpoint-tablet-portrait: 560px;
         .logo,
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .frmr {
             border-right: 1px solid $grey-border;
             -webkit-transition: border 0.3s ease-out;
@@ -402,7 +407,7 @@ $breakpoint-tablet-portrait: 560px;
         .frmr,
         .logo,
         .weather,
-        .location,
+        .userSettings,
         .time {
             background-color: $grey-bg;
             border-top: 1px solid $grey-border;
@@ -414,6 +419,7 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
+        .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $grey-hover;
             -webkit-transition: background-color 0.3s ease-out;
@@ -424,7 +430,8 @@ $breakpoint-tablet-portrait: 560px;
         .logoPath,
         .frmrPath,
         .themePickerPath,
-        .returnPath {
+        .returnPath,
+        .userSettingsPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -491,7 +498,7 @@ $breakpoint-tablet-portrait: 560px;
         .logo,
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .frmr {
             border-right: 1px solid $terminal-border;
             -webkit-transition: border 0.3s ease-out;
@@ -517,7 +524,7 @@ $breakpoint-tablet-portrait: 560px;
         .frmr,
         .logo,
         .weather,
-        .location,
+        .userSettings,
         .time {
             background-color: $terminal-bg;
             border-top: 1px solid $terminal-border;
@@ -529,6 +536,7 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
+        .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $terminal-hover;
             -webkit-transition: background-color 0.3s ease-out;
@@ -539,7 +547,8 @@ $breakpoint-tablet-portrait: 560px;
         .logoPath,
         .frmrPath,
         .themePickerPath,
-        .returnPath {
+        .returnPath,
+        .userSettingsPath {
             fill: $terminal-text;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -606,7 +615,7 @@ $breakpoint-tablet-portrait: 560px;
         .logo,
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .frmr {
             border-right: 1px solid $acid-border;
             -webkit-transition: border 0.3s ease-out;
@@ -632,7 +641,7 @@ $breakpoint-tablet-portrait: 560px;
         .frmr,
         .logo,
         .weather,
-        .location,
+        .userSettings,
         .time {
             background: $acid-bg;
             border-top: 1px solid $acid-border;
@@ -644,6 +653,7 @@ $breakpoint-tablet-portrait: 560px;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
+        .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $acid-hover;
             -webkit-transition: background-color 0.3s ease-out;
@@ -663,7 +673,8 @@ $breakpoint-tablet-portrait: 560px;
         .logoPath,
         .frmrPath,
         .themePickerPath,
-        .returnPath {
+        .returnPath,
+        .userSettingsPath {
             fill: $acid-text;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -735,7 +746,7 @@ $breakpoint-tablet-portrait: 560px;
         font-size: 12px;
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .time,
         .logo {
             display: flex;
@@ -757,7 +768,7 @@ $breakpoint-tablet-portrait: 560px;
         .weather {
             order: 4;
         }
-        .location {
+        .userSettings {
             order: 5;
         }
         .themePicker {
@@ -773,19 +784,19 @@ $breakpoint-tablet-portrait: 560px;
             width: 35px;
         }
         .weather,
-        .location,
+        .userSettings,
         .themPicker,
         .time {
             bottom: 0;
         }
         .themePicker,
         .weather,
-        .location {
+        .userSettings {
             .iconContainer {
-                padding: 13px;
+                padding: 12px;
                 height: 51px;
                 svg {
-                    width: 25px;
+                    width: 27px;
                 }
             }
         }
@@ -895,7 +906,7 @@ $breakpoint-tablet-portrait: 560px;
         height: 60px;
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .time,
         .themePicker,
         .logo {
@@ -947,7 +958,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .weather,
-        .location {
+        .userSettings {
             .iconContainer {
                 padding: 15px;
                 height: 61px;
@@ -967,7 +978,7 @@ $breakpoint-tablet-portrait: 560px;
         font-size: 14px;
         .nav,
         .weather,
-        .location,
+        .userSettings,
         .time,
         .themePicker,
         .logo {
@@ -1005,12 +1016,19 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         .themePicker,
-        .weather,
-        .location {
+        .weather {
             .iconContainer {
                 height: 71px;
                 svg {
                     width: 40px;
+                }
+            }
+        }
+        .userSettings {
+            .iconContainer {
+                height: 65px;
+                svg {
+                    width: 35px;
                 }
             }
         }

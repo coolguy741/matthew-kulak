@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import Logo from "./Logo"
 import FRMR from "./FRMR"
 import ThemePicker from "./ThemePicker"
-import Location from "./Location"
+import UserSettings from "./UserSettings"
 import Work from "./Nav/Work"
 import About from "./Nav/About"
 import Contact from "./Nav/Contact"
@@ -40,7 +40,7 @@ const Toolbar = props => {
                 <div className={styles.break}></div>
                 <FRMR />
                 <Weather />
-                <Location />
+                <UserSettings />
                 <ThemePicker />
                 <Time />
             </div>
