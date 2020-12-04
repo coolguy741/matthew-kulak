@@ -32,32 +32,28 @@ $grey-x: #202020;
 $grey-tripwire: #202020;
 
 $terminal-bg: #202020;
-$terminal-border: #348524;
-$terminal-text: #348524;
+$terminal-border: #40c040;
+$terminal-text: #40c040;
 $terminal-box-shadow: rgba(50, 50, 50, 0.2);
 $terminal-btn: #202020;
 $terminal-btn-hover: #252525;
 $terminal-heading: #31da10;
 $terminal-link: #31da10;
-$terminal-x: #348524;
-$terminal-tripwire: #348524;
+$terminal-x: #40c040;
+$terminal-tripwire: #40c040;
 
-$acid-bg: rgba(255, 255, 255, 0.9);
-$acid-border: #f0f;
+$acid-bg: rgba(183, 183, 183, 0.97);
+$acid-border: #353535;
 $acid-text: #424242;
 $acid-text2: #fff;
 $acid-box-shadow: rgba(50, 50, 50, 0.2);
-$acid-btn: rgba(255, 0, 255, 0.6);
-$acid-btn-hover: rgba(245, 0, 255, 0.8);
+$acid-btn: rgba(139, 0, 255, 1);
+$acid-btn-hover: rgba(115, 0, 212, 1);
 $acid-heading: #9dff00;
 $acid-link: #fff;
 $acid-x: #9dff00;
-$acid-svg: #f0f;
-$acid-gradient: linear-gradient(
-    90deg,
-    rgba(216, 0, 255, 1) 0%,
-    rgba(255, 0, 161, 1) 100%
-);
+$acid-svg: #8b00ff;
+$acid-gradient: linear-gradient(90deg, #8b00ff 0%, #8b00ff 100%);
 
 .modal {
     top: 0;
@@ -717,7 +713,7 @@ $acid-gradient: linear-gradient(
         }
         .btn {
             background-color: $acid-btn;
-            border: 1px solid $acid-heading;
+            border: 1px solid $acid-border;
             color: $acid-heading;
             -webkit-transition: color 0.3s ease-out,
                 background-color 0.3s ease-out;
@@ -737,7 +733,7 @@ $acid-gradient: linear-gradient(
             color: $acid-heading !important;
         }
         .about .aboutDesc span {
-            background-color: rgba(255, 0, 255, 0.5);
+            background-color: rgba(112, 0, 255, 0.5);
             color: $acid-text2;
             -webkit-transition: color 0.3s ease-out,
                 background-color 0.3s ease-out;
@@ -750,7 +746,7 @@ $acid-gradient: linear-gradient(
         }
         .about .status span {
             color: $acid-heading;
-            background-color: rgba(255, 0, 255, 0.5);
+            background-color: rgba(112, 0, 255, 0.5);
         }
         .about .copyright {
             background-color: transparent;

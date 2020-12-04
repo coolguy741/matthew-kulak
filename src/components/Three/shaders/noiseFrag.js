@@ -47,6 +47,8 @@ void main() {
 
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
 
+    uv = uv * vec2(1.5, 1.5);
+
     vec4 col2 = texture2D(u_trail, uv);
     vec4 col = texture2D(u_trail, uv);
     
@@ -58,7 +60,7 @@ void main() {
     
     // Add a random position
     float a = 0.0;
-    vec2 vel = vec2(u_time*.1);
+    vec2 vel = vec2(u_time*.01);
     DF += snoise(pos+vel)*.25+.25;
     
     // Add a random position
