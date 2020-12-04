@@ -32,6 +32,30 @@ float map(float value, float inMin, float inMax, float outMin, float outMax) {
 	return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
 }
 
+vec3 rgb2hsb( in vec3 c ){
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz),
+                 vec4(c.gb, K.xy),
+                 step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r),
+                 vec4(c.r, p.yzx),
+                 step(p.x, c.r));
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)),
+                d / (q.x + e),
+                q.x);
+}
+
+vec3 hsb2rgb( in vec3 c ){
+    vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),
+                             6.0)-3.0)-1.0,
+                     0.0,
+                     1.0 );
+    rgb = rgb*rgb*(3.0-2.0*rgb);
+    return c.z * mix(vec3(1.0), rgb, c.y);
+}
+
 void main() {
 
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
@@ -40,7 +64,7 @@ void main() {
 	vec4 col = texture2D(u_noise, uv);
     uv = gl_FragCoord.xy;
 
-    float gray = col.x;
+    float gray = col.y;
 
     int n = u_n1;
 	if (gray > 0.5) n = u_n2;
@@ -58,19 +82,24 @@ void main() {
 
 	// Acid theme
 
-	if (u_bw1 == 0.99) col.r -= 1.5;
-	if (u_bw1 == 0.99) col.b -= 1.5;
+	vec3 hsbCol = hsb2rgb(col.rgb);
 
-	vec3 normCol = clamp(col.rgb, 0.0, 1.);
 
-	vec3 col1 = mix(vec3(.9, 0., 1.), vec3(1., 0.1, 0.1), gl_FragCoord.x / u_resolution.x);
-	vec3 col2 = mix(vec3(0.4, 0.1, 1.), vec3(1., 0.1, .9), gl_FragCoord.y / u_resolution.y);
 
-	if (u_bw1 == 0.99) normCol += mix(col1, col2, .4);
+	if (u_bw1 == 0.99) col.r -= .8;
+	if (u_bw1 == 0.99) col.b -= 1.;
 
-	// if (u_bw1 == 0.99 && col.x >= 1.0 && col.y >= 1.0 && col.z >= 1.0) col.xyz = vec3(.8, 1., 0.);
+	vec3 col1 = mix(vec3(.8, 0., 1.), vec3(.8, 0.5, .2), gl_FragCoord.x / u_resolution.x);
+	vec3 col2 = mix(vec3(.2, 0.1, 1.), vec3(.8, 0.1, .6), gl_FragCoord.y / u_resolution.y);
+	
+	if (u_bw1 == 0.99 && col.r != 1.0 && col.g != 1.0 && col.b != 1.0) col.rgb += vec3(1.8, 0., 2.);
+	
+	if (u_bw1 == 0.99 && (col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(-1.5, 0.5, -1.5);
+	if (u_bw1 == 0.99 && (col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(.1, 0., .1);
 
-	gl_FragColor = vec4(normCol.xyz, 1.0);
+	if (u_bw1 == 0.99 && col.r <= 1.0 && col.g <= 0.5) col.rgb = mix(col1, col2, .5);
+
+	gl_FragColor = vec4(col.rgb, 1.0);
 
 }
 `

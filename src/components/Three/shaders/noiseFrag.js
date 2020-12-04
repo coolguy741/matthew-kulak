@@ -40,7 +40,7 @@ float snoise(vec2 v) {
     vec3 g;
     g.x  = a0.x  * x0.x  + h.x  * x0.y;
     g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 120.0 * dot(m, g);
+    return 92.0 * dot(m, g);
 }
 
 void main() {
