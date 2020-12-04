@@ -3,10 +3,10 @@ import React, { useMemo, useRef } from "react"
 import * as THREE from "three"
 import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
-import { noiseVert } from "../Shaders/noiseVert"
-import { noiseFrag } from "../Shaders/noiseFrag"
+import { lavaVert } from "../Shaders/Lava/lavaVert"
+import { lavaFrag } from "../Shaders/Lava/lavaFrag"
 
-const Noise = props => {
+const Lava = props => {
     const width = window.innerWidth
     const height = window.innerHeight
 
@@ -84,12 +84,12 @@ const Noise = props => {
             <shaderMaterial
                 ref={mat}
                 uniforms={uniforms}
-                vertexShader={noiseVert}
-                fragmentShader={noiseFrag}
+                vertexShader={lavaVert}
+                fragmentShader={lavaFrag}
                 onUpdate={self => (self.needsUpdate = true)}
             />
         </mesh>
     )
 }
 
-export default Noise
+export default Lava

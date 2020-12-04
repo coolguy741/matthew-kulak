@@ -6,7 +6,6 @@ import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Camera from "../Camera"
 import Geometry from "../Geometry"
-import Noise from "../Noise"
 import { OrbitControls } from "@react-three/drei"
 
 const MainCanvas = props => {

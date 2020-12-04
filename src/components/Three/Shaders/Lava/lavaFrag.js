@@ -1,4 +1,4 @@
-export const noiseFrag = `
+export const lavaFrag = `
 precision highp float;
 
 uniform vec2 u_resolution;

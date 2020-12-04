@@ -1,4 +1,4 @@
-export const noiseVert = `
+export const lavaVert = `
 precision highp float;
 
 varying vec2 v_uv;

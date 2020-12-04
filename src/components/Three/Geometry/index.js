@@ -2,9 +2,9 @@ import React, { useMemo } from "react"
 
 import * as THREE from "three"
 import { useFrame, createPortal } from "react-three-fiber"
-import { mainVert } from "../Shaders/mainVert"
-import { mainFrag } from "../Shaders/mainFrag"
-import Noise from "../Noise"
+import { mainVert } from "../Shaders/Main/mainVert"
+import { mainFrag } from "../Shaders/Main/mainFrag"
+import Lava from "../Lava"
 
 const Geometry = props => {
     const width = window.innerWidth
@@ -138,7 +138,7 @@ const Geometry = props => {
 
     return (
         <>
-            {createPortal(<Noise />, scene)}
+            {createPortal(<Lava />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry args={[width / height, 1, 1, 1]} />
                 <shaderMaterial
