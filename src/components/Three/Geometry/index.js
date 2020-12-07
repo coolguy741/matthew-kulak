@@ -138,7 +138,7 @@ const Geometry = props => {
 
     return (
         <>
-            {createPortal(<Lava />, scene)}
+            {createPortal(<Lava theme={props.theme} />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry args={[width / height, 1, 1, 1]} />
                 <shaderMaterial

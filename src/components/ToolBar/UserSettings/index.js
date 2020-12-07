@@ -26,6 +26,7 @@ const UserSettings = props => {
                 "https://cors-anywhere.herokuapp.com/http://ip-api.com/json/70.65.236.65"
             )
             .then(response => {
+                console.log(response)
                 setUserData({
                     city: response.data.city,
                     region: response.data.region,

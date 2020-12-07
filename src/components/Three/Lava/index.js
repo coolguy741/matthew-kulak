@@ -5,6 +5,8 @@ import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
 import { lavaVert } from "../Shaders/Lava/lavaVert"
 import { lavaFrag } from "../Shaders/Lava/lavaFrag"
+import { topoVert } from "../Shaders/Topo/topoVert"
+import { topoFrag } from "../Shaders/Topo/topoFrag"
 
 const Lava = props => {
     const width = window.innerWidth
@@ -32,6 +34,23 @@ const Lava = props => {
         })
         return [scene, target]
     }, [])
+
+    const fragSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return topoFrag
+            case "DARK":
+                return lavaFrag
+            case "GREY":
+                return lavaFrag
+            case "TERMINAL":
+                return lavaFrag
+            case "ACID":
+                return lavaFrag
+            default:
+                return
+        }
+    }
 
     const uniforms = useMemo(
         () => ({
@@ -85,7 +104,7 @@ const Lava = props => {
                 ref={mat}
                 uniforms={uniforms}
                 vertexShader={lavaVert}
-                fragmentShader={lavaFrag}
+                fragmentShader={fragSwitch(props.theme)}
                 onUpdate={self => (self.needsUpdate = true)}
             />
         </mesh>

@@ -40,7 +40,8 @@
     "react-scripts": "^3.4.4",
     "react-three-fiber": "^5.1.4",
     "redux": "^4.0.5",
-    "three": "^0.121.1"
+    "three": "^0.121.1",
+    "three-shader-fxaa": "^5.1.1"
   },
   "devDependencies": {
     "prettier": "2.1.2"

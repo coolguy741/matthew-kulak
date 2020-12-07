@@ -1,28 +1,13 @@
 import React, { useRef, useEffect } from "react"
 import { extend, useThree, useFrame } from "react-three-fiber"
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass"
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass"
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass"
-import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass"
-import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass"
-import { HalftonePass } from "three/examples/jsm/postprocessing/HalftonePass"
-import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass"
-
-extend({
-    EffectComposer,
-    ShaderPass,
-    RenderPass,
-    UnrealBloomPass,
-    FilmPass,
-    GlitchPass,
-    DotScreenPass,
-    HalftonePass,
-})
+import * as THREE from "three"
+import fxaa from "three-shader-fxaa"
 
 const Effects = () => {
     const composer = useRef()
     const { scene, gl, size, camera } = useThree()
+
+    window.THREE = require("three")
 
     useEffect(() => void composer.current.setSize(size.width, size.height), [
         size,
@@ -33,15 +18,15 @@ const Effects = () => {
     return (
         <effectComposer ref={composer} args={[gl]}>
             <renderPass attachArray="passes" scene={scene} camera={camera} />
-            {/* <filmPass attachArray="passes" args={[1000, 10, 0, false]} /> */}
-            {/* <unrealBloomPass
+            <shaderPass
                 attachArray="passes"
-                args={[undefined, 0.1, 1, 0]}
-            /> */}
-            {/* <halftonePass attachArray="passes" /> */}
-            {/* <glitchPass attachArray="passes" args={[100]} /> */}
-            {/* <filmPass attachArray="passes" args={[0.7, 0.6, 2048, false]} /> */}
-            {/* <dotScreenPass attachArray="passes" /> */}
+                args={[fxaa()]}
+                material-uniforms-resolution-value={[
+                    1 / size.width,
+                    1 / size.height,
+                ]}
+                renderToScreen
+            />
         </effectComposer>
     )
 }

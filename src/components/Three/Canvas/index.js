@@ -32,6 +32,7 @@ const MainCanvas = props => {
             <Suspense fallback={null}>
                 <Geometry theme={props.theme} />
             </Suspense>
+            {/* <Effects /> */}
         </Canvas>
     )
 }
