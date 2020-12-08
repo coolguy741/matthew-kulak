@@ -7,6 +7,7 @@ import { lavaVert } from "../Shaders/Lava/lavaVert"
 import { lavaFrag } from "../Shaders/Lava/lavaFrag"
 import { topoVert } from "../Shaders/Topo/topoVert"
 import { topoFrag } from "../Shaders/Topo/topoFrag"
+import { termFrag } from "../Shaders/Terminal/termFrag"
 
 const Lava = props => {
     const width = window.innerWidth
@@ -44,7 +45,7 @@ const Lava = props => {
             case "GREY":
                 return lavaFrag
             case "TERMINAL":
-                return lavaFrag
+                return termFrag
             case "ACID":
                 return lavaFrag
             default:

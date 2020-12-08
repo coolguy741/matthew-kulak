@@ -37,11 +37,11 @@ float snoise(vec3 v)
   const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
   const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
 
-// First corner
+  // First corner
   vec3 i  = floor(v + dot(v, C.yyy) );
   vec3 x0 =   v - i + dot(i, C.xxx) ;
 
-// Other corners
+  // Other corners
   vec3 g = step(x0.yzx, x0.xyz);
   vec3 l = 1.0 - g;
   vec3 i1 = min( g.xyz, l.zxy );
@@ -55,15 +55,15 @@ float snoise(vec3 v)
   vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y
   vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y
 
-// Permutations
+  // Permutations
   i = mod289(i); 
   vec4 p = permute( permute( permute( 
              i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
            + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
            + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
 
-// Gradients: 7x7 points over a square, mapped onto an octahedron.
-// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
+  // Gradients: 7x7 points over a square, mapped onto an octahedron.
+  // The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
   float n_ = 0.142857142857; // 1.0/7.0
   vec3  ns = n_ * D.wyz - D.xzx;
 
@@ -93,14 +93,14 @@ float snoise(vec3 v)
   vec3 p2 = vec3(a1.xy,h.z);
   vec3 p3 = vec3(a1.zw,h.w);
 
-//Normalise gradients
+  //Normalise gradients
   vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
   p0 *= norm.x;
   p1 *= norm.y;
   p2 *= norm.z;
   p3 *= norm.w;
 
-// Mix final noise value
+  // Mix final noise value
   vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
   m = m * m;
   return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
@@ -109,7 +109,7 @@ float snoise(vec3 v)
 
 //END ASHIMA /////////////////////////////////////////////////
 
-const float STEPS = 28.;
+const float STEPS = 12.;
 const float CUTOFF = 0.; //depth less than this, show white wall
 const vec2  OFFSET = vec2(0.00,0.00); //drop shadow offset
 
@@ -143,67 +143,33 @@ float getNoise(vec2 uv, float t){
 }
 
 float getDepth(float n){
- 
-    //given a 0-1 value return a depth,
-    //e.g. distance into the hole
     
-    //remap remaining non-cutoff region to 0 - 1
-  	float d = (n - CUTOFF) / (1. - CUTOFF); 
-        
-    //step it
-    d = floor(d*STEPS)/STEPS;
+    n = floor(n*STEPS)/STEPS;
     
-    return d;
+    return n;
     
 }
 
 float line(vec2 st, float pct){
   return  step( pct, st.y) -
-          step( pct + .004, st.y);
+          step( pct + .045, st.y);
 }
 
 void main() {
 	vec2 uv = gl_FragCoord.xy / u_resolution.x;
-    float t = u_time * 0.007;    
+    float t = u_time * 0.04;    
     vec3 col = vec3(0);
     
    	float noise = getNoise(uv, t);
     
-    if (noise < CUTOFF){
-        
-        //white wall
-        col = vec3(1.,1.,1.);//white
-        
-    }else{
-    
 		float d = getDepth(noise);
-        
-        //calc HSV color
-        float h = noise + 0.8; //rainbow hue
-        float s = 0.;
-        float v = 1.; //deeper is darker
-        
-        //get bevel 
+    float h = noise + 0.8; //rainbow hue
+    float s = 0.;
+    float v = 1.; //deeper is darker
 
-       	//get depth at offset position        
-        float noiseOff = getNoise(uv + OFFSET, t);
-        float dOff = getDepth(noiseOff);
-       	
-        //if depth of this pixel (d) is less (closer) than offset pixel (dOff)
-        //then we are in shadow so darken 
-
-        v -= abs(d - dOff) * 2.; 
-
+    col = hsv2rgb(vec3(h,s,v));
         
-        col = hsv2rgb(vec3(h,s,v));
-        
-        col -= line(vec2(noise, noise), d);
-           
-	}
-    
-    //post proc
-	  //vertical gradient grey
-    // col *= 1. + (gl_FragCoord.y/u_resolution.y *0.3);
+    col -= line(vec2(noise, noise), d);    
     
     gl_FragColor = vec4(col,1.0);   
 }

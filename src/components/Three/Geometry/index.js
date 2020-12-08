@@ -60,6 +60,8 @@ const Geometry = props => {
         switch (param) {
             case "TERMINAL":
                 return 14815366
+            case "LIGHT":
+                return 17825809
             default:
                 return 4096
         }
@@ -68,7 +70,7 @@ const Geometry = props => {
     const n2Switch = param => {
         switch (param) {
             case "LIGHT":
-                return 4357252
+                return 1
             case "DARK":
                 return 0
             case "GREY":

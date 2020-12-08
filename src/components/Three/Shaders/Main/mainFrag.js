@@ -69,9 +69,9 @@ void main() {
     int n = u_n1;
 	if (gray > 0.5) n = u_n2;
 
-	vec2 p = mod(uv/4.0, 2.0) - vec2(1.0);
+	vec2 p = mod(uv/4., 2.0) - vec2(1.0);
 	// col.xyz = gray*vec3(character(n, p));
-	if (u_bw1 != 0.99)  col.xyz = vec3(character(n, p));
+	if (u_bw1 != 0.99 && u_bw1 != 1.0)  col.xyz = vec3(character(n, p));
 
 
 	// Terminal theme
