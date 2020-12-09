@@ -152,7 +152,7 @@ float getDepth(float n){
 
 float line(vec2 st, float pct){
   return  step( pct, st.y) -
-          step( pct + .045, st.y);
+          step( pct + .04, st.y);
 }
 
 void main() {

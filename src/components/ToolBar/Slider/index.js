@@ -1,21 +1,21 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
+import ReactSlider from "react-slider"
 import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
-const ThemePicker = props => {
+const Slider = props => {
     const [isOpen, setIsOpen] = useState(false)
 
     const variants = {
-        open: { y: "-600%" },
+        open: { y: "-400%" },
         closed: { y: "0" },
     }
-
     return (
         <motion.div
             onClick={() => setIsOpen(!isOpen)}
-            className={styles.themePicker}
+            className={styles.sliderContainer}
             animate={isOpen ? "open" : "closed"}
             variants={variants}
         >
@@ -45,11 +45,20 @@ const ThemePicker = props => {
                 </svg>
             </div>
             <div className={styles.drawer}>
-                <span onClick={props.setLightTheme}>Light</span>
-                <span onClick={props.setDarkTheme}>Dark</span>
-                <span onClick={props.setGreyTheme}>Grey</span>
-                <span onClick={props.setTerminalTheme}>Terminal</span>
-                <span onClick={props.setAcidTheme}>Acid</span>
+                <ReactSlider
+                    className={styles.slider}
+                    thumbClassName={styles.sliderThumb}
+                    trackClassName={styles.sliderTrack}
+                    defaultValue={[0]}
+                    ariaLabel={["Lowest thumb", "Middle thumb", "Top thumb"]}
+                    renderThumb={(props, state) => (
+                        <div {...props}>{state.valueNow}</div>
+                    )}
+                    orientation="vertical"
+                    invert
+                    pearling
+                    minDistance={10}
+                />
                 <div className={styles.return}>
                     <svg
                         version="1.1"
@@ -79,14 +88,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setLightTheme: () => dispatch({ type: "LIGHT_THEME" }),
-        setDarkTheme: () => dispatch({ type: "DARK_THEME" }),
-        setGreyTheme: () => dispatch({ type: "GREY_THEME" }),
-        setTerminalTheme: () => dispatch({ type: "TERMINAL_THEME" }),
-        setAcidTheme: () => dispatch({ type: "ACID_THEME" }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ThemePicker)
+export default connect(mapStateToProps)(Slider)

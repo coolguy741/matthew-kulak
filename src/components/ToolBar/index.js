@@ -9,7 +9,7 @@ import Work from "./Nav/Work"
 import About from "./Nav/About"
 import Contact from "./Nav/Contact"
 import Time from "./Time"
-import Weather from "./Weather"
+import Slider from "./Slider"
 import styles from "../../styles/toolbar.module.scss"
 
 const Toolbar = props => {
@@ -39,7 +39,7 @@ const Toolbar = props => {
                 <Contact />
                 <div className={styles.break}></div>
                 <FRMR />
-                <Weather />
+                <Slider />
                 <UserSettings />
                 <ThemePicker />
                 <Time />
