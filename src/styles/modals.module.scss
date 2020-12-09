@@ -207,9 +207,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $light-bg;
         border: 1px solid $light-border;
         box-shadow: 5px 5px 0 $light-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
@@ -227,12 +224,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             color: $light-text;
             background-color: $light-btn;
             border: 1px solid $light-border;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out, border 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out,
-                border 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out,
-                border 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out,
                 border 0.3s ease-out;
         }
@@ -244,18 +235,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .modalBar {
             border-bottom: 1px solid $light-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
         }
         .about .aboutDesc span {
             background-color: rgba(00, 00, 00, 0.07);
             color: $light-text;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
@@ -294,9 +278,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .twitterPath,
         .gnosPathLight,
         .gnosPathOutline {
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .about .status span,
@@ -310,16 +291,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         li,
         ul.contact a:hover,
         .body .about {
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .body span,
         .btn:hover {
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
     }
@@ -327,9 +302,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $dark-bg;
         border: 1px solid $dark-border;
         box-shadow: 5px 5px 0 $dark-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
@@ -351,20 +323,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             background-color: $dark-btn;
             border: 1px solid $dark-border;
             color: $dark-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out, border 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out,
-                border 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out,
-                border 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out,
                 border 0.3s ease-out;
         }
         .btn:hover {
             background-color: $dark-btn-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .heading {
@@ -373,10 +336,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
             color: $dark-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
@@ -387,9 +346,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .modalBar {
             border-bottom: 1px solid $dark-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
         }
         .gnosPathDark {
@@ -422,9 +378,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .status span,
         .heading,
         ul.contact li a {
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .tripwirePath,
@@ -437,9 +390,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .gnosPathLight,
         .gnosPathR,
         .gnosPathDark {
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
     }
@@ -447,9 +397,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $grey-bg;
         border: 1px solid $grey-border;
         box-shadow: 5px 5px 0 $grey-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
@@ -471,18 +418,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             background-color: $grey-btn;
             border: 1px solid $grey-border;
             color: $grey-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
             background-color: $grey-btn-hover;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .heading {
@@ -491,10 +430,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
             color: $grey-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
@@ -507,11 +442,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             border-bottom: 1px solid $grey-border;
             background-color: #717171;
             color: #bbb;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,
@@ -545,9 +475,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .workIcon span,
         .heading,
         .about .status span {
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .gnosPathLight,
@@ -561,9 +488,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .gnosPathR,
         .xPath,
         .tripwirePath {
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
     }
@@ -571,9 +495,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $terminal-bg;
         border: 1px solid $terminal-border;
         box-shadow: 5px 5px 0 $terminal-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
@@ -595,18 +516,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             background-color: $terminal-btn;
             border: 1px solid $terminal-border;
             color: $terminal-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
             background-color: $terminal-btn-hover;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .heading {
@@ -615,10 +528,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
             color: $terminal-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
@@ -629,9 +538,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .modalBar {
             border-bottom: 1px solid $terminal-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
         }
         .gnosPathR,
@@ -665,9 +571,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .workIcon span,
         .heading,
         .about .status span {
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .gnosPathR,
@@ -681,9 +584,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .twitterPath,
         .xPath,
         .tripwirePath {
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
     }
@@ -691,9 +591,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $acid-bg;
         border: 1px solid $acid-border;
         box-shadow: 5px 5px 0 $acid-box-shadow;
-        -webkit-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -moz-transition: background-color 0.3s ease-out, border 0.3s ease-out;
-        -o-transition: background-color 0.3s ease-out, border 0.3s ease-out;
         transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
@@ -715,18 +612,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             background-color: $acid-btn;
             border: 1px solid $acid-border;
             color: $acid-heading;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
             background-color: $acid-btn-hover;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .heading {
@@ -735,10 +624,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .aboutDesc span {
             background-color: rgba(95, 46, 210, 0.5);
             color: $acid-text2;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .workDesc {
@@ -754,11 +639,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .modalBar {
             border-bottom: 1px solid $acid-border;
             background-color: $acid-gradient;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight {
@@ -791,9 +671,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .heading,
         .workDesc,
         .about .status span {
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .gnosPathR,
@@ -813,9 +690,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .twitterPath,
         .xPath,
         .tripwirePath {
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
     }

@@ -219,24 +219,15 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $light-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
                 color: $light-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
         }
         .contact,
         .time {
             border-left: 1px solid $light-border;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .nav,
@@ -246,20 +237,12 @@ $breakpoint-tablet-portrait: 560px;
         .time {
             background-color: $light-bg;
             border-top: 1px solid $light-border;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $light-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .logoPath,
@@ -269,68 +252,38 @@ $breakpoint-tablet-portrait: 560px;
         .userSettingsPath,
         .sliderPath {
             fill: #202020;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
                 border-bottom: 1px solid $light-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
             span {
                 color: $light-text;
                 border-bottom: 1px solid $light-border;
                 background-color: transparent;
-                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
             span:hover,
             .return:hover {
                 background-color: $light-hover;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .drawer {
                 background-color: $light-bg;
                 border-left: 1px solid $light-border;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .iconContainer {
                 border-left: 1px solid $light-border;
                 border-top: 1px solid $light-border;
                 background-color: $light-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
                 &:hover {
                     background-color: $light-hover;
-                    -webkit-transition: background-color 0.3s ease-out;
-                    -moz-transition: background-color 0.3s ease-out;
-                    -o-transition: background-color 0.3s ease-out;
                     transition: background-color 0.3s ease-out;
                 }
             }
@@ -343,26 +296,15 @@ $breakpoint-tablet-portrait: 560px;
                 border: 1px solid $light-border;
                 background-color: $light-hover;
                 box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out,
+                    box-shadow 0.3s ease-out;
             }
             .sliderTrack {
                 background-color: $light-slider-track;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .return {
                 border-top: 1px solid $light-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
         }
@@ -375,33 +317,20 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $dark-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
                 color: $dark-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
         }
         .contact,
         .time {
             border-left: 1px solid $dark-border;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .time span {
             color: #f00;
             background-color: #432020;
-            -webkit-transition: color 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out, background-color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out, background-color 0.3s ease-out;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav,
@@ -411,20 +340,12 @@ $breakpoint-tablet-portrait: 560px;
         .time {
             background-color: $dark-bg;
             border-top: 1px solid $dark-border;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $dark-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .logoPath,
@@ -434,68 +355,38 @@ $breakpoint-tablet-portrait: 560px;
         .userSettingsPath,
         .sliderPath {
             fill: #fff;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
                 border-bottom: 1px solid $dark-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
             span {
                 color: $dark-text;
                 border-bottom: 1px solid $dark-border;
                 background-color: transparent;
-                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
             span:hover,
             .return:hover {
                 background-color: $dark-hover;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .drawer {
                 background-color: $dark-bg;
                 border-left: 1px solid $dark-border;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .iconContainer {
                 border-left: 1px solid $dark-border;
                 border-top: 1px solid $dark-border;
                 background-color: $dark-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
                 &:hover {
                     background-color: $dark-hover;
-                    -webkit-transition: background-color 0.3s ease-out;
-                    -moz-transition: background-color 0.3s ease-out;
-                    -o-transition: background-color 0.3s ease-out;
                     transition: background-color 0.3s ease-out;
                 }
             }
@@ -505,19 +396,11 @@ $breakpoint-tablet-portrait: 560px;
                 border: 1px solid $dark-bg;
                 background-color: $dark-slider-thumb;
                 box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out,
+                    box-shadow 0.3s ease-out;
             }
             .sliderTrack {
                 background-color: #f00;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .return {
@@ -533,24 +416,15 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $grey-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
                 color: $grey-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
         }
         .contact,
         .time {
             border-left: 1px solid $grey-border;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .nav,
@@ -560,20 +434,12 @@ $breakpoint-tablet-portrait: 560px;
         .time {
             background-color: $grey-bg;
             border-top: 1px solid $grey-border;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $grey-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .logoPath,
@@ -583,68 +449,38 @@ $breakpoint-tablet-portrait: 560px;
         .userSettingsPath,
         .sliderPath {
             fill: #202020;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
                 border-bottom: 1px solid $grey-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
             span {
                 color: $grey-text;
                 border-bottom: 1px solid $grey-border;
                 background-color: transparent;
-                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
             span:hover,
             .return:hover {
                 background-color: $grey-hover;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .drawer {
                 background-color: $grey-bg;
                 border-left: 1px solid $grey-border;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .iconContainer {
                 border-left: 1px solid $grey-border;
                 border-top: 1px solid $grey-border;
                 background-color: $grey-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
                 &:hover {
                     background-color: $grey-hover;
-                    -webkit-transition: background-color 0.3s ease-out;
-                    -moz-transition: background-color 0.3s ease-out;
-                    -o-transition: background-color 0.3s ease-out;
                     transition: background-color 0.3s ease-out;
                 }
             }
@@ -654,19 +490,11 @@ $breakpoint-tablet-portrait: 560px;
                 border: 1px solid $grey-border;
                 background-color: $grey-hover;
                 box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out,
+                    box-shadow 0.3s ease-out;
             }
             .sliderTrack {
                 background-color: $grey-border;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .return {
@@ -682,31 +510,19 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $terminal-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
                 color: $terminal-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
         }
         .time span {
             color: $terminal-text;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .contact,
         .time {
             border-left: 1px solid $terminal-border;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .nav,
@@ -716,20 +532,12 @@ $breakpoint-tablet-portrait: 560px;
         .time {
             background-color: $terminal-bg;
             border-top: 1px solid $terminal-border;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $terminal-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .logoPath,
@@ -739,68 +547,38 @@ $breakpoint-tablet-portrait: 560px;
         .userSettingsPath,
         .sliderPath {
             fill: $terminal-text;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
                 border-bottom: 1px solid $terminal-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
             span {
                 color: $terminal-text;
                 border-bottom: 1px solid $terminal-border;
                 background-color: transparent;
-                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
             span:hover,
             .return:hover {
                 background-color: $terminal-hover;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .drawer {
                 background-color: $terminal-bg;
                 border-left: 1px solid $terminal-border;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .iconContainer {
                 border-left: 1px solid $terminal-border;
                 border-top: 1px solid $terminal-border;
                 background-color: $terminal-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
                 &:hover {
                     background-color: $terminal-hover;
-                    -webkit-transition: background-color 0.3s ease-out;
-                    -moz-transition: background-color 0.3s ease-out;
-                    -o-transition: background-color 0.3s ease-out;
                     transition: background-color 0.3s ease-out;
                 }
             }
@@ -810,19 +588,11 @@ $breakpoint-tablet-portrait: 560px;
                 border: 1px solid $terminal-border;
                 background-color: $terminal-hover;
                 box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out,
+                    box-shadow 0.3s ease-out;
             }
             .sliderTrack {
                 background-color: $terminal-border;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .return {
@@ -838,31 +608,19 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $acid-border;
-            -webkit-transition: border 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out;
-            -o-transition: border 0.3s ease-out;
             transition: border 0.3s ease-out;
             span {
                 color: $acid-text;
-                -webkit-transition: color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
         }
         .contact,
         .time {
             border-left: 1px solid $acid-border;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .time span {
             color: $acid-text;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .nav,
@@ -872,29 +630,18 @@ $breakpoint-tablet-portrait: 560px;
         .time {
             background: $acid-bg;
             border-top: 1px solid $acid-border;
-            -webkit-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -moz-transition: border 0.3s ease-out,
-                background-color 0.3s ease-out;
-            -o-transition: border 0.3s ease-out, background-color 0.3s ease-out;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
             background-color: $acid-hover;
-            -webkit-transition: background-color 0.3s ease-out;
-            -moz-transition: background-color 0.3s ease-out;
-            -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
         }
         .work span,
         .about span,
         .contact span {
             color: $acid-text;
-            -webkit-transition: color 0.3s ease-out;
-            -moz-transition: color 0.3s ease-out;
-            -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
         }
         .logoPath,
@@ -904,62 +651,35 @@ $breakpoint-tablet-portrait: 560px;
         .userSettingsPath,
         .sliderPath {
             fill: $acid-text;
-            -webkit-transition: fill 0.3s ease-out;
-            -moz-transition: fill 0.3s ease-out;
-            -o-transition: fill 0.3s ease-out;
             transition: fill 0.3s ease-out;
         }
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
                 border-bottom: 1px solid $acid-border;
-                -webkit-transition: border 0.3s ease-out;
-                -moz-transition: border 0.3s ease-out;
-                -o-transition: border 0.3s ease-out;
                 transition: border 0.3s ease-out;
             }
             span {
                 color: $acid-text;
                 border-bottom: 1px solid $acid-border;
                 background-color: transparent;
-                -webkit-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -moz-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
-                -o-transition: color 0.3s ease-out, border 0.3s ease-out,
-                    background-color 0.3s ease-out;
                 transition: color 0.3s ease-out, border 0.3s ease-out,
                     background-color 0.3s ease-out;
             }
             span:hover,
             .return:hover {
                 background-color: $acid-hover;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .drawer {
                 background-color: $acid-bg;
                 border-left: 1px solid $acid-border;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .iconContainer {
                 border-left: 1px solid $acid-border;
                 border-top: 1px solid $acid-border;
                 background-color: $acid-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
                 &:hover {
                     background-color: $acid-hover;
@@ -975,19 +695,11 @@ $breakpoint-tablet-portrait: 560px;
                 border: 1px solid $acid-border;
                 background-color: #f0f;
                 box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out,
+                    box-shadow 0.3s ease-out;
             }
             .sliderTrack {
                 background-color: $acid-text;
-                -webkit-transition: background-color 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out;
                 transition: background-color 0.3s ease-out;
             }
             .return {
@@ -1091,12 +803,6 @@ $breakpoint-tablet-portrait: 560px;
             .sliderContainer .iconContainer {
                 border-right: 1px solid $light-border !important;
                 background-color: $light-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
@@ -1108,12 +814,6 @@ $breakpoint-tablet-portrait: 560px;
             .sliderContainer .iconContainer {
                 border-right: 1px solid $dark-border !important;
                 background-color: $dark-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
@@ -1125,12 +825,6 @@ $breakpoint-tablet-portrait: 560px;
             .sliderContainer .iconContainer {
                 border-right: 1px solid $grey-border !important;
                 background-color: $grey-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
@@ -1142,12 +836,6 @@ $breakpoint-tablet-portrait: 560px;
             .sliderContainer .iconContainer {
                 border-right: 1px solid $terminal-border !important;
                 background-color: $terminal-bg;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
@@ -1158,12 +846,6 @@ $breakpoint-tablet-portrait: 560px;
             .sliderContainer .drawer,
             .sliderContainer .iconContainer {
                 border-right: 1px solid $acid-border !important;
-                -webkit-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -moz-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
-                -o-transition: background-color 0.3s ease-out,
-                    border 0.3s ease-out;
                 transition: background-color 0.3s ease-out, border 0.3s ease-out;
             }
             .time {
