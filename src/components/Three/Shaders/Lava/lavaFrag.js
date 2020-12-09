@@ -5,6 +5,7 @@ uniform vec2 u_resolution;
 uniform float u_time;
 uniform float u_ratio;
 uniform float u_speed;
+uniform float u_slider;
 uniform sampler2D u_trail;
 
 varying vec2 v_uv;
@@ -40,7 +41,7 @@ float snoise(vec2 v) {
     vec3 g;
     g.x  = a0.x  * x0.x  + h.x  * x0.y;
     g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 142.0 * dot(m, g);
+    return (142.0 * (u_slider / 100.)) * dot(m, g);
 }
 
 void main() {

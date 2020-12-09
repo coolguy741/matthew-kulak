@@ -52,6 +52,9 @@ const Geometry = props => {
             u_bw2: {
                 value: 1.0,
             },
+            u_slider: {
+                value: props.sliderPos,
+            },
         }),
         []
     )
@@ -140,7 +143,10 @@ const Geometry = props => {
 
     return (
         <>
-            {createPortal(<Lava theme={props.theme} />, scene)}
+            {createPortal(
+                <Lava theme={props.theme} sliderPos={props.sliderPos} />,
+                scene
+            )}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry args={[width / height, 1, 1, 1]} />
                 <shaderMaterial

@@ -32,7 +32,7 @@ const MainCanvas = props => {
             />
             {/* <OrbitControls /> */}
             <Suspense fallback={null}>
-                <Geometry theme={props.theme} />
+                <Geometry theme={props.theme} sliderPos={props.sliderPos} />
             </Suspense>
             {/* <Effects /> */}
         </Canvas>
@@ -42,6 +42,7 @@ const MainCanvas = props => {
 const mapStateToProps = state => {
     return {
         theme: state.theme,
+        sliderPos: state.sliderPos,
     }
 }
 

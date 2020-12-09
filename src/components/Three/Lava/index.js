@@ -67,6 +67,9 @@ const Lava = props => {
             u_trail: {
                 value: target.texture,
             },
+            u_slider: {
+                value: props.sliderPos,
+            },
         }),
         []
     )
@@ -86,6 +89,8 @@ const Lava = props => {
 
         uniforms.u_mouse.value.lerp(pointer, 0.2)
         uniforms.u_speed.value = speed
+
+        uniforms.u_slider.value = props.sliderPos
 
         const diffSpeed = Math.max(diff.speedX, diff.speedY) * 0.05
         speed += Math.min(diffSpeed, 0.1)

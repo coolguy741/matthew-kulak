@@ -10,6 +10,7 @@ uniform int u_n1;
 uniform int u_n2;
 uniform float u_bw1;
 uniform float u_bw2;
+uniform float u_slider;
 uniform sampler2D u_noise;
 
 varying vec2 v_uv;
@@ -152,7 +153,7 @@ float getDepth(float n){
 
 float line(vec2 st, float pct){
   return  step( pct, st.y) -
-          step( pct + .04, st.y);
+          step( pct + .04 + (u_slider / 2000.), st.y);
 }
 
 void main() {

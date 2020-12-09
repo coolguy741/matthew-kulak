@@ -29,6 +29,7 @@ const initialState = {
     isGNOSOpen: false,
     isCadillacOpen: false,
     isTripwireOpen: false,
+    sliderPos: 0,
 }
 
 // add 1 to the current (highest) z-index
@@ -186,6 +187,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isTripwireOpen: false,
+            }
+        case "SET_SLIDER_POS":
+            return {
+                ...state,
+                sliderPos: action.val,
             }
         default:
             return state

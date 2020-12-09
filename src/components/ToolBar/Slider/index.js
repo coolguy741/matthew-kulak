@@ -12,6 +12,9 @@ const Slider = props => {
         open: { y: "-400%" },
         closed: { y: "0" },
     }
+
+    console.log(props.sliderPos)
+
     return (
         <motion.div
             onClick={() => setIsOpen(!isOpen)}
@@ -50,14 +53,10 @@ const Slider = props => {
                     thumbClassName={styles.sliderThumb}
                     trackClassName={styles.sliderTrack}
                     defaultValue={[0]}
-                    ariaLabel={["Lowest thumb", "Middle thumb", "Top thumb"]}
-                    renderThumb={(props, state) => (
-                        <div {...props}>{state.valueNow}</div>
-                    )}
+                    ariaLabel={["Slider"]}
                     orientation="vertical"
                     invert
-                    pearling
-                    minDistance={10}
+                    onChange={val => props.setSliderPos(val)}
                 />
                 <div className={styles.return}>
                     <svg
@@ -85,7 +84,14 @@ const Slider = props => {
 const mapStateToProps = state => {
     return {
         theme: state.theme,
+        sliderPos: state.sliderPos,
     }
 }
 
-export default connect(mapStateToProps)(Slider)
+const mapDispatchToProps = dispatch => {
+    return {
+        setSliderPos: val => dispatch({ type: "SET_SLIDER_POS", val: val }),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slider)
