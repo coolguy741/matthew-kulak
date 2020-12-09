@@ -2,22 +2,27 @@ import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
 import ReactSlider from "react-slider"
+import { useMediaQuery } from "react-responsive"
 import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Slider = props => {
     const [isOpen, setIsOpen] = useState(false)
 
+    const isLandscapeTabletOrLaptop = useMediaQuery({
+        query: "(min-width: 821px)",
+    })
+
+    const drawerOffset = isLandscapeTabletOrLaptop ? "-300%" : "-400%"
+
     const variants = {
-        open: { y: "-400%" },
+        open: { y: drawerOffset },
         closed: { y: "0" },
     }
 
-    console.log(props.sliderPos)
-
     return (
         <motion.div
-            onClick={() => setIsOpen(!isOpen)}
+            // onClick={() => setIsOpen(!isOpen)}
             className={styles.sliderContainer}
             animate={isOpen ? "open" : "closed"}
             variants={variants}

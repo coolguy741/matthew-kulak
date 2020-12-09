@@ -2,12 +2,14 @@ $light-bg: #fff;
 $light-border: #202020;
 $light-text: #202020;
 $light-hover: #f2f2f2;
+$light-slider-track: #999;
 
 $dark-bg: #202020;
 $dark-border: #505050;
 $dark-text: #ccc;
 $dark-hover: #252525;
 $dark-heading: #fff;
+$dark-slider-thumb: #858585;
 
 $grey-bg: #888;
 $grey-border: #202020;
@@ -47,6 +49,14 @@ $breakpoint-tablet-portrait: 560px;
             width: 35px;
         }
     }
+    .sliderContainer {
+        .drawer {
+            padding-top: 20px;
+        }
+        .return {
+            margin-top: 20px;
+        }
+    }
     .themePicker,
     .sliderContainer {
         display: block;
@@ -76,9 +86,13 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
     }
-    .time {
+    .time,
+    .contact {
         z-index: 9999;
         margin-left: -1px;
+    }
+    .contact {
+        margin-right: -1px;
     }
     .themePicker,
     .sliderContainer,
@@ -95,38 +109,34 @@ $breakpoint-tablet-portrait: 560px;
         order: 4;
     }
     .sliderContainer {
-        order: 5;
-        .sliderDrawer {
-            height: 400px;
-        }
+        order: 7;
         .slider {
-            width: 25px;
-            height: 200px;
+            width: 10px;
+            height: 109px;
             margin: 0 auto;
         }
         .sliderThumb {
-            height: 25px;
+            height: 14px;
             line-height: 25px;
-            width: 25px;
+            width: 38px;
             text-align: center;
-            background-color: #000;
-            color: #fff;
-            border-radius: 50%;
+            left: -13px;
+            border-radius: 3px;
             cursor: grab;
         }
         .sliderTrack {
-            top: 0;
-            bottom: 0;
+            top: 20px;
+            bottom: 20px;
             width: 10px;
-            background: #0f0;
-            border-radius: 999px;
+            background: #f00;
+            border-radius: 2px;
         }
     }
     .userSettings {
-        order: 6;
+        order: 5;
     }
     .themePicker {
-        order: 7;
+        order: 6;
     }
     .break {
         order: 3;
@@ -183,9 +193,10 @@ $breakpoint-tablet-portrait: 560px;
     &.light {
         .logo,
         .nav,
-        .sliderContainer,
         .userSettings,
-        .frmr {
+        .frmr,
+        .themePicker .drawer,
+        .themePicker .iconContainer {
             border-right: 1px solid $light-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
@@ -198,6 +209,14 @@ $breakpoint-tablet-portrait: 560px;
                 -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
+        }
+        .contact,
+        .time {
+            border-left: 1px solid $light-border;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
         }
         .nav,
         .frmr,
@@ -235,8 +254,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
-            span,
-            .return {
+            span {
                 color: $light-text;
                 border-bottom: 1px solid $light-border;
                 background-color: transparent;
@@ -290,21 +308,39 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         .sliderContainer {
-            .drawer {
-                border-right: 1px solid $light-border;
-                border-top: 1px solid $light-border;
-            }
             .iconContainer {
-                border-bottom: none;
+                border-right: none;
+            }
+            .sliderThumb {
+                border: 1px solid $light-border;
+                background-color: $light-hover;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .sliderTrack {
+                background-color: $light-slider-track;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .return {
+                border-top: 1px solid $light-border;
             }
         }
     }
     &.dark {
         .logo,
         .nav,
-        .sliderContainer,
         .userSettings,
-        .frmr {
+        .frmr,
+        .themePicker .drawer,
+        .themePicker .iconContainer {
             border-right: 1px solid $dark-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
@@ -317,6 +353,14 @@ $breakpoint-tablet-portrait: 560px;
                 -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
+        }
+        .contact,
+        .time {
+            border-left: 1px solid $dark-border;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
         }
         .time span {
             color: #f00;
@@ -363,8 +407,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
-            span,
-            .return {
+            span {
                 color: $dark-text;
                 border-bottom: 1px solid $dark-border;
                 background-color: transparent;
@@ -417,16 +460,37 @@ $breakpoint-tablet-portrait: 560px;
                 }
             }
         }
-        .sliderContainer .drawer {
-            border-right: 1px solid $dark-border;
+        .sliderContainer {
+            .sliderThumb {
+                border: 1px solid $dark-bg;
+                background-color: $dark-slider-thumb;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .sliderTrack {
+                background-color: #f00;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .return {
+                border-top: 1px solid $dark-border;
+            }
         }
     }
     &.grey {
         .logo,
         .nav,
-        .sliderContainer,
         .userSettings,
-        .frmr {
+        .frmr,
+        .themePicker .drawer,
+        .themePicker .iconContainer {
             border-right: 1px solid $grey-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
@@ -439,6 +503,14 @@ $breakpoint-tablet-portrait: 560px;
                 -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
+        }
+        .contact,
+        .time {
+            border-left: 1px solid $grey-border;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
         }
         .nav,
         .frmr,
@@ -476,8 +548,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
-            span,
-            .return {
+            span {
                 color: $grey-text;
                 border-bottom: 1px solid $grey-border;
                 background-color: transparent;
@@ -530,16 +601,37 @@ $breakpoint-tablet-portrait: 560px;
                 }
             }
         }
-        .sliderContainer .drawer {
-            border-right: 1px solid $grey-border;
+        .sliderContainer {
+            .sliderThumb {
+                border: 1px solid $grey-border;
+                background-color: $grey-hover;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .sliderTrack {
+                background-color: $grey-border;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .return {
+                border-top: 1px solid $grey-border;
+            }
         }
     }
     &.terminal {
         .logo,
         .nav,
-        .sliderContainer,
         .userSettings,
-        .frmr {
+        .frmr,
+        .themePicker .drawer,
+        .themePicker .iconContainer {
             border-right: 1px solid $terminal-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
@@ -559,6 +651,14 @@ $breakpoint-tablet-portrait: 560px;
             -moz-transition: color 0.3s ease-out;
             -o-transition: color 0.3s ease-out;
             transition: color 0.3s ease-out;
+        }
+        .contact,
+        .time {
+            border-left: 1px solid $terminal-border;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
         }
         .nav,
         .frmr,
@@ -596,8 +696,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
-            span,
-            .return {
+            span {
                 color: $terminal-text;
                 border-bottom: 1px solid $terminal-border;
                 background-color: transparent;
@@ -650,16 +749,37 @@ $breakpoint-tablet-portrait: 560px;
                 }
             }
         }
-        .sliderContainer .drawer {
-            border-right: 1px solid $terminal-border;
+        .sliderContainer {
+            .sliderThumb {
+                border: 1px solid $terminal-border;
+                background-color: $terminal-hover;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .sliderTrack {
+                background-color: $terminal-border;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .return {
+                border-top: 1px solid $terminal-border;
+            }
         }
     }
     &.acid {
         .logo,
         .nav,
-        .sliderContainer,
         .userSettings,
-        .frmr {
+        .frmr,
+        .themePicker .drawer,
+        .themePicker .iconContainer {
             border-right: 1px solid $acid-border;
             -webkit-transition: border 0.3s ease-out;
             -moz-transition: border 0.3s ease-out;
@@ -672,6 +792,14 @@ $breakpoint-tablet-portrait: 560px;
                 -o-transition: color 0.3s ease-out;
                 transition: color 0.3s ease-out;
             }
+        }
+        .contact,
+        .time {
+            border-left: 1px solid $acid-border;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
         }
         .time span {
             color: $acid-text;
@@ -725,8 +853,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
-            span,
-            .return {
+            span {
                 color: $acid-text;
                 border-bottom: 1px solid $acid-border;
                 background-color: transparent;
@@ -779,8 +906,28 @@ $breakpoint-tablet-portrait: 560px;
                 }
             }
         }
-        .sliderContainer .drawer {
-            border-right: 1px solid $acid-border;
+        .sliderContainer {
+            .sliderThumb {
+                border: 1px solid $acid-border;
+                background-color: $acid-bg;
+                -webkit-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out,
+                    border 0.3s ease-out;
+                transition: background-color 0.3s ease-out, border 0.3s ease-out;
+            }
+            .sliderTrack {
+                background-color: $acid-text;
+                -webkit-transition: background-color 0.3s ease-out;
+                -moz-transition: background-color 0.3s ease-out;
+                -o-transition: background-color 0.3s ease-out;
+                transition: background-color 0.3s ease-out;
+            }
+            .return {
+                border-top: 1px solid $acid-border;
+            }
         }
     }
 }
@@ -810,13 +957,13 @@ $breakpoint-tablet-portrait: 560px;
         .frmr {
             order: 3;
         }
-        .sliderContainer {
+        .userSettings {
             order: 4;
         }
-        .userSettings {
+        .themePicker {
             order: 5;
         }
-        .themePicker {
+        .sliderContainer {
             order: 6;
         }
         .time {
@@ -858,8 +1005,8 @@ $breakpoint-tablet-portrait: 560px;
             flex-basis: auto;
         }
         &.light {
-            .themePicker .drawer,
-            .themePicker .iconContainer {
+            .sliderContainer .drawer,
+            .sliderContainer .iconContainer {
                 border-right: 1px solid $light-border !important;
                 background-color: $light-bg;
                 -webkit-transition: background-color 0.3s ease-out,
@@ -875,8 +1022,8 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         &.dark {
-            .themePicker .drawer,
-            .themePicker .iconContainer {
+            .sliderContainer .drawer,
+            .sliderContainer .iconContainer {
                 border-right: 1px solid $dark-border !important;
                 background-color: $dark-bg;
                 -webkit-transition: background-color 0.3s ease-out,
@@ -892,8 +1039,8 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         &.grey {
-            .themePicker .drawer,
-            .themePicker .iconContainer {
+            .sliderContainer .drawer,
+            .sliderContainer .iconContainer {
                 border-right: 1px solid $grey-border !important;
                 background-color: $grey-bg;
                 -webkit-transition: background-color 0.3s ease-out,
@@ -909,8 +1056,8 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         &.terminal {
-            .themePicker .drawer,
-            .themePicker .iconContainer {
+            .sliderContainer .drawer,
+            .sliderContainer .iconContainer {
                 border-right: 1px solid $terminal-border !important;
                 background-color: $terminal-bg;
                 -webkit-transition: background-color 0.3s ease-out,
@@ -926,10 +1073,9 @@ $breakpoint-tablet-portrait: 560px;
             }
         }
         &.acid {
-            .themePicker .drawer,
-            .themePicker .iconContainer {
+            .sliderContainer .drawer,
+            .sliderContainer .iconContainer {
                 border-right: 1px solid $acid-border !important;
-                // background-color: $acid-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -995,6 +1141,9 @@ $breakpoint-tablet-portrait: 560px;
                     text-transform: uppercase;
                     cursor: pointer;
                 }
+                .slider {
+                    height: 79px;
+                }
             }
             .return {
                 padding: 17px;
@@ -1058,6 +1207,9 @@ $breakpoint-tablet-portrait: 560px;
                     height: 70px;
                     text-transform: uppercase;
                     cursor: pointer;
+                }
+                .slider {
+                    height: 99px;
                 }
             }
             .return {

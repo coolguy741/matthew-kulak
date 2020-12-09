@@ -73,7 +73,7 @@ const Geometry = props => {
     const n2Switch = param => {
         switch (param) {
             case "LIGHT":
-                return 1
+                return 0
             case "DARK":
                 return 0
             case "GREY":
