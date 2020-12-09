@@ -60,12 +60,14 @@ $breakpoint-tablet-portrait: 560px;
     .themePicker,
     .sliderContainer {
         display: block;
-        cursor: pointer;
         margin-left: -1px;
         width: calc((100% / 4) + 0.5px);
         height: 50px;
         position: relative;
         z-index: 0;
+        .toolbarClickHandler {
+            height: 51px;
+        }
         .drawer {
             span {
                 display: block;
@@ -75,10 +77,15 @@ $breakpoint-tablet-portrait: 560px;
                 cursor: pointer;
             }
         }
+        .toolbarClickHandler {
+            cursor: pointer;
+            width: 100%;
+        }
         .iconContainer {
             border-right: none;
         }
         .return {
+            cursor: pointer;
             height: 180px;
             padding: 14px;
             svg {
@@ -99,7 +106,7 @@ $breakpoint-tablet-portrait: 560px;
     .userSettings {
         .iconContainer {
             padding: 12px;
-            height: 51px;
+            height: 50px;
             svg {
                 width: 27px;
             }
@@ -137,6 +144,7 @@ $breakpoint-tablet-portrait: 560px;
     }
     .themePicker {
         order: 6;
+        cursor: pointer;
     }
     .break {
         order: 3;
@@ -254,6 +262,13 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
+            .toolbarClickHandler {
+                border-bottom: 1px solid $light-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
             span {
                 color: $light-text;
                 border-bottom: 1px solid $light-border;
@@ -289,7 +304,6 @@ $breakpoint-tablet-portrait: 560px;
             .iconContainer {
                 border-left: 1px solid $light-border;
                 border-top: 1px solid $light-border;
-                border-bottom: 1px solid $light-border;
                 background-color: $light-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -331,6 +345,10 @@ $breakpoint-tablet-portrait: 560px;
             }
             .return {
                 border-top: 1px solid $light-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
             }
         }
     }
@@ -407,6 +425,13 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
+            .toolbarClickHandler {
+                border-bottom: 1px solid $dark-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
             span {
                 color: $dark-text;
                 border-bottom: 1px solid $dark-border;
@@ -442,7 +467,6 @@ $breakpoint-tablet-portrait: 560px;
             .iconContainer {
                 border-left: 1px solid $dark-border;
                 border-top: 1px solid $dark-border;
-                border-bottom: 1px solid $dark-border;
                 background-color: $dark-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -548,6 +572,13 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
+            .toolbarClickHandler {
+                border-bottom: 1px solid $grey-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
             span {
                 color: $grey-text;
                 border-bottom: 1px solid $grey-border;
@@ -583,7 +614,6 @@ $breakpoint-tablet-portrait: 560px;
             .iconContainer {
                 border-left: 1px solid $grey-border;
                 border-top: 1px solid $grey-border;
-                border-bottom: 1px solid $grey-border;
                 background-color: $grey-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -696,6 +726,13 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
+            .toolbarClickHandler {
+                border-bottom: 1px solid $terminal-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
             span {
                 color: $terminal-text;
                 border-bottom: 1px solid $terminal-border;
@@ -731,7 +768,6 @@ $breakpoint-tablet-portrait: 560px;
             .iconContainer {
                 border-left: 1px solid $terminal-border;
                 border-top: 1px solid $terminal-border;
-                border-bottom: 1px solid $terminal-border;
                 background-color: $terminal-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -853,6 +889,13 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker,
         .sliderContainer {
+            .toolbarClickHandler {
+                border-bottom: 1px solid $acid-border;
+                -webkit-transition: border 0.3s ease-out;
+                -moz-transition: border 0.3s ease-out;
+                -o-transition: border 0.3s ease-out;
+                transition: border 0.3s ease-out;
+            }
             span {
                 color: $acid-text;
                 border-bottom: 1px solid $acid-border;
@@ -888,7 +931,6 @@ $breakpoint-tablet-portrait: 560px;
             .iconContainer {
                 border-left: 1px solid $acid-border;
                 border-top: 1px solid $acid-border;
-                border-bottom: 1px solid $acid-border;
                 background-color: $acid-bg;
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
@@ -962,6 +1004,7 @@ $breakpoint-tablet-portrait: 560px;
         }
         .themePicker {
             order: 5;
+            cursor: pointer;
         }
         .sliderContainer {
             order: 6;
@@ -986,7 +1029,7 @@ $breakpoint-tablet-portrait: 560px;
         .userSettings {
             .iconContainer {
                 padding: 12px;
-                height: 51px;
+                height: 50px;
                 svg {
                     width: 27px;
                 }
@@ -995,7 +1038,6 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker,
         .sliderContainer {
             display: block;
-            cursor: pointer;
             margin-left: -1px;
             height: 50px;
             position: relative;
@@ -1133,6 +1175,9 @@ $breakpoint-tablet-portrait: 560px;
         .sliderContainer {
             width: 80px;
             height: 60px;
+            .toolbarClickHandler {
+                height: 61px;
+            }
             .drawer {
                 span {
                     display: block;
@@ -1157,7 +1202,7 @@ $breakpoint-tablet-portrait: 560px;
         .userSettings {
             .iconContainer {
                 padding: 15px;
-                height: 61px;
+                height: 60px;
                 svg {
                     width: 30px;
                 }
@@ -1222,12 +1267,16 @@ $breakpoint-tablet-portrait: 560px;
         .themePicker,
         .sliderContainer {
             .iconContainer {
-                height: 71px;
+                height: 70px;
                 svg {
                     width: 40px;
                 }
             }
+            .toolbarClickHandler {
+                height: 71px;
+            }
         }
+
         .userSettings {
             .iconContainer {
                 height: 65px;
