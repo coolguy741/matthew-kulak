@@ -7,6 +7,7 @@ uniform int u_n1;
 uniform int u_n2;
 uniform float u_bw1;
 uniform float u_bw2;
+uniform float u_slider;
 uniform sampler2D u_noise;
 
 float random(in float x){
@@ -20,13 +21,13 @@ float random(in vec2 st){
 float randomChar(in vec2 outer,in vec2 inner){
     float grid = 5.;
     vec2 margin = vec2(0.2,0.05);
-    float seed = 23.;
+    float seed = u_slider;
     vec2 borders = step(margin,inner)*step(margin,1.-inner);
     return step(.5,random(outer*seed+floor(inner*grid))) * borders.x * borders.y;
 }
 
 vec3 matrix(in vec2 st){
-    float rows = 160.0;
+    float rows = 160.0 / u_slider;
     vec2 ipos = floor(st*rows)+vec2(1.,0.);
 
     ipos += vec2(.0,floor(u_time*18.*random(ipos.x)));
