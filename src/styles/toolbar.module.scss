@@ -87,9 +87,9 @@ $breakpoint-tablet-portrait: 560px;
         .return {
             cursor: pointer;
             height: 180px;
-            padding: 14px;
+            padding: 12px;
             svg {
-                width: 28px;
+                width: 24px;
             }
         }
     }
@@ -105,8 +105,21 @@ $breakpoint-tablet-portrait: 560px;
     .sliderContainer,
     .userSettings {
         .iconContainer {
-            padding: 12px;
             height: 50px;
+        }
+    }
+    .sliderContainer {
+        .iconContainer {
+            padding: 8px;
+            svg {
+                width: 38px;
+            }
+        }
+    }
+    .themePicker,
+    .userSettings {
+        .iconContainer {
+            padding: 12px;
             svg {
                 width: 27px;
             }
@@ -253,7 +266,8 @@ $breakpoint-tablet-portrait: 560px;
         .frmrPath,
         .themePickerPath,
         .returnPath,
-        .userSettingsPath {
+        .userSettingsPath,
+        .sliderPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -417,7 +431,8 @@ $breakpoint-tablet-portrait: 560px;
         .frmrPath,
         .themePickerPath,
         .returnPath,
-        .userSettingsPath {
+        .userSettingsPath,
+        .sliderPath {
             fill: #fff;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -565,7 +580,8 @@ $breakpoint-tablet-portrait: 560px;
         .frmrPath,
         .themePickerPath,
         .returnPath,
-        .userSettingsPath {
+        .userSettingsPath,
+        .sliderPath {
             fill: #202020;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -720,7 +736,8 @@ $breakpoint-tablet-portrait: 560px;
         .frmrPath,
         .themePickerPath,
         .returnPath,
-        .userSettingsPath {
+        .userSettingsPath,
+        .sliderPath {
             fill: $terminal-text;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -884,7 +901,8 @@ $breakpoint-tablet-portrait: 560px;
         .frmrPath,
         .themePickerPath,
         .returnPath,
-        .userSettingsPath {
+        .userSettingsPath,
+        .sliderPath {
             fill: $acid-text;
             -webkit-transition: fill 0.3s ease-out;
             -moz-transition: fill 0.3s ease-out;
@@ -1030,13 +1048,30 @@ $breakpoint-tablet-portrait: 560px;
             bottom: 0;
         }
         .themePicker,
-        .sliderContainer,
+        .userSettings,
+        .sliderContainer {
+            .return {
+                svg {
+                    width: 23px;
+                }
+            }
+        }
+        .themePicker,
         .userSettings {
             .iconContainer {
                 padding: 12px;
                 height: 50px;
                 svg {
                     width: 27px;
+                }
+            }
+        }
+        .sliderContainer {
+            .iconContainer {
+                padding: 8px;
+                height: 50px;
+                svg {
+                    width: 37px;
                 }
             }
         }
@@ -1202,14 +1237,30 @@ $breakpoint-tablet-portrait: 560px;
                 }
             }
         }
-        .themePicker,
-        .sliderContainer,
-        .userSettings {
+        .themePicker {
             .iconContainer {
                 padding: 15px;
                 height: 60px;
                 svg {
                     width: 30px;
+                }
+            }
+        }
+        .userSettings {
+            .iconContainer {
+                padding: 16px;
+                height: 60px;
+                svg {
+                    width: 28px;
+                }
+            }
+        }
+        .sliderContainer {
+            .iconContainer {
+                padding: 11px;
+                height: 60px;
+                svg {
+                    width: 40px;
                 }
             }
         }
@@ -1273,20 +1324,32 @@ $breakpoint-tablet-portrait: 560px;
         .sliderContainer {
             .iconContainer {
                 height: 70px;
-                svg {
-                    width: 40px;
-                }
             }
             .toolbarClickHandler {
                 height: 71px;
             }
         }
-
-        .userSettings {
+        .themePicker {
             .iconContainer {
-                height: 65px;
+                padding: 18px;
                 svg {
                     width: 35px;
+                }
+            }
+        }
+        .sliderContainer {
+            .iconContainer {
+                padding: 14px;
+                svg {
+                    width: 47px;
+                }
+            }
+        }
+        .userSettings {
+            .iconContainer {
+                padding: 13px;
+                svg {
+                    width: 33px;
                 }
             }
         }
