@@ -127,7 +127,7 @@ $breakpoint-tablet-portrait: 560px;
             line-height: 25px;
             width: 38px;
             text-align: center;
-            left: -13px;
+            left: -14px;
             border-radius: 3px;
             cursor: grab;
         }
@@ -328,6 +328,7 @@ $breakpoint-tablet-portrait: 560px;
             .sliderThumb {
                 border: 1px solid $light-border;
                 background-color: $light-hover;
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -488,6 +489,7 @@ $breakpoint-tablet-portrait: 560px;
             .sliderThumb {
                 border: 1px solid $dark-bg;
                 background-color: $dark-slider-thumb;
+                box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -635,6 +637,7 @@ $breakpoint-tablet-portrait: 560px;
             .sliderThumb {
                 border: 1px solid $grey-border;
                 background-color: $grey-hover;
+                box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -789,6 +792,7 @@ $breakpoint-tablet-portrait: 560px;
             .sliderThumb {
                 border: 1px solid $terminal-border;
                 background-color: $terminal-hover;
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
@@ -951,7 +955,8 @@ $breakpoint-tablet-portrait: 560px;
         .sliderContainer {
             .sliderThumb {
                 border: 1px solid $acid-border;
-                background-color: $acid-bg;
+                background-color: #f0f;
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
                 -webkit-transition: background-color 0.3s ease-out,
                     border 0.3s ease-out;
                 -moz-transition: background-color 0.3s ease-out,
