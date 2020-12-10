@@ -130,7 +130,7 @@ float getNoise(vec2 uv, float t){
     float noise = snoise( vec3(uv.x*SCALE + t,uv.y*SCALE + t , 0));
     
     //octave 2 - more detail
-    SCALE = 6.0;
+    SCALE = 1. + u_slider / 20.;
     noise += snoise( vec3(uv.x*SCALE + t,uv.y*SCALE , 0))* 0.5 ;
     
     //move noise into 0 - 1 range    
@@ -153,7 +153,7 @@ float getDepth(float n){
 
 float line(vec2 st, float pct){
   return  step( pct, st.y) -
-          step( pct + .04 + (u_slider / 2000.), st.y);
+          step( pct + .04 + (u_slider / 3500.), st.y);
 }
 
 void main() {

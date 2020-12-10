@@ -29,6 +29,8 @@ const initialState = {
     isGNOSOpen: false,
     isCadillacOpen: false,
     isTripwireOpen: false,
+    isThemePickerOpen: false,
+    isSliderOpen: false,
     sliderPos: 0,
 }
 
@@ -187,6 +189,28 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isTripwireOpen: false,
+            }
+        case "TOGGLE_THEME_PICKER":
+            return {
+                ...state,
+                isSliderOpen: false,
+                isThemePickerOpen: !state.isThemePickerOpen,
+            }
+        case "TOGGLE_SLIDER":
+            return {
+                ...state,
+                isSliderOpen: !state.isSliderOpen,
+                isThemePickerOpen: false,
+            }
+        case "CLOSE_SLIDER":
+            return {
+                ...state,
+                isSliderOpen: false,
+            }
+        case "CLOSE_THEME_PICKER":
+            return {
+                ...state,
+                isThemePickerOpen: false,
             }
         case "SET_SLIDER_POS":
             return {

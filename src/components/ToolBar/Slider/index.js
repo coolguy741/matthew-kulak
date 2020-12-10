@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import { connect } from "react-redux"
 
 import ReactSlider from "react-slider"
@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Slider = props => {
-    const [isOpen, setIsOpen] = useState(false)
+    const wrapperRef = useRef(null)
 
     const isLandscapeTabletOrLaptop = useMediaQuery({
         query: "(min-width: 821px)",
@@ -20,15 +20,35 @@ const Slider = props => {
         closed: { y: "0" },
     }
 
+    console.log(props.isSliderOpen)
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                wrapperRef.current &&
+                !wrapperRef.current.contains(event.target)
+            ) {
+                props.closeSlider()
+            }
+        }
+
+        document.addEventListener("mouseup", handleClickOutside)
+        return () => {
+            document.removeEventListener("mouseup", handleClickOutside)
+        }
+    }, [wrapperRef])
+
     return (
         <motion.div
+            ref={wrapperRef}
             className={styles.sliderContainer}
-            animate={isOpen ? "open" : "closed"}
+            animate={props.isSliderOpen ? "open" : "closed"}
             variants={variants}
+            transition={{ type: "spring", stiffness: 3000, damping: 220 }}
         >
             <div
                 className={styles.toolbarClickHandler}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => props.toggleSlider()}
             >
                 <div className={styles.iconContainer}>
                     <svg viewBox="0 0 158.14 144.5">
@@ -60,7 +80,7 @@ const Slider = props => {
                 />
                 <div
                     className={styles.return}
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={() => props.toggleSlider()}
                 >
                     <svg
                         version="1.1"
@@ -88,12 +108,15 @@ const mapStateToProps = state => {
     return {
         theme: state.theme,
         sliderPos: state.sliderPos,
+        isSliderOpen: state.isSliderOpen,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         setSliderPos: val => dispatch({ type: "SET_SLIDER_POS", val: val }),
+        toggleSlider: () => dispatch({ type: "TOGGLE_SLIDER" }),
+        closeSlider: () => dispatch({ type: "CLOSE_SLIDER" }),
     }
 }
 

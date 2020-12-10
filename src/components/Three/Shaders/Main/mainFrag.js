@@ -77,7 +77,6 @@ void main() {
 	// Terminal theme
 
 	if (u_bw1 == 1.0 && col.x == 1.0) col.xyz = vec3(0.204, 0.522, 0.141);
-	// if (u_bw1 == 1.0 && col.x == 0.0) col.xyz = vec3(0.404, 0.622, 0.441);
 
 
 	// Acid theme

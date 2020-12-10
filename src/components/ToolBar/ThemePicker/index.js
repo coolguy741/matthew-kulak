@@ -1,34 +1,51 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { connect } from "react-redux"
 
 import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
 const ThemePicker = props => {
-    const [isOpen, setIsOpen] = useState(false)
+    const wrapperRef = useRef(null)
 
     const variants = {
         open: { y: "-600%" },
         closed: { y: "0" },
     }
 
+    console.log(props.isThemePickerOpen)
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                wrapperRef.current &&
+                !wrapperRef.current.contains(event.target)
+            ) {
+                props.closeThemePicker()
+            }
+        }
+
+        document.addEventListener("mouseup", handleClickOutside)
+        return () => {
+            document.removeEventListener("mouseup", handleClickOutside)
+        }
+    }, [wrapperRef])
+
     return (
         <motion.div
-            onClick={() => setIsOpen(!isOpen)}
+            ref={wrapperRef}
+            onClick={() => props.toggleThemePicker()}
             className={styles.themePicker}
-            animate={isOpen ? "open" : "closed"}
+            animate={props.isThemePickerOpen ? "open" : "closed"}
             variants={variants}
+            transition={{ type: "spring", stiffness: 3000, damping: 220 }}
         >
-            <div
-                className={styles.toolbarClickHandler}
-                onClick={() => setIsOpen(!isOpen)}
-            >
+            <div className={styles.toolbarClickHandler}>
                 <div className={styles.iconContainer}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 158.16 144.48"
                         width="40"
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => props.toggleThemePicker}
                     >
                         <path
                             className={styles.themePickerPath}
@@ -81,6 +98,7 @@ const ThemePicker = props => {
 const mapStateToProps = state => {
     return {
         theme: state.theme,
+        isThemePickerOpen: state.isThemePickerOpen,
     }
 }
 
@@ -91,6 +109,8 @@ const mapDispatchToProps = dispatch => {
         setGreyTheme: () => dispatch({ type: "GREY_THEME" }),
         setTerminalTheme: () => dispatch({ type: "TERMINAL_THEME" }),
         setAcidTheme: () => dispatch({ type: "ACID_THEME" }),
+        toggleThemePicker: () => dispatch({ type: "TOGGLE_THEME_PICKER" }),
+        closeThemePicker: () => dispatch({ type: "CLOSE_THEME_PICKER" }),
     }
 }
 
