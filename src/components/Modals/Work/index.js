@@ -36,6 +36,10 @@ class Work extends React.Component {
             this.props.onIncZIndexTripwire()
         }
 
+        const onClickClose = e => {
+            e.stopPropagation() // Stop z-index increment on mouse down if closing modal
+        }
+
         const dragHandlers = { onStart: this.onStart }
 
         const cssSwitch = param => {
@@ -80,6 +84,7 @@ class Work extends React.Component {
                         <svg
                             width="12"
                             className={styles.close}
+                            onMouseDown={onClickClose}
                             onClick={this.props.onWorkClose}
                             viewBox="0 0 32.78 32.78"
                         >
