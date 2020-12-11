@@ -156,6 +156,7 @@ span {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
     background-color: #fff;
     z-index: 99999;
     svg {
@@ -167,8 +168,8 @@ span {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -50px;
-    margin-top: -50px;
+    margin-left: -75px;
+    margin-top: -75px;
     text-align: center;
     & span {
         color: #202020;

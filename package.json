@@ -40,9 +40,11 @@
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
+    "react-slick": "^0.27.13",
     "react-slider": "^1.1.2",
     "react-three-fiber": "^5.1.4",
     "redux": "^4.0.5",
+    "slick-carousel": "^1.8.1",
     "three": "^0.121.1",
     "three-shader-fxaa": "^5.1.1"
   },

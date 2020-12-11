@@ -22,7 +22,7 @@ export default function HTML(props) {
                             version="1.1"
                             viewBox="0 0 49.7 49.7"
                             fill-opacity="0"
-                            width="90"
+                            width="150"
                         >
                             <g>
                                 <g>

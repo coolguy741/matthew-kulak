@@ -7,8 +7,6 @@ import "./src/components/layout.scss"
 
 const store = createStore(reducer)
 
-console.log(document.getElementsByClassName("loader-logo")[0].style)
-
 export const onClientEntry = () => {
     document.getElementById("loader-wrapper").style.display = "block"
 }
@@ -20,7 +18,7 @@ export const onRouteUpdateDelayed = () => {
 }
 export const onRouteUpdate = () => {
     document.getElementById("loader-wrapper").style.transition =
-        "background-color 1.5s"
+        "background-color 2s"
 
     document.getElementById("loader-logo").style.transition =
         "fill-opacity 1.5s"
@@ -35,16 +33,16 @@ export const onRouteUpdate = () => {
         document.getElementsByClassName("loader-logo")[0].style.fillOpacity = 0
         document.getElementsByClassName("loader-logo")[1].style.fillOpacity = 0
         document.getElementById("loader-logo").style.fillOpacity = 0
-    }, 1000)
+    }, 1500)
 
     setTimeout(() => {
         document.getElementById("loader-wrapper").style.backgroundColor =
             "transparent"
-    }, 2000)
+    }, 2500)
 
     setTimeout(() => {
         document.getElementById("loader-wrapper").style.display = "none"
-    }, 3000)
+    }, 4000)
 }
 
 export const wrapRootElement = ({ element }) => (

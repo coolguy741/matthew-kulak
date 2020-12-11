@@ -18,15 +18,23 @@ const initialState = {
         about: 0,
         contact: 0,
         settings: 0,
+        design: 0,
         gnos: 0,
         cadillac: 0,
         tripwire: 0,
+    },
+    aboutAnchor: {
+        top: 0,
+        left: 0,
+        width: 0,
+        height: 0,
     },
     theme: "LIGHT",
     isContactOpen: false,
     isAboutOpen: false,
     isSettingsOpen: false,
-    isGNOSOpen: false,
+    isDesignOpen: false,
+    isGnosOpen: false,
     isCadillacOpen: false,
     isTripwireOpen: false,
     isThemePickerOpen: false,
@@ -69,6 +77,14 @@ const reducer = (state = initialState, action) => {
                 zIndexes: {
                     ...state.zIndexes,
                     settings: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_DESIGN":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    design: getNextZ(state.zIndexes),
                 },
             }
         case "INC_Z_GNOS":
@@ -160,15 +176,25 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isSettingsOpen: false,
             }
+        case "OPEN_DESIGN":
+            return {
+                ...state,
+                isDesignOpen: true,
+            }
+        case "CLOSE_DESIGN":
+            return {
+                ...state,
+                isDesignOpen: false,
+            }
         case "OPEN_GNOS":
             return {
                 ...state,
-                isGNOSOpen: true,
+                isGnosOpen: true,
             }
         case "CLOSE_GNOS":
             return {
                 ...state,
-                isGNOSOpen: false,
+                isGnosOpen: false,
             }
         case "OPEN_CADILLAC":
             return {
@@ -216,6 +242,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 sliderPos: action.val,
+            }
+        case "SET_ABOUT_ANCHOR":
+            return {
+                ...state,
+                aboutAnchor: {
+                    top: action.top,
+                    left: action.left,
+                    width: action.width,
+                    height: action.height,
+                },
             }
         default:
             return state

@@ -12,9 +12,8 @@ const ThemePicker = props => {
         closed: { y: "0" },
     }
 
-    console.log(props.isThemePickerOpen)
-
     useEffect(() => {
+        // close toolbar drawer if there is a click outside of the element
         function handleClickOutside(event) {
             if (
                 wrapperRef.current &&

@@ -1,16 +1,32 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 
 import { connect } from "react-redux"
 import styles from "../../../../styles/toolbar.module.scss"
 
 const About = props => {
+    const aboutRef = useRef()
+
     const onClickFn = () => {
         props.onOpenAbout()
         props.onIncZIndex()
     }
 
+    useEffect(() => {
+        const pos = {
+            top: aboutRef.current.getBoundingClientRect().top,
+            left: aboutRef.current.getBoundingClientRect().left,
+            width: aboutRef.current.getBoundingClientRect().width,
+            height: aboutRef.current.getBoundingClientRect().height,
+        }
+        props.setAboutAnchor(pos)
+    }, [aboutRef.current])
+
     return (
-        <div className={`${styles.nav} ${styles.about}`} onClick={onClickFn}>
+        <div
+            ref={aboutRef}
+            className={`${styles.nav} ${styles.about}`}
+            onClick={onClickFn}
+        >
             <span className={styles.navlink}>About</span>
         </div>
     )
@@ -20,6 +36,7 @@ const mapStateToProps = state => {
     return {
         theme: state.theme,
         zIndex: state.zIndexes.about,
+        aboutAnchor: state.aboutAnchor,
     }
 }
 
@@ -27,6 +44,14 @@ const mapDispatchToProps = dispatch => {
     return {
         onOpenAbout: () => dispatch({ type: "OPEN_ABOUT" }),
         onIncZIndex: () => dispatch({ type: "INC_Z_ABOUT" }),
+        setAboutAnchor: pos =>
+            dispatch({
+                type: "SET_ABOUT_ANCHOR",
+                top: pos.top,
+                left: pos.left,
+                width: pos.width,
+                height: pos.height,
+            }),
     }
 }
 

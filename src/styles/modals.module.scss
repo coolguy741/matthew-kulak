@@ -177,6 +177,12 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             margin-right: 12px;
         }
     }
+    &.galleryModal .body {
+        padding: 0;
+        background-color: #202020;
+        resize: none;
+        overflow: hidden;
+    }
     .close {
         cursor: pointer;
         float: right;
@@ -296,6 +302,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .body span,
         .btn:hover {
             transition: background-color 0.3s ease-out;
+        }
+        .nextArrow,
+        .prevArrow {
+            display: "block";
+            background-color: "green";
         }
     }
     &.dark {

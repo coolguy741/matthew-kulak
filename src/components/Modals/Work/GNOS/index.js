@@ -50,7 +50,7 @@ class GNOS extends React.Component {
                     className={`${styles.modal} ${cssSwitch(
                         this.props.theme
                     )} ${
-                        this.props.isGNOSOpen
+                        this.props.isGnosOpen
                             ? styles.modalVisible
                             : styles.modalHidden
                     }`}
@@ -175,7 +175,7 @@ class GNOS extends React.Component {
 const mapStateToProps = state => {
     return {
         theme: state.theme,
-        isGNOSOpen: state.isGNOSOpen,
+        isGnosOpen: state.isGnosOpen,
         zIndex: state.zIndexes.gnos,
     }
 }
