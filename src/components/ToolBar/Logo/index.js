@@ -1,7 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import smiley from "../../../assets/images/svg/smiley.svg"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Logo = props => {
