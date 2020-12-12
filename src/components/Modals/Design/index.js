@@ -1,9 +1,32 @@
 import React from "react"
 
 import Draggable from "react-draggable"
-import Gallery from "./Gallery"
+import Slider from "react-slick"
+import Img from "gatsby-image"
 import { connect } from "react-redux"
 import styles from "../../../styles/modals.module.scss"
+
+const NextArrow = props => {
+    const { className, style, onClick } = props
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", right: "10px", zIndex: 1 }}
+            onClick={onClick}
+        />
+    )
+}
+
+const PrevArrow = props => {
+    const { className, style, onClick } = props
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", left: "10px", zIndex: 1 }}
+            onClick={onClick}
+        />
+    )
+}
 
 class Design extends React.Component {
     onStart = () => {
@@ -16,6 +39,18 @@ class Design extends React.Component {
 
         const xPos = Math.random() * (this.props.width - width)
         const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
+
+        const settings = {
+            dots: false,
+            infinite: true,
+            fade: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            nextArrow: <NextArrow />,
+            prevArrow: <PrevArrow />,
+        }
+
+        const images = this.props.imageData.nodes.map(e => e.childImageSharp)
 
         const dragHandlers = { onStart: this.onStart }
 
@@ -95,7 +130,13 @@ class Design extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <Gallery />
+                        <Slider {...settings}>
+                            {images.map(image => (
+                                <div>
+                                    <Img key={image.id} fluid={image.fluid} />
+                                </div>
+                            ))}
+                        </Slider>
                     </div>
                 </div>
             </Draggable>

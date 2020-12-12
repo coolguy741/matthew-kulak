@@ -177,12 +177,18 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             margin-right: 12px;
         }
     }
-    &.galleryModal .body {
-        padding: 0;
-        background-color: #202020;
-        resize: none;
-        overflow: hidden;
+    &.galleryModal {
+        .body {
+            padding: 0;
+            background-color: #202020;
+            resize: none;
+            overflow: hidden;
+            div {
+                transition: opacity 500ms ease 0s !important;
+            }
+        }
     }
+
     .close {
         cursor: pointer;
         float: right;

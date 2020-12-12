@@ -25,10 +25,20 @@ const StateContext = React.createContext(state)
 
 const Layout = ({ children }) => {
     const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
+        query imagesAndSiteTitleQuery {
             site {
                 siteMetadata {
                     title
+                }
+            }
+            images: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+                nodes {
+                    id
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
                 }
             }
         }
@@ -45,7 +55,7 @@ const Layout = ({ children }) => {
             <About width={width} height={height} />
             <Contact width={width} height={height} />
             <UserSettings width={width} height={height} />
-            <Design width={width} height={height} />
+            <Design width={width} height={height} imageData={data.images} />
             <GNOS width={width} height={height} />
             <Cadillac width={width} height={height} />
             <Tripwire width={width} height={height} />
