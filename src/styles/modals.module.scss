@@ -59,6 +59,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     top: 0;
     left: 0;
     border-radius: 3px;
+    transition: background-color 0.3s ease-out, border 0.3s ease-out;
     position: absolute;
     &Visible {
         visibility: visible;
@@ -138,7 +139,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     }
     .body {
         padding: 20px 20px;
-        min-width: 230px;
+        min-width: 250px;
         min-height: 100px;
         resize: both;
         overflow: scroll;
@@ -201,6 +202,9 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about .aboutDesc a {
             margin-right: 12px;
         }
+        .cadillacContainer {
+            margin: 30px 0 40px;
+        }
     }
     &.galleryModal {
         .body {
@@ -223,7 +227,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     }
     .workIcons {
         padding: 10px 0;
-        margin: 0 -10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
@@ -231,6 +234,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     }
     .workIcon {
         padding: 0 20px;
+        margin-bottom: 10px;
         flex-shrink: 0;
     }
     .btnContainer {
@@ -243,7 +247,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         background-color: $light-bg;
         border: 1px solid $light-border;
         box-shadow: 5px 5px 0 $light-box-shadow;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
+        // transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h4,
@@ -291,9 +295,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .logoPath,
         .frmrPath,
+        .cadillacPath,
         .gnosPathDark,
         .gnosPathR,
         .mailPath,
+        .designPath,
         .githubPath,
         .twitterPath {
             fill: #202020;
@@ -309,7 +315,9 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .logoPath,
         .frmrPath,
         .gnosPathDark,
+        .designPath,
         .gnosPathR,
+        .cadillacPath,
         .mailPath,
         .githubPath,
         .twitterPath,
@@ -399,7 +407,9 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .frmrPath,
         .mailPath,
         .githubPath,
+        .designPath,
         .twitterPath,
+        .cadillacPath,
         .gnosPathLight,
         .gnosPathR {
             fill: #fff;
@@ -429,6 +439,8 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .xPath,
         .logoPath,
         .frmrPath,
+        .designPath,
+        .cadillacPath,
         .mailPath,
         .githubPath,
         .twitterPath,
@@ -492,11 +504,13 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .gnosPathLight,
         .gnosPathOutline {
-            fill: #757575;
+            fill: $grey-bg;
         }
         .logoPath,
         .frmrPath,
         .mailPath,
+        .designPath,
+        .cadillacPath,
         .githubPath,
         .twitterPath,
         .gnosPathDark,
@@ -530,6 +544,8 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .frmrPath,
         .mailPath,
         .githubPath,
+        .cadillacPath,
+        .designPath,
         .twitterPath,
         .gnosPathDark,
         .gnosPathR,
@@ -589,6 +605,8 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             transition: border 0.3s ease-out;
         }
         .gnosPathR,
+        .cadillacPath,
+        .designPath,
         .gnosPathLight,
         .gnosPathOutline {
             fill: $terminal-text;
@@ -626,8 +644,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .gnosPathLight,
         .gnosPathOutline,
         .gnosPathDark,
+        .cadillacPath,
         .logoPath,
         .frmrPath,
+        .designPath,
         .mailPath,
         .githubPath,
         .twitterPath,
@@ -702,6 +722,8 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .gnosPathOutline,
         .gnosPathDark,
         .logoPath,
+        .cadillacPath,
+        .designPath,
         .frmrPath,
         .mailPath,
         .githubPath,
@@ -733,9 +755,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .mailPath,
         .githubPath,
         .twitterPath,
+        .cadillacPath,
         .xPath,
         .logoPath,
         .frmrPath,
+        .designPath,
         .mailPath,
         .githubPath,
         .twitterPath,
