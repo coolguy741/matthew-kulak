@@ -41,6 +41,23 @@ class UserSettings extends React.Component {
             }
         }
 
+        const toggleCssSwitch = param => {
+            switch (param) {
+                case "LIGHT":
+                    return "light"
+                case "DARK":
+                    return "dark"
+                case "GREY":
+                    return "grey"
+                case "TERMINAL":
+                    return "terminal"
+                case "ACID":
+                    return "acid"
+                default:
+                    return
+            }
+        }
+
         return (
             <Draggable
                 handle=".handle"
@@ -98,7 +115,9 @@ class UserSettings extends React.Component {
                                     <Toggle
                                         defaultChecked={true}
                                         icons={false}
-                                        className={cssSwitch(this.props.theme)}
+                                        className={toggleCssSwitch(
+                                            this.props.theme
+                                        )}
                                         onChange={this.props.onToggleAnimating}
                                     />
                                 </label>
@@ -109,7 +128,9 @@ class UserSettings extends React.Component {
                                     <Toggle
                                         defaultChecked={true}
                                         icons={false}
-                                        className={cssSwitch(this.props.theme)}
+                                        className={toggleCssSwitch(
+                                            this.props.theme
+                                        )}
                                         onChange={this.props.onToggleRendering}
                                     />
                                 </label>
