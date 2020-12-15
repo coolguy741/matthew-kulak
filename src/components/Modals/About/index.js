@@ -46,8 +46,6 @@ const About = props => {
         dragControls.start(event)
     }
 
-    console.log("drag controls", dragControls)
-
     return (
         // <Draggable
         //     handle=".handle"
@@ -61,16 +59,7 @@ const About = props => {
         // >
         <motion.div
             // drag
-            dragPropagation
-            dragConstraints={{
-                left: 0,
-                right: window.innerWidth,
-                top: 0,
-                bottom: window.innerHeight,
-            }}
-            dragElastic={0.1}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
-            dragControls={dragControls}
+            onPointerDown={startDrag}
             className={`${styles.modal} ${cssSwitch(props.theme)} 
                         ${
                             props.isAboutOpen
@@ -83,7 +72,19 @@ const About = props => {
             }}
             onClick={props.onIncZIndex}
         >
-            <motion.div className={styles.modalBar} onPointerDown={startDrag}>
+            <motion.div
+                className={styles.modalBar}
+                drag
+                dragConstraints={{
+                    left: 0,
+                    right: window.innerWidth,
+                    top: 0,
+                    bottom: window.innerHeight,
+                }}
+                dragElastic={0.1}
+                dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+                dragControls={dragControls}
+            >
                 <span className={styles.heading}>About</span>
                 <svg
                     width="12"

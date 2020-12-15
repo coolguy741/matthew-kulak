@@ -70,6 +70,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     span,
     h4,
     h2,
+    h3,
     li {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -148,6 +149,30 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             display: grid;
             grid-template-columns: 100px auto;
         }
+        .togglesContainer {
+            margin: 20px 0 30px;
+            .toggleContainer {
+                margin-bottom: 7px;
+                h3 {
+                    display: inline;
+                    margin-left: 20px;
+                    font-family: "Monospace 821 Regular";
+                    font-size: 17px;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    position: relative;
+                    bottom: 6px;
+                }
+            }
+        }
+        .gpuInfo {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 130px auto;
+            span {
+                text-transform: capitalize;
+            }
+        }
         h2 {
             font-size: 13px;
             color: $light-text;
@@ -188,7 +213,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             }
         }
     }
-
     .close {
         cursor: pointer;
         float: right;
@@ -224,6 +248,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         span,
         h4,
         h2,
+        h3,
         li,
         ul.contact a:hover,
         .body .about {
@@ -300,6 +325,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         span,
         h4,
         h2,
+        h3,
         li,
         ul.contact a:hover,
         .body .about {
@@ -328,6 +354,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .about h2 {
             color: $dark-text;
         }
+        h3,
         h4,
         ul.tech li::before,
         .workIcon span {
@@ -387,6 +414,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         span,
         h2,
         li,
+        h3,
         ul.contact li a:hover,
         .about h2,
         h4,
@@ -428,6 +456,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         ul.tech li::before,
         h4,
+        h3,
         .workIcon span {
             color: $grey-heading;
         }
@@ -483,6 +512,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         p,
         span,
         h2,
+        h3,
         li,
         ul.contact li a:hover,
         .about h2,
@@ -526,6 +556,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         ul.tech li::before,
         h4,
+        h3,
         .workIcon span {
             color: $terminal-heading;
         }
@@ -579,6 +610,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         p,
         span,
         h2,
+        h3,
         li,
         ul.contact li a:hover,
         .about h2,
@@ -612,6 +644,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         p,
         span,
         h2,
+        h3,
         li,
         .about h2,
         .workIcon span {
@@ -678,6 +711,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         p,
         span,
         h2,
+        h3,
         li,
         ul.contact li a:hover,
         .about h2,

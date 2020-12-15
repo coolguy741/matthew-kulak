@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
@@ -23,8 +23,6 @@ class UserSettings extends React.Component {
         const onClickClose = e => {
             e.stopPropagation() // Stop z-index increment on mouse down if closing modal
         }
-
-        console.log(this.props.rendering, this.props.animating)
 
         const cssSwitch = param => {
             switch (param) {
@@ -94,20 +92,44 @@ class UserSettings extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        <label>
-                            <Toggle
-                                defaultChecked={true}
-                                icons={false}
-                                onChange={this.props.onToggleAnimating}
-                            />
-                        </label>
-                        <label>
-                            <Toggle
-                                defaultChecked={true}
-                                icons={false}
-                                onChange={this.props.onToggleRendering}
-                            />
-                        </label>
+                        <div className={styles.togglesContainer}>
+                            <div className={styles.toggleContainer}>
+                                <label>
+                                    <Toggle
+                                        defaultChecked={true}
+                                        icons={false}
+                                        className={cssSwitch(this.props.theme)}
+                                        onChange={this.props.onToggleAnimating}
+                                    />
+                                </label>
+                                <h3>Animation</h3>
+                            </div>
+                            <div className={styles.toggleContainer}>
+                                <label>
+                                    <Toggle
+                                        defaultChecked={true}
+                                        icons={false}
+                                        className={cssSwitch(this.props.theme)}
+                                        onChange={this.props.onToggleRendering}
+                                    />
+                                </label>
+                                <h3>WebGL</h3>
+                            </div>
+                        </div>
+                        <div className={styles.gpuInfo}>
+                            <div className={styles.aboutTitle}>
+                                <h2>GPU</h2>
+                            </div>
+                            <div className={styles.aboutDesc}>
+                                <span>{this.props.gpu.gpu}</span>
+                            </div>
+                            <div className={styles.aboutTitle}>
+                                <h2>Screen Size</h2>
+                            </div>
+                            <div className={styles.aboutDesc}>
+                                <span>{`${this.props.width} x ${this.props.height}`}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Draggable>
@@ -122,6 +144,7 @@ const mapStateToProps = state => {
         zIndex: state.zIndexes.settings,
         rendering: state.rendering,
         animating: state.animating,
+        gpu: state.gpu,
     }
 }
 

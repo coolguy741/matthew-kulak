@@ -15,6 +15,7 @@ const initialState = {
         width: 0,
         height: 0,
     },
+    gpu: {},
     theme: "LIGHT",
     isContactOpen: false,
     isAboutOpen: false,
@@ -250,6 +251,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 animating: !state.animating,
+            }
+        case "SET_GPU_TIER":
+            return {
+                ...state,
+                gpu: action.gpu,
             }
         default:
             return state

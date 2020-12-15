@@ -17,12 +17,6 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "./layout.scss"
 
-const state = {
-    zIndex: 0,
-}
-
-const StateContext = React.createContext(state)
-
 const Layout = ({ children }) => {
     const data = useStaticQuery(graphql`
         query imagesAndSiteTitleQuery {
@@ -71,5 +65,3 @@ Layout.propTypes = {
 }
 
 export default Layout
-
-export { StateContext }
