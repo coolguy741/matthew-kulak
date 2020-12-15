@@ -96,7 +96,7 @@ class Contact extends React.Component {
                     >
                         <ul className={styles.contact}>
                             <li>
-                                <a href="mailto:frmr@frmr.dev">
+                                <a href="mailto:contact@frmr.dev">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 512 384"
@@ -109,7 +109,7 @@ class Contact extends React.Component {
                                             transform="translate(0 -64)"
                                         />
                                     </svg>{" "}
-                                    frmr@frmr.dev
+                                    contact@frmr.dev
                                 </a>
                             </li>
                             <li>

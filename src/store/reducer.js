@@ -1,18 +1,4 @@
 const initialState = {
-    projects: [
-        {
-            name: "Tripwire",
-            slug: "tripwire",
-        },
-        {
-            name: "GNOS Clothing",
-            slug: "gnos",
-        },
-        {
-            name: "Cadillac",
-            slug: "cadillac",
-        },
-    ],
     zIndexes: {
         work: 0,
         about: 0,
@@ -40,6 +26,8 @@ const initialState = {
     isThemePickerOpen: false,
     isSliderOpen: false,
     sliderPos: 0,
+    rendering: true,
+    animating: true,
 }
 
 // add 1 to the current (highest) z-index
@@ -252,6 +240,16 @@ const reducer = (state = initialState, action) => {
                     width: action.width,
                     height: action.height,
                 },
+            }
+        case "TOGGLE_RENDERING":
+            return {
+                ...state,
+                rendering: !state.rendering,
+            }
+        case "TOGGLE_ANIMATING":
+            return {
+                ...state,
+                animating: !state.animating,
             }
         default:
             return state

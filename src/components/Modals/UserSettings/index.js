@@ -2,7 +2,9 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
+import Toggle from "react-toggle"
 import styles from "../../../styles/modals.module.scss"
+import "../../../styles/toggleswitch.scss"
 
 class UserSettings extends React.Component {
     onStart = () => {
@@ -21,6 +23,8 @@ class UserSettings extends React.Component {
         const onClickClose = e => {
             e.stopPropagation() // Stop z-index increment on mouse down if closing modal
         }
+
+        console.log(this.props.rendering, this.props.animating)
 
         const cssSwitch = param => {
             switch (param) {
@@ -90,7 +94,20 @@ class UserSettings extends React.Component {
                         className={styles.body}
                         style={{ height: height, width: width }}
                     >
-                        USER SETTINGS
+                        <label>
+                            <Toggle
+                                defaultChecked={true}
+                                icons={false}
+                                onChange={this.props.onToggleAnimating}
+                            />
+                        </label>
+                        <label>
+                            <Toggle
+                                defaultChecked={true}
+                                icons={false}
+                                onChange={this.props.onToggleRendering}
+                            />
+                        </label>
                     </div>
                 </div>
             </Draggable>
@@ -103,6 +120,8 @@ const mapStateToProps = state => {
         theme: state.theme,
         isSettingsOpen: state.isSettingsOpen,
         zIndex: state.zIndexes.settings,
+        rendering: state.rendering,
+        animating: state.animating,
     }
 }
 
@@ -110,6 +129,8 @@ const mapDispatchToProps = dispatch => {
     return {
         onSettingsClose: () => dispatch({ type: "CLOSE_SETTINGS" }),
         onIncZIndex: () => dispatch({ type: "INC_Z_SETTINGS" }),
+        onToggleRendering: () => dispatch({ type: "TOGGLE_RENDERING" }),
+        onToggleAnimating: () => dispatch({ type: "TOGGLE_ANIMATING" }),
     }
 }
 

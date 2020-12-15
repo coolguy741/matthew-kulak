@@ -20,6 +20,7 @@ const MainCanvas = props => {
                     // depth: false,
                 }
             }
+            invalidateFrameloop={!props.animating}
         >
             <Camera
                 left={-1}
@@ -32,7 +33,11 @@ const MainCanvas = props => {
             />
             {/* <OrbitControls /> */}
             <Suspense fallback={null}>
-                <Geometry theme={props.theme} sliderPos={props.sliderPos} />
+                <Geometry
+                    animating={props.animating}
+                    theme={props.theme}
+                    sliderPos={props.sliderPos}
+                />
             </Suspense>
             {/* <Effects /> */}
         </Canvas>
@@ -43,6 +48,7 @@ const mapStateToProps = state => {
     return {
         theme: state.theme,
         sliderPos: state.sliderPos,
+        animating: state.animating,
     }
 }
 

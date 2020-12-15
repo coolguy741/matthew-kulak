@@ -1,7 +1,7 @@
 import React, { useMemo } from "react"
 
 import * as THREE from "three"
-import { useFrame, createPortal } from "react-three-fiber"
+import { useFrame, createPortal, useThree } from "react-three-fiber"
 import { mainVert } from "../Shaders/Main/mainVert"
 import { mainFrag } from "../Shaders/Main/mainFrag"
 import Lava from "../Lava"
@@ -120,6 +120,11 @@ const Geometry = props => {
                 return
         }
     }
+
+    const { clock } = useThree()
+
+    if (!props.animating) clock.stop()
+    if (props.animating) clock.start()
 
     useFrame((state, delta) => {
         uniforms.u_time.value += delta
