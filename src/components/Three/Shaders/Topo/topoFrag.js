@@ -110,7 +110,7 @@ float snoise(vec3 v)
 
 //END ASHIMA /////////////////////////////////////////////////
 
-const float STEPS = 12.;
+const float STEPS = 39.;
 const float CUTOFF = 0.; //depth less than this, show white wall
 const vec2  OFFSET = vec2(0.00,0.00); //drop shadow offset
 
@@ -130,7 +130,7 @@ float getNoise(vec2 uv, float t){
     float noise = snoise( vec3(uv.x*SCALE + t,uv.y*SCALE + t , 0));
     
     //octave 2 - more detail
-    SCALE = 1. + u_slider / 20.;
+    SCALE = 3.;
     noise += snoise( vec3(uv.x*SCALE + t,uv.y*SCALE , 0))* 0.5 ;
     
     //move noise into 0 - 1 range    
@@ -153,13 +153,13 @@ float getDepth(float n){
 
 float line(vec2 st, float pct){
   return  step( pct, st.y) -
-          step( pct + .04 + (u_slider / 3500.), st.y);
+          step( pct + 0.014290, st.y);
 }
 
 void main() {
 	vec2 uv = gl_FragCoord.xy / u_resolution.x;
     float t = u_time * 0.04;    
-    vec3 col = vec3(0);
+    vec3 col = vec3(1., 1., 1.);
     
    	float noise = getNoise(uv, t);
     
@@ -168,9 +168,15 @@ void main() {
     float s = 0.;
     float v = 1.; //deeper is darker
 
-    col = hsv2rgb(vec3(h,s,v));
+    col -= hsv2rgb(vec3(h,s,v));
         
-    col -= line(vec2(noise, noise), d);    
+    col += line(vec2(noise, noise), d);    
+    col += vec3(.93, .93, .93);    
+
+    float hue = u_slider/100.*getNoise(uv, t);
+    float lightness = clamp(u_slider/100., 0., .55);
+
+    if (col.x != 1.0) col -= hsv2rgb(vec3(hue, 1., lightness));
     
     gl_FragColor = vec4(col,1.0);   
 }
