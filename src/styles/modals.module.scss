@@ -59,8 +59,9 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     top: 0;
     left: 0;
     border-radius: 3px;
-    transition: background-color 0.3s ease-out, border 0.3s ease-out;
     position: absolute;
+    transition: background-color 0.3s ease-out, border 0.3s ease-out,
+        box-shadow 0.3s ease-out;
     &Visible {
         visibility: visible;
     }
@@ -243,11 +244,49 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     #gnos .st0 {
         fill: #202020;
     }
+    .gnosPathR,
+    .gnosPathLight,
+    .gnosPathOutline,
+    .gnosPathDark,
+    .logoPath,
+    .frmrPath,
+    .mailPath,
+    .githubPath,
+    .twitterPath,
+    .cadillacPath,
+    .xPath,
+    .logoPath,
+    .frmrPath,
+    .designPath,
+    .mailPath,
+    .githubPath,
+    .twitterPath,
+    .xPath,
+    .tripwirePath {
+        transition: fill 0.3s ease-out;
+    }
+    .about .status span,
+    .heading,
+    ul.tech li::before,
+    ul.contact a,
+    p,
+    span,
+    h4,
+    h2,
+    h3,
+    li,
+    ul.contact a:hover,
+    .body .about {
+        transition: color 0.3s ease-out;
+    }
+    .body span,
+    .btn:hover {
+        transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    }
     &.light {
         background-color: $light-bg;
         border: 1px solid $light-border;
         box-shadow: 5px 5px 0 $light-box-shadow;
-        // transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h4,
@@ -310,50 +349,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .tripwirePath {
             fill: $light-tripwire;
         }
-        .tripwirePath,
-        .xPath,
-        .logoPath,
-        .frmrPath,
-        .gnosPathDark,
-        .designPath,
-        .gnosPathR,
-        .cadillacPath,
-        .mailPath,
-        .githubPath,
-        .twitterPath,
-        .gnosPathLight,
-        .gnosPathOutline {
-            transition: fill 0.3s ease-out;
-        }
-        .about .status span,
-        .heading,
-        ul.tech li::before,
-        ul.contact a,
-        p,
-        span,
-        h4,
-        h2,
-        h3,
-        li,
-        ul.contact a:hover,
-        .body .about {
-            transition: color 0.3s ease-out;
-        }
-        .body span,
-        .btn:hover {
-            transition: background-color 0.3s ease-out;
-        }
-        .nextArrow,
-        .prevArrow {
-            display: "block";
-            background-color: "green";
-        }
     }
     &.dark {
         background-color: $dark-bg;
         border: 1px solid $dark-border;
         box-shadow: 5px 5px 0 $dark-box-shadow;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h2,
@@ -420,41 +420,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .tripwirePath {
             fill: $dark-tripwire;
         }
-        p,
-        span,
-        h2,
-        li,
-        h3,
-        ul.contact li a:hover,
-        .about h2,
-        h4,
-        ul.tech li::before,
-        .workIcon span,
-        .about .status span,
-        .heading,
-        ul.contact li a {
-            transition: color 0.3s ease-out;
-        }
-        .tripwirePath,
-        .xPath,
-        .logoPath,
-        .frmrPath,
-        .designPath,
-        .cadillacPath,
-        .mailPath,
-        .githubPath,
-        .twitterPath,
-        .gnosPathLight,
-        .gnosPathR,
-        .gnosPathDark {
-            transition: fill 0.3s ease-out;
-        }
     }
     &.grey {
         background-color: $grey-bg;
         border: 1px solid $grey-border;
         box-shadow: 5px 5px 0 $grey-box-shadow;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h2,
@@ -523,42 +493,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .tripwirePath {
             fill: $grey-tripwire;
         }
-        p,
-        span,
-        h2,
-        h3,
-        li,
-        ul.contact li a:hover,
-        .about h2,
-        ul.contact li a,
-        ul.tech li::before,
-        h4,
-        .workIcon span,
-        .heading,
-        .about .status span {
-            transition: color 0.3s ease-out;
-        }
-        .gnosPathLight,
-        .gnosPathOutline,
-        .logoPath,
-        .frmrPath,
-        .mailPath,
-        .githubPath,
-        .cadillacPath,
-        .designPath,
-        .twitterPath,
-        .gnosPathDark,
-        .gnosPathR,
-        .xPath,
-        .tripwirePath {
-            transition: fill 0.3s ease-out;
-        }
     }
     &.terminal {
         background-color: $terminal-bg;
         border: 1px solid $terminal-border;
         box-shadow: 5px 5px 0 $terminal-box-shadow;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h2,
@@ -625,42 +564,11 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .tripwirePath {
             fill: $terminal-tripwire;
         }
-        p,
-        span,
-        h2,
-        h3,
-        li,
-        ul.contact li a:hover,
-        .about h2,
-        ul.contact li a,
-        ul.tech li::before,
-        h4,
-        .workIcon span,
-        .heading,
-        .about .status span {
-            transition: color 0.3s ease-out;
-        }
-        .gnosPathR,
-        .gnosPathLight,
-        .gnosPathOutline,
-        .gnosPathDark,
-        .cadillacPath,
-        .logoPath,
-        .frmrPath,
-        .designPath,
-        .mailPath,
-        .githubPath,
-        .twitterPath,
-        .xPath,
-        .tripwirePath {
-            transition: fill 0.3s ease-out;
-        }
     }
     &.acid {
         background-color: $acid-bg;
         border: 1px solid $acid-border;
         box-shadow: 5px 5px 0 $acid-box-shadow;
-        transition: background-color 0.3s ease-out, border 0.3s ease-out;
         p,
         span,
         h2,
@@ -729,43 +637,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .githubPath,
         .twitterPath {
             fill: $acid-svg;
-        }
-        p,
-        span,
-        h2,
-        h3,
-        li,
-        ul.contact li a:hover,
-        .about h2,
-        ul.contact li a,
-        ul.tech li::before,
-        h4,
-        .workIcon span,
-        .heading,
-        .workDesc,
-        .about .status span {
-            transition: color 0.3s ease-out;
-        }
-        .gnosPathR,
-        .gnosPathLight,
-        .gnosPathOutline,
-        .gnosPathDark,
-        .logoPath,
-        .frmrPath,
-        .mailPath,
-        .githubPath,
-        .twitterPath,
-        .cadillacPath,
-        .xPath,
-        .logoPath,
-        .frmrPath,
-        .designPath,
-        .mailPath,
-        .githubPath,
-        .twitterPath,
-        .xPath,
-        .tripwirePath {
-            transition: fill 0.3s ease-out;
         }
     }
 }
