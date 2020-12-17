@@ -131,6 +131,19 @@ class UserSettings extends React.Component {
                                         className={toggleCssSwitch(
                                             this.props.theme
                                         )}
+                                        onChange={this.props.onToggleFXAA}
+                                    />
+                                </label>
+                                <h3>FXAA</h3>
+                            </div>
+                            <div className={styles.toggleContainer}>
+                                <label>
+                                    <Toggle
+                                        defaultChecked={true}
+                                        icons={false}
+                                        className={toggleCssSwitch(
+                                            this.props.theme
+                                        )}
                                         onChange={this.props.onToggleRendering}
                                     />
                                 </label>
@@ -175,6 +188,7 @@ const mapDispatchToProps = dispatch => {
         onIncZIndex: () => dispatch({ type: "INC_Z_SETTINGS" }),
         onToggleRendering: () => dispatch({ type: "TOGGLE_RENDERING" }),
         onToggleAnimating: () => dispatch({ type: "TOGGLE_ANIMATING" }),
+        onToggleFXAA: () => dispatch({ type: "TOGGLE_FXAA" }),
     }
 }
 

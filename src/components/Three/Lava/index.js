@@ -3,11 +3,9 @@ import React, { useMemo, useRef } from "react"
 import * as THREE from "three"
 import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
-import { lavaVert } from "../Shaders/Lava/lavaVert"
-import { lavaFrag } from "../Shaders/Lava/lavaFrag"
-import { topoVert } from "../Shaders/Topo/topoVert"
-import { topoFrag } from "../Shaders/Topo/topoFrag"
-import { termFrag } from "../Shaders/Terminal/termFrag"
+import { lavaFrag, lavaVert } from "../Shaders/Lava"
+import { topoFrag } from "../Shaders/Topo"
+import { termFrag } from "../Shaders/Terminal"
 
 const Lava = props => {
     const width = window.innerWidth

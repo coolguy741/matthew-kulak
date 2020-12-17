@@ -29,6 +29,7 @@ const initialState = {
     sliderPos: 0,
     rendering: true,
     animating: true,
+    fxaa: true,
 }
 
 // add 1 to the current (highest) z-index
@@ -251,6 +252,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 animating: !state.animating,
+            }
+        case "TOGGLE_FXAA":
+            return {
+                ...state,
+                fxaa: !state.fxaa,
             }
         case "SET_GPU_TIER":
             return {

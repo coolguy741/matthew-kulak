@@ -1,3 +1,16 @@
+export const topoVert = `
+precision highp float;
+
+varying vec2 v_uv;
+varying vec3 v_position;
+
+void main() {
+
+    v_position = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`
+
 export const topoFrag = `
 
 precision highp float;
@@ -127,7 +140,7 @@ float getNoise(vec2 uv, float t){
     
     //octave 1
     float SCALE = 2.0;
-    float noise = snoise( vec3(uv.x*SCALE + t,uv.y*SCALE + t , 0));
+    float noise = snoise( vec3(uv.x*SCALE - t,uv.y*SCALE - t , 0));
     
     //octave 2 - more detail
     SCALE = 3.;
@@ -156,9 +169,15 @@ float line(vec2 st, float pct){
           step( pct + 0.014290, st.y);
 }
 
+float map(float value, float min1, float max1, float min2, float max2) {
+  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+}
+
 void main() {
-	vec2 uv = gl_FragCoord.xy / u_resolution.x;
-    float t = u_time * 0.04;    
+	  vec2 uv = gl_FragCoord.xy / u_resolution.x;
+    float t = u_time * 0.02;    
+    float t2 = u_time * 0.2;
+
     vec3 col = vec3(1., 1., 1.);
     
    	float noise = getNoise(uv, t);
@@ -173,10 +192,10 @@ void main() {
     col += line(vec2(noise, noise), d);    
     col += vec3(.93, .93, .93);    
 
-    float hue = u_slider/100.*getNoise(uv, t);
-    float lightness = clamp(u_slider/100., 0., .55);
+    float hue = u_slider/200.*getNoise(uv.yx, t);
+    float lightness = clamp(u_slider/100., 0., .6);
 
-    if (col.x != 1.0) col -= hsv2rgb(vec3(hue, 1., lightness));
+    if (col.x != 1.0) col -= hsv2rgb(vec3(map(fract(hue + .08), 0.5, 1., 0., 1.), 1., lightness));
     
     gl_FragColor = vec4(col,1.0);   
 }

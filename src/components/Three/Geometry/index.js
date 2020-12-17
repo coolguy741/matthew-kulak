@@ -2,8 +2,7 @@ import React, { useMemo } from "react"
 
 import * as THREE from "three"
 import { useFrame, createPortal, useThree } from "react-three-fiber"
-import { mainVert } from "../Shaders/Main/mainVert"
-import { mainFrag } from "../Shaders/Main/mainFrag"
+import { mainVert, mainFrag } from "../Shaders/Main"
 import Lava from "../Lava"
 
 const Geometry = props => {

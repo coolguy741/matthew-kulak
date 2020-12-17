@@ -39,7 +39,7 @@ const MainCanvas = props => {
                     sliderPos={props.sliderPos}
                 />
             </Suspense>
-            {/* <Effects /> */}
+            <Effects fxaa={props.fxaa} />
         </Canvas>
     )
 }
@@ -49,6 +49,7 @@ const mapStateToProps = state => {
         theme: state.theme,
         sliderPos: state.sliderPos,
         animating: state.animating,
+        fxaa: state.fxaa,
     }
 }
 
