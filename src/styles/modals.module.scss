@@ -79,9 +79,9 @@ $breakpoint-tablet-portrait: 481px;
         height: 280px;
     }
     &.workModal .body {
-        width: 230px;
-        min-width: 230px;
-        height: 230px;
+        width: 130px;
+        min-width: 130px;
+        height: 400px;
     }
     &.contactModal .body {
         width: 190px;
@@ -745,8 +745,9 @@ $breakpoint-tablet-portrait: 481px;
         }
         &.workModal .body {
             padding: 20px 20px;
-            width: 250px;
-            height: 225px;
+            width: 140px;
+            min-width: 140px;
+            height: 400px;
         }
         &.contactModal .body {
             width: 230px;
