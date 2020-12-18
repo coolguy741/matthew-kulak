@@ -92,7 +92,7 @@ $breakpoint-tablet-portrait: 481px;
     }
     &.projectModal .body {
         width: 300px;
-        max-height: 430px;
+        max-height: 420px;
         svg {
             width: 70px;
         }
@@ -687,10 +687,36 @@ $breakpoint-tablet-portrait: 481px;
     }
 }
 
+// MOBILE LANDSCAPE
+
+@media (max-width: 821px) and (orientation: landscape) {
+    .modal {
+        font-size: 11px;
+        &.workModal {
+            .body {
+                width: 402px;
+                height: 140px;
+            }
+        }
+        &.projectModal {
+            .body {
+                max-height: 240px;
+            }
+        }
+        &.galleryModal {
+            .body {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    }
+}
+
 // TABLET PORTRAIT
 
-@media (min-width: $breakpoint-tablet-portrait) {
+@media (min-width: $breakpoint-tablet-portrait) and (min-height: 450px) {
     .modal {
+        font-size: 12px;
         .modalBar {
             padding: 10px;
         }
@@ -755,7 +781,7 @@ $breakpoint-tablet-portrait: 481px;
         }
         &.projectModal .body {
             width: 400px;
-            max-height: 450px;
+            max-height: 430px;
             svg {
                 width: 120px;
             }
@@ -769,6 +795,17 @@ $breakpoint-tablet-portrait: 481px;
                 grid-template-columns: 120px auto;
             }
         }
+        &.galleryModal {
+            .body {
+                width: 420px;
+                height: 420px;
+            }
+        }
+    }
+}
+
+@media (min-width: $breakpoint-tablet-landscape) {
+    .modal {
         &.galleryModal {
             .body {
                 width: 420px;

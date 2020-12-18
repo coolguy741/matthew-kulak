@@ -12,11 +12,21 @@ class UserSettings extends React.Component {
     }
 
     render() {
-        const width = this.props.width / 3
-        const height = this.props.height / 1.5
+        const innerWidth = window.innerWidth
+        const innerHeight = window.innerHeight
 
-        const xPos = Math.random() * (this.props.width - width)
-        const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
+        const getYPos = () => {
+            const yPos =
+                innerHeight - this.props.height - this.props.toolbar - 40
+            if (yPos < 0) {
+                return 0
+            } else {
+                return yPos
+            }
+        }
+
+        const xPos = Math.random() * (innerWidth - this.props.width)
+        const yPos = Math.random() * getYPos()
 
         const dragHandlers = { onStart: this.onStart }
 
@@ -158,7 +168,7 @@ class UserSettings extends React.Component {
                                 <h2>Screen Size</h2>
                             </div>
                             <div className={styles.settingsDesc}>
-                                <span>{`${this.props.width} x ${this.props.height}`}</span>
+                                <span>{`${innerWidth} x ${innerHeight}`}</span>
                             </div>
                         </div>
                     </div>

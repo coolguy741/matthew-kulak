@@ -10,11 +10,21 @@ class Contact extends React.Component {
     }
 
     render() {
-        const width = this.props.width / 4.5
-        const height = this.props.height / 4
+        const innerWidth = window.innerWidth
+        const innerHeight = window.innerHeight
 
-        const xPos = Math.random() * (this.props.width - width)
-        const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
+        const getYPos = () => {
+            const yPos =
+                innerHeight - this.props.height - this.props.toolbar - 40
+            if (yPos < 0) {
+                return 0
+            } else {
+                return yPos
+            }
+        }
+
+        const xPos = Math.random() * (innerWidth - this.props.width)
+        const yPos = Math.random() * getYPos()
 
         const dragHandlers = { onStart: this.onStart }
 

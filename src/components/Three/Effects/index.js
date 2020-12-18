@@ -21,8 +21,6 @@ const Effects = props => {
         size,
     ])
 
-    console.log(props.fxaa)
-
     useFrame(() => composer.current.render(), 1)
 
     return (

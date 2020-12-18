@@ -2,7 +2,6 @@ import React from "react"
 
 import { connect } from "react-redux"
 import Draggable from "react-draggable"
-import { motion, useDragControls } from "framer-motion"
 import styles from "../../../styles/modals.module.scss"
 
 class About extends React.Component {
@@ -11,14 +10,24 @@ class About extends React.Component {
     }
 
     render() {
-        const width = this.props.width / 3
-        const height = this.props.height / 1.5
+        const innerWidth = window.innerWidth
+        const innerHeight = window.innerHeight
+
+        const getYPos = () => {
+            const yPos =
+                innerHeight - this.props.height - this.props.toolbar - 40
+            if (yPos < 0) {
+                return 0
+            } else {
+                return yPos
+            }
+        }
+
+        const xPos = Math.random() * (innerWidth - this.props.width)
+        const yPos = Math.random() * getYPos()
 
         const d = new Date()
         const year = d.getFullYear()
-
-        const xPos = Math.random() * (this.props.width - width)
-        const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
 
         const onClickClose = e => {
             e.stopPropagation() // Stop z-index increment on mouse down if closing modal

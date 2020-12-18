@@ -2,8 +2,6 @@ import React from "react"
 
 import Draggable from "react-draggable"
 import { connect } from "react-redux"
-import Cadillac from "../../../assets/images/svg/cadillac.svg"
-import Tripwire from "../../../assets/images/svg/tripwire.svg"
 import styles from "../../../styles/modals.module.scss"
 
 class Work extends React.Component {
@@ -12,11 +10,21 @@ class Work extends React.Component {
     }
 
     render() {
-        const width = this.props.width / 4
-        const height = this.props.height / 2
+        const innerWidth = window.innerWidth
+        const innerHeight = window.innerHeight
 
-        const xPos = Math.random() * (this.props.width - width)
-        const yPos = Math.random() * (this.props.height - height - 135) // Screen height minus modal, toolbars
+        const getYPos = () => {
+            const yPos =
+                innerHeight - this.props.height - this.props.toolbar - 40
+            if (yPos < 0) {
+                return 0
+            } else {
+                return yPos
+            }
+        }
+
+        const xPos = Math.random() * (innerWidth - this.props.width)
+        const yPos = Math.random() * getYPos()
 
         const onClickGNOS = e => {
             e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
