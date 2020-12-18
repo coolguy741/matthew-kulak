@@ -51,19 +51,21 @@ class About extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(this.props.theme)} 
+                    className={`${styles.modal} ${
+                        styles.aboutModal
+                    } ${cssSwitch(this.props.theme)} 
                         ${
                             this.props.isAboutOpen
                                 ? styles.modalVisible
                                 : styles.modalHidden
-                        } handle
+                        }
                      `}
                     style={{
                         zIndex: this.props.zIndex,
                     }}
                     onClick={this.props.onIncZIndex}
                 >
-                    <div className={styles.modalBar}>
+                    <div className={`${styles.modalBar} handle`}>
                         <span className={styles.heading}>About</span>
                         <svg
                             width="12"
@@ -90,10 +92,7 @@ class About extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <div className={styles.aboutLogoContainer}>
                             <svg
                                 version="1.1"

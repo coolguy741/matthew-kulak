@@ -47,9 +47,9 @@ class Tripwire extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(
-                        this.props.theme
-                    )} ${
+                    className={`${styles.modal} ${
+                        styles.projectModal
+                    } ${cssSwitch(this.props.theme)} ${
                         this.props.isTripwireOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -86,10 +86,7 @@ class Tripwire extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <svg
                             version="1.1"
                             width="120"

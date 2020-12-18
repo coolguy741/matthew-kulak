@@ -73,7 +73,7 @@ class Work extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(
+                    className={`${styles.modal} ${styles.workModal} ${cssSwitch(
                         this.props.theme
                     )} ${
                         this.props.isWorkOpen
@@ -112,10 +112,7 @@ class Work extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <div className={styles.workIcons}>
                             <div
                                 className={styles.workIcon}

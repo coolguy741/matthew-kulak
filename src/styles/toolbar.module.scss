@@ -28,7 +28,7 @@ $acid-hover: rgba(125, 0, 222, 0.96);
 
 $breakpoint-laptop: 1200px;
 $breakpoint-tablet-landscape: 821px;
-$breakpoint-tablet-portrait: 560px;
+$breakpoint-tablet-portrait: 481px;
 
 // MOBILE
 
@@ -697,7 +697,6 @@ $breakpoint-tablet-portrait: 560px;
 
 @media (min-width: $breakpoint-tablet-portrait) {
     .toolbar {
-        font-size: 12px;
         .nav,
         .userSettings,
         .time,
@@ -842,6 +841,7 @@ $breakpoint-tablet-portrait: 560px;
 
 @media (min-width: $breakpoint-tablet-landscape) {
     .toolbar {
+        font-size: 12px;
         height: 60px;
         .nav,
         .sliderContainer,

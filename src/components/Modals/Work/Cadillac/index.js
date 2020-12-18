@@ -48,9 +48,9 @@ class Cadillac extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(
-                        this.props.theme
-                    )} ${
+                    className={`${styles.modal} ${styles.projectModal} ${
+                        styles.cadillacModal
+                    } ${cssSwitch(this.props.theme)} ${
                         this.props.isCadillacOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -87,10 +87,7 @@ class Cadillac extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <div className={styles.cadillacContainer}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

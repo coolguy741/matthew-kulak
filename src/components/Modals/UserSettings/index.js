@@ -66,9 +66,9 @@ class UserSettings extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(
-                        this.props.theme
-                    )} ${
+                    className={`${styles.modal} ${
+                        styles.settingsModal
+                    } ${cssSwitch(this.props.theme)} ${
                         this.props.isSettingsOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -105,10 +105,7 @@ class UserSettings extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <div className={styles.togglesContainer}>
                             <div className={styles.toggleContainer}>
                                 <label>
@@ -151,16 +148,16 @@ class UserSettings extends React.Component {
                             </div>
                         </div>
                         <div className={styles.gpuInfo}>
-                            <div className={styles.aboutTitle}>
+                            <div className={styles.settingsTitle}>
                                 <h2>GPU</h2>
                             </div>
-                            <div className={styles.aboutDesc}>
+                            <div className={styles.settingsDesc}>
                                 <span>{this.props.gpu.gpu}</span>
                             </div>
-                            <div className={styles.aboutTitle}>
+                            <div className={styles.settingsTitle}>
                                 <h2>Screen Size</h2>
                             </div>
-                            <div className={styles.aboutDesc}>
+                            <div className={styles.settingsDesc}>
                                 <span>{`${this.props.width} x ${this.props.height}`}</span>
                             </div>
                         </div>

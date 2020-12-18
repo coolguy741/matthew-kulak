@@ -47,9 +47,9 @@ class Contact extends React.Component {
                 {...dragHandlers}
             >
                 <div
-                    className={`${styles.modal} ${cssSwitch(
-                        this.props.theme
-                    )} ${
+                    className={`${styles.modal} ${
+                        styles.contactModal
+                    } ${cssSwitch(this.props.theme)} ${
                         this.props.isContactOpen
                             ? styles.modalVisible
                             : styles.modalHidden
@@ -59,11 +59,7 @@ class Contact extends React.Component {
                     }}
                     onClick={this.props.onIncZIndex}
                 >
-                    <div
-                        className={`${styles.modalBar} ${cssSwitch(
-                            this.props.theme
-                        )} handle`}
-                    >
+                    <div className={`${styles.modalBar} handle`}>
                         <span className={styles.heading}>Contact</span>
                         <svg
                             width="12"
@@ -90,10 +86,7 @@ class Contact extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <ul className={styles.contact}>
                             <li>
                                 <a href="mailto:contact@frmr.dev">

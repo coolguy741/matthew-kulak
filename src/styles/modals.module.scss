@@ -55,6 +55,12 @@ $acid-x: #9dff00;
 $acid-svg: #5f2ed2;
 $acid-gradient: rgba(143, 0, 255, 0.96);
 
+$breakpoint-laptop: 1200px;
+$breakpoint-tablet-landscape: 821px;
+$breakpoint-tablet-portrait: 481px;
+
+// MOBILE
+
 .modal {
     top: 0;
     left: 0;
@@ -67,6 +73,48 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     }
     &Hidden {
         visibility: hidden;
+    }
+    &.aboutModal .body {
+        width: 270px;
+        height: 280px;
+    }
+    &.workModal .body {
+        width: 230px;
+        min-width: 230px;
+        height: 230px;
+    }
+    &.contactModal .body {
+        width: 190px;
+        height: 120px;
+        li :last-child {
+            margin-bottom: -3px;
+        }
+    }
+    &.projectModal .body {
+        width: 300px;
+        max-height: 430px;
+        svg {
+            width: 70px;
+        }
+    }
+    &.cadillacModal .body svg {
+        width: 170px;
+    }
+    &.settingsModal .body {
+        width: 310px;
+    }
+    &.galleryModal {
+        .body {
+            width: 320px;
+            height: 320px;
+            padding: 0;
+            background-color: #202020;
+            resize: none;
+            overflow: hidden;
+            div {
+                transition: opacity 500ms ease 0s !important;
+            }
+        }
     }
     p,
     span,
@@ -121,10 +169,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         display: inline-block;
         font-family: "White Rabbit";
         text-transform: uppercase;
-        height: 40px;
-        line-height: 40px;
+        height: 35px;
+        line-height: 35px;
         text-decoration: none;
-        padding: 0 15px;
+        padding: 0 10px;
         text-align: center;
         margin: 20px 15px 0 0;
         border-radius: 3px;
@@ -132,24 +180,27 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
     .heading {
         text-transform: uppercase;
         font-family: "White Rabbit";
-        font-size: 15px;
+        font-size: 14px;
     }
     .modalBar {
-        padding: 10px;
+        padding: 7px 10px;
         cursor: move;
     }
     .body {
         padding: 20px 20px;
-        min-width: 250px;
-        min-height: 100px;
+        min-width: 190px;
+        min-height: 120px;
         resize: both;
         overflow: scroll;
         .aboutLogoContainer {
-            margin: 15px 0 30px;
+            margin: 5px 0 20px;
+            svg {
+                width: 50px;
+            }
         }
         .about {
             display: grid;
-            grid-template-columns: 100px auto;
+            grid-template-columns: 80px auto;
         }
         .togglesContainer {
             margin: 20px 0 30px;
@@ -159,7 +210,7 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
                     display: inline;
                     margin-left: 20px;
                     font-family: "Monospace 821 Regular";
-                    font-size: 17px;
+                    font-size: 14px;
                     text-transform: uppercase;
                     font-weight: 300;
                     position: relative;
@@ -170,13 +221,16 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .gpuInfo {
             margin-top: 20px;
             display: grid;
-            grid-template-columns: 130px auto;
+            grid-template-columns: 100px auto;
             span {
                 text-transform: capitalize;
             }
+            .settingsDesc {
+                margin-bottom: 10px;
+            }
         }
         h2 {
-            font-size: 13px;
+            font-size: 11px;
             color: $light-text;
             text-transform: uppercase;
             font-family: "Monospace 821 Regular";
@@ -194,10 +248,10 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
             margin-bottom: 10px;
         }
         .connect {
-            margin-top: 30px;
+            margin-top: 15px;
         }
         .about .copyright {
-            margin-top: 50px;
+            margin-top: 20px;
             padding: 0;
         }
         .about .aboutDesc a {
@@ -205,17 +259,6 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         }
         .cadillacContainer {
             margin: 30px 0 40px;
-        }
-    }
-    &.galleryModal {
-        .body {
-            padding: 0;
-            background-color: #202020;
-            resize: none;
-            overflow: hidden;
-            div {
-                transition: opacity 500ms ease 0s !important;
-            }
         }
     }
     .close {
@@ -234,12 +277,15 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         text-align: center;
     }
     .workIcon {
-        padding: 0 20px;
+        padding: 0 15px;
         margin-bottom: 10px;
         flex-shrink: 0;
+        svg {
+            width: 60px;
+        }
     }
     .btnContainer {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     #gnos .st0 {
         fill: #202020;
@@ -637,6 +683,109 @@ $acid-gradient: rgba(143, 0, 255, 0.96);
         .githubPath,
         .twitterPath {
             fill: $acid-svg;
+        }
+    }
+}
+
+// TABLET PORTRAIT
+
+@media (min-width: $breakpoint-tablet-portrait) {
+    .modal {
+        .modalBar {
+            padding: 10px;
+        }
+        .heading {
+            font-size: 15px;
+        }
+        .body {
+            h4,
+            h2,
+            h3 {
+                font-size: 12px;
+            }
+            .connect {
+                margin-top: 30px;
+            }
+            .about {
+                grid-template-columns: 90px auto;
+                .copyright {
+                    margin-top: 50px;
+                    padding: 0;
+                }
+            }
+        }
+        .workIcon {
+            padding: 0 20px;
+            svg {
+                width: 60px;
+            }
+        }
+        .btn {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 15px;
+            margin: 20px 15px 0 0;
+        }
+        .body .togglesContainer {
+            .toggleContainer {
+                h3 {
+                    font-size: 15px;
+                }
+            }
+        }
+        &.aboutModal .body {
+            width: 350px;
+            height: 380px;
+            .aboutLogoContainer {
+                margin: 15px 0 30px;
+                svg {
+                    width: 60px;
+                }
+            }
+        }
+        &.workModal .body {
+            padding: 20px 20px;
+            width: 250px;
+            height: 225px;
+        }
+        &.contactModal .body {
+            width: 230px;
+            height: 125px;
+        }
+        &.projectModal .body {
+            width: 400px;
+            max-height: 450px;
+            svg {
+                width: 120px;
+            }
+        }
+        &.cadillacModal .body svg {
+            width: 170px;
+        }
+        &.settingsModal .body {
+            width: 380px;
+            .gpuInfo {
+                grid-template-columns: 120px auto;
+            }
+        }
+        &.galleryModal {
+            .body {
+                width: 420px;
+                height: 420px;
+            }
+        }
+    }
+}
+
+// LAPTOP +
+
+@media (min-width: $breakpoint-laptop) {
+    .modal {
+        &.galleryModal {
+            .body {
+                width: 480px;
+                height: 480px;
+            }
         }
     }
 }

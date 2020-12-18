@@ -126,10 +126,7 @@ class Design extends React.Component {
                             />
                         </svg>
                     </div>
-                    <div
-                        className={styles.body}
-                        style={{ height: height, width: width }}
-                    >
+                    <div className={styles.body}>
                         <Slider {...settings}>
                             {images.map(image => (
                                 <div>
