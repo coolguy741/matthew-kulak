@@ -6,6 +6,7 @@ import { useFrame } from "react-three-fiber"
 import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { topoFrag } from "../Shaders/Topo"
 import { termFrag } from "../Shaders/Terminal"
+import { greyFrag } from "../Shaders/Grey"
 
 const Lava = props => {
     const width = window.innerWidth
@@ -41,7 +42,7 @@ const Lava = props => {
             case "DARK":
                 return lavaFrag
             case "GREY":
-                return lavaFrag
+                return greyFrag
             case "TERMINAL":
                 return termFrag
             case "ACID":
@@ -84,6 +85,9 @@ const Lava = props => {
 
     useFrame((state, delta) => {
         uniforms.u_time.value += delta
+
+        uniforms.u_resolution.value = { x: width, y: height }
+        uniforms.u_ratio.value = width / height
 
         uniforms.u_mouse.value.lerp(pointer, 0.2)
         uniforms.u_speed.value = speed

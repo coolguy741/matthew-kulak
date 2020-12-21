@@ -131,6 +131,8 @@ const Geometry = props => {
         uniforms.u_n2.value = n2Switch(props.theme)
         uniforms.u_bw1.value = bw1Switch(props.theme)
         uniforms.u_bw2.value = bw2Switch(props.theme)
+        uniforms.u_resolution.value = { x: width, y: height }
+        uniforms.u_ratio.value = width / height
 
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)

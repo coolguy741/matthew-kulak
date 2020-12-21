@@ -127,8 +127,8 @@ class UserSettings extends React.Component {
                                         )}
                                         onChange={this.props.onToggleAnimating}
                                     />
+                                    <h3>Animation</h3>
                                 </label>
-                                <h3>Animation</h3>
                             </div>
                             <div className={styles.toggleContainer}>
                                 <label>
@@ -140,8 +140,8 @@ class UserSettings extends React.Component {
                                         )}
                                         onChange={this.props.onToggleFXAA}
                                     />
+                                    <h3>FXAA</h3>
                                 </label>
-                                <h3>FXAA</h3>
                             </div>
                             <div className={styles.toggleContainer}>
                                 <label>
@@ -153,8 +153,8 @@ class UserSettings extends React.Component {
                                         )}
                                         onChange={this.props.onToggleRendering}
                                     />
+                                    <h3>WebGL</h3>
                                 </label>
-                                <h3>WebGL</h3>
                             </div>
                         </div>
                         <div className={styles.gpuInfo}>

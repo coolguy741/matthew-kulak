@@ -66,7 +66,7 @@ void main() {
     vec4 col2 = texture2D(u_trail, uv);
     vec4 col = texture2D(u_trail, uv);
     
-    uv.x *= u_resolution.x / u_resolution.y;
+    uv.x *= u_ratio;
     
     vec2 pos = vec2(uv*2.);
 

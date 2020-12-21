@@ -139,11 +139,11 @@ float getNoise(vec2 uv, float t){
     //using ashima noise
     
     //octave 1
-    float SCALE = 2.0;
+    float SCALE = 1.0;
     float noise = snoise( vec3(uv.x*SCALE - t,uv.y*SCALE - t , 0));
     
     //octave 2 - more detail
-    SCALE = 3.;
+    SCALE = 1.;
     noise += snoise( vec3(uv.x*SCALE + t,uv.y*SCALE , 0))* 0.5 ;
     
     //move noise into 0 - 1 range    
@@ -174,7 +174,9 @@ float map(float value, float min1, float max1, float min2, float max2) {
 }
 
 void main() {
-	  vec2 uv = gl_FragCoord.xy / u_resolution.x;
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    uv.x *= u_ratio;
+
     float t = u_time * 0.02;    
     float t2 = u_time * 0.2;
 
