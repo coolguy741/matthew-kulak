@@ -17,7 +17,7 @@ precision highp float;
 
 uniform vec2 u_resolution;
 uniform float u_ratio;
-uniform vec2 u_mouse;
+// uniform vec2 u_mouse;
 uniform float u_time;
 uniform int u_n1;
 uniform int u_n2;
@@ -62,7 +62,7 @@ void main() {
 
     col += mod(m, (2. + (u_slider / 200.)));
 
-    col = mix(vec3(1., 0., .2), vec3(1., .3, 0.), col);
+    col = mix( vec3(1., 0., .2 + sin(u_time / 2.) / 5.), vec3(1., (.25 + (sin(u_time) *.5 + .5) / 14. + u_slider / 1500.), 0.), col );
 
     uv *= mat2(c, -s, s, c);
     uv *= mat2(c, -s, s, c);
@@ -71,7 +71,7 @@ void main() {
     uv *= mat2(c, -s, s, c);
 
     uv /= 15.;
-    col += mix(vec3(1., 0., .38), vec3(1., .25, 0.), uv.x);
+    col += mix(vec3(1., 0., .4), vec3(1., .5, 0.), uv.x);
     
     gl_FragColor = vec4(col,1.);   
 }

@@ -20,12 +20,12 @@ $dark-link: #ddd;
 $dark-x: #900;
 $dark-tripwire: #ff5c6e;
 
-$grey-bg: #ff004c;
+$grey-bg: rgba(255, 0, 96, 0.7);
 $grey-border: #fff;
 $grey-text: #fff;
-$grey-box-shadow: rgba(50, 50, 50, 0.2);
-$grey-btn: #ff004c;
-$grey-btn-hover: #ff004c;
+$grey-box-shadow: rgba(255, 255, 255, 0.3);
+$grey-btn: rgba(255, 0, 96, 0.1);
+$grey-btn-hover: rgba(245, 0, 86, 1);
 $grey-heading: #fff;
 $grey-link: #fff;
 $grey-x: #fff;
@@ -515,13 +515,12 @@ $breakpoint-tablet-portrait: 481px;
         }
         .modalBar {
             border-bottom: 1px solid $grey-border;
-            background-color: #ff004c;
             color: #fff;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,
         .gnosPathOutline {
-            fill: $grey-bg;
+            fill: $grey-text;
         }
         .logoPath,
         .frmrPath,
@@ -530,9 +529,11 @@ $breakpoint-tablet-portrait: 481px;
         .cadillacPath,
         .githubPath,
         .twitterPath,
-        .gnosPathDark,
         .gnosPathR {
             fill: $grey-x;
+        }
+        .gnosPathDark {
+            fill: rgba(255, 0, 96, 1);
         }
         .xPath {
             fill: $grey-x;

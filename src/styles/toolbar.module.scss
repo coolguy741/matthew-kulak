@@ -11,10 +11,10 @@ $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
 
-$grey-bg: #ff004c;
+$grey-bg: rgba(255, 0, 40, 0.4);
 $grey-border: #fff;
 $grey-text: #fff;
-$grey-hover: #ff004c;
+$grey-hover: rgba(255, 0, 40, 0.6);
 
 $terminal-bg: #202020;
 $terminal-border: #31da10;
@@ -219,7 +219,7 @@ $breakpoint-tablet-portrait: 481px;
     .themePicker .iconContainer {
         transition: border 0.3s ease-out;
         span {
-            transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
     }
     .contact,
@@ -455,9 +455,12 @@ $breakpoint-tablet-portrait: 481px;
         .themePicker .drawer,
         .themePicker .iconContainer {
             border-right: 1px solid $grey-border;
-            span {
-                color: $grey-text;
-            }
+            // span {
+            //     color: $grey-text;
+            //     &:hover {
+            //         background-color: $grey-hover;
+            //     }
+            // }
         }
         .contact,
         .time {
@@ -496,7 +499,8 @@ $breakpoint-tablet-portrait: 481px;
             }
             span:hover,
             .return:hover {
-                background-color: $grey-hover;
+                background-color: rgba(255, 0, 40, 0.6);
+                // background-color: #000;
             }
             .drawer {
                 background-color: $grey-bg;
