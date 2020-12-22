@@ -1,4 +1,4 @@
-export const greyVert = `
+export const darkVert = `
 precision highp float;
 
 varying vec2 v_uv;
@@ -11,7 +11,7 @@ void main() {
 }
 `
 
-export const greyFrag = `
+export const darkFrag = `
 
 precision highp float;
 
@@ -58,25 +58,28 @@ void main() {
     uv.x *= u_ratio;
     uv -= vec2(1., 0.5);
     uv *= 15.;
+    vec2 uv2 = uv / 15.;
     vec4 hc = hexCoords(uv);
 
-    vec3 col = vec3(.425);
+    vec3 col = vec3(.3, 0., 0.7);
 
     // Creates hex grid
-    float c = smoothstep(0., .08, hc.y);
-    c = clamp(0., .1, c);
-    col += c;
-
+    float c = smoothstep(0., .04, hc.y);
+    col -= c - (uv2.y / 2. - .1);
+    col = clamp(col, 0., 1.);
+    col += vec3(.125);
 
     // Adjusts levels with slider
     // col = clamp(col, 0., 1.);
     // col += vec3(u_slider / 100.);
 
     // Creates pulsating hexagons
-    c *= smoothstep(0., .008, hc.y * sin(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
+    c *= smoothstep(0., .08, hc.y * cos(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
+    c *= smoothstep(0., .08, hc.y * cos(hc.z + u_time  * hc.w + u_time / 1.));
     col = clamp(col, 0., 1.);
-    c = clamp(c, 0., .075);
-    col -= c;
+    c = clamp(c, 0., (.07 * (1. + u_slider / 20.)));
+    col.r += c / (.5 + uv2.y);
+    // col.b += c * (2.5 + uv2.y);
     
     gl_FragColor = vec4(col,1.);   
 }

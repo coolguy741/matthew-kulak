@@ -173,6 +173,10 @@ float map(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
 
+float getlightness (float i) {
+  return clamp(u_slider/100., 0., i);
+}
+
 void main() {
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
     uv.x *= u_ratio;
@@ -190,14 +194,14 @@ void main() {
     float v = 1.; //deeper is darker
 
     col -= hsv2rgb(vec3(h,s,v));
-        
+
     col += line(vec2(noise, noise), d);    
     col += vec3(.93, .93, .93);    
 
-    float hue = u_slider/200.*getNoise(uv.yx, t);
-    float lightness = clamp(u_slider/100., 0., .6);
+    // float hue = u_slider/200.*getNoise(uv.yx, t);
 
-    if (col.x != 1.0) col -= hsv2rgb(vec3(map(fract(hue + .08), 0.5, 1., 0., 1.), 1., lightness));
+    if (col.x != 1.0) col -= vec3(getlightness(.8)) * (.5 + .5 * sin(u_time + vec3(uv.xy, 0.) + vec3(0., 2., 4.)));
+    if (col.x >= .95) col -= vec3(.9);
     
     gl_FragColor = vec4(col,1.0);   
 }

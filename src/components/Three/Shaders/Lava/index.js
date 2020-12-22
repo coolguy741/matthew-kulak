@@ -57,6 +57,15 @@ float snoise(vec2 v) {
     return 102.0 * (u_slider + 100.) / 150. * dot(m, g);
 }
 
+vec3 hsb2rgb( in vec3 c ){
+    vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),
+                             6.0)-3.0)-1.0,
+                     0.0,
+                     1.0 );
+    rgb = rgb*rgb*(3.0-2.0*rgb);
+    return c.z * mix(vec3(1.0), rgb, c.y);
+}
+
 void main() {
 
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
@@ -83,7 +92,20 @@ void main() {
     DF += snoise(pos+vel)*.55+.25;
     
     col.xyz = vec3( smoothstep(.7,.75,fract(DF)) );
+
+    vec3 hsbCol = hsb2rgb(col.rgb);
+
+    col.r -= .8;
+    col.b -= 1.;
+
+	vec3 col1 = mix(vec3(143. / 255., 0., 255. / 255.), vec3(95. / 255., 46. / 255., 210. / 255.), gl_FragCoord.y / u_resolution.y);
+	
+	if (col.r != 1.0 && col.g != 1.0 && col.b != 1.0) col.rgb += vec3(1.8, 0., 2.);
+	if ((col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(-1.5, 0.5, -1.5);
+	if ((col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(.1, 0., .1);
+
+	if (col.r <= 1.0 && col.g <= 0.5) col.rgb = col1;
     
-    gl_FragColor = vec4(col.xyz ,1.0);
+    gl_FragColor = vec4(col.rgb ,1.0);
 }
 `

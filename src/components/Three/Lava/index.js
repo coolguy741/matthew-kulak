@@ -7,6 +7,7 @@ import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { topoFrag } from "../Shaders/Topo"
 import { termFrag } from "../Shaders/Terminal"
 import { greyFrag } from "../Shaders/Grey"
+import { darkFrag } from "../Shaders/Dark"
 
 const Lava = props => {
     const width = window.innerWidth
@@ -40,7 +41,7 @@ const Lava = props => {
             case "LIGHT":
                 return topoFrag
             case "DARK":
-                return lavaFrag
+                return darkFrag
             case "GREY":
                 return greyFrag
             case "TERMINAL":
@@ -62,6 +63,12 @@ const Lava = props => {
             u_resolution: { value: { x: width, y: height } },
             u_ratio: {
                 value: window.innerWidth / window.innerHeight,
+            },
+            u_n1: {
+                value: 14815366,
+            },
+            u_n2: {
+                value: 15018318,
             },
             u_trail: {
                 value: target.texture,

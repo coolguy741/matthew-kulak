@@ -5,8 +5,8 @@ $light-hover: #f2f2f2;
 $light-slider-track: #999;
 
 $dark-bg: #202020;
-$dark-border: #505050;
-$dark-text: #ccc;
+$dark-border: #900;
+$dark-text: #900;
 $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
@@ -405,7 +405,7 @@ $breakpoint-tablet-portrait: 481px;
         .returnPath,
         .userSettingsPath,
         .sliderPath {
-            fill: #fff;
+            fill: #900;
         }
         .themePicker,
         .sliderContainer {
