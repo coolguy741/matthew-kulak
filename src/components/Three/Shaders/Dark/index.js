@@ -50,7 +50,7 @@ vec4 hexCoords (vec2 uv) {
     float x = atan(gv.x, gv.y);
     float y = .5 - hexDist(gv);
 
-    return vec4(gv.x, y, id.x, id.y);
+    return vec4(x, y, id.x, id.y);
 }
 
 void main() {
@@ -65,7 +65,7 @@ void main() {
 
     // Creates hex grid
     float c = smoothstep(0., .04, hc.y);
-    col -= c - (uv2.y / 2. - .1);
+    col -= c - (uv2.y / 2. - .5);
     col = clamp(col, 0., 1.);
     col += vec3(.125);
 
@@ -74,12 +74,12 @@ void main() {
     // col += vec3(u_slider / 100.);
 
     // Creates pulsating hexagons
-    c *= smoothstep(0., .08, hc.y * cos(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
-    c *= smoothstep(0., .08, hc.y * cos(hc.z + u_time  * hc.w + u_time / 1.));
+    c *= smoothstep(0., .08, hc.y * sin(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
+    c *= smoothstep(0., .08, hc.y * sin(hc.z + u_time  * hc.w + u_time / 4.));
     col = clamp(col, 0., 1.);
-    c = clamp(c, 0., (.07 * (1. + u_slider / 20.)));
+    c = clamp(c, 0., (.06 * (1. + u_slider / 20.)));
     col.r += c / (.5 + uv2.y);
-    // col.b += c * (2.5 + uv2.y);
+    col.b += c * (1.5 + (2.5 * uv2.y));
     
     gl_FragColor = vec4(col,1.);   
 }

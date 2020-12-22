@@ -50,13 +50,13 @@ float character(int n, vec2 p) {
 	p = floor(p*vec2(4.0, -4.0) + 2.5);
     if (clamp(p.x, 0.0, 4.0) == p.x)
 	{
-        if (clamp(p.y, 0.0, 4.0) == p.y)
+        if (clamp(p.y, 0.0, 4.0) == p.y)	
 		{
         	int a = int(round(p.x) + 5.0 * round(p.y));
-			if (((n >> a) & 1) == 1) return 1.;
-		}
+			if (((n >> a) & 1) == 1) return 1.0;
+		}	
     }
-	return 0.;
+	return 0.1;
 }
 
 vec3 hsb2rgb( in vec3 c ){
@@ -71,13 +71,9 @@ vec3 hsb2rgb( in vec3 c ){
 void main() {
 
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-
-    uv = uv * vec2(1.5, 1.5);
-
-    vec4 col2 = texture2D(u_trail, uv);
-    vec4 col = texture2D(u_trail, uv);
+    uv *= u_resolution.xy/u_resolution.xy;
     
-    uv.x *= u_ratio;
+    vec4 col = vec4(.125);
     
     vec2 pos = vec2(uv*2.);
 
@@ -93,16 +89,20 @@ void main() {
     vel = vec2(cos(a),sin(a));
     DF += snoise(pos+vel)*.55+.25;
     
-    col.xyz = vec3( smoothstep(.7,.75,fract(DF)) );
+    col.xyz = vec3( smoothstep(.4,.75,fract(DF)) );
 
-    float gray = col.y;
-
-    int n = u_n1;
+    uv = gl_FragCoord.xy;
+	
+	float gray = col.r;
+	
+	int n =  u_n1;
 	if (gray > 0.5) n = u_n2;
 
-	vec2 p = mod(uv/4., 2.0) - vec2(1.0);
-	// col.xyz = gray*vec3(character(n, p));
-	col.xyz = vec3(character(n, p));
+	
+	vec2 p = mod(uv/5.0, 2.0) - vec2(1.0);
+    
+	// col = gray*vec3(character(n, p));
+	col = col*character(n, p);
 
     if (col.x == 1.0) col.xyz = vec3(0.204, 0.522, 0.141);
     
