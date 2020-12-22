@@ -38,8 +38,8 @@ class GNOS extends React.Component {
                     return styles.light
                 case "DARK":
                     return styles.dark
-                case "GREY":
-                    return styles.grey
+                case "SOLIS":
+                    return styles.solis
                 case "TERMINAL":
                     return styles.terminal
                 case "ACID":

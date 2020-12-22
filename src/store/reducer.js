@@ -111,10 +111,10 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 theme: "DARK",
             }
-        case "GREY_THEME":
+        case "SOLIS_THEME":
             return {
                 ...state,
-                theme: "GREY",
+                theme: "SOLIS",
             }
         case "TERMINAL_THEME":
             return {

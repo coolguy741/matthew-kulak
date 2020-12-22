@@ -40,8 +40,8 @@ class UserSettings extends React.Component {
                     return styles.light
                 case "DARK":
                     return styles.dark
-                case "GREY":
-                    return styles.grey
+                case "SOLIS":
+                    return styles.solis
                 case "TERMINAL":
                     return styles.terminal
                 case "ACID":
@@ -57,8 +57,8 @@ class UserSettings extends React.Component {
                     return "light"
                 case "DARK":
                     return "dark"
-                case "GREY":
-                    return "grey"
+                case "SOLIS":
+                    return "solis"
                 case "TERMINAL":
                     return "terminal"
                 case "ACID":

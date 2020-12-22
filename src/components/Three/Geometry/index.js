@@ -75,7 +75,7 @@ const Geometry = props => {
                 return 0
             case "DARK":
                 return 0
-            case "GREY":
+            case "SOLIS":
                 return 18157905
             case "TERMINAL":
                 return 15018318
@@ -92,7 +92,7 @@ const Geometry = props => {
                 return 0.125
             case "DARK":
                 return 0.6
-            case "GREY":
+            case "SOLIS":
                 return 0.125
             case "TERMINAL":
                 return 1.0
@@ -109,7 +109,7 @@ const Geometry = props => {
                 return 1.0
             case "DARK":
                 return 0.125
-            case "GREY":
+            case "SOLIS":
                 return 0.55
             case "TERMINAL":
                 return 0.125

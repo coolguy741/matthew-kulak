@@ -6,7 +6,7 @@ import { useFrame } from "react-three-fiber"
 import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { topoFrag } from "../Shaders/Topo"
 import { termFrag } from "../Shaders/Terminal"
-import { greyFrag } from "../Shaders/Grey"
+import { solisFrag } from "../Shaders/Solis"
 import { darkFrag } from "../Shaders/Dark"
 
 const Lava = props => {
@@ -42,8 +42,8 @@ const Lava = props => {
                 return topoFrag
             case "DARK":
                 return darkFrag
-            case "GREY":
-                return greyFrag
+            case "SOLIS":
+                return solisFrag
             case "TERMINAL":
                 return termFrag
             case "ACID":

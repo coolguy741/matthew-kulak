@@ -11,10 +11,10 @@ $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
 
-$grey-bg: rgba(255, 0, 40, 0.4);
-$grey-border: #fff;
-$grey-text: #fff;
-$grey-hover: rgba(255, 0, 40, 0.6);
+$solis-bg: rgba(255, 0, 40, 0.4);
+$solis-border: #fff;
+$solis-text: #fff;
+$solis-hover: rgba(255, 0, 40, 0.6);
 
 $terminal-bg: #202020;
 $terminal-border: #31da10;
@@ -447,24 +447,24 @@ $breakpoint-tablet-portrait: 481px;
             }
         }
     }
-    &.grey {
+    &.solis {
         .logo,
         .nav,
         .userSettings,
         .frmr,
         .themePicker .drawer,
         .themePicker .iconContainer {
-            border-right: 1px solid $grey-border;
+            border-right: 1px solid $solis-border;
             // span {
-            //     color: $grey-text;
+            //     color: $solis-text;
             //     &:hover {
-            //         background-color: $grey-hover;
+            //         background-color: $solis-hover;
             //     }
             // }
         }
         .contact,
         .time {
-            border-left: 1px solid $grey-border;
+            border-left: 1px solid $solis-border;
         }
         .nav,
         .frmr,
@@ -472,13 +472,13 @@ $breakpoint-tablet-portrait: 481px;
         .userSettings,
         .time {
             color: #fff;
-            background-color: $grey-bg;
-            border-top: 1px solid $grey-border;
+            background-color: $solis-bg;
+            border-top: 1px solid $solis-border;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
-            background-color: $grey-hover;
+            background-color: $solis-hover;
         }
         .logoPath,
         .frmrPath,
@@ -491,11 +491,11 @@ $breakpoint-tablet-portrait: 481px;
         .themePicker,
         .sliderContainer {
             .toolbarClickHandler {
-                border-bottom: 1px solid $grey-border;
+                border-bottom: 1px solid $solis-border;
             }
             span {
-                color: $grey-text;
-                border-bottom: 1px solid $grey-border;
+                color: $solis-text;
+                border-bottom: 1px solid $solis-border;
             }
             span:hover,
             .return:hover {
@@ -503,29 +503,29 @@ $breakpoint-tablet-portrait: 481px;
                 // background-color: #000;
             }
             .drawer {
-                background-color: $grey-bg;
-                border-left: 1px solid $grey-border;
+                background-color: $solis-bg;
+                border-left: 1px solid $solis-border;
             }
             .iconContainer {
-                border-left: 1px solid $grey-border;
-                border-top: 1px solid $grey-border;
-                background-color: $grey-bg;
+                border-left: 1px solid $solis-border;
+                border-top: 1px solid $solis-border;
+                background-color: $solis-bg;
                 &:hover {
-                    background-color: $grey-hover;
+                    background-color: $solis-hover;
                 }
             }
         }
         .sliderContainer {
             .sliderThumb {
-                border: 1px solid $grey-border;
-                background-color: $grey-hover;
+                border: 1px solid $solis-border;
+                background-color: $solis-hover;
                 box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
             }
             .sliderTrack {
-                background-color: $grey-border;
+                background-color: $solis-border;
             }
             .return {
-                border-top: 1px solid $grey-border;
+                border-top: 1px solid $solis-border;
             }
         }
     }
@@ -810,14 +810,14 @@ $breakpoint-tablet-portrait: 481px;
                 border-left: 1px solid $dark-border;
             }
         }
-        &.grey {
+        &.solis {
             .sliderContainer .drawer,
             .sliderContainer .iconContainer {
-                border-right: 1px solid $grey-border !important;
-                background-color: $grey-bg;
+                border-right: 1px solid $solis-border !important;
+                background-color: $solis-bg;
             }
             .time {
-                border-left: 1px solid $grey-border;
+                border-left: 1px solid $solis-border;
             }
         }
         &.terminal {

@@ -1,4 +1,4 @@
-export const greyVert = `
+export const solisVert = `
 precision highp float;
 
 varying vec2 v_uv;
@@ -11,7 +11,7 @@ void main() {
 }
 `
 
-export const greyFrag = `
+export const solisFrag = `
 
 precision highp float;
 

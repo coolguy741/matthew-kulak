@@ -20,16 +20,16 @@ $dark-link: #ddd;
 $dark-x: #900;
 $dark-tripwire: #ff5c6e;
 
-$grey-bg: rgba(255, 0, 96, 0.7);
-$grey-border: #fff;
-$grey-text: #fff;
-$grey-box-shadow: rgba(255, 255, 255, 0.3);
-$grey-btn: rgba(255, 0, 96, 0.1);
-$grey-btn-hover: rgba(245, 0, 86, 1);
-$grey-heading: #fff;
-$grey-link: #fff;
-$grey-x: #fff;
-$grey-tripwire: #fff;
+$solis-bg: rgba(255, 0, 96, 0.7);
+$solis-border: #fff;
+$solis-text: #fff;
+$solis-box-shadow: rgba(255, 255, 255, 0.3);
+$solis-btn: rgba(255, 0, 96, 0.1);
+$solis-btn-hover: rgba(245, 0, 86, 1);
+$solis-heading: #fff;
+$solis-link: #fff;
+$solis-x: #fff;
+$solis-tripwire: #fff;
 
 $terminal-bg: rgba(32, 32, 32, 0.97);
 $terminal-border: #40c040;
@@ -468,43 +468,43 @@ $breakpoint-tablet-portrait: 481px;
             fill: $dark-tripwire;
         }
     }
-    &.grey {
-        background-color: $grey-bg;
-        border: 1px solid $grey-border;
-        box-shadow: 5px 5px 0 $grey-box-shadow;
+    &.solis {
+        background-color: $solis-bg;
+        border: 1px solid $solis-border;
+        box-shadow: 5px 5px 0 $solis-box-shadow;
         p,
         span,
         h2,
         li,
         ul.contact li a:hover,
         .about h2 {
-            color: $grey-text;
+            color: $solis-text;
         }
         ul.contact li a {
-            color: $grey-link;
+            color: $solis-link;
         }
         ul.tech li::before,
         h4,
         h3,
         .workIcon span {
-            color: $grey-heading;
+            color: $solis-heading;
         }
         .btn {
-            background-color: $grey-btn;
-            border: 1px solid $grey-border;
-            color: $grey-heading;
+            background-color: $solis-btn;
+            border: 1px solid $solis-border;
+            color: $solis-heading;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
-            background-color: $grey-btn-hover;
+            background-color: $solis-btn-hover;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .heading {
-            color: $grey-heading !important;
+            color: $solis-heading !important;
         }
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
-            color: $grey-heading;
+            color: $solis-heading;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
@@ -514,13 +514,13 @@ $breakpoint-tablet-portrait: 481px;
             background-color: transparent;
         }
         .modalBar {
-            border-bottom: 1px solid $grey-border;
+            border-bottom: 1px solid $solis-border;
             color: #fff;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,
         .gnosPathOutline {
-            fill: $grey-text;
+            fill: $solis-text;
         }
         .logoPath,
         .frmrPath,
@@ -530,16 +530,16 @@ $breakpoint-tablet-portrait: 481px;
         .githubPath,
         .twitterPath,
         .gnosPathR {
-            fill: $grey-x;
+            fill: $solis-x;
         }
         .gnosPathDark {
             fill: rgba(255, 0, 96, 1);
         }
         .xPath {
-            fill: $grey-x;
+            fill: $solis-x;
         }
         .tripwirePath {
-            fill: $grey-tripwire;
+            fill: $solis-tripwire;
         }
     }
     &.terminal {

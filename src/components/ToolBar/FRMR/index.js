@@ -10,8 +10,8 @@ const FRMR = props => {
                 return styles.light
             case "DARK":
                 return styles.dark
-            case "GREY":
-                return styles.grey
+            case "SOLIS":
+                return styles.solis
             default:
                 return
         }

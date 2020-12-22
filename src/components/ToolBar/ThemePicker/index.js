@@ -68,7 +68,7 @@ const ThemePicker = props => {
             <div className={styles.drawer}>
                 <span onClick={props.setLightTheme}>Light</span>
                 <span onClick={props.setDarkTheme}>Dark</span>
-                <span onClick={props.setGreyTheme}>Grey</span>
+                <span onClick={props.setSolisTheme}>Solis</span>
                 <span onClick={props.setTerminalTheme}>Terminal</span>
                 <span onClick={props.setAcidTheme}>Acid</span>
                 <div className={styles.return}>
@@ -105,7 +105,7 @@ const mapDispatchToProps = dispatch => {
     return {
         setLightTheme: () => dispatch({ type: "LIGHT_THEME" }),
         setDarkTheme: () => dispatch({ type: "DARK_THEME" }),
-        setGreyTheme: () => dispatch({ type: "GREY_THEME" }),
+        setSolisTheme: () => dispatch({ type: "SOLIS_THEME" }),
         setTerminalTheme: () => dispatch({ type: "TERMINAL_THEME" }),
         setAcidTheme: () => dispatch({ type: "ACID_THEME" }),
         toggleThemePicker: () => dispatch({ type: "TOGGLE_THEME_PICKER" }),
