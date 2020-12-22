@@ -11,10 +11,10 @@ $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
 
-$grey-bg: #888;
-$grey-border: #202020;
-$grey-text: #202020;
-$grey-hover: #838383;
+$grey-bg: #ff004c;
+$grey-border: #fff;
+$grey-text: #fff;
+$grey-hover: #ff004c;
 
 $terminal-bg: #202020;
 $terminal-border: #31da10;
@@ -468,6 +468,7 @@ $breakpoint-tablet-portrait: 481px;
         .logo,
         .userSettings,
         .time {
+            color: #fff;
             background-color: $grey-bg;
             border-top: 1px solid $grey-border;
         }
@@ -482,7 +483,7 @@ $breakpoint-tablet-portrait: 481px;
         .returnPath,
         .userSettingsPath,
         .sliderPath {
-            fill: #202020;
+            fill: #fff;
         }
         .themePicker,
         .sliderContainer {

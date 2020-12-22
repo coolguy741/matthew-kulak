@@ -20,16 +20,16 @@ $dark-link: #ddd;
 $dark-x: #900;
 $dark-tripwire: #ff5c6e;
 
-$grey-bg: #888;
-$grey-border: #202020;
-$grey-text: #202020;
+$grey-bg: #ff004c;
+$grey-border: #fff;
+$grey-text: #fff;
 $grey-box-shadow: rgba(50, 50, 50, 0.2);
-$grey-btn: #707070;
-$grey-btn-hover: #6b6b6b;
-$grey-heading: #202020;
-$grey-link: #303030;
-$grey-x: #202020;
-$grey-tripwire: #202020;
+$grey-btn: #ff004c;
+$grey-btn-hover: #ff004c;
+$grey-heading: #fff;
+$grey-link: #fff;
+$grey-x: #fff;
+$grey-tripwire: #fff;
 
 $terminal-bg: rgba(32, 32, 32, 0.97);
 $terminal-border: #40c040;
@@ -515,8 +515,8 @@ $breakpoint-tablet-portrait: 481px;
         }
         .modalBar {
             border-bottom: 1px solid $grey-border;
-            background-color: #717171;
-            color: #bbb;
+            background-color: #ff004c;
+            color: #fff;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,

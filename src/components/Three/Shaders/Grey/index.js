@@ -29,54 +29,49 @@ uniform sampler2D u_noise;
 varying vec2 v_uv;
 varying vec3 v_position;
 
-float hexDist(vec2 p) {
-    p = abs(p);
-    float c = dot(p, normalize(vec2(1., 1.73)));
-    c = max(c, p.x);
-
-    return c;
-}
-
-vec4 hexCoords (vec2 uv) {
-    vec2 rep = vec2(1., 1.73);
-    vec2 h = rep * .5;
-
-    vec2 a = mod(uv, rep) - h;
-    vec2 b = mod(uv - h, rep) - h;
-
-    vec2 gv = dot(a, a)<dot(b, b) ? a: b;
-    vec2 id = uv - gv;
-
-    float x = atan(gv.x, gv.y);
-    float y = .5 - hexDist(gv);
-
-    return vec4(gv.x, y, id.x, id.y);
-}
-
 void main() {
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    uv.x *= u_ratio;
-    uv -= vec2(1., 0.5);
+    vec2 uv = (gl_FragCoord.xy - .5 * u_resolution.xy) / u_resolution.y;
+
+    vec3 col = vec3(0.);
+
+    uv.x += 1. / 20.;
+
+    float a = .785;
+    float c = cos(a);
+    float s = sin(a);
+    uv *= mat2(c, -s, s, c);
     uv *= 15.;
-    vec4 hc = hexCoords(uv);
+    
+    vec2 gv = fract(uv) - .5;
+    vec2 id = floor(uv);
 
-    vec3 col = vec3(.425);
+    float m = 0.;
+    float t = u_time * (1. + u_slider / 70.);
+    
+    for (float y=-1.;y<=1.;y++) {
+        for (float x=-1.;x<=1.;x++) {
+            vec2 offset = vec2(x, y);
+            
+            float d = length(gv - offset);
+            float dist = length(id + offset)*u_slider/100.;
+            
+            float r = mix(1., 1.5, sin(dist - t) * .5 + .5);
+            m += smoothstep(r, r*.9, d);
+        }
+    }
 
-    // Creates hex grid
-    float c = smoothstep(0., .08, hc.y);
-    c = clamp(0., .1, c);
-    col += c;
+    col += mod(m, (2. + (u_slider / 200.)));
 
+    col = mix(vec3(1., 0., .2), vec3(1., .3, 0.), col);
 
-    // Adjusts levels with slider
-    // col = clamp(col, 0., 1.);
-    // col += vec3(u_slider / 100.);
+    uv *= mat2(c, -s, s, c);
+    uv *= mat2(c, -s, s, c);
+    uv *= mat2(c, -s, s, c);
+    uv *= mat2(c, -s, s, c);
+    uv *= mat2(c, -s, s, c);
 
-    // Creates pulsating hexagons
-    c *= smoothstep(0., .008, hc.y * sin(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
-    col = clamp(col, 0., 1.);
-    c = clamp(c, 0., .075);
-    col -= c;
+    uv /= 15.;
+    col += mix(vec3(1., 0., .38), vec3(1., .25, 0.), uv.x);
     
     gl_FragColor = vec4(col,1.);   
 }
