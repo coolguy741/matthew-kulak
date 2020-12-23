@@ -60,8 +60,8 @@ void main() {
         float x = atan(p.x, p.z) + t;
         float y = atan(length(p.xz) - 1., p.y);
 
-        float bands = sin(y * 50. + x * 20.);
-        float ripples = sin((x * 10. - y * 10.) * 20.) * .5 + .5;
+        float bands = sin(y * 50. + x * 30.);
+        float ripples = sin((x * 15. - y * 15.) * 20.) * .5 + .5;
         float waves = sin(x * 2. - y * 100. + t * 30.);
 
 
