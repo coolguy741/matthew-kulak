@@ -29,58 +29,55 @@ uniform sampler2D u_noise;
 varying vec2 v_uv;
 varying vec3 v_position;
 
-float hexDist(vec2 p) {
-    p = abs(p);
-    float c = dot(p, normalize(vec2(1., 1.73)));
-    c = max(c, p.x);
-
-    return c;
-}
-
-vec4 hexCoords (vec2 uv) {
-    vec2 rep = vec2(1., 1.73);
-    vec2 h = rep * .5;
-
-    vec2 a = mod(uv, rep) - h;
-    vec2 b = mod(uv - h, rep) - h;
-
-    vec2 gv = dot(a, a)<dot(b, b) ? a: b;
-    vec2 id = uv - gv;
-
-    float x = atan(gv.x, gv.y);
-    float y = .5 - hexDist(gv);
-
-    return vec4(x, y, id.x, id.y);
-}
-
 void main() {
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    uv.x *= u_ratio;
-    uv -= vec2(1., 0.5);
-    uv *= 15.;
-    vec2 uv2 = uv / 15.;
-    vec4 hc = hexCoords(uv);
+    vec2 uv = (gl_FragCoord.xy - .5 * u_resolution.xy) / u_resolution.y;
 
-    vec3 col = vec3(.3, 0., 0.7);
+    vec3 ro = vec3(0., 0., -1.);
+    vec3 lookat = vec3(0.);
+    float zoom = .5 - (u_slider / 1000.);
+    float t = u_time * .1;
 
-    // Creates hex grid
-    float c = smoothstep(0., .04, hc.y);
-    col -= c - (uv2.y / 2. - .5);
-    col = clamp(col, 0., 1.);
-    col += vec3(.125);
+    vec3 f = normalize(lookat - ro),
+        r = normalize(cross(vec3(0., 1., 0.), f)),
+        u = cross(f, r),
+        c = ro + f * zoom,
+        i = c + uv.x * r + uv.y * u, 
+        rd = normalize(i - ro);
 
-    // Adjusts levels with slider
-    // col = clamp(col, 0., 1.);
-    // col += vec3(u_slider / 100.);
+    float dS, dO;
+    vec3 p;
 
-    // Creates pulsating hexagons
-    c *= smoothstep(0., .08, hc.y * sin(hc.z + (u_time * ((u_slider + 3.) / 3.) * .15 * hc.w + u_time) / 3.));
-    c *= smoothstep(0., .08, hc.y * sin(hc.z + u_time  * hc.w + u_time / 4.));
-    col = clamp(col, 0., 1.);
-    c = clamp(c, 0., (.06 * (1. + u_slider / 20.)));
-    col.r += c / (.5 + uv2.y);
-    col.b += c * (1.5 + (2.5 * uv2.y));
-    
+    for (int i=0; i<100; i++) {
+        p = ro + rd * dO;
+        dS = -(length(vec2(length(p.xz) - 1., p.y)) - .7);
+        if (dS<.001) break;
+        dO += dS;
+    }
+
+    vec3 col = vec3(.125);
+
+    if (dS<.001) {
+        float x = atan(p.x, p.z) + t;
+        float y = atan(length(p.xz) - 1., p.y);
+
+        float bands = sin(y * 50. + x * 20.);
+        float ripples = sin((x * 10. - y * 10.) * 20.) * .5 + .5;
+        float waves = sin(x * 2. - y * 100. + t * 30.);
+
+
+        float b1 = smoothstep(0., 1., bands);
+        float b2 = smoothstep(-.1, .1, bands - .1);
+
+        float m = b1 * (1. - b2);
+        m = max(m, ripples * b2 * max(0., waves));
+
+        col.r += m;
+
+        col.r -= abs(uv.x);
+        col.r = max(.125, col.r);
+        // col.r += .125;
+    }
+
     gl_FragColor = vec4(col,1.);   
 }
 `

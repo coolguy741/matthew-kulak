@@ -173,14 +173,14 @@ $breakpoint-tablet-portrait: 481px;
 
 .solis {
     .react-toggle-track {
-        background-color: #ff67a0;
+        background-color: #ff7faf;
     }
     .react-toggle-thumb {
         background-color: #ff006c;
         border-color: #ff6799;
     }
     &.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-        background-color: #f05e93;
+        background-color: #f17aa6;
     }
     &.react-toggle--checked .react-toggle-thumb {
         border-color: #ffcce2;

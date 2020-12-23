@@ -34,7 +34,7 @@ void main() {
 
     vec3 col = vec3(0.);
 
-    uv.x += 1. / 20.;
+    uv.x += 1. / 21.;
 
     float a = .785;
     float c = cos(a);

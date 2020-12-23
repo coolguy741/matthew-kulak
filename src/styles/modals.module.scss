@@ -21,15 +21,15 @@ $dark-x: #900;
 $dark-tripwire: #ff5c6e;
 
 $solis-bg: rgba(255, 0, 96, 0.7);
-$solis-border: #fff;
+$solis-border: #c7ff00;
 $solis-text: #fff;
-$solis-box-shadow: rgba(255, 255, 255, 0.3);
+$solis-box-shadow: rgba(199, 255, 0, 0.3);
 $solis-btn: rgba(255, 0, 96, 0.1);
 $solis-btn-hover: rgba(245, 0, 86, 1);
-$solis-heading: #fff;
-$solis-link: #fff;
-$solis-x: #fff;
-$solis-tripwire: #fff;
+$solis-heading: #c7ff00;
+$solis-link: #c7ff00;
+$solis-x: #c7ff00;
+$solis-tripwire: #c7ff00;
 
 $terminal-bg: rgba(32, 32, 32, 0.97);
 $terminal-border: #40c040;
@@ -515,12 +515,12 @@ $breakpoint-tablet-portrait: 481px;
         }
         .modalBar {
             border-bottom: 1px solid $solis-border;
-            color: #fff;
+            color: $solis-text;
             transition: border 0.3s ease-out, background-color 0.3s ease-out;
         }
         .gnosPathLight,
         .gnosPathOutline {
-            fill: $solis-text;
+            fill: $solis-x;
         }
         .logoPath,
         .frmrPath,
