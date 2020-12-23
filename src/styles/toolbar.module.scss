@@ -1,7 +1,7 @@
-$light-bg: #fff;
+$light-bg: #ececec;
 $light-border: #202020;
 $light-text: #202020;
-$light-hover: #f2f2f2;
+$light-hover: #e3e3e3;
 $light-slider-track: #999;
 
 $dark-bg: rgba(32, 32, 32, 0.9);
@@ -440,7 +440,7 @@ $breakpoint-tablet-portrait: 481px;
                 box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
             }
             .sliderTrack {
-                background-color: #f00;
+                background-color: #b91919;
             }
             .return {
                 border-top: 1px solid $dark-border;

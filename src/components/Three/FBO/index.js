@@ -4,12 +4,13 @@ import * as THREE from "three"
 import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
 import { lavaFrag, lavaVert } from "../Shaders/Lava"
-import { topoFrag } from "../Shaders/Topo"
+import { baseFrag } from "../Shaders/Base"
 import { termFrag } from "../Shaders/Terminal"
 import { solisFrag } from "../Shaders/Solis"
 import { darkFrag } from "../Shaders/Dark"
+import matcap from "../../../assets/images/matcap/matcap.jpg"
 
-const Lava = props => {
+const FBO = props => {
     const width = window.innerWidth
     const height = window.innerHeight
 
@@ -39,7 +40,7 @@ const Lava = props => {
     const fragSwitch = param => {
         switch (param) {
             case "LIGHT":
-                return topoFrag
+                return baseFrag
             case "DARK":
                 return darkFrag
             case "SOLIS":
@@ -60,6 +61,7 @@ const Lava = props => {
             u_speed: {
                 value: 0,
             },
+            u_matcap: { value: new THREE.TextureLoader().load(matcap) },
             u_resolution: { value: { x: width, y: height } },
             u_ratio: {
                 value: window.innerWidth / window.innerHeight,
@@ -68,7 +70,7 @@ const Lava = props => {
                 value: 14815366,
             },
             u_n2: {
-                value: 15018318,
+                value: 4096,
             },
             u_trail: {
                 value: target.texture,
@@ -126,4 +128,4 @@ const Lava = props => {
     )
 }
 
-export default Lava
+export default FBO

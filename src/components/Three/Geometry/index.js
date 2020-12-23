@@ -3,7 +3,7 @@ import React, { useMemo } from "react"
 import * as THREE from "three"
 import { useFrame, createPortal, useThree } from "react-three-fiber"
 import { mainVert, mainFrag } from "../Shaders/Main"
-import Lava from "../Lava"
+import FBO from "../FBO"
 
 const Geometry = props => {
     const width = window.innerWidth
@@ -150,7 +150,7 @@ const Geometry = props => {
     return (
         <>
             {createPortal(
-                <Lava theme={props.theme} sliderPos={props.sliderPos} />,
+                <FBO theme={props.theme} sliderPos={props.sliderPos} />,
                 scene
             )}
             <mesh onPointerMove={pointerMove}>

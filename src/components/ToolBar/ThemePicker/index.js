@@ -66,7 +66,7 @@ const ThemePicker = props => {
                 </div>
             </div>
             <div className={styles.drawer}>
-                <span onClick={props.setLightTheme}>Light</span>
+                <span onClick={props.setLightTheme}>Base</span>
                 <span onClick={props.setDarkTheme}>Dark</span>
                 <span onClick={props.setSolisTheme}>Solis</span>
                 <span onClick={props.setTerminalTheme}>Terminal</span>

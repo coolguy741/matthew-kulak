@@ -64,7 +64,6 @@ void main() {
         float ripples = sin((x * 15. - y * 15.) * 20.) * .5 + .5;
         float waves = sin(x * 2. - y * 100. + t * 30.);
 
-
         float b1 = smoothstep(0., 1., bands);
         float b2 = smoothstep(-.1, .1, bands - .1);
 
@@ -78,6 +77,6 @@ void main() {
         // col.r += .125;
     }
 
-    gl_FragColor = vec4(col,1.);   
+    gl_FragColor = vec4(col,1.);
 }
 `

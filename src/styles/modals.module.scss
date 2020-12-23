@@ -1,4 +1,4 @@
-$light-bg: #fff;
+$light-bg: #f5f5f5db;
 $light-border: #202020;
 $light-text: #202020;
 $light-box-shadow: rgba(20, 20, 20, 0.2);
@@ -324,6 +324,7 @@ $breakpoint-tablet-portrait: 481px;
     h3,
     li,
     ul.contact a:hover,
+    ul.contact li a,
     .body .about,
     .gpuInfo .settingsDesc span {
         transition: color 0.3s ease-out;
@@ -364,6 +365,7 @@ $breakpoint-tablet-portrait: 481px;
         }
         .modalBar {
             border-bottom: 1px solid $light-border;
+            background-color: #dbdbdb;
             transition: border 0.3s ease-out;
         }
         .about .aboutDesc span {
@@ -406,14 +408,14 @@ $breakpoint-tablet-portrait: 481px;
         p,
         span,
         h2,
-        li,
-        ul.contact li a:hover {
-            color: $dark-heading;
+        li {
+            color: $dark-text;
         }
         .about h2,
         h3,
         h4,
-        ul.tech li::before {
+        ul.tech li::before,
+        ul.contact li a:hover {
             color: $dark-heading;
         }
         .workIcon span {
@@ -451,6 +453,9 @@ $breakpoint-tablet-portrait: 481px;
         .modalBar {
             border-bottom: 1px solid $dark-border;
             transition: border 0.3s ease-out;
+        }
+        .gpuInfo h2 {
+            color: $dark-heading;
         }
         .gpuInfo .settingsDesc span {
             color: $dark-text;
