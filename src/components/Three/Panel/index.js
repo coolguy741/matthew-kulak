@@ -53,7 +53,7 @@ const Panel = props => {
     const bgColorSwitch = param => {
         switch (param) {
             case "LIGHT":
-                return [0.9, 0.9, 0.9]
+                return [0.8, 0.8, 0.8]
             case "DARK":
                 return [0.125, 0.125, 0.125]
             case "SOLIS":
@@ -165,6 +165,7 @@ const Panel = props => {
                 uniforms={uniforms}
                 vertexShader={vert}
                 fragmentShader={frag}
+                transparent={true}
             />
         </mesh>
     )

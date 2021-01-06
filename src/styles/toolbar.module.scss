@@ -11,7 +11,7 @@ $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
 
-$solis-bg: rgba(255, 0, 40, 0.4);
+$solis-bg: rgba(128, 0, 255, 0.7);
 $solis-border: #c7ff00;
 $solis-text: #c7ff00;
 $solis-hover: rgba(255, 0, 40, 0.6);
@@ -320,7 +320,7 @@ $breakpoint-tablet-portrait: 481px;
         .returnPath,
         .userSettingsPath,
         .sliderPath {
-            fill: #202020;
+            fill: $light-text;
         }
         .themePicker,
         .sliderContainer {

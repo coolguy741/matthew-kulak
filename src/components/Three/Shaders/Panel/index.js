@@ -98,7 +98,7 @@ void main() {
 
 	float staticlines = nn(uv);
     
-    if (u_bgcolor == vec3(.9, .9, .9)) {
+    if (u_bgcolor == vec3(.8, .8, .8)) {
         col -= vec3(clamp(staticlines, 0., .4));
     }
 
@@ -124,6 +124,6 @@ void main() {
         col.z -= staticlines;
     }
     
-    gl_FragColor = vec4(col, 1.);
+    gl_FragColor = vec4(col, .8);
 }
 `
