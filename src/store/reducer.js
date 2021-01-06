@@ -30,6 +30,7 @@ const initialState = {
     rendering: true,
     animating: true,
     fxaa: true,
+    panelRef: {},
 }
 
 // add 1 to the current (highest) z-index
@@ -262,6 +263,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 gpu: action.gpu,
+            }
+        case "SET_PANEL_REF":
+            return {
+                ...state,
+                panelRef: action.ref,
             }
         default:
             return state

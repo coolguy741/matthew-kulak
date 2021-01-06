@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import { connect } from "react-redux"
 import Layout from "../components/layout"
@@ -21,7 +21,12 @@ const IndexPage = props => {
     return (
         <Layout>
             <SEO title="FRMR" />
-            {props.rendering && <MainCanvas location={props.location} />}
+            {props.rendering && (
+                <MainCanvas
+                    panelRef={props.panelRef}
+                    location={props.location}
+                />
+            )}
         </Layout>
     )
 }
@@ -30,6 +35,7 @@ const mapStateToProps = state => {
     return {
         rendering: state.rendering,
         gpu: state.gpu,
+        panelRef: state.panelRef,
     }
 }
 

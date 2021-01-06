@@ -4,10 +4,12 @@ import * as THREE from "three"
 import { useFrame, createPortal, useThree } from "react-three-fiber"
 import { mainVert, mainFrag } from "../Shaders/Main"
 import FBO from "../FBO"
+import Panel from "../Panel"
 
 const Geometry = props => {
     const width = window.innerWidth
     const height = window.innerHeight
+    const aspect = width / height
 
     const pointer = useMemo(() => {
         return new THREE.Vector2()
@@ -30,7 +32,7 @@ const Geometry = props => {
             u_time: { value: 0.0 },
             u_resolution: { value: { x: width, y: height } },
             u_ratio: {
-                value: window.innerWidth / window.innerHeight,
+                value: aspect,
             },
             u_noise: {
                 value: target.texture,
@@ -120,6 +122,20 @@ const Geometry = props => {
         }
     }
 
+    const calculateUnitSize = () => {
+        const fov = 75 // default camera value
+        const cameraZ = 5 // default camera value
+
+        const vFov = (fov * Math.PI) / 180
+
+        const height = 2 * Math.tan(vFov / 2) * cameraZ
+        const width = height * aspect
+
+        return { width, height }
+    }
+
+    const camUnit = calculateUnitSize()
+
     const { clock } = useThree()
 
     if (!props.animating) clock.stop()
@@ -154,7 +170,9 @@ const Geometry = props => {
                 scene
             )}
             <mesh onPointerMove={pointerMove}>
-                <planeBufferGeometry args={[width / height, 1, 1, 1]} />
+                <planeBufferGeometry
+                    args={[camUnit.width, camUnit.height, 1, 1]}
+                />
                 <shaderMaterial
                     uniforms={uniforms}
                     vertexShader={mainVert}
@@ -162,6 +180,7 @@ const Geometry = props => {
                     onUpdate={self => (self.needsUpdate = true)}
                 />
             </mesh>
+            <Panel theme={props.theme} domEl={props.panelRef} />
         </>
     )
 }

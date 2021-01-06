@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { connect } from "react-redux"
@@ -18,7 +18,9 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "./layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = props => {
+    const panelRef = useRef()
+
     const data = useStaticQuery(graphql`
         query imagesAndSiteTitleQuery {
             site {
@@ -140,15 +142,20 @@ const Layout = ({ children }) => {
         }
     }
 
+    useEffect(() => {
+        props.setPanelRef(panelRef.current)
+    }, [panelRef])
+
     return (
         <>
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-            <main>{children}</main>
+            <main>{props.children}</main>
             <Work
                 width={getWorkWidth()}
                 height={getWorkHeight()}
                 toolbar={getToolbarHeight()}
             />
+            <div ref={panelRef} className="panel" />
             <About
                 width={
                     (isTabletPortrait && isTabletPortraitHeight) ||
@@ -226,4 +233,10 @@ Layout.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default Layout
+const mapDispatchToProps = dispatch => {
+    return {
+        setPanelRef: ref => dispatch({ type: "SET_PANEL_REF", ref: ref }),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Layout)
