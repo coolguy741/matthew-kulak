@@ -11,24 +11,24 @@ $light-tripwire: #ff5c6e;
 
 $dark-bg: rgba(32, 32, 32, 0.9);
 $dark-border: #b91919;
-$dark-text: #555;
+$dark-text: #606060;
 $dark-box-shadow: rgba(185, 25, 25, 0.1);
 $dark-btn: #202020;
 $dark-btn-hover: #252525;
 $dark-heading: #b91919;
 $dark-link: #555;
-$dark-x: #b91919;
+$dark-x: #19b9aa;
 $dark-tripwire: #b91919;
 
-$solis-bg: rgba(128, 0, 255, 0.7);
+$solis-bg: rgba(45, 45, 45, 0.94);
 $solis-border: #c7ff00;
 $solis-text: #fff;
 $solis-box-shadow: rgba(199, 255, 0, 0.3);
-$solis-btn: rgba(255, 0, 96, 0.1);
-$solis-btn-hover: rgba(245, 0, 86, 1);
+$solis-btn: rgba(32, 32, 32, 0);
+$solis-btn-hover: #c7ff00;
 $solis-heading: #c7ff00;
 $solis-link: #c7ff00;
-$solis-x: #c7ff00;
+$solis-x: rgba(255, 0, 96, 1);
 $solis-tripwire: #c7ff00;
 
 $terminal-bg: rgba(32, 32, 32, 0.97);
@@ -418,6 +418,9 @@ $breakpoint-tablet-portrait: 481px;
         ul.contact li a:hover {
             color: $dark-heading;
         }
+        ul.tech li::before {
+            color: $dark-x;
+        }
         .workIcon span {
             color: $dark-text;
         }
@@ -436,7 +439,7 @@ $breakpoint-tablet-portrait: 481px;
             transition: background-color 0.3s ease-out;
         }
         .heading {
-            color: $dark-heading !important;
+            color: $dark-x !important;
         }
         .about .aboutDesc span {
             background-color: rgba(64, 58, 58, 0.3);
@@ -472,10 +475,10 @@ $breakpoint-tablet-portrait: 481px;
         .cadillacPath,
         .gnosPathLight,
         .gnosPathR {
-            fill: $dark-x;
+            fill: $dark-heading;
         }
         .xPath {
-            fill: $dark-x;
+            fill: $dark-heading;
         }
         .tripwirePath {
             fill: $dark-tripwire;
@@ -491,7 +494,7 @@ $breakpoint-tablet-portrait: 481px;
         li,
         ul.contact li a:hover,
         .about h2 {
-            color: $solis-text;
+            color: $solis-heading;
         }
         ul.contact li a {
             color: $solis-link;
@@ -505,7 +508,7 @@ $breakpoint-tablet-portrait: 481px;
         .btn {
             background-color: $solis-btn;
             border: 1px solid $solis-border;
-            color: $solis-heading;
+            color: $solis-x;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
@@ -533,7 +536,7 @@ $breakpoint-tablet-portrait: 481px;
         }
         .gnosPathLight,
         .gnosPathOutline {
-            fill: $solis-x;
+            fill: $solis-heading;
         }
         .logoPath,
         .frmrPath,
@@ -543,7 +546,7 @@ $breakpoint-tablet-portrait: 481px;
         .githubPath,
         .twitterPath,
         .gnosPathR {
-            fill: $solis-x;
+            fill: $solis-heading;
         }
         .gnosPathDark {
             fill: rgba(255, 0, 96, 1);

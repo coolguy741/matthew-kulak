@@ -173,20 +173,20 @@ $breakpoint-tablet-portrait: 481px;
 
 .solis {
     .react-toggle-track {
-        background-color: #ff7faf;
+        background-color: #555;
     }
     .react-toggle-thumb {
-        background-color: #ff006c;
-        border-color: #ff6799;
+        background-color: #202020;
+        border-color: #303030;
     }
     &.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
         background-color: #f17aa6;
     }
     &.react-toggle--checked .react-toggle-thumb {
-        border-color: #ffcce2;
+        border-color: #531d34;
     }
     &.react-toggle--checked .react-toggle-track {
-        background-color: #fff;
+        background-color: #c7ff00;
     }
     &.react-toggle--checked:hover:not(.react-toggle--disabled)
         .react-toggle-track {

@@ -27,7 +27,7 @@ varying vec2 v_uv;
 varying vec3 v_position;
 
 
-const int MAX_ITER = 15; // Try 30 for extra flames
+const int MAX_ITER = 15;
 
 vec2 rotate(in vec2 v, in float a) {
 	return vec2(cos(a)*v.x + sin(a)*v.y, -sin(a)*v.x + cos(a)*v.y);
@@ -43,7 +43,7 @@ float torus(in vec3 p, in vec2 t)
 float trap(in vec3 p)
 {
 	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
-	return length(max(abs(p.xy) - 0.05, 0.0));
+	return length(max(abs(p.xy) - 0.2, 0.0));
 	//return length(p)-0.5;
 	//return length(max(abs(p) - 0.35, 0.0));
 	//return abs(length(p.xz)-0.2)-0.01;
@@ -81,7 +81,7 @@ vec3 hsv(in float h, in float s, in float v) {
 
 vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 {
-    float time = u_time+60.0;
+    float time = u_time+20.0;
 	float total_dist = 0.0;
 	vec3 p = rayOrigin;
 	float d = .1;
@@ -94,7 +94,7 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 		
 		d = map(p);
 		// This rotation causes the occasional distortion - like you would see from heat waves
-		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind)));
+		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind*5.)));
 		mind = min(mind, d);
 		total_dist += d;
 		iter++;
@@ -134,5 +134,6 @@ void main()
 	vec3 rayDir = normalize(u * screenPos.x + v * screenPos.y + cameraDir*(1.0-length(screenPos)*0.5));
 	
 	gl_FragColor = vec4(intersect(cameraOrigin, rayDir), 1.0);
+	gl_FragColor.rgb += vec3(.125);
 } 
 `

@@ -102,11 +102,11 @@ void main() {
         col -= vec3(clamp(staticlines, 0., .4));
     }
 
-    if (u_bgcolor == vec3(0.125, 0.125, 0.125)) {
+    if (u_bgcolor == vec3(.125, .125, .125)) {
         col.x += clamp(staticlines, 0., .7);
     }
 
-    if (u_bgcolor == vec3(1, 0, 0.376)) {
+    if (u_bgcolor == vec3(.126, .126, .126)) {
         col.x -= clamp(staticlines, 0., .22);
         col.y += staticlines;
         col.z -= clamp(staticlines, 0., .376);

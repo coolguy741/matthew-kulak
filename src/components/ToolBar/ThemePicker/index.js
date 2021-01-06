@@ -67,10 +67,10 @@ const ThemePicker = props => {
             </div>
             <div className={styles.drawer}>
                 <span onClick={props.setLightTheme}>Base</span>
-                <span onClick={props.setDarkTheme}>Dark</span>
-                <span onClick={props.setSolisTheme}>Solis</span>
+                <span onClick={props.setDarkTheme}>Reactor</span>
+                <span onClick={props.setSolisTheme}>Portal</span>
                 <span onClick={props.setTerminalTheme}>Terminal</span>
-                <span onClick={props.setAcidTheme}>Acid</span>
+                <span onClick={props.setAcidTheme}>Plasma</span>
                 <div className={styles.return}>
                     <svg
                         version="1.1"
