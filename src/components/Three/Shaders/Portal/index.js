@@ -54,7 +54,7 @@ float trap(in vec3 p)
 
 float map(in vec3 p)
 {
-    float time = u_time / 10.;
+    float time = u_time / 1.;
 	float cutout = dot(abs(p.yz),vec2(0.5))-0.035;
 	float road = max(abs(p.y-23.), abs(p.z)-23.);
 	

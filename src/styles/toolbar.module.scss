@@ -13,7 +13,7 @@ $dark-slider-thumb: #858585;
 
 $solis-bg: rgba(38, 38, 38, 0.96);
 $solis-border: #1e1e1e;
-$solis-text: #80ff00;
+$solis-text: #bbff00;
 $solis-hover: rgba(45, 45, 45, 0.95);
 
 $terminal-bg: #202020;
@@ -477,7 +477,7 @@ $breakpoint-tablet-portrait: 481px;
             border-top: 1px solid $solis-border;
         }
         .time {
-            color: #7300ff;
+            color: #ff008f;
             background-color: rgba(38, 38, 38, 1);
             border-top: 1px solid $solis-border;
         }
@@ -486,8 +486,10 @@ $breakpoint-tablet-portrait: 481px;
         .themePicker .iconContainer:hover {
             background-color: #2d2d2d;
         }
+        .frmrPath {
+            fill: #ff008f;
+        }
         .logoPath,
-        .frmrPath,
         .themePickerPath,
         .returnPath,
         .userSettingsPath,
