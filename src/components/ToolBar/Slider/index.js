@@ -67,16 +67,18 @@ const Slider = props => {
                 </div>
             </div>
             <div className={styles.drawer}>
-                <ReactSlider
-                    className={styles.slider}
-                    thumbClassName={styles.sliderThumb}
-                    trackClassName={styles.sliderTrack}
-                    defaultValue={[0]}
-                    ariaLabel={["Slider"]}
-                    orientation="vertical"
-                    invert
-                    onChange={val => props.setSliderPos(val)}
-                />
+                <div className={styles.sliderDrawer}>
+                    <ReactSlider
+                        className={styles.slider}
+                        thumbClassName={styles.sliderThumb}
+                        trackClassName={styles.sliderTrack}
+                        defaultValue={[0]}
+                        ariaLabel={["Slider"]}
+                        orientation="vertical"
+                        invert
+                        onChange={val => props.setSliderPos(val)}
+                    />
+                </div>
                 <div
                     className={styles.return}
                     onClick={() => props.toggleSlider()}

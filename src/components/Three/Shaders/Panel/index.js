@@ -98,26 +98,31 @@ void main() {
 
 	float staticlines = nn(uv);
     
+    // Base
     if (u_bgcolor == vec3(.8, .8, .8)) {
         col -= vec3(clamp(staticlines, 0., .4));
     }
 
+    // Reactor
     if (u_bgcolor == vec3(.125, .125, .125)) {
         col.x += clamp(staticlines, 0., .7);
     }
 
-    if (u_bgcolor == vec3(.126, .126, .126)) {
+    // Portal
+    if (u_bgcolor == vec3(.149, .149, .149)) {
         col.x -= clamp(staticlines, 0., .22);
         col.y += staticlines;
         col.z -= clamp(staticlines, 0., .376);
     }
 
+    // Terminal
     if (u_bgcolor == vec3(.124, .124, .124)) {
         col.x += clamp(staticlines, 0., .1);
         col.y += clamp(staticlines, 0., .628);
         col.z += clamp(staticlines, 0., .1);
     }
 
+    // Acid
     if (u_bgcolor == vec3(0.56, 0, 1)) {
         col.x += clamp(staticlines, 0., .05);
         col.y += staticlines;

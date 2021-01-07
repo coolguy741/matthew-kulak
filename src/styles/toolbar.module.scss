@@ -11,10 +11,10 @@ $dark-hover: #252525;
 $dark-heading: #fff;
 $dark-slider-thumb: #858585;
 
-$solis-bg: rgba(45, 45, 45, 0.94);
-$solis-border: #c7ff00;
-$solis-text: #c7ff00;
-$solis-hover: rgba(255, 0, 40, 0.6);
+$solis-bg: rgba(38, 38, 38, 0.96);
+$solis-border: #1e1e1e;
+$solis-text: #80ff00;
+$solis-hover: rgba(45, 45, 45, 0.95);
 
 $terminal-bg: #202020;
 $terminal-border: #31da10;
@@ -50,11 +50,9 @@ $breakpoint-tablet-portrait: 481px;
         }
     }
     .sliderContainer {
-        .drawer {
+        .drawer .sliderDrawer {
             padding-top: 20px;
-        }
-        .return {
-            margin-top: 20px;
+            padding-bottom: 20px;
         }
     }
     .themePicker,
@@ -109,6 +107,9 @@ $breakpoint-tablet-portrait: 481px;
         }
     }
     .sliderContainer {
+        .sliderDrawer {
+            height: 100%;
+        }
         .iconContainer {
             padding: 8px;
             svg {
@@ -282,7 +283,8 @@ $breakpoint-tablet-portrait: 481px;
             transition: background-color 0.3s ease-out;
         }
         .return {
-            transition: border 0.3s ease-out;
+            transition: color 0.3s ease-out, border 0.3s ease-out,
+                background-color 0.3s ease-out;
         }
     }
     &.light {
@@ -457,9 +459,9 @@ $breakpoint-tablet-portrait: 481px;
             border-right: 1px solid $solis-border;
             span {
                 color: $solis-text;
-                &:hover {
-                    background-color: $solis-hover;
-                }
+                // &:hover {
+                //     background-color: $solis-hover;
+                // }
             }
         }
         .contact,
@@ -471,18 +473,18 @@ $breakpoint-tablet-portrait: 481px;
         .logo,
         .userSettings {
             color: #c7ff00;
-            background-color: #ff006e;
+            background-color: rgba(38, 38, 38, 1);
             border-top: 1px solid $solis-border;
         }
         .time {
-            color: rgba(255, 0, 96, 1);
-            background-color: #ff006e;
+            color: #7300ff;
+            background-color: rgba(38, 38, 38, 1);
             border-top: 1px solid $solis-border;
         }
         .nav:hover,
         .userSettings:hover,
         .themePicker .iconContainer:hover {
-            background-color: $solis-hover;
+            background-color: #2d2d2d;
         }
         .logoPath,
         .frmrPath,
@@ -490,7 +492,14 @@ $breakpoint-tablet-portrait: 481px;
         .returnPath,
         .userSettingsPath,
         .sliderPath {
-            fill: #c7ff00;
+            fill: $solis-text;
+        }
+        .sliderContainer .drawer,
+        .themePicker .drawer {
+            border-left: 1px solid $solis-border;
+        }
+        .sliderContainer .drawer .sliderDrawer {
+            background-color: rgba(38, 38, 38, 1);
         }
         .themePicker,
         .sliderContainer {
@@ -501,31 +510,32 @@ $breakpoint-tablet-portrait: 481px;
                 color: $solis-text;
                 border-bottom: 1px solid $solis-border;
             }
-            span:hover,
-            .return:hover {
-                background-color: rgba(255, 0, 40, 0.6);
+            .drawer span:hover,
+            .drawer .return:hover {
+                background-color: #2d2d2d;
             }
-            .drawer {
-                background-color: #ff006e;
-                border-left: 1px solid $solis-border;
+            .drawer span,
+            .drawer .return {
+                background-color: rgba(38, 38, 38, 1);
             }
             .iconContainer {
                 border-left: 1px solid $solis-border;
                 border-top: 1px solid $solis-border;
-                background-color: #ff006e;
+                background-color: rgba(38, 38, 38, 1);
+
                 &:hover {
-                    background-color: $solis-hover;
+                    background-color: #2d2d2d !important;
                 }
             }
         }
         .sliderContainer {
             .sliderThumb {
                 border: 1px solid $solis-border;
-                background-color: #ff0060;
+                background-color: #7300ff;
                 box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.2);
             }
             .sliderTrack {
-                background-color: $solis-border;
+                background-color: #80ff00;
             }
             .return {
                 border-top: 1px solid $solis-border;
@@ -821,15 +831,31 @@ $breakpoint-tablet-portrait: 481px;
             .time {
                 background-color: $solis-bg;
             }
-            .themePicker .drawer,
+            .sliderContainer .drawer {
+                border-right: 1px solid $solis-border !important;
+            }
             .themePicker .iconContainer,
-            .sliderContainer .drawer,
             .sliderContainer .iconContainer {
                 border-right: 1px solid $solis-border !important;
                 background-color: $solis-bg !important;
             }
+            .themePicker .drawer span,
+            .themePicker .drawer .return,
+            .sliderContainer .drawer .return,
+            .sliderContainer .drawer .sliderDrawer {
+                background-color: $solis-bg !important;
+            }
             .time {
                 border-left: 1px solid $solis-border;
+            }
+            .nav:hover,
+            .userSettings:hover,
+            .themePicker .iconContainer:hover,
+            .sliderContainer .iconContainer:hover,
+            .themePicker .drawer span:hover,
+            .themePicker .drawer .return:hover,
+            .sliderContainer .drawer .return:hover {
+                background-color: $solis-hover !important;
             }
         }
         &.terminal {

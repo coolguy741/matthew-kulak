@@ -20,16 +20,16 @@ $dark-link: #555;
 $dark-x: #19b9aa;
 $dark-tripwire: #b91919;
 
-$solis-bg: rgba(45, 45, 45, 0.94);
-$solis-border: #c7ff00;
-$solis-text: #fff;
-$solis-box-shadow: rgba(199, 255, 0, 0.3);
-$solis-btn: rgba(32, 32, 32, 0);
-$solis-btn-hover: #c7ff00;
-$solis-heading: #c7ff00;
-$solis-link: #c7ff00;
-$solis-x: rgba(255, 0, 96, 1);
-$solis-tripwire: #c7ff00;
+$solis-bg: rgba(38, 38, 38, 0.96);
+$solis-border: #1e1e1e;
+$solis-text: #dfdfdf;
+$solis-box-shadow: rgba(38, 38, 38, 0.3);
+$solis-btn: rgba(116, 0, 255, 0);
+$solis-btn-hover: rgba(116, 0, 255, 0.88);
+$solis-heading: #80ff00;
+$solis-link: #fff;
+$solis-x: #ff008f;
+$solis-tripwire: #80ff00;
 
 $terminal-bg: rgba(32, 32, 32, 0.97);
 $terminal-border: #40c040;
@@ -488,27 +488,29 @@ $breakpoint-tablet-portrait: 481px;
         background-color: $solis-bg;
         border: 1px solid $solis-border;
         box-shadow: 5px 5px 0 $solis-box-shadow;
-        p,
-        span,
-        h2,
         li,
+        span,
+        p,
+        .workIcon span {
+            color: $solis-text;
+        }
+        h2,
         ul.contact li a:hover,
-        .about h2 {
+        .about h2,
+        ul.tech li::before {
             color: $solis-heading;
         }
         ul.contact li a {
             color: $solis-link;
         }
-        ul.tech li::before,
         h4,
-        h3,
-        .workIcon span {
+        h3 {
             color: $solis-heading;
         }
         .btn {
             background-color: $solis-btn;
-            border: 1px solid $solis-border;
-            color: $solis-x;
+            border: 1px solid $solis-heading;
+            color: $solis-heading;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .btn:hover {
@@ -520,14 +522,15 @@ $breakpoint-tablet-portrait: 481px;
         }
         .about .aboutDesc span {
             background-color: rgba(255, 255, 255, 0.07);
-            color: $solis-heading;
+            color: $solis-text;
             transition: color 0.3s ease-out, background-color 0.3s ease-out;
         }
         .about .status span {
-            color: #74f269;
+            color: $solis-heading;
         }
         .about .copyright {
             background-color: transparent;
+            color: $solis-heading;
         }
         .modalBar {
             border-bottom: 1px solid $solis-border;

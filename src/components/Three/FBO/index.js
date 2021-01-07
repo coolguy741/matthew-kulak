@@ -7,7 +7,7 @@ import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { baseFrag } from "../Shaders/Base"
 import { termFrag } from "../Shaders/Terminal"
 import { solisFrag } from "../Shaders/Solis"
-import { voidFrag } from "../Shaders/Void"
+import { voidFrag } from "../Shaders/Portal"
 import { darkFrag } from "../Shaders/Dark"
 import matcap from "../../../assets/images/matcap/matcap.jpg"
 

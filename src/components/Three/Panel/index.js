@@ -57,7 +57,7 @@ const Panel = props => {
             case "DARK":
                 return [0.125, 0.125, 0.125]
             case "SOLIS":
-                return [0.126, 0.126, 0.126]
+                return [0.149, 0.149, 0.149]
             case "TERMINAL":
                 return [0.124, 0.124, 0.124]
             case "ACID":
@@ -74,7 +74,7 @@ const Panel = props => {
             case "DARK":
                 return [0.725, 0.098, 0.098]
             case "SOLIS":
-                return [0.78, 1, 0]
+                return [0.117, 0.117, 0.117]
             case "TERMINAL":
                 return [0.25, 0.752, 0.25]
             case "ACID":
