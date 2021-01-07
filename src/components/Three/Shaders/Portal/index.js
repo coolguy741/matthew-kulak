@@ -27,7 +27,7 @@ varying vec2 v_uv;
 varying vec3 v_position;
 
 
-const int MAX_ITER = 15;
+const int MAX_ITER = 20;
 
 vec2 rotate(in vec2 v, in float a) {
 	return vec2(cos(a)*v.x + sin(a)*v.y, -sin(a)*v.x + cos(a)*v.y);
@@ -39,12 +39,63 @@ float torus(in vec3 p, in vec2 t)
 	return max(q.x, q.y)-t.y;
 }
 
+float sdOctahedron( vec3 p, float s)
+{
+  p = abs(p);
+  float m = p.x+p.y+p.z-s;
+  vec3 q;
+       if( 3.0*p.x < m ) q = p.xyz;
+  else if( 3.0*p.y < m ) q = p.yzx;
+  else if( 3.0*p.z < m ) q = p.zxy;
+  else return m*0.57735027;
+    
+  float k = clamp(0.5*(q.z-q.y+s),0.0,s); 
+  return length(vec3(q.x,q.y-s+k,q.z-k)); 
+}
+
+float rnd,sizer;
+void randomize(in vec2 p){rnd=fract(sin(dot(p,vec2(13.3145,17.7391)))*317.7654321);}
+vec3 fsign(vec3 p){return vec3(p.x<0.0?-1.0:1.0,p.y<0.0?-1.0:1.0,p.z<0.0?-1.0:1.0);}
+
+vec3 paxis(vec3 p){//idea from dila originally at https://www.shadertoy.com/view/Xlj3DK
+	vec3 a=abs(p);
+	return fsign(p)*max(fsign(a-max(a.yzx,a.zxy)),0.0);
+}
+
+vec3 paxis2(vec3 p){
+	vec3 a=abs(p);
+	return fsign(p)*max(fsign(a-min(a.yzx,a.zxy)),0.0);
+}
+
+float DE(in vec3 p){
+	float b=1.0;
+	for(int i=0;i<3;i++){
+		p-=paxis(p)*b*sizer;
+		b*=0.5;
+	}
+	float d=length(p)-0.28;
+	for(int i=0;i<4;i++){
+		p-=paxis2(p)*b;
+		b*=0.5;
+	}
+	p=abs(p);
+	float d2=max(p.x,max(p.y,p.z))-b;
+	return max(d2,-d);
+}
+
 // These are all equally interesting, but I could only pick one :(
 float trap(in vec3 p)
 {
-	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01; // 2
-	return length(max(abs(p.xy) - 0.2, 0.0)); // 1
-	//return length(p)-0.5; // 3
+	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
+	return length(max(abs(p.xy) - 0.2, 0.0));
+	//return length(p)-0.5;
+	//return length(max(abs(p) - 0.35, 0.0));
+	//return abs(length(p.xz)-0.2)-0.01;
+	//return abs(min(torus(vec3(p.x, mod(p.y,0.4)-0.2, p.z), vec2(0.1, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
+	//return abs(min(torus(p, vec2(0.3, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
+	//return min(length(p.xz), min(length(p.yz), length(p.xy))) - 0.05;
+
+	// return DE(p);
 }
 
 float map(in vec3 p)
@@ -81,7 +132,7 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 	vec3 p = rayOrigin;
 	float d = .1;
 	float iter = 0.0;
-	float mind = 3.14159+sin(time*0.1)*0.2; // Move road from side to side slowly
+	float mind = 3.14159+sin(time*.1)*0.2; // Move road from side to side slowly
 	
 	for (int i = 0; i < MAX_ITER; i++)
 	{		
@@ -89,7 +140,7 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 		
 		d = map(p);
 		// This rotation causes the occasional distortion - like you would see from heat waves
-		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind*5.)));
+		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind*3.)));
 		mind = min(mind, d);
 		total_dist += d;
 		iter++;
