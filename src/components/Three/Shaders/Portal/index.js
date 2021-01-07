@@ -42,19 +42,14 @@ float torus(in vec3 p, in vec2 t)
 // These are all equally interesting, but I could only pick one :(
 float trap(in vec3 p)
 {
-	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
-	return length(max(abs(p.xy) - 0.2, 0.0));
-	//return length(p)-0.5;
-	//return length(max(abs(p) - 0.35, 0.0));
-	//return abs(length(p.xz)-0.2)-0.01;
-	//return abs(min(torus(vec3(p.x, mod(p.y,0.4)-0.2, p.z), vec2(0.1, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
-	//return abs(min(torus(p, vec2(0.3, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
-	//return min(length(p.xz), min(length(p.yz), length(p.xy))) - 0.05;
+	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01; // 2
+	return length(max(abs(p.xy) - 0.2, 0.0)); // 1
+	//return length(p)-0.5; // 3
 }
 
 float map(in vec3 p)
 {
-    float time = u_time / 1.;
+    float time = u_time;
 	float cutout = dot(abs(p.yz),vec2(0.5))-0.035;
 	float road = max(abs(p.y-23.), abs(p.z)-23.);
 	

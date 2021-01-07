@@ -34,7 +34,6 @@ vec4 hash42(vec2 p){
     return fract(vec4(p4.x * p4.y, p4.x*p4.z, p4.y*p4.w, p4.x*p4.w));
 }
 
-
 float hash( float n ){
     return fract(sin(n)*43758.5453123);
 }
@@ -54,7 +53,6 @@ float n( in vec3 x ){
 
 //tape noise
 float nn(vec2 p){
-
 
     float y = p.y;
     float s = u_time * 2.;
@@ -110,16 +108,15 @@ void main() {
 
     // Portal
     if (u_bgcolor == vec3(.149, .149, .149)) {
-        col.x -= clamp(staticlines, 0., .22);
-        col.y += staticlines;
-        col.z -= clamp(staticlines, 0., .376);
+        col.x += staticlines;
+        col.z += clamp(staticlines, 0., .6);
     }
 
     // Terminal
     if (u_bgcolor == vec3(.124, .124, .124)) {
-        col.x += clamp(staticlines, 0., .1);
+        col.x += clamp(staticlines, 0., .577);
         col.y += clamp(staticlines, 0., .628);
-        col.z += clamp(staticlines, 0., .1);
+        col.z += clamp(staticlines, 0., .9);
     }
 
     // Acid
