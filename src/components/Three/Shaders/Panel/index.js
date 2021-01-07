@@ -109,7 +109,7 @@ void main() {
     // Portal
     if (u_bgcolor == vec3(.149, .149, .149)) {
         col.x += staticlines;
-        col.z += clamp(staticlines, 0., .6);
+        col.z += clamp(staticlines, 0., .4);
     }
 
     // Terminal

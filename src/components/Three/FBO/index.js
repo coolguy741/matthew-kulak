@@ -20,7 +20,7 @@ const FBO = props => {
     let speed = 0
 
     const pointer = useMemo(() => {
-        return new THREE.Vector2()
+        return new THREE.Vector3()
     })
 
     var diff = new MouseSpeed()
@@ -58,7 +58,7 @@ const FBO = props => {
     const uniforms = useMemo(
         () => ({
             u_time: { value: 0.0 },
-            u_mouse: { value: new THREE.Vector2() },
+            u_mouse: { value: new THREE.Vector3() },
             u_speed: {
                 value: 0,
             },
