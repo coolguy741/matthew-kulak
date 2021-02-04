@@ -1,12 +1,14 @@
 export const lavaVert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
 
-    v_position = position;
+    vPosition = position;
+    vUv = uv;
+    
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -21,8 +23,8 @@ uniform float u_speed;
 uniform float u_slider;
 uniform sampler2D u_trail;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }

@@ -1,12 +1,12 @@
 export const vert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
 
-    v_position = position;
+    vPosition = position;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -23,8 +23,8 @@ uniform sampler2D u_texture;
 uniform vec3 u_bgcolor;
 uniform vec3 u_fgcolor;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 //random hash
 vec4 hash42(vec2 p){
@@ -72,7 +72,7 @@ float nn(vec2 p){
 
 void main() {
 
-    vec2 uv = v_position.xy;
+    vec2 uv = vPosition.xy;
     
     uv.x /= 9.37;
     uv.y /= 4.73;

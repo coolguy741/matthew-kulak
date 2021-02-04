@@ -1,11 +1,11 @@
 export const mainVert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
-    v_position = position;
+    vPosition = position;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -23,8 +23,8 @@ uniform float u_bw1;
 uniform float u_bw2;
 uniform sampler2D u_noise;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 
 float character(int n, vec2 p) {

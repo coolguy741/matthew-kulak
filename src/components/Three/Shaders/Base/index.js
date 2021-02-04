@@ -1,12 +1,13 @@
 export const baseVert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
 
-    v_position = position;
+    vPosition = position;
+    vUv = uv;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -20,7 +21,7 @@ uniform float u_ratio;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-varying vec3 v_position;
+varying vec3 vPosition;
 
 float PI = 3.1415926;
 
