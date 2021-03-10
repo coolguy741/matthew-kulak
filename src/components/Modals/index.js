@@ -5,7 +5,6 @@ import styles from "../../styles/modals.module.scss"
 
 const Modal = ({
     modalName,
-    modalClass,
     width,
     height,
     toolbar,
@@ -37,9 +36,9 @@ const Modal = ({
     const getClass = modal => {
         switch (modal) {
             case "About":
-                return styles.about
-            case "About":
-                return styles.work
+                return styles.aboutModal
+            case "Work":
+                return styles.workModal
         }
     }
 

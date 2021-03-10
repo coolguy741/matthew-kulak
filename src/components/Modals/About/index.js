@@ -29,7 +29,7 @@ const About = ({ width, height, toolbar, imageData }) => {
     return (
         <Modal
             modalName={"About"}
-            modalClass={"about"}
+            modalClass={"aboutModal"}
             width={width}
             height={height}
             toolbar={toolbar}

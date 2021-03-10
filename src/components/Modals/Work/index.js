@@ -51,10 +51,11 @@ const Work = ({ width, height, toolbar, imageData, ...props }) => {
         }
     }
 
+    console.log("WORK HEIGHT", height)
+
     return (
         <Modal
             modalName={"Work"}
-            modalClass={"work"}
             width={width}
             height={height}
             toolbar={toolbar}

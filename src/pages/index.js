@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 
 import { connect } from "react-redux"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { getGPUTier } from "detect-gpu"
 import SEO from "../components/seo"
 import MainCanvas from "../components/Three/Canvas"
