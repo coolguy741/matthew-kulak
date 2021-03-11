@@ -13,13 +13,22 @@ import GNOS from "../../components/Modals/Work/GNOS"
 import Cadillac from "../../components/Modals/Work/Cadillac"
 import Tripwire from "../../components/Modals/Work/Tripwire"
 import { useMediaQuery } from "react-responsive"
+import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "../layout.scss"
+import { useWindowSize } from "../../util/useWindowSize"
+
+const HUDDivStyles = styled.div`
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: ${({ width, scale }) => width / scale}px;
+    height: ${({ height, scale }) => height / scale}px;
+`
 
 const Layout = props => {
-    const panelRef = useRef()
-
+    // Gatsby images
     const data = useStaticQuery(graphql`
         query imagesAndSiteTitleQuery {
             site {
@@ -40,6 +49,7 @@ const Layout = props => {
         }
     `)
 
+    // Responsive
     const isLandscape = useMediaQuery({
         query: "(orientation: landscape)",
     })
@@ -141,9 +151,15 @@ const Layout = props => {
         }
     }
 
+    // HUD panel ref/state
+    const panelRef = useRef()
+
     useEffect(() => {
         props.setPanelRef(panelRef.current)
     }, [panelRef])
+
+    // Responsive window size
+    const [width, height] = useWindowSize()
 
     return (
         <>
@@ -154,7 +170,12 @@ const Layout = props => {
                 height={getWorkHeight()}
                 toolbar={getToolbarHeight()}
             />
-            <div ref={panelRef} className="panel" />
+            <HUDDivStyles
+                ref={panelRef}
+                width={width}
+                height={height}
+                scale={5}
+            />
             <About
                 width={
                     (isTabletPortrait && isTabletPortraitHeight) ||

@@ -1,9 +1,9 @@
 import React, { useMemo, useRef } from "react"
 import { useFrame } from "react-three-fiber"
-import { frag, vert } from "../Shaders/Panel"
+import { frag, vert } from "../Shaders/HUD"
 import * as THREE from "three"
 
-const Panel = ({ theme, domEl }) => {
+const HUD = ({ theme, domEl }) => {
     // Refs
     const planeRef = useRef()
 
@@ -159,4 +159,4 @@ const Panel = ({ theme, domEl }) => {
     )
 }
 
-export default Panel
+export default HUD
