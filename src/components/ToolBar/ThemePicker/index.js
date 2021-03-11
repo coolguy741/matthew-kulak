@@ -5,15 +5,17 @@ import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
 const ThemePicker = props => {
+    // Refs
     const wrapperRef = useRef(null)
 
+    // Framer motion variants
     const variants = {
         open: { y: "-600%" },
         closed: { y: "0" },
     }
 
+    // Close toolbar drawer if there is a click outside of the element
     useEffect(() => {
-        // close toolbar drawer if there is a click outside of the element
         function handleClickOutside(event) {
             if (
                 wrapperRef.current &&
@@ -96,7 +98,6 @@ const ThemePicker = props => {
 
 const mapStateToProps = state => {
     return {
-        theme: state.theme,
         isThemePickerOpen: state.isThemePickerOpen,
     }
 }

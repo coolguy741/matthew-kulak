@@ -1,24 +1,9 @@
 import React from "react"
-import { connect } from "react-redux"
-
 import styles from "../../../styles/toolbar.module.scss"
 
-const FRMR = props => {
-    const cssSwitch = param => {
-        switch (param) {
-            case "LIGHT":
-                return styles.light
-            case "DARK":
-                return styles.dark
-            case "SOLIS":
-                return styles.solis
-            default:
-                return
-        }
-    }
-
+const FRMR = () => {
     return (
-        <div className={`${styles.frmr} ${cssSwitch(props.theme)}`}>
+        <div className={`${styles.frmr}`}>
             <svg version="1.1" viewBox="0 0 462.1 150.9" width="115">
                 <path
                     className={styles.frmrPath}
@@ -50,10 +35,4 @@ const FRMR = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        theme: state.theme,
-    }
-}
-
-export default connect(mapStateToProps)(FRMR)
+export default FRMR

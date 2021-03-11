@@ -1,9 +1,9 @@
-import React, { useRef } from "react"
-
+import React from "react"
 import { connect } from "react-redux"
 import styles from "../../../../styles/toolbar.module.scss"
 
 const Work = props => {
+    // On click function
     const onClickFn = () => {
         props.onOpenWork()
         props.onIncZIndex()
@@ -18,7 +18,6 @@ const Work = props => {
 
 const mapStateToProps = state => {
     return {
-        theme: state.theme,
         zIndex: state.zIndexes.work,
     }
 }

@@ -1,12 +1,12 @@
 export const vert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 uUv;
+varying vec3 vPosition;
 
 void main() {
 
-    v_position = position;
+    vPosition = position;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -14,17 +14,12 @@ void main() {
 export const voidFrag = `
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_time;
-uniform float u_ratio;
-uniform float u_speed;
-uniform float u_slider;
-uniform sampler2D u_texture;
-uniform vec3 u_bgcolor;
-uniform vec3 u_fgcolor;
+uniform vec2 uResolution;
+uniform float uTime;
+uniform float uSlider;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 uUv;
+varying vec3 vPosition;
 
 
 const int MAX_ITER = 20;
@@ -100,7 +95,7 @@ float trap(in vec3 p)
 
 float map(in vec3 p)
 {
-    float time = u_time;
+    float time = uTime;
 	float cutout = dot(abs(p.yz),vec2(0.5))-0.035;
 	float road = max(abs(p.y-23.), abs(p.z)-23.);
 	
@@ -127,7 +122,7 @@ vec3 hsv(in float h, in float s, in float v) {
 
 vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 {
-    float time = u_time+20.0;
+    float time = uTime+20.0;
 	float total_dist = 0.0;
 	vec3 p = rayOrigin;
 	float d = .1;
@@ -168,15 +163,15 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 
 void main()
 {
-    float time = u_time+60.0;
+    float time = uTime+60.0;
 	vec3 upDirection = vec3(0, -1, 0);
 	vec3 cameraDir = vec3(1,0,0);
 	vec3 cameraOrigin = vec3(time*0.1, 0, 0);
 	
 	vec3 u = normalize(cross(upDirection, cameraOrigin));
 	vec3 v = normalize(cross(cameraDir, u));
-	vec2 screenPos = -1.0 + 2.0 * gl_FragCoord.xy / u_resolution.xy;
-	screenPos.x *= u_resolution.x / u_resolution.y;
+	vec2 screenPos = -1.0 + 2.0 * gl_FragCoord.xy / uResolution.xy;
+	screenPos.x *= uResolution.x / uResolution.y;
 	vec3 rayDir = normalize(u * screenPos.x + v * screenPos.y + cameraDir*(1.0-length(screenPos)*0.5));
 	
 	gl_FragColor = vec4(intersect(cameraOrigin, rayDir), 1.0);

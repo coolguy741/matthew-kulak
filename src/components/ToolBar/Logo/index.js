@@ -1,6 +1,4 @@
 import React from "react"
-import { connect } from "react-redux"
-
 import styles from "../../../styles/toolbar.module.scss"
 
 const Logo = props => {
@@ -38,10 +36,4 @@ const Logo = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        theme: state.theme,
-    }
-}
-
-export default connect(mapStateToProps)(Logo)
+export default Logo

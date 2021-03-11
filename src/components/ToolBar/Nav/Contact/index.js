@@ -1,9 +1,9 @@
-import React, { useRef } from "react"
-
+import React from "react"
 import { connect } from "react-redux"
 import styles from "../../../../styles/toolbar.module.scss"
 
 const Contact = props => {
+    // On click function
     const onClickFn = () => {
         props.onOpenContact()
         props.onIncZIndex()
@@ -18,7 +18,6 @@ const Contact = props => {
 
 const mapStateToProps = state => {
     return {
-        theme: state.theme,
         zIndex: state.zIndexes.contact,
     }
 }

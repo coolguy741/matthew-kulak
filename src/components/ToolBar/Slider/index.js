@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from "react"
 import { connect } from "react-redux"
-
 import ReactSlider from "react-slider"
 import { useMediaQuery } from "react-responsive"
 import { motion } from "framer-motion"
 import styles from "../../../styles/toolbar.module.scss"
 
 const Slider = props => {
+    // Refs
     const wrapperRef = useRef(null)
 
+    // Responsive framer motion
     const isLandscapeTabletOrLaptop = useMediaQuery({
         query: "(min-width: 821px)",
     })
@@ -20,8 +21,8 @@ const Slider = props => {
         closed: { y: "0" },
     }
 
+    // Close toolbar drawer if there is a click outside of the element
     useEffect(() => {
-        // close toolbar drawer if there is a click outside of the element
         function handleClickOutside(event) {
             if (
                 wrapperRef.current &&
@@ -107,7 +108,6 @@ const Slider = props => {
 
 const mapStateToProps = state => {
     return {
-        theme: state.theme,
         sliderPos: state.sliderPos,
         isSliderOpen: state.isSliderOpen,
     }

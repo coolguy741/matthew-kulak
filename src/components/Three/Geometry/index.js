@@ -1,20 +1,22 @@
 import React, { useMemo } from "react"
-
 import * as THREE from "three"
 import { useFrame, createPortal, useThree } from "react-three-fiber"
 import { mainVert, mainFrag } from "../Shaders/Main"
 import FBO from "../FBO"
 import Panel from "../Panel"
 
-const Geometry = props => {
+const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
+    // Dimensions and aspect ratio
     const width = window.innerWidth
     const height = window.innerHeight
     const aspect = width / height
 
+    // Create pointer object
     const pointer = useMemo(() => {
         return new THREE.Vector2()
     })
 
+    // Scene and render target for FBO
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
         const target = new THREE.WebGLMultisampleRenderTarget(width, height, {
@@ -27,101 +29,26 @@ const Geometry = props => {
         return [scene, target]
     }, [])
 
+    // Uniforms
     const uniforms = useMemo(
         () => ({
-            u_time: { value: 0.0 },
-            u_resolution: { value: { x: width, y: height } },
-            u_ratio: {
+            uTime: { value: 0.0 },
+            uResolution: { value: { x: width, y: height } },
+            uRatio: {
                 value: aspect,
             },
-            u_noise: {
+            uMouse: { value: new THREE.Vector2() },
+            uSlider: {
+                value: sliderPos,
+            },
+            uTexture: {
                 value: target.texture,
-            },
-            u_mouse: { value: new THREE.Vector2() },
-            u_speed: {
-                value: 0,
-            },
-            u_n1: {
-                value: 4096,
-            },
-            u_n2: {
-                value: 0,
-            },
-            u_bw1: {
-                value: 0.125,
-            },
-            u_bw2: {
-                value: 1.0,
-            },
-            u_slider: {
-                value: props.sliderPos,
             },
         }),
         []
     )
 
-    const n1Switch = param => {
-        switch (param) {
-            case "TERMINAL":
-                return 14815366
-            case "LIGHT":
-                return 17825809
-            default:
-                return 4096
-        }
-    }
-
-    const n2Switch = param => {
-        switch (param) {
-            case "LIGHT":
-                return 0
-            case "DARK":
-                return 0
-            case "SOLIS":
-                return 18157905
-            case "TERMINAL":
-                return 15018318
-            case "ACID":
-                return 4357252
-            default:
-                return
-        }
-    }
-
-    const bw1Switch = param => {
-        switch (param) {
-            case "LIGHT":
-                return 0.125
-            case "DARK":
-                return 0.6
-            case "SOLIS":
-                return 0.125
-            case "TERMINAL":
-                return 1.0
-            case "ACID":
-                return 0.99
-            default:
-                return
-        }
-    }
-
-    const bw2Switch = param => {
-        switch (param) {
-            case "LIGHT":
-                return 1.0
-            case "DARK":
-                return 0.125
-            case "SOLIS":
-                return 0.55
-            case "TERMINAL":
-                return 0.125
-            case "ACID":
-                return 0.125
-            default:
-                return
-        }
-    }
-
+    // Calculate camera unit size
     const calculateUnitSize = () => {
         const fov = 75 // default camera value
         const cameraZ = 5 // default camera value
@@ -136,20 +63,20 @@ const Geometry = props => {
 
     const camUnit = calculateUnitSize()
 
+    // Animation toggle
     const { clock } = useThree()
 
-    if (!props.animating) clock.stop()
-    if (props.animating) clock.start()
+    if (!animating) clock.stop()
+    if (animating) clock.start()
 
     useFrame((state, delta) => {
-        uniforms.u_time.value += delta
-        uniforms.u_n1.value = n1Switch(props.theme)
-        uniforms.u_n2.value = n2Switch(props.theme)
-        uniforms.u_bw1.value = bw1Switch(props.theme)
-        uniforms.u_bw2.value = bw2Switch(props.theme)
-        uniforms.u_resolution.value = { x: width, y: height }
-        uniforms.u_ratio.value = width / height
+        uniforms.uTime.value += delta
 
+        // Resolution and aspect ratio
+        uniforms.uResolution.value = { x: width, y: height }
+        uniforms.uRatio.value = width / height
+
+        // Render to FBO
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)
         state.gl.setRenderTarget(null)
@@ -159,16 +86,13 @@ const Geometry = props => {
         pointer.set(e.x / window.innerWidth, 1 - e.y / window.innerHeight)
         pointer.x = (e.clientX / window.innerWidth) * 2 - 1
         pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
-        uniforms.u_mouse.value.x = pointer.x
-        uniforms.u_mouse.value.y = pointer.y
+        uniforms.uMouse.value.x = pointer.x
+        uniforms.uMouse.value.y = pointer.y
     }
 
     return (
         <>
-            {createPortal(
-                <FBO theme={props.theme} sliderPos={props.sliderPos} />,
-                scene
-            )}
+            {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry
                     args={[camUnit.width, camUnit.height, 1, 1]}
@@ -180,7 +104,7 @@ const Geometry = props => {
                     onUpdate={self => (self.needsUpdate = true)}
                 />
             </mesh>
-            <Panel theme={props.theme} domEl={props.panelRef} />
+            <Panel theme={theme} domEl={panelRef} />
         </>
     )
 }

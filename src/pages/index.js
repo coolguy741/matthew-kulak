@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
-
+import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import Layout from "../components/Layout"
 import { getGPUTier } from "detect-gpu"
@@ -21,12 +20,7 @@ const IndexPage = props => {
     return (
         <Layout>
             <SEO title="FRMR" />
-            {props.rendering && (
-                <MainCanvas
-                    panelRef={props.panelRef}
-                    location={props.location}
-                />
-            )}
+            {props.rendering && <MainCanvas panelRef={props.panelRef} />}
         </Layout>
     )
 }

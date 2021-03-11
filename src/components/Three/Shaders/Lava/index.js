@@ -16,12 +16,11 @@ void main() {
 export const lavaFrag = `
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_time;
-uniform float u_ratio;
-uniform float u_speed;
-uniform float u_slider;
-uniform sampler2D u_trail;
+uniform vec2 uResolution;
+uniform float uTime;
+uniform float uRatio;
+uniform float uSlider;
+uniform sampler2D uTrail;
 
 varying vec2 vUv;
 varying vec3 vPosition;
@@ -56,7 +55,7 @@ float snoise(vec2 v) {
     vec3 g;
     g.x  = a0.x  * x0.x  + h.x  * x0.y;
     g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-    return 102.0 * (u_slider + 100.) / 150. * dot(m, g);
+    return 102.0 * (uSlider + 100.) / 150. * dot(m, g);
 }
 
 vec3 hsb2rgb( in vec3 c ){
@@ -70,14 +69,14 @@ vec3 hsb2rgb( in vec3 c ){
 
 void main() {
 
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    vec2 uv = gl_FragCoord.xy / uResolution.xy;
 
     uv = uv * vec2(1.5, 1.5);
 
-    vec4 col2 = texture2D(u_trail, uv);
-    vec4 col = texture2D(u_trail, uv);
+    vec4 col2 = texture2D(uTrail, uv);
+    vec4 col = texture2D(uTrail, uv);
     
-    uv.x *= u_ratio;
+    uv.x *= uRatio;
     
     vec2 pos = vec2(uv*2.);
 
@@ -85,11 +84,11 @@ void main() {
     
     // Add a random position
     float a = 0.0;
-    vec2 vel = vec2(u_time*.01);
+    vec2 vel = vec2(uTime*.01);
     DF += snoise(pos+vel)*.25+.25;
     
     // Add a random position
-    a = snoise(pos*vec2(cos(u_time*0.15),sin(u_time*0.1))*0.1)*3.1415;
+    a = snoise(pos*vec2(cos(uTime*0.15),sin(uTime*0.1))*0.1)*3.1415;
     vel = vec2(cos(a),sin(a));
     DF += snoise(pos+vel)*.55+.25;
     
@@ -100,7 +99,7 @@ void main() {
     col.r -= .8;
     col.b -= 1.;
 
-	vec3 col1 = mix(vec3(143. / 255., 0., 255. / 255.), vec3(95. / 255., 46. / 255., 210. / 255.), gl_FragCoord.y / u_resolution.y);
+	vec3 col1 = mix(vec3(143. / 255., 0., 255. / 255.), vec3(95. / 255., 46. / 255., 210. / 255.), gl_FragCoord.y / uResolution.y);
 	
 	if (col.r != 1.0 && col.g != 1.0 && col.b != 1.0) col.rgb += vec3(1.8, 0., 2.);
 	if ((col.r != 1.0 && col.g != 0.0 && col.b != 1.0) && (col.r != 0.8 && col.g != 1.0 && col.b != 0.0)) col.rgb += vec3(-1.5, 0.5, -1.5);

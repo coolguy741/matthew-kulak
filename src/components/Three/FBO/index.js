@@ -4,21 +4,49 @@ import { useFrame } from "react-three-fiber"
 import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { baseFrag } from "../Shaders/Base"
 import { termFrag } from "../Shaders/Terminal"
-import { solisFrag } from "../Shaders/Solis"
 import { voidFrag } from "../Shaders/Portal"
 import { darkFrag } from "../Shaders/Dark"
-import matcap from "../../../assets/images/matcap/matcap.jpg"
 
 const FBO = props => {
+    // Refs
+    const mat = useRef()
+
+    // Uniforms
+    const uniforms = useMemo(
+        () => ({
+            uTime: { value: 0.0 },
+            uMouse: { value: new THREE.Vector3() },
+            uResolution: { value: { x: width, y: height } },
+            uRatio: {
+                value: width / height,
+            },
+            uSlider: {
+                value: props.sliderPos,
+            },
+        }),
+        []
+    )
+
+    // Get screen size
     const width = window.innerWidth
     const height = window.innerHeight
 
-    const mat = useRef()
-
+    // Update pointer value
     const pointer = useMemo(() => {
         return new THREE.Vector3()
     })
 
+    const pointerMove = e => {
+        pointer.set(e.x / width, 1 - e.y / height)
+
+        pointer.x = (e.clientX / width) * 2 - 1
+        pointer.y = -(e.clientY / height) * 2 + 1
+
+        uniforms.uMouse.value.x = pointer.x
+        uniforms.uMouse.value.y = pointer.y
+    }
+
+    // Scene/target
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
         const target = new THREE.WebGLRenderTarget(width, height, {
@@ -31,6 +59,7 @@ const FBO = props => {
         return [scene, target]
     }, [])
 
+    // Theme fragment shader
     const fragSwitch = param => {
         switch (param) {
             case "LIGHT":
@@ -48,51 +77,21 @@ const FBO = props => {
         }
     }
 
-    const uniforms = useMemo(
-        () => ({
-            u_time: { value: 0.0 },
-            u_mouse: { value: new THREE.Vector3() },
-            u_matcap: { value: new THREE.TextureLoader().load(matcap) },
-            u_resolution: { value: { x: width, y: height } },
-            u_ratio: {
-                value: window.innerWidth / window.innerHeight,
-            },
-            u_n1: {
-                value: 14815366,
-            },
-            u_n2: {
-                value: 4096,
-            },
-            u_trail: {
-                value: target.texture,
-            },
-            u_slider: {
-                value: props.sliderPos,
-            },
-        }),
-        []
-    )
-
-    const pointerMove = e => {
-        pointer.set(e.x / window.innerWidth, 1 - e.y / window.innerHeight)
-
-        pointer.x = (e.clientX / window.innerWidth) * 2 - 1
-        pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
-
-        uniforms.u_mouse.value.x = pointer.x
-        uniforms.u_mouse.value.y = pointer.y
-    }
-
+    // RAF
     useFrame((state, delta) => {
-        uniforms.u_time.value += delta
+        uniforms.uTime.value += delta
 
-        uniforms.u_resolution.value = { x: width, y: height }
-        uniforms.u_ratio.value = width / height
+        // Update resolution/aspect ratio
+        uniforms.uResolution.value = { x: width, y: height }
+        uniforms.uRatio.value = width / height
 
-        uniforms.u_mouse.value.lerp(pointer, 0.2)
+        // Update mouse uniform
+        uniforms.uMouse.value.lerp(pointer, 0.2)
 
-        uniforms.u_slider.value = props.sliderPos
+        // Update slider uniform
+        uniforms.uSlider.value = props.sliderPos
 
+        // Render
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)
         state.gl.setRenderTarget(null)

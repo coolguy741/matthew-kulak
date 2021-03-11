@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { connect } from "react-redux"
-
 import styles from "../../../styles/toolbar.module.scss"
 
 const UserSettings = props => {
@@ -52,13 +51,6 @@ const UserSettings = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        theme: state.theme,
-        zIndex: state.zIndexes.settings,
-    }
-}
-
 const mapDispatchToProps = dispatch => {
     return {
         onOpenSettings: () => dispatch({ type: "OPEN_SETTINGS" }),
@@ -66,4 +58,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserSettings)
+export default connect(null, mapDispatchToProps)(UserSettings)

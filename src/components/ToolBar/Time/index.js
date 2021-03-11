@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { connect } from "react-redux"
-
 import styles from "../../../styles/toolbar.module.scss"
 
 const Time = props => {
-    const [curTime, setTime] = useState()
+    // State
+    const [currentTime, setCurrentTime] = useState()
 
+    // Set current time
     useEffect(() => {
         setInterval(() => {
-            setTime(
+            setCurrentTime(
                 new Date().toLocaleTimeString("en", {
                     hour: "numeric",
                     hour12: false,
@@ -21,15 +21,9 @@ const Time = props => {
 
     return (
         <div className={styles.time}>
-            <span className={styles.span}>{curTime}</span>
+            <span className={styles.span}>{currentTime}</span>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        theme: state.theme,
-    }
-}
-
-export default connect(mapStateToProps)(Time)
+export default Time

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { motion, useDragControls } from "framer-motion"
 import { connect } from "react-redux"
 import styles from "../../styles/modals.module.scss"
@@ -124,7 +124,7 @@ const Modal = ({
     const innerWidth = window.innerWidth
     const innerHeight = window.innerHeight
 
-    // Position
+    // Set modal position
     const getXPos = () => {
         const xPos = innerWidth - width
         if (xPos < 0) return 0

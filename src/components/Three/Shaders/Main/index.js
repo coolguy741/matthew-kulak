@@ -13,15 +13,10 @@ void main() {
 export const mainFrag = `
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_ratio;
-uniform vec2 u_mouse;
-uniform float u_time;
-uniform int u_n1;
-uniform int u_n2;
-uniform float u_bw1;
-uniform float u_bw2;
-uniform sampler2D u_noise;
+uniform vec2 uResolution;
+uniform float uBw1;
+uniform float uBw2;
+uniform sampler2D uTexture;
 
 varying vec2 vUv;
 varying vec3 vPosition;
@@ -34,10 +29,10 @@ float character(int n, vec2 p) {
         if (clamp(p.y, 0.0, 4.0) == p.y)
 		{
         	int a = int(round(p.x) + 5.0 * round(p.y));
-			if (((n >> a) & 1) == 1) return u_bw1;
+			if (((n >> a) & 1) == 1) return uBw1;
 		}
     }
-	return u_bw2;
+	return uBw2;
 }
 
 float map(float value, float inMin, float inMax, float outMin, float outMax) {
@@ -61,10 +56,10 @@ vec3 rgb2hsb( in vec3 c ){
 
 void main() {
 
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-	uv *= u_resolution.xy/u_resolution.xy;
+    vec2 uv = gl_FragCoord.xy / uResolution.xy;
+	uv *= uResolution.xy/uResolution.xy;
 
-	vec4 col = texture2D(u_noise, uv);
+	vec4 col = texture2D(uTexture, uv);
     uv = gl_FragCoord.xy;
 
 	gl_FragColor = vec4(col.rgb, 1.0);

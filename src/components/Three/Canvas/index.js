@@ -1,24 +1,16 @@
-import React, { Suspense, useState, useEffect } from "react"
+import React, { Suspense } from "react"
 import { connect } from "react-redux"
-
 import Effects from "../Effects"
 import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
 import Geometry from "../Geometry"
-import { OrbitControls } from "@react-three/drei"
+// import { OrbitControls } from "@react-three/drei"
 
-const MainCanvas = props => {
+const MainCanvas = ({ panelRef, ...props }) => {
     return (
         <Canvas
             className={styles.Canvas}
-            gl={
-                {
-                    // antialias: true,
-                    // alpha: true,
-                    // stencil: false,
-                    // depth: false,
-                }
-            }
+            gl
             invalidateFrameloop={!props.animating}
         >
             {/* <OrbitControls /> */}
@@ -27,7 +19,7 @@ const MainCanvas = props => {
                     animating={props.animating}
                     theme={props.theme}
                     sliderPos={props.sliderPos}
-                    panelRef={props.panelRef}
+                    panelRef={panelRef}
                 />
             </Suspense>
             <Effects fxaa={props.fxaa} />

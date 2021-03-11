@@ -1,5 +1,4 @@
 import React from "react"
-
 import { connect } from "react-redux"
 import Logo from "./Logo"
 import FRMR from "./FRMR"
@@ -13,6 +12,7 @@ import Slider from "./Slider"
 import styles from "../../styles/toolbar.module.scss"
 
 const Toolbar = props => {
+    // CSS switch statement
     const cssSwitch = param => {
         switch (param) {
             case "LIGHT":

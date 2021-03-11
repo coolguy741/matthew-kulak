@@ -1,16 +1,18 @@
 import React, { useRef, useEffect } from "react"
-
 import { connect } from "react-redux"
 import styles from "../../../../styles/toolbar.module.scss"
 
 const About = props => {
+    // Refs
     const aboutRef = useRef()
 
+    // On click function
     const onClickFn = () => {
         props.onOpenAbout()
         props.onIncZIndex()
     }
 
+    // Bounding box anchor
     useEffect(() => {
         const pos = {
             top: aboutRef.current.getBoundingClientRect().top,
@@ -34,7 +36,6 @@ const About = props => {
 
 const mapStateToProps = state => {
     return {
-        theme: state.theme,
         zIndex: state.zIndexes.about,
         aboutAnchor: state.aboutAnchor,
     }

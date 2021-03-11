@@ -14,14 +14,10 @@ void main() {
 export const frag = `
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_time;
-uniform float u_ratio;
-uniform float u_speed;
-uniform float u_slider;
-uniform sampler2D u_texture;
-uniform vec3 u_bgcolor;
-uniform vec3 u_fgcolor;
+uniform vec2 uResolution;
+uniform float uTime;
+uniform vec3 uBgColor;
+uniform vec3 uFgColor;
 
 varying vec2 vUv;
 varying vec3 vPosition;
@@ -55,14 +51,14 @@ float n( in vec3 x ){
 float nn(vec2 p){
 
     float y = p.y;
-    float s = u_time * 2.;
+    float s = uTime * 2.;
     
     float v = (n( vec3(y*.01 +s, 			1., 1.0) ) + .0)
           	 *(n( vec3(y*.011+1000.0+s, 	1., 1.0) ) + .0) 
           	 *(n( vec3(y*.51+421.0+s, 	1., 1.0) ) + .0)   
         ;
     //v*= n( vec3( (fragCoord.xy + vec2(s,0.))*100.,1.0) );
-   	v*= hash42(   vec2(p.x +u_time*0.01, p.y) ).x +.3 ;
+   	v*= hash42(   vec2(p.x +uTime*0.01, p.y) ).x +.3 ;
 
     
     v = pow(v+.3, 1.);
@@ -88,39 +84,39 @@ void main() {
     vec2 tr = step(vec2(0.1),1.0-uv);
     pct *= tr.x * tr.y;
     
-    vec3 col = mix(u_fgcolor, u_bgcolor, pct);
+    vec3 col = mix(uFgColor, uBgColor, pct);
 
     float linesN = 240.; //fields per seconds
-    float one_y = u_resolution.y / linesN; //field line
-    uv = floor(uv*u_resolution.xy/one_y)*one_y;
+    float one_y = uResolution.y / linesN; //field line
+    uv = floor(uv*uResolution.xy/one_y)*one_y;
 
 	float staticlines = nn(uv);
     
     // Base
-    if (u_bgcolor == vec3(.8, .8, .8)) {
+    if (uBgColor == vec3(.8, .8, .8)) {
         col -= vec3(clamp(staticlines, 0., .4));
     }
 
     // Reactor
-    if (u_bgcolor == vec3(.125, .125, .125)) {
+    if (uBgColor == vec3(.125, .125, .125)) {
         col.x += clamp(staticlines, 0., .7);
     }
 
     // Portal
-    if (u_bgcolor == vec3(.149, .149, .149)) {
+    if (uBgColor == vec3(.149, .149, .149)) {
         col.x += staticlines;
         col.z += clamp(staticlines, 0., .4);
     }
 
     // Terminal
-    if (u_bgcolor == vec3(.124, .124, .124)) {
+    if (uBgColor == vec3(.124, .124, .124)) {
         col.x += clamp(staticlines, 0., .577);
         col.y += clamp(staticlines, 0., .628);
         col.z += clamp(staticlines, 0., .9);
     }
 
     // Acid
-    if (u_bgcolor == vec3(0.56, 0, 1)) {
+    if (uBgColor == vec3(0.56, 0, 1)) {
         col.x += clamp(staticlines, 0., .05);
         col.y += staticlines;
         col.z -= staticlines;

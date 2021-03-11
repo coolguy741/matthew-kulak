@@ -16,10 +16,9 @@ export const baseFrag = `
 
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_ratio;
-uniform vec2 u_mouse;
-uniform float u_time;
+uniform vec2 uResolution;
+uniform vec2 uMouse;
+uniform float uTime;
 
 varying vec3 vPosition;
 
@@ -75,10 +74,10 @@ float rand(vec2 co){
 
 float sdf( vec3 p ) {
     //   float box = smin(sdBox(p1, vec3(.3)), sdSphere(p1, 0.4), .3);
-    //   float sphere = sdSphere(p - vec3(u_mouse * vec2(2., 1.), 0.), 0.2);
+    //   float sphere = sdSphere(p - vec3(uMouse * vec2(2., 1.), 0.), 0.2);
     //   return smin(box, sphere, 0.5);
     
-    vec3 p1 = rotate(p, vec3(1.), u_time);
+    vec3 p1 = rotate(p, vec3(1.), uTime);
     float oct = sdOctahedron(p1, .02);
     return oct;
 }
@@ -99,8 +98,8 @@ vec3 calcNormal( vec3 p ) {
 }
 
 void main() {
-  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-  uv.x *= u_resolution.x / u_resolution.y;
+  vec2 uv = gl_FragCoord.xy / uResolution.xy;
+  uv.x *= uResolution.x / uResolution.y;
 
   vec2 newUV = uv - vec2(.5, 0.);
 
@@ -108,7 +107,7 @@ void main() {
   vec3 bg = mix(vec3(.9), vec3(.8), dist);
 
   vec3 ray = normalize(vec3( (uv - vec2(1., .5)), -1.));
-  vec3 camPos = vec3(sin(u_time / 5.), cos(u_time / 5.), (u_time / -2.));
+  vec3 camPos = vec3(sin(uTime / 5.), cos(uTime / 5.), (uTime / -2.));
 
   vec3 rayPos = camPos;
   float t = 0.;
@@ -135,7 +134,7 @@ void main() {
     color = normal;
     float diff = dot(vec3(1.), normal);
     color = vec3(diff);
-    color = a + b * cos(2. * PI * (c * pos * sin(u_time / 20.) + d));
+    color = a + b * cos(2. * PI * (c * pos * sin(uTime / 20.) + d));
     float fresnel = pow(1. + dot(ray, normal), 1.);
 
     // color = vec3(fresnel);

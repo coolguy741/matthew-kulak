@@ -1,12 +1,12 @@
 export const darkVert = `
 precision highp float;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
 
-    v_position = position;
+    vPosition = position;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -15,27 +15,20 @@ export const darkFrag = `
 
 precision highp float;
 
-uniform vec2 u_resolution;
-uniform float u_ratio;
-uniform vec2 u_mouse;
-uniform float u_time;
-uniform int u_n1;
-uniform int u_n2;
-uniform float u_bw1;
-uniform float u_bw2;
-uniform float u_slider;
-uniform sampler2D u_noise;
+uniform vec2 uResolution;
+uniform float uTime;
+uniform float uSlider;
 
-varying vec2 v_uv;
-varying vec3 v_position;
+varying vec2 vUv;
+varying vec3 vPosition;
 
 void main() {
-    vec2 uv = (gl_FragCoord.xy - .5 * u_resolution.xy) / u_resolution.y;
+    vec2 uv = (gl_FragCoord.xy - .5 * uResolution.xy) / uResolution.y;
 
     vec3 ro = vec3(0., 0., -1.);
     vec3 lookat = vec3(0.);
-    float zoom = .5 - (u_slider / 1000.);
-    float t = u_time * .1;
+    float zoom = .5 - (uSlider / 1000.);
+    float t = uTime * .1;
 
     vec3 f = normalize(lookat - ro),
         r = normalize(cross(vec3(0., 1., 0.), f)),

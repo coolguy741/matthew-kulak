@@ -1,18 +1,18 @@
 import React, { useMemo, useRef } from "react"
-import { useFrame, createPortal } from "react-three-fiber"
+import { useFrame } from "react-three-fiber"
 import { frag, vert } from "../Shaders/Panel"
 import * as THREE from "three"
 
-const Panel = props => {
-    const domEl = props.domEl
-
+const Panel = ({ theme, domEl }) => {
+    // Refs
     const planeRef = useRef()
 
+    // Get screen size/aspect ratio
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
-
     const aspect = windowWidth / windowHeight
 
+    // Scene/target
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
         const target = new THREE.WebGLMultisampleRenderTarget(
@@ -29,27 +29,22 @@ const Panel = props => {
         return [scene, target]
     }, [])
 
+    // Uniforms
     const uniforms = useMemo(
         () => ({
-            u_time: { value: 0.0 },
-            u_mouse: { value: new THREE.Vector2() },
-            u_resolution: { value: { x: windowWidth, y: windowHeight } },
-            u_ratio: {
-                value: aspect,
-            },
-            u_texture: {
-                value: target.texture,
-            },
-            u_bgcolor: {
+            uTime: { value: 0.0 },
+            uResolution: { value: { x: windowWidth, y: windowHeight } },
+            uBgColor: {
                 value: new THREE.Vector3(),
             },
-            u_fgcolor: {
+            uFgColor: {
                 value: new THREE.Vector3(),
             },
         }),
         []
     )
 
+    // Theme colour switches
     const bgColorSwitch = param => {
         switch (param) {
             case "LIGHT":
@@ -84,6 +79,10 @@ const Panel = props => {
         }
     }
 
+    const [bgR, bgG, bgB] = bgColorSwitch(theme)
+    const [fgR, fgG, fgB] = fgColorSwitch(theme)
+
+    // Calculate camera unit size
     const calculateUnitSize = zDistance => {
         const fov = 75 // default camera value
         const cameraZ = 5 // default camera value
@@ -98,15 +97,9 @@ const Panel = props => {
 
     const camUnit = calculateUnitSize(0) // element's z-index === 0
 
+    // Get render size
     const getRenderSize = el => {
-        const {
-            left,
-            right,
-            top,
-            bottom,
-            width,
-            height,
-        } = el.getBoundingClientRect()
+        const { width, height } = el.getBoundingClientRect()
 
         const scaleX = width / windowWidth
         const scaleY = height / windowHeight
@@ -114,15 +107,9 @@ const Panel = props => {
         return { scaleX, scaleY }
     }
 
+    // Update panel render position
     const updateRenderPosition = (el, scrollY) => {
-        const {
-            left,
-            right,
-            top,
-            bottom,
-            width,
-            height,
-        } = el.getBoundingClientRect()
+        const { left, top } = el.getBoundingClientRect()
 
         // Set origin to top left
         planeRef.current.position.x = -(camUnit.width / 2)
@@ -137,22 +124,23 @@ const Panel = props => {
             (camUnit.height * planeRef.current.scale.y) / 2
     }
 
-    const [bgR, bgG, bgB] = bgColorSwitch(props.theme)
-    const [fgR, fgG, fgB] = fgColorSwitch(props.theme)
-
+    // RAF
     useFrame((state, delta) => {
-        const { scaleX, scaleY } = getRenderSize(domEl)
+        uniforms.uTime.value += delta
 
+        // Scale panel
+        const { scaleX, scaleY } = getRenderSize(domEl)
         planeRef.current.scale.x = scaleX
         planeRef.current.scale.y = scaleY
 
+        // Update position
         updateRenderPosition(domEl, 0)
 
-        uniforms.u_bgcolor.value.set(bgR, bgG, bgB)
-        uniforms.u_fgcolor.value.set(fgR, fgG, fgB)
+        // Update uniform color values
+        uniforms.uBgColor.value.set(bgR, bgG, bgB)
+        uniforms.uFgColor.value.set(fgR, fgG, fgB)
 
-        uniforms.u_time.value += delta
-
+        // Render
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)
         state.gl.setRenderTarget(null)
