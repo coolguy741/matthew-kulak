@@ -3,38 +3,13 @@ import Modal from "../../Modals"
 import { connect } from "react-redux"
 import styles from "../../../styles/modals.module.scss"
 
-const About = ({ width, height, toolbar, imageData }) => {
-    // CSS theme switch
-    const cssSwitch = param => {
-        switch (param) {
-            case "LIGHT":
-                return styles.light
-            case "DARK":
-                return styles.dark
-            case "SOLIS":
-                return styles.solis
-            case "TERMINAL":
-                return styles.terminal
-            case "ACID":
-                return styles.acid
-            default:
-                return
-        }
-    }
-
-    // Get date
+const About = ({ width, height, toolbar }) => {
+    // Get current year
     const d = new Date()
     const year = d.getFullYear()
 
     return (
-        <Modal
-            modalName={"About"}
-            modalClass={"aboutModal"}
-            width={width}
-            height={height}
-            toolbar={toolbar}
-            imageData={imageData}
-        >
+        <Modal name={"About"} width={width} height={height} toolbar={toolbar}>
             <div className={styles.aboutLogoContainer}>
                 <svg version="1.1" viewBox="0 0 49.7 49.7" width="70">
                     <g>
@@ -109,13 +84,6 @@ const About = ({ width, height, toolbar, imageData }) => {
                             viewBox="0 0 250 203.1"
                             width="20"
                         >
-                            {/* <rect
-                                            x="-75"
-                                            y="-98.5"
-                                            class="twitterst0"
-                                            width="400"
-                                            height="400"
-                                        /> */}
                             <path
                                 className={styles.twitterPath}
                                 d="M78.6,203.1c94.3,0,145.9-78.2,145.9-145.9c0-2.2,0-4.4-0.1-6.6c10-7.3,18.7-16.3,25.6-26.5

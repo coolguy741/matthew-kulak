@@ -1,7 +1,5 @@
 import React, { useMemo, useRef } from "react"
-
 import * as THREE from "three"
-import MouseSpeed from "mouse-speed"
 import { useFrame } from "react-three-fiber"
 import { lavaFrag, lavaVert } from "../Shaders/Lava"
 import { baseFrag } from "../Shaders/Base"
@@ -17,14 +15,9 @@ const FBO = props => {
 
     const mat = useRef()
 
-    let speed = 0
-
     const pointer = useMemo(() => {
         return new THREE.Vector3()
     })
-
-    var diff = new MouseSpeed()
-    diff.init()
 
     const [scene, target] = useMemo(() => {
         const scene = new THREE.Scene()
@@ -59,9 +52,6 @@ const FBO = props => {
         () => ({
             u_time: { value: 0.0 },
             u_mouse: { value: new THREE.Vector3() },
-            u_speed: {
-                value: 0,
-            },
             u_matcap: { value: new THREE.TextureLoader().load(matcap) },
             u_resolution: { value: { x: width, y: height } },
             u_ratio: {
@@ -100,15 +90,8 @@ const FBO = props => {
         uniforms.u_ratio.value = width / height
 
         uniforms.u_mouse.value.lerp(pointer, 0.2)
-        uniforms.u_speed.value = speed
 
         uniforms.u_slider.value = props.sliderPos
-
-        const diffSpeed = Math.max(diff.speedX, diff.speedY) * 0.05
-        speed += Math.min(diffSpeed, 0.1)
-        speed *= 0.95
-
-        speed = Math.min(2, speed)
 
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)

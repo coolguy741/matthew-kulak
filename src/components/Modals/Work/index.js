@@ -3,7 +3,7 @@ import Modal from "../../Modals"
 import { connect } from "react-redux"
 import styles from "../../../styles/modals.module.scss"
 
-const Work = ({ width, height, toolbar, imageData, ...props }) => {
+const Work = ({ width, height, toolbar, ...props }) => {
     // Icon click handlers
     const onClickGNOS = e => {
         e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
@@ -12,55 +12,25 @@ const Work = ({ width, height, toolbar, imageData, ...props }) => {
     }
 
     const onClickCadillac = e => {
-        e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
+        e.stopPropagation()
         props.onCadillacOpen()
         props.onIncZIndexCadillac()
     }
 
     const onClickTripwire = e => {
-        e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
+        e.stopPropagation()
         props.onTripwireOpen()
         props.onIncZIndexTripwire()
     }
 
     const onClickDesign = e => {
-        e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
+        e.stopPropagation()
         props.onDesignOpen()
         props.onIncZIndexDesign()
     }
 
-    const onClickClose = e => {
-        e.stopPropagation() // Stop z-index increment on mouse down if closing modal
-    }
-
-    // CSS theme switch
-    const cssSwitch = param => {
-        switch (param) {
-            case "LIGHT":
-                return styles.light
-            case "DARK":
-                return styles.dark
-            case "SOLIS":
-                return styles.solis
-            case "TERMINAL":
-                return styles.terminal
-            case "ACID":
-                return styles.acid
-            default:
-                return
-        }
-    }
-
-    console.log("WORK HEIGHT", height)
-
     return (
-        <Modal
-            modalName={"Work"}
-            width={width}
-            height={height}
-            toolbar={toolbar}
-            imageData={imageData}
-        >
+        <Modal name={"Work"} width={width} height={height} toolbar={toolbar}>
             <div className={styles.workIcons}>
                 <div className={styles.workIcon} onClick={onClickGNOS}>
                     <svg version="1.1" viewBox="0 0 130 120" width="60">
