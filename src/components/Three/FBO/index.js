@@ -11,6 +11,11 @@ const FBO = props => {
     // Refs
     const mat = useRef()
 
+    // Get screen size
+    const width = window.innerWidth
+    const height = window.innerHeight
+    const aspectRatio = width / height
+
     // Uniforms
     const uniforms = useMemo(
         () => ({
@@ -18,7 +23,7 @@ const FBO = props => {
             uMouse: { value: new THREE.Vector3() },
             uResolution: { value: { x: width, y: height } },
             uRatio: {
-                value: width / height,
+                value: window.innerWidth / window.innerHeight,
             },
             uSlider: {
                 value: props.sliderPos,
@@ -26,10 +31,6 @@ const FBO = props => {
         }),
         []
     )
-
-    // Get screen size
-    const width = window.innerWidth
-    const height = window.innerHeight
 
     // Update pointer value
     const pointer = useMemo(() => {
@@ -59,7 +60,7 @@ const FBO = props => {
         return [scene, target]
     }, [])
 
-    // Theme fragment shader
+    // Fragment shader switch statement
     const fragSwitch = param => {
         switch (param) {
             case "LIGHT":
@@ -83,9 +84,9 @@ const FBO = props => {
 
         // Update resolution/aspect ratio
         uniforms.uResolution.value = { x: width, y: height }
-        uniforms.uRatio.value = width / height
+        uniforms.uRatio.value = aspectRatio
 
-        // Update mouse uniform
+        // Update mouse pointer uniform
         uniforms.uMouse.value.lerp(pointer, 0.2)
 
         // Update slider uniform

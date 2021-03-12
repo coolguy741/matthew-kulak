@@ -3,9 +3,9 @@ import * as THREE from "three"
 import { useFrame, createPortal, useThree } from "react-three-fiber"
 import { mainVert, mainFrag } from "../Shaders/Main"
 import FBO from "../FBO"
-import Panel from "../Panel"
+import HUD from "../HUD"
 
-const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
+const Quad = ({ animating, theme, sliderPos, hudRef }) => {
     // Dimensions and aspect ratio
     const width = window.innerWidth
     const height = window.innerHeight
@@ -55,10 +55,10 @@ const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
 
         const vFov = (fov * Math.PI) / 180
 
-        const height = 2 * Math.tan(vFov / 2) * cameraZ
-        const width = height * aspect
+        const unitHeight = 2 * Math.tan(vFov / 2) * cameraZ
+        const unitWidth = height * aspect
 
-        return { width, height }
+        return { unitWidth, unitHeight }
     }
 
     const camUnit = calculateUnitSize()
@@ -69,6 +69,7 @@ const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
     if (!animating) clock.stop()
     if (animating) clock.start()
 
+    // RAF
     useFrame((state, delta) => {
         uniforms.uTime.value += delta
 
@@ -82,10 +83,11 @@ const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
         state.gl.setRenderTarget(null)
     })
 
+    // Pointer move
     const pointerMove = e => {
-        pointer.set(e.x / window.innerWidth, 1 - e.y / window.innerHeight)
-        pointer.x = (e.clientX / window.innerWidth) * 2 - 1
-        pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
+        pointer.set(e.x / width, 1 - e.y / height)
+        pointer.x = (e.clientX / width) * 2 - 1
+        pointer.y = -(e.clientY / height) * 2 + 1
         uniforms.uMouse.value.x = pointer.x
         uniforms.uMouse.value.y = pointer.y
     }
@@ -95,7 +97,7 @@ const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
             {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry
-                    args={[camUnit.width, camUnit.height, 1, 1]}
+                    args={[camUnit.unitWidth, camUnit.unitHeight, 1, 1]}
                 />
                 <shaderMaterial
                     uniforms={uniforms}
@@ -104,9 +106,9 @@ const Geometry = ({ animating, theme, sliderPos, panelRef }) => {
                     onUpdate={self => (self.needsUpdate = true)}
                 />
             </mesh>
-            <Panel theme={theme} domEl={panelRef} />
+            <HUD theme={theme} domEl={hudRef} />
         </>
     )
 }
 
-export default Geometry
+export default Quad

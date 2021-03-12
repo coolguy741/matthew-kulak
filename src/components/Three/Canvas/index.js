@@ -3,10 +3,10 @@ import { connect } from "react-redux"
 import Effects from "../Effects"
 import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
-import Geometry from "../Geometry"
+import Quad from "../Quad"
 // import { OrbitControls } from "@react-three/drei"
 
-const MainCanvas = ({ panelRef, ...props }) => {
+const MainCanvas = ({ hudRef, ...props }) => {
     return (
         <Canvas
             className={styles.Canvas}
@@ -15,11 +15,11 @@ const MainCanvas = ({ panelRef, ...props }) => {
         >
             {/* <OrbitControls /> */}
             <Suspense fallback={null}>
-                <Geometry
+                <Quad
                     animating={props.animating}
                     theme={props.theme}
                     sliderPos={props.sliderPos}
-                    panelRef={panelRef}
+                    hudRef={hudRef}
                 />
             </Suspense>
             <Effects fxaa={props.fxaa} />

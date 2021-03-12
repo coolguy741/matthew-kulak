@@ -151,12 +151,12 @@ const Layout = props => {
         }
     }
 
-    // HUD panel ref/state
-    const panelRef = useRef()
+    // HUD ref/state
+    const hudRef = useRef()
 
     useEffect(() => {
-        props.setPanelRef(panelRef.current)
-    }, [panelRef])
+        props.setHUDRef(hudRef.current)
+    }, [hudRef])
 
     // Responsive window size
     const [width, height] = useWindowSize()
@@ -171,7 +171,7 @@ const Layout = props => {
                 toolbar={getToolbarHeight()}
             />
             <HUDDivStyles
-                ref={panelRef}
+                ref={hudRef}
                 width={width}
                 height={height}
                 scale={5}
@@ -255,7 +255,7 @@ Layout.propTypes = {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setPanelRef: ref => dispatch({ type: "SET_PANEL_REF", ref: ref }),
+        setHUDRef: ref => dispatch({ type: "SET_HUD_REF", ref: ref }),
     }
 }
 

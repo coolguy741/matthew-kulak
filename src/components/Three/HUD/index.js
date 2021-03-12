@@ -34,6 +34,9 @@ const HUD = ({ theme, domEl }) => {
         () => ({
             uTime: { value: 0.0 },
             uResolution: { value: { x: windowWidth, y: windowHeight } },
+            uRatio: {
+                value: aspect,
+            },
             uBgColor: {
                 value: new THREE.Vector3(),
             },
@@ -126,8 +129,6 @@ const HUD = ({ theme, domEl }) => {
 
     // RAF
     useFrame((state, delta) => {
-        uniforms.uTime.value += delta
-
         // Scale panel
         const { scaleX, scaleY } = getRenderSize(domEl)
         planeRef.current.scale.x = scaleX
@@ -139,6 +140,8 @@ const HUD = ({ theme, domEl }) => {
         // Update uniform color values
         uniforms.uBgColor.value.set(bgR, bgG, bgB)
         uniforms.uFgColor.value.set(fgR, fgG, fgB)
+
+        uniforms.uTime.value += delta
 
         // Render
         state.gl.setRenderTarget(target)

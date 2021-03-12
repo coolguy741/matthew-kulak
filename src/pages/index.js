@@ -20,7 +20,7 @@ const IndexPage = props => {
     return (
         <Layout>
             <SEO title="FRMR" />
-            {props.rendering && <MainCanvas panelRef={props.panelRef} />}
+            {props.rendering && <MainCanvas hudRef={props.hudRef} />}
         </Layout>
     )
 }
@@ -29,7 +29,7 @@ const mapStateToProps = state => {
     return {
         rendering: state.rendering,
         gpu: state.gpu,
-        panelRef: state.panelRef,
+        hudRef: state.hudRef,
     }
 }
 

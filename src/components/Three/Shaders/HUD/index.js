@@ -7,6 +7,7 @@ varying vec3 vPosition;
 void main() {
 
     vPosition = position;
+    vUv = uv;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `
@@ -17,6 +18,7 @@ precision highp float;
 uniform vec2 uResolution;
 uniform float uTime;
 uniform vec3 uBgColor;
+uniform float uRatio;
 uniform vec3 uFgColor;
 
 varying vec2 vUv;
@@ -68,23 +70,9 @@ float nn(vec2 p){
 
 void main() {
 
-    vec2 uv = vPosition.xy;
+    vec2 uv = vUv;
     
-    uv.x /= 9.37;
-    uv.y /= 4.73;
-
-    uv.x = (uv.x + 1.) / 2.;
-    uv.y = (uv.y + 1.) / 2.;
-    
-    // bottom-left
-    vec2 bl = step(vec2(0.1),uv);
-    float pct = bl.x * bl.y;
-    
-    // top-right
-    vec2 tr = step(vec2(0.1),1.0-uv);
-    pct *= tr.x * tr.y;
-    
-    vec3 col = mix(uFgColor, uBgColor, pct);
+    vec3 col = uBgColor;
 
     float linesN = 240.; //fields per seconds
     float one_y = uResolution.y / linesN; //field line
@@ -105,7 +93,7 @@ void main() {
     // Portal
     if (uBgColor == vec3(.149, .149, .149)) {
         col.x += staticlines;
-        col.z += clamp(staticlines, 0., .4);
+        col.z += clamp(staticlines, 0., .9);
     }
 
     // Terminal
