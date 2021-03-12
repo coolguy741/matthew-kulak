@@ -1,8 +1,12 @@
 import React, { useMemo } from "react"
 import * as THREE from "three"
-import { useFrame, createPortal, useThree } from "react-three-fiber"
-import { mainVert, mainFrag } from "../Shaders/Main"
-import FBO from "../FBO"
+import { useFrame, useThree } from "react-three-fiber"
+import { mainVert } from "../Shaders/Main"
+import { lavaFrag } from "../Shaders/Lava"
+import { baseFrag } from "../Shaders/Base"
+import { termFrag } from "../Shaders/Terminal"
+import { voidFrag } from "../Shaders/Portal"
+import { darkFrag } from "../Shaders/Dark"
 import HUD from "../HUD"
 
 const Quad = ({ animating, theme, sliderPos, hudRef }) => {
@@ -47,6 +51,24 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         }),
         []
     )
+
+    // Fragment shader switch statement
+    const fragSwitch = param => {
+        switch (param) {
+            case "LIGHT":
+                return baseFrag
+            case "DARK":
+                return darkFrag
+            case "SOLIS":
+                return voidFrag
+            case "TERMINAL":
+                return termFrag
+            case "ACID":
+                return lavaFrag
+            default:
+                return
+        }
+    }
 
     // Calculate camera unit size
     const calculateUnitSize = () => {
@@ -94,7 +116,6 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
 
     return (
         <>
-            {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry
                     args={[camUnit.unitWidth, camUnit.unitHeight, 1, 1]}
@@ -102,7 +123,7 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
                 <shaderMaterial
                     uniforms={uniforms}
                     vertexShader={mainVert}
-                    fragmentShader={mainFrag}
+                    fragmentShader={fragSwitch(theme)}
                     onUpdate={self => (self.needsUpdate = true)}
                 />
             </mesh>

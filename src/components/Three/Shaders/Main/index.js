@@ -57,10 +57,8 @@ vec3 rgb2hsb( in vec3 c ){
 void main() {
 
     vec2 uv = gl_FragCoord.xy / uResolution.xy;
-	uv *= uResolution.xy/uResolution.xy;
 
 	vec4 col = texture2D(uTexture, uv);
-    uv = gl_FragCoord.xy;
 
 	gl_FragColor = vec4(col.rgb, 1.0);
 
