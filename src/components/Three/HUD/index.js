@@ -3,7 +3,7 @@ import { useFrame } from "react-three-fiber"
 import { frag, vert } from "../Shaders/HUD"
 import * as THREE from "three"
 
-const HUD = ({ theme, domEl }) => {
+const HUD = ({ theme, domEl, sliderPos }) => {
     // Refs
     const planeRef = useRef()
 
@@ -42,6 +42,12 @@ const HUD = ({ theme, domEl }) => {
             },
             uFgColor: {
                 value: new THREE.Vector3(),
+            },
+            uTexture: {
+                value: target.texture,
+            },
+            uSlider: {
+                value: sliderPos,
             },
         }),
         []
@@ -141,6 +147,10 @@ const HUD = ({ theme, domEl }) => {
         uniforms.uBgColor.value.set(bgR, bgG, bgB)
         uniforms.uFgColor.value.set(fgR, fgG, fgB)
 
+        // Update slider uniform
+        uniforms.uSlider.value = sliderPos
+
+        // Delta
         uniforms.uTime.value += delta
 
         // Render
@@ -150,15 +160,19 @@ const HUD = ({ theme, domEl }) => {
     })
 
     return (
-        <mesh ref={planeRef}>
-            <planeBufferGeometry args={[camUnit.width, camUnit.height, 1, 1]} />
-            <shaderMaterial
-                uniforms={uniforms}
-                vertexShader={vert}
-                fragmentShader={frag}
-                transparent={true}
-            />
-        </mesh>
+        <>
+            <mesh ref={planeRef}>
+                <planeBufferGeometry
+                    args={[camUnit.width, camUnit.height, 1, 1]}
+                />
+                <shaderMaterial
+                    uniforms={uniforms}
+                    vertexShader={vert}
+                    fragmentShader={frag}
+                    transparent={true}
+                />
+            </mesh>
+        </>
     )
 }
 

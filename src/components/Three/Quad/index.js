@@ -1,12 +1,13 @@
 import React, { useMemo } from "react"
 import * as THREE from "three"
-import { useFrame, useThree } from "react-three-fiber"
-import { mainVert } from "../Shaders/Main"
+import { useFrame, createPortal, useThree } from "react-three-fiber"
+import { mainVert, mainFrag } from "../Shaders/Main"
 import { lavaFrag } from "../Shaders/Lava"
 import { baseFrag } from "../Shaders/Base"
 import { termFrag } from "../Shaders/Terminal"
 import { voidFrag } from "../Shaders/Portal"
 import { darkFrag } from "../Shaders/Dark"
+import FBO from "../FBO"
 import HUD from "../HUD"
 
 const Quad = ({ animating, theme, sliderPos, hudRef }) => {
@@ -99,6 +100,9 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         uniforms.uResolution.value = { x: width, y: height }
         uniforms.uRatio.value = width / height
 
+        // Update slider uniform
+        uniforms.uSlider.value = sliderPos
+
         // Render to FBO
         state.gl.setRenderTarget(target)
         state.gl.render(scene, state.camera)
@@ -114,8 +118,11 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         uniforms.uMouse.value.y = pointer.y
     }
 
+    console.log(uniforms.uSlider)
+
     return (
         <>
+            {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}
             <mesh onPointerMove={pointerMove}>
                 <planeBufferGeometry
                     args={[camUnit.unitWidth, camUnit.unitHeight, 1, 1]}
@@ -127,7 +134,7 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
                     onUpdate={self => (self.needsUpdate = true)}
                 />
             </mesh>
-            <HUD theme={theme} domEl={hudRef} />
+            <HUD theme={theme} domEl={hudRef} sliderPos={sliderPos} />
         </>
     )
 }

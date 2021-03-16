@@ -20,6 +20,8 @@ uniform float uTime;
 uniform vec3 uBgColor;
 uniform float uRatio;
 uniform vec3 uFgColor;
+uniform sampler2D uTexture;
+uniform float uSlider;
 
 varying vec2 vUv;
 varying vec3 vPosition;
@@ -53,7 +55,7 @@ float n( in vec3 x ){
 float nn(vec2 p){
 
     float y = p.y;
-    float s = uTime * 2.;
+    float s = uTime * (uSlider / 50. + 2.);
     
     float v = (n( vec3(y*.01 +s, 			1., 1.0) ) + .0)
           	 *(n( vec3(y*.011+1000.0+s, 	1., 1.0) ) + .0) 
@@ -72,7 +74,9 @@ void main() {
 
     vec2 uv = vUv;
     
+	vec4 txt = texture2D(uTexture, uv);
     vec3 col = uBgColor;
+
 
     float linesN = 240.; //fields per seconds
     float one_y = uResolution.y / linesN; //field line

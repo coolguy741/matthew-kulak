@@ -81,12 +81,12 @@ float DE(in vec3 p){
 // These are all equally interesting, but I could only pick one :(
 float trap(in vec3 p)
 {
-	//return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
-	return length(max(abs(p.xy) - 0.2, 0.0));
+	// return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
+	return length(max(abs(p.xy) - .2 , 0.));
 	//return length(p)-0.5;
 	//return length(max(abs(p) - 0.35, 0.0));
 	//return abs(length(p.xz)-0.2)-0.01;
-	//return abs(min(torus(vec3(p.x, mod(p.y,0.4)-0.2, p.z), vec2(0.1, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
+	// return abs(min(torus(vec3(p.x, mod(p.y,uSlider / 100.)-0.2, p.z), vec2(0.1, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
 	//return abs(min(torus(p, vec2(0.3, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
 	//return min(length(p.xz), min(length(p.yz), length(p.xy))) - 0.05;
 
@@ -127,7 +127,7 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 	vec3 p = rayOrigin;
 	float d = .1;
 	float iter = 0.0;
-	float mind = 3.14159+sin(time*.1)*0.2; // Move road from side to side slowly
+	float mind = 3.14159+sin(time*.1)*0.2;
 	
 	for (int i = 0; i < MAX_ITER; i++)
 	{		
