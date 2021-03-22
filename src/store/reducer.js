@@ -16,7 +16,7 @@ const initialState = {
         height: 0,
     },
     gpu: {},
-    theme: "LIGHT",
+    theme: "DARK",
     isContactOpen: false,
     isAboutOpen: false,
     isSettingsOpen: false,

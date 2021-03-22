@@ -32,7 +32,7 @@ const Work = ({ width, height, toolbar, ...props }) => {
     return (
         <Modal name={"Work"} width={width} height={height} toolbar={toolbar}>
             <div className={styles.workIcons}>
-                <div className={styles.workIcon} onClick={onClickGNOS}>
+                {/* <div className={styles.workIcon} onClick={onClickGNOS}>
                     <svg version="1.1" viewBox="0 0 130 120" width="60">
                         <path
                             className={styles.gnosPathDark}
@@ -83,7 +83,7 @@ const Work = ({ width, height, toolbar, ...props }) => {
                     </svg>
                     <br />
                     <span>GNOS</span>
-                </div>
+                </div> */}
                 <div className={styles.workIcon} onClick={onClickCadillac}>
                     <svg
                         version="1.1"

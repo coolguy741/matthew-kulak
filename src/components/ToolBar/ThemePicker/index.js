@@ -10,7 +10,7 @@ const ThemePicker = props => {
 
     // Framer motion variants
     const variants = {
-        open: { y: "-600%" },
+        open: { y: "-400%" },
         closed: { y: "0" },
     }
 
@@ -30,6 +30,9 @@ const ThemePicker = props => {
             document.removeEventListener("mouseup", handleClickOutside)
         }
     }, [wrapperRef])
+
+    // TODO:
+    // - finish two deactivated theme shaders
 
     return (
         <motion.div
@@ -68,10 +71,10 @@ const ThemePicker = props => {
                 </div>
             </div>
             <div className={styles.drawer}>
-                <span onClick={props.setLightTheme}>Base</span>
+                {/* <span onClick={props.setLightTheme}>Base</span> */}
                 <span onClick={props.setDarkTheme}>Reactor</span>
                 <span onClick={props.setSolisTheme}>Portal</span>
-                <span onClick={props.setTerminalTheme}>Terminal</span>
+                {/* <span onClick={props.setTerminalTheme}>Terminal</span> */}
                 <span onClick={props.setAcidTheme}>Plasma</span>
                 <div className={styles.return}>
                     <svg

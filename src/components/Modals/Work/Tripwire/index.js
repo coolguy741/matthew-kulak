@@ -54,13 +54,14 @@ const Tripwire = ({ width, height, toolbar }) => {
                 </li>
             </ul>
             <div className={styles.btnContainer}>
-                <a className={styles.btn} href="#" target="_blank">
+                {/* <a className={styles.btn} href="#" target="_blank">
                     View Live
-                </a>
+                </a> */}
                 <a
                     className={styles.btn}
                     href="https://github.com/frmr1/tripwire"
                     target="_blank"
+                    rel="noreferrer"
                 >
                     View Source
                 </a>

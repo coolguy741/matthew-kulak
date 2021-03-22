@@ -9,7 +9,7 @@ import About from "../../components/Modals/About"
 import Work from "../../components/Modals/Work"
 import UserSettings from "../../components/Modals/UserSettings"
 import Design from "../../components/Modals/Design"
-import GNOS from "../../components/Modals/Work/GNOS"
+// import GNOS from "../../components/Modals/Work/GNOS"
 import Cadillac from "../../components/Modals/Work/Cadillac"
 import Tripwire from "../../components/Modals/Work/Tripwire"
 import { useMediaQuery } from "react-responsive"
@@ -28,6 +28,9 @@ const HUDDivStyles = styled.div`
 `
 
 const Layout = props => {
+    // TODO:
+    // - GNOS modal
+
     // Gatsby images
     const data = useStaticQuery(graphql`
         query imagesAndSiteTitleQuery {
@@ -78,7 +81,7 @@ const Layout = props => {
         ) {
             return 140
         } else if (isLandscape) {
-            return 402
+            return 302
         } else {
             return 130
         }
@@ -90,11 +93,11 @@ const Layout = props => {
             (isTabletPortrait && isTabletPortraitHeight) ||
             isLaptop
         ) {
-            return 400
+            return 300
         } else if (isLandscape) {
             return 140
         } else {
-            return 400
+            return 300
         }
     }
 
@@ -227,11 +230,11 @@ const Layout = props => {
                 toolbar={getToolbarHeight()}
                 imageData={data.images}
             />
-            <GNOS
+            {/* <GNOS
                 width={getProjectWidth()}
                 height={getProjectHeight()}
                 toolbar={getToolbarHeight()}
-            />
+            /> */}
             <Cadillac
                 width={getProjectWidth()}
                 height={getProjectHeight()}

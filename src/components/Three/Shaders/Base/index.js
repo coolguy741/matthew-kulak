@@ -20,127 +20,93 @@ uniform vec2 uResolution;
 uniform vec2 uMouse;
 uniform float uTime;
 
-varying vec3 vPosition;
+vec3 objcol;
 
-float PI = 3.1415926;
-
-float sdSphere( vec3 p, float s ) {
-    return length(p)-s;
-}
-
-float sdBox( vec3 p, vec3 b ){
-    vec3 q = abs(p) - b;
-    return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
-}
-
-float sdOctahedron(vec3 p, float s) {
-  p = abs(p);
-  float m = p.x+p.y+p.z-s;
-  vec3 q;
-       if( 3.0*p.x < m ) q = p.xyz;
-  else if( 3.0*p.y < m ) q = p.yzx;
-  else if( 3.0*p.z < m ) q = p.zxy;
-  else return m*0.57735027;
-    
-  float k = clamp(0.5*(q.z-q.y+s),0.0,s); 
-  return length(vec3(q.x,q.y-s+k,q.z-k)); 
-}
-
-mat4 rotationMatrix(vec3 axis, float angle) {
-  axis = normalize(axis);
-  float s = sin(angle);
-  float c = cos(angle);
-  float oc = 1.0 - c;
-  
-  return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
-              oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
-              oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
-              0.0,                                0.0,                                0.0,                                1.0);
-}
-
-vec3 rotate(vec3 v, vec3 axis, float angle) {
-  mat4 m = rotationMatrix(axis, angle);
-  return (m * vec4(v, 1.0)).xyz;
-}
-
-float smin( float a, float b, float k ) {
-    float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
-    return mix( b, a, h ) - k*h*(1.0-h);
-}
-
-float rand(vec2 co){
-    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
-}
-
-float sdf( vec3 p ) {
-    //   float box = smin(sdBox(p1, vec3(.3)), sdSphere(p1, 0.4), .3);
-    //   float sphere = sdSphere(p - vec3(uMouse * vec2(2., 1.), 0.), 0.2);
-    //   return smin(box, sphere, 0.5);
-    
-    vec3 p1 = rotate(p, vec3(1.), uTime);
-    float oct = sdOctahedron(p1, .02);
-    return oct;
-}
-
-float opRep(vec3 p, vec3 c)
+// by Dave_Hoskins
+float hash12(vec2 p)
 {
-    vec3 q = mod(p+0.5*c,c)-0.5*c;
-    return sdf( q );
+	vec3 p3  = fract(vec3(p.xyx) * .1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
 }
 
-vec3 calcNormal( vec3 p ) {
-    const float h = 0.0001;
-    const vec2 k = vec2(1,-1);
-    return normalize( k.xyy*sdf( p + k.xyy*h ) + 
-                      k.yyx*sdf( p + k.yyx*h ) + 
-                      k.yxy*sdf( p + k.yxy*h ) + 
-                      k.xxx*sdf( p + k.xxx*h ) );
+mat2 rot(float a){
+    float s = sin(a), c = cos(a);
+    return mat2(c, s, -s, c);
 }
 
-void main() {
-  vec2 uv = gl_FragCoord.xy / uResolution.xy;
-  uv.x *= uResolution.x / uResolution.y;
+float de(vec3 pos)
+{
+    float t = mod(uTime,17.);
+    float a=smoothstep(13.,15.,t)*8.-smoothstep(4.,0.,t)*4.;
+    float f=sin(uTime*5.+sin(uTime*20.)*.2);
+    pos.xz *= rot(uMouse.x+.5);
+    // pos.yz *= rot(uTime);
+    vec3 p = pos;
+    float s=1.;
+    for (int i=0; i<4; i++){
+        p=abs(p)*1.3-.5-f*.1-a;
+        p.xy*=rot(radians(45.));
+        p.xz*=rot(radians(45.));
+        s*=1.3;
+    }
+    float fra = length(p)/s-.5;
+    // pos.xy *= rot(uTime);
+    p = abs(pos) - 2. - a;
+    float d = length(p) - .7;
+    d = min(d, max(length(p.xz)-.1,p.y));
+    d = min(d, max(length(p.yz)-.1,p.x));
+    d = min(d, max(length(p.xy)-.1,p.z));
+    p = abs(pos);
+    p.x -= 4.+a+f*.5;
+    d = min(d, length(p) - .7);
+    // d = min(d, length(p.yz-abs(sin(p.x*.5-uTime*10.)*.3)));
+    p = abs(pos);
+    p.y -= 4.+a+f*.5;
+    d = min(d, length(p) - .7);
+    d = min(d, max(length(p.xz)-.1,p.y));
+    d = min(d, fra);
+    objcol = abs(p);
+    if (d==fra) objcol=vec3(2.,0.,0.);
+    return d;
+}
 
-  vec2 newUV = uv - vec2(.5, 0.);
+vec3 normal(vec3 p) {
+    vec2 d = vec2(0., .01);
+    return normalize(vec3(de(p+d.yxx), de(p+d.xyx), de(p+d.xxy))-de(p));
+}
 
-  float dist = length(newUV - vec2(.5));
-  vec3 bg = mix(vec3(.9), vec3(.8), dist);
+vec3 march(vec3 from, vec3 dir)
+{
+    float d = 0., td = 0., maxdist = 30.;
+    vec3 p = from, col = vec3(0.);
+    for (int i = 0; i<100; i++)
+    {
+        float d2 = de(p) * (1.-hash12(gl_FragCoord.xy+uTime)*.2);
+        if (d2<0.)
+        {
+            vec3 n = normal(p);
+            dir = reflect(dir, n);
+            d2 = .1;
+          
+        }
+        d = max(.01, abs(d2));
+        p += d * dir;
+        td += d;
+        if (td>maxdist) break;
+        col += .01 * objcol;
+    }
+    return pow(col, vec3(2.));
+}
 
-  vec3 ray = normalize(vec3( (uv - vec2(1., .5)), -1.));
-  vec3 camPos = vec3(sin(uTime / 5.), cos(uTime / 5.), (uTime / -2.));
+void main()
+{
+    vec2 uv = gl_FragCoord.xy / uResolution.xy - .5;
+    uv.x *= uResolution.x / uResolution.y;
+    vec3 from = vec3(0.,0.,-10.);
+    vec3 dir = normalize(vec3(uv, 1.));
+    vec3 col = march(from, dir);
 
-  vec3 rayPos = camPos;
-  float t = 0.;
-
-  float tMax = 5.;
-
-  for (int i=0;i<256;i++) {
-    vec3 pos = camPos + t*ray;
-    float h = opRep(pos, vec3(.15));
-    if (h<.0001 || t>tMax) break;
-    t+=h;
-  }
-
-  vec3 color = bg;
-
-  vec3 a = vec3(0.5, 0.5, 0.5);		
-  vec3 b = vec3(0.5, 0.5, 0.5);
-  vec3 c = vec3(4.0, 4.0, 4.0);
-  vec3 d = vec3(0.00, 0.33, 0.67);
-
-  if (t<tMax) {
-    vec3 pos = camPos + t*ray;
-    vec3 normal = calcNormal(pos);
-    color = normal;
-    float diff = dot(vec3(1.), normal);
-    color = vec3(diff);
-    color = a + b * cos(2. * PI * (c * pos * sin(uTime / 20.) + d));
-    float fresnel = pow(1. + dot(ray, normal), 1.);
-
-    // color = vec3(fresnel);
-    // color = mix(color, bg, fresnel);
-  }
-
-  gl_FragColor = vec4(color, 1.);   
+    gl_FragColor = vec4(col,1.);
 }
 `

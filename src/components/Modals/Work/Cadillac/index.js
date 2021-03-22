@@ -71,10 +71,20 @@ const Cadillac = ({ width, height, toolbar }) => {
                 </li>
             </ul>
             <div className={styles.btnContainer}>
-                <a className={styles.btn} href="#" target="_blank">
+                <a
+                    className={styles.btn}
+                    href="https://cadillacband.com"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     View Live
                 </a>
-                <a className={styles.btn} href="#" target="_blank">
+                <a
+                    className={styles.btn}
+                    href="https://github.com/FRMR1/cadillac"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     View Source
                 </a>
             </div>
