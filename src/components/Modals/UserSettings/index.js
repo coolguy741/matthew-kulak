@@ -6,6 +6,9 @@ import styles from "../../../styles/modals.module.scss"
 import "../../../styles/toggleswitch.scss"
 
 const UserSettings = ({ width, height, toolbar, ...props }) => {
+    // TODO:
+    // - reactivate WebGL toggle with GPU Detect
+
     // Toggle CSS switch
     const toggleCssSwitch = param => {
         switch (param) {
@@ -37,8 +40,9 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
         >
             <div className={styles.togglesContainer}>
                 <div className={styles.toggleContainer}>
-                    <label>
+                    <label htmlFor="animationToggle">
                         <Toggle
+                            id="animationToggle"
                             defaultChecked={true}
                             icons={false}
                             className={toggleCssSwitch(props.theme)}
@@ -48,8 +52,9 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
                     </label>
                 </div>
                 <div className={styles.toggleContainer}>
-                    <label>
+                    <label htmlFor="fxaaToggle">
                         <Toggle
+                            id="fxaaToggle"
                             defaultChecked={true}
                             icons={false}
                             className={toggleCssSwitch(props.theme)}
@@ -58,9 +63,10 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
                         <h3>FXAA</h3>
                     </label>
                 </div>
-                <div className={styles.toggleContainer}>
-                    <label>
+                {/* <div className={styles.toggleContainer}>
+                    <label htmlFor="webglToggle">
                         <Toggle
+                            id="webglToggle"
                             defaultChecked={true}
                             icons={false}
                             className={toggleCssSwitch(props.theme)}
@@ -68,7 +74,7 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
                         />
                         <h3>WebGL</h3>
                     </label>
-                </div>
+                </div> */}
             </div>
             <div className={styles.gpuInfo}>
                 <div className={styles.settingsTitle}>

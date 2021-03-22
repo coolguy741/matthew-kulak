@@ -25,7 +25,11 @@ const Contact = ({ width, height, toolbar }) => {
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/frmr_" target="_blank">
+                    <a
+                        href="https://twitter.com/frmr_"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <svg
                             version="1.1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +45,11 @@ const Contact = ({ width, height, toolbar }) => {
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/frmr1" target="_blank">
+                    <a
+                        href="https://github.com/frmr1"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 32.58 31.77"

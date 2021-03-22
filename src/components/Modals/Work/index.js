@@ -5,11 +5,11 @@ import styles from "../../../styles/modals.module.scss"
 
 const Work = ({ width, height, toolbar, ...props }) => {
     // Icon click handlers
-    const onClickGNOS = e => {
-        e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
-        props.onGNOSOpen()
-        props.onIncZIndexGNOS()
-    }
+    // const onClickGNOS = e => {
+    //     e.stopPropagation() // Stop onClick event (z-index inc) of parent (work modal)
+    //     props.onGNOSOpen()
+    //     props.onIncZIndexGNOS()
+    // }
 
     const onClickCadillac = e => {
         e.stopPropagation()

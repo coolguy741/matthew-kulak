@@ -4,24 +4,30 @@ import Modal from "../../Modals"
 import Img from "gatsby-image"
 import { connect } from "react-redux"
 
-const NextArrow = props => {
-    const { className, style, onClick } = props
+const NextArrow = ({ className, style, onClick }) => {
     return (
         <div
             className={className}
             style={{ ...style, display: "block", right: "10px", zIndex: 1 }}
             onClick={onClick}
+            onKeyDown={onClick}
+            role="button"
+            aria-label="Next"
+            tabIndex={0}
         />
     )
 }
 
-const PrevArrow = props => {
-    const { className, style, onClick } = props
+const PrevArrow = ({ className, style, onClick }) => {
     return (
         <div
             className={className}
             style={{ ...style, display: "block", left: "10px", zIndex: 1 }}
             onClick={onClick}
+            onKeyDown={onClick}
+            role="button"
+            aria-label="Previous"
+            tabIndex={0}
         />
     )
 }
@@ -51,8 +57,8 @@ const Design = ({ width, height, toolbar, imageData }) => {
         >
             <Slider {...settings}>
                 {images.map(image => (
-                    <div>
-                        <Img key={image.id} fluid={image.fluid} />
+                    <div key={image.fluid.src}>
+                        <Img key={image.fluid.src} fluid={image.fluid} />
                     </div>
                 ))}
             </Slider>

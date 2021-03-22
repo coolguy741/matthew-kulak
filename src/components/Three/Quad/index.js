@@ -118,8 +118,6 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         uniforms.uMouse.value.y = pointer.y
     }
 
-    console.log(uniforms.uSlider)
-
     return (
         <>
             {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}

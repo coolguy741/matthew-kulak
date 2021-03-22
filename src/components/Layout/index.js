@@ -159,7 +159,7 @@ const Layout = props => {
 
     useEffect(() => {
         props.setHUDRef(hudRef.current)
-    }, [hudRef])
+    }, [hudRef, props])
 
     // Responsive window size
     const [width, height] = useWindowSize()

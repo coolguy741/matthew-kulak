@@ -221,9 +221,7 @@ const Modal = ({
                     />
                 </svg>
             </div>
-            <div className={styles.body} dragListener={false}>
-                {children}
-            </div>
+            <div className={styles.body}>{children}</div>
         </motion.div>
     )
 }
