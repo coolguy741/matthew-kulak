@@ -83,7 +83,9 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
                     <h2>GPU</h2>
                 </div>
                 <div className={styles.settingsDesc}>
-                    <span>{props.gpu.gpu}</span>
+                    <span>
+                        {props.gpu.gpu ? props.gpu.gpu : "Not detected"}
+                    </span>
                 </div>
                 <div className={styles.settingsTitle}>
                     <h2>Screen Size</h2>
