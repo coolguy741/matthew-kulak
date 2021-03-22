@@ -11,13 +11,21 @@ $breakpoint-tablet-portrait: 481px;
         url("../assets/fonts/Monospace 821 Regular.ttf") format("truetype");
 }
 
+/* GT America  */
+@font-face {
+    font-family: "Monospace 821 Regular";
+    font-style: normal;
+    font-weight: 300;
+    src: local(""),
+        url("../assets/fonts/Monospace 821 Regular.ttf") format("truetype");
+}
+
 /* White Rabbit */
 @font-face {
     font-family: "WhiteRabbit";
     font-style: normal;
     font-weight: 300;
-    src: local(""),
-        url("../assets/fonts/WhiteRabbit-47pD.ttf") format("truetype");
+    src: local(""), url("../assets/fonts/WhiteRabbit.ttf") format("truetype");
 }
 
 /* Alarm Clock */
