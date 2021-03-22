@@ -1,10 +1,12 @@
-import React, { Suspense } from "react"
+import React from "react"
+import loadable from "@loadable/component"
 import { connect } from "react-redux"
 import Effects from "../Effects"
 import { Canvas } from "react-three-fiber"
 import styles from "../../../styles/canvas.module.scss"
-import Quad from "../Quad"
 // import { OrbitControls } from "@react-three/drei"
+
+const Quad = loadable(() => import("../Quad"))
 
 const MainCanvas = ({ hudRef, ...props }) => {
     return (
@@ -14,14 +16,12 @@ const MainCanvas = ({ hudRef, ...props }) => {
             invalidateFrameloop={!props.animating}
         >
             {/* <OrbitControls /> */}
-            <Suspense fallback={null}>
-                <Quad
-                    animating={props.animating}
-                    theme={props.theme}
-                    sliderPos={props.sliderPos}
-                    hudRef={hudRef}
-                />
-            </Suspense>
+            <Quad
+                animating={props.animating}
+                theme={props.theme}
+                sliderPos={props.sliderPos}
+                hudRef={hudRef}
+            />
             <Effects fxaa={props.fxaa} />
         </Canvas>
     )

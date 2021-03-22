@@ -28,8 +28,10 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
     }
 
     // Get window dimensions
-    const innerWidth = window.innerWidth
-    const innerHeight = window.innerHeight
+    let windowWidth = 0
+    let windowHeight = 0
+    if (typeof window !== `undefined`) windowWidth = window.innerWidth
+    if (typeof window !== `undefined`) windowHeight = window.innerHeight
 
     return (
         <Modal
@@ -87,7 +89,7 @@ const UserSettings = ({ width, height, toolbar, ...props }) => {
                     <h2>Screen Size</h2>
                 </div>
                 <div className={styles.settingsDesc}>
-                    <span>{`${innerWidth} x ${innerHeight}`}</span>
+                    <span>{`${windowWidth} x ${windowHeight}`}</span>
                 </div>
             </div>
         </Modal>

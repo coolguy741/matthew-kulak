@@ -4,6 +4,7 @@
   "description": "FRMR portfolio",
   "version": "0.1.0",
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@react-three/drei": "^2.2.7",
     "@react-three/postprocessing": "^1.4.1",
     "@testing-library/jest-dom": "^4.2.4",

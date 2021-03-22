@@ -15,7 +15,7 @@ const IndexPage = props => {
         })()
     }, [])
 
-    window.easterEgg = easterEgg
+    if (typeof window !== `undefined`) window.easterEgg = easterEgg
 
     return (
         <Layout>

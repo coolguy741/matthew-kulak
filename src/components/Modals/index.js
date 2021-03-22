@@ -121,17 +121,19 @@ const Modal = ({
     }
 
     // Get window dimensions
-    const innerWidth = window.innerWidth
-    const innerHeight = window.innerHeight
+    let windowWidth = 0
+    let windowHeight = 0
+    if (typeof window !== `undefined`) windowWidth = window.innerWidth
+    if (typeof window !== `undefined`) windowHeight = window.innerHeight
 
     // Set modal position
     const getXPos = () => {
-        const xPos = innerWidth - width
+        const xPos = windowWidth - width
         if (xPos < 0) return 0
         return xPos
     }
     const getYPos = () => {
-        const yPos = innerHeight - height - toolbar - 40
+        const yPos = windowHeight - height - toolbar - 40
         if (yPos < 0) return 0
         return yPos
     }
@@ -166,7 +168,7 @@ const Modal = ({
     const dragControls = useDragControls()
     const constraints = {
         left: 0,
-        right: innerWidth - width,
+        right: windowWidth - width,
         top: 0,
         bottom: getYPos(),
     }

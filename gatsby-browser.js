@@ -1,12 +1,4 @@
-import React from "react"
-
-import { createStore } from "redux"
-import reducer from "./src/store/reducer"
-import { Provider } from "react-redux"
-import "./src/components/layout.scss"
-
-const store = createStore(reducer)
-
+import wrapWithProvider from "./wrap-with-provider"
 export const onClientEntry = () => {
     document.getElementById("loader-wrapper").style.display = "block"
 }
@@ -45,6 +37,4 @@ export const onRouteUpdate = () => {
     }, 4000)
 }
 
-export const wrapRootElement = ({ element }) => (
-    <Provider store={store}>{element}</Provider>
-)
+export const wrapRootElement = wrapWithProvider
