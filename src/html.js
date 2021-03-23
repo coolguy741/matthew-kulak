@@ -21,7 +21,7 @@ export default function HTML(props) {
                         <svg
                             version="1.1"
                             viewBox="0 0 49.7 49.7"
-                            fill-opacity="0"
+                            fillOpacity="0"
                             width="150"
                         >
                             <g>
@@ -50,6 +50,32 @@ export default function HTML(props) {
                                     />
                                 </g>
                             </g>
+                        </svg>
+                        <svg
+                            width="150px"
+                            height="150px"
+                            viewBox="0 0 100 100"
+                            preserveAspectRatio="xMidYMid"
+                        >
+                            <circle
+                                id="loader-spinner"
+                                cx="50"
+                                cy="50"
+                                fill="none"
+                                stroke="#b91919"
+                                strokeWidth="2"
+                                r="8"
+                                strokeDasharray="28.274333882308138 11.42477796076938"
+                            >
+                                <animateTransform
+                                    attributeName="transform"
+                                    type="rotate"
+                                    repeatCount="indefinite"
+                                    dur="1.3157894736842106s"
+                                    values="0 50 50;360 50 50"
+                                    keyTimes="0;1"
+                                ></animateTransform>
+                            </circle>
                         </svg>
                     </div>
                 </div>

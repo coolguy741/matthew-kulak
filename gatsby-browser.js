@@ -15,6 +15,9 @@ export const onRouteUpdate = () => {
     document.getElementById("loader-logo").style.transition =
         "fill-opacity 1.5s"
 
+    document.getElementById("loader-spinner").style.transition =
+        "stroke-opacity 1.5s"
+
     document.getElementsByClassName("loader-logo")[0].style.transition =
         "fill-opacity 1.5s"
 
@@ -25,6 +28,7 @@ export const onRouteUpdate = () => {
         document.getElementsByClassName("loader-logo")[0].style.fillOpacity = 0
         document.getElementsByClassName("loader-logo")[1].style.fillOpacity = 0
         document.getElementById("loader-logo").style.fillOpacity = 0
+        document.getElementById("loader-spinner").style.strokeOpacity = 0
     }, 1500)
 
     setTimeout(() => {

@@ -82,7 +82,7 @@ float DE(in vec3 p){
 float trap(in vec3 p)
 {
 	// return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
-	return length(max(abs(p.xy) - .2 , 0.));
+	return length(max(abs(p.xy) - .2 + (uSlider / 1000.) , 0.));
 	//return length(p)-0.5;
 	//return length(max(abs(p) - 0.35, 0.0));
 	//return abs(length(p.xz)-0.2)-0.01;
@@ -135,7 +135,7 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 		
 		d = map(p);
 		// This rotation causes the occasional distortion - like you would see from heat waves
-		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind*3.)));
+		p += d*vec3(rayDir.x, rotate(rayDir.yz, sin(mind*(3. + uSlider / 15.))));
 		mind = min(mind, d);
 		total_dist += d;
 		iter++;
@@ -154,10 +154,10 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 			color = vec3((1.0-x-y*2.)*mix(vec3(0.8, 0.8, 0), vec3(0.1), 1.0-(1.0-w)*(1.0-a)));
 		} else {
 			float q = 1.0-x-y*2.+z;
-			color = hsv(q*0.2+sin(time/3.), 1.0-q*0.2, q);
+			color = hsv(q*0.2+sin((time/3.) * (1. + uSlider / 10.)), 1.0-q*0.2, q);
 		}
 	} else
-		color = hsv(d - sin(time/5.), 1.0, 0.5)*mind*35.0; // Background
+		color = hsv(d - sin((time/5.) * (1. + uSlider / 10.)), 1.0, 0.5)*mind*35.0; // Background
 	return color;
 }
 

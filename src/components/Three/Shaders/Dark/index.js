@@ -28,7 +28,7 @@ void main() {
 
     vec3 ro = vec3(0., 0., -1.);
     vec3 lookat = vec3(0.);
-    float zoom = .5 - (uSlider / 1000.);
+    float zoom = 0.4;
     float t = uTime * .1;
 
     vec3 f = normalize(lookat - ro),
@@ -62,12 +62,20 @@ void main() {
         float b2 = smoothstep(-.1, .1, bands - .1);
 
         float m = b1 * (1. - b2);
-        m = max(m, ripples * b2 * max(0., waves));
+        float m2 = b1 * (1. - b2);
+        m = max(m, (ripples) * b2 * max(0., waves));
+        m2 = max(m2, (ripples) * b2 * max(0., waves * abs(sin(t * 30.))));
 
         col.r += m;
+        col.b += m2 * uSlider / 100.;
+        // col.b += m2;
+        // col.b += m * (y + t);
+        // col.b *= y * abs(sin(t * 30.));
 
         col.r -= abs(uv.x);
+        col.b -= abs(uv.x) / 3.;
         col.r = max(.125, col.r);
+        col.b = max(.125, col.b);
         // col.r += .125;
     }
 
