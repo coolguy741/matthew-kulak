@@ -22,10 +22,11 @@ $breakpoint-tablet-portrait: 481px;
 
 /* White Rabbit */
 @font-face {
-    font-family: "White Rabbit";
+    font-family: "White Rabbit Regular";
     font-style: normal;
     font-weight: 300;
-    src: local(""), url("../assets/fonts/WhiteRabbit.ttf") format("truetype");
+    src: local(""),
+        url("../assets/fonts/White Rabbit Regular.woff2") format("woff2");
 }
 
 /* Alarm Clock */
