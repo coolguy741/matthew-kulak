@@ -19,9 +19,17 @@ precision highp float;
 uniform vec2 uResolution;
 uniform float uTime;
 uniform float uSlider;
+uniform vec2 uMouse;
 
 varying vec2 vUv;
 varying vec3 vPosition;
+
+float hash12(vec2 p)
+{
+	vec3 p3  = fract(vec3(p.xyx) * .1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
 
 void main() {
     vec2 uv = (gl_FragCoord.xy - .5 * uResolution.xy) / uResolution.y;

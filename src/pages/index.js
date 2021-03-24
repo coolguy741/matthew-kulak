@@ -5,8 +5,10 @@ import { getGPUTier } from "detect-gpu"
 import SEO from "../components/seo"
 import MainCanvas from "../components/Three/Canvas"
 import { easterEgg } from "../util/easteregg"
+import useMousePosition from "../util/useMousePosition"
 
 const IndexPage = props => {
+    // Get GPU tier
     useEffect(() => {
         ;(async () => {
             const gpuTier = await getGPUTier()
@@ -15,12 +17,18 @@ const IndexPage = props => {
         })()
     }, [])
 
+    // Easter egg function
     if (typeof window !== `undefined`) window.easterEgg = easterEgg
+
+    // Get mouse position
+    const { x, y } = useMousePosition()
 
     return (
         <Layout>
             <SEO title="FRMR" />
-            {props.rendering && <MainCanvas hudRef={props.hudRef} />}
+            {props.rendering && (
+                <MainCanvas mouseX={x} mouseY={y} hudRef={props.hudRef} />
+            )}
         </Layout>
     )
 }

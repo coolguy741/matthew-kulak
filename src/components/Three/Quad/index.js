@@ -10,16 +10,11 @@ import { darkFrag } from "../Shaders/Dark"
 import FBO from "../FBO"
 import HUD from "../HUD"
 
-const Quad = ({ animating, theme, sliderPos, hudRef }) => {
+const Quad = ({ animating, theme, sliderPos, hudRef, mouseX, mouseY }) => {
     // Dimensions and aspect ratio
     const width = window.innerWidth
     const height = window.innerHeight
     const aspect = width / height
-
-    // Create pointer object
-    const pointer = useMemo(() => {
-        return new THREE.Vector2()
-    })
 
     // Scene and render target for FBO
     const [scene, target] = useMemo(() => {
@@ -92,6 +87,13 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
     if (!animating) clock.stop()
     if (animating) clock.start()
 
+    // Normalize pointer values
+    mouseX = mouseX / width
+    mouseY = 1 - mouseY / height
+
+    mouseX = mouseX * 2 - 1
+    mouseY = mouseY * 2 - 1
+
     // RAF
     useFrame((state, delta) => {
         uniforms.uTime.value += delta
@@ -99,6 +101,10 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         // Resolution and aspect ratio
         uniforms.uResolution.value = { x: width, y: height }
         uniforms.uRatio.value = width / height
+
+        // Update mouse positon
+        uniforms.uMouse.value.x = mouseX
+        uniforms.uMouse.value.y = mouseY
 
         // Update slider uniform
         uniforms.uSlider.value = sliderPos
@@ -109,19 +115,10 @@ const Quad = ({ animating, theme, sliderPos, hudRef }) => {
         state.gl.setRenderTarget(null)
     })
 
-    // Pointer move
-    const pointerMove = e => {
-        pointer.set(e.x / width, 1 - e.y / height)
-        pointer.x = (e.clientX / width) * 2 - 1
-        pointer.y = -(e.clientY / height) * 2 + 1
-        uniforms.uMouse.value.x = pointer.x
-        uniforms.uMouse.value.y = pointer.y
-    }
-
     return (
         <>
             {createPortal(<FBO theme={theme} sliderPos={sliderPos} />, scene)}
-            <mesh onPointerMove={pointerMove}>
+            <mesh>
                 <planeBufferGeometry
                     args={[camUnit.unitWidth, camUnit.unitHeight, 1, 1]}
                 />

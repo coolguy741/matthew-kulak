@@ -17,6 +17,7 @@ precision highp float;
 uniform vec2 uResolution;
 uniform float uTime;
 uniform float uSlider;
+uniform vec2 uMouse;
 
 varying vec2 uUv;
 varying vec3 vPosition;
@@ -32,20 +33,6 @@ float torus(in vec3 p, in vec2 t)
 {
 	vec2 q = abs(vec2(max(abs(p.x), abs(p.z))-t.x, p.y));
 	return max(q.x, q.y)-t.y;
-}
-
-float sdOctahedron( vec3 p, float s)
-{
-  p = abs(p);
-  float m = p.x+p.y+p.z-s;
-  vec3 q;
-       if( 3.0*p.x < m ) q = p.xyz;
-  else if( 3.0*p.y < m ) q = p.yzx;
-  else if( 3.0*p.z < m ) q = p.zxy;
-  else return m*0.57735027;
-    
-  float k = clamp(0.5*(q.z-q.y+s),0.0,s); 
-  return length(vec3(q.x,q.y-s+k,q.z-k)); 
 }
 
 float rnd,sizer;
@@ -78,11 +65,31 @@ float DE(in vec3 p){
 	return max(d2,-d);
 }
 
-// These are all equally interesting, but I could only pick one :(
+float sdOctahedron(vec3 p, float s)
+{
+  p = abs(p);
+  return (p.x+p.y+p.z-s)*0.57735027;
+}
+
+float opTwist(vec3 p)
+{
+    float k = uSlider / 5.; // Amount of twist
+    float c = cos(k*p.y);
+    float s = sin(k*p.y);
+    mat2  m = mat2(c,-s,s,c);
+    vec3  q = vec3(m*p.xz,p.y);
+    return length(max(abs(q.xy) - .2 , 0.));;
+}
+
 float trap(in vec3 p)
 {
+	float d = opTwist(p);
+	
+	return d;
+
+	// return length(max(abs(p.xy) - .2 + (uSlider / 1000.) , 0.));
+
 	// return abs(max(abs(p.z)-0.1, abs(p.x)-0.1))-0.01;
-	return length(max(abs(p.xy) - .2 + (uSlider / 1000.) , 0.));
 	//return length(p)-0.5;
 	//return length(max(abs(p) - 0.35, 0.0));
 	//return abs(length(p.xz)-0.2)-0.01;
@@ -90,7 +97,6 @@ float trap(in vec3 p)
 	//return abs(min(torus(p, vec2(0.3, 0.05)), max(abs(p.z)-0.05, abs(p.x)-0.05)))-0.005;
 	//return min(length(p.xz), min(length(p.yz), length(p.xy))) - 0.05;
 
-	// return DE(p);
 }
 
 float map(in vec3 p)
@@ -164,9 +170,9 @@ vec3 intersect(in vec3 rayOrigin, in vec3 rayDir)
 void main()
 {
     float time = uTime+60.0;
-	vec3 upDirection = vec3(0, -1, 0);
-	vec3 cameraDir = vec3(1,0,0);
-	vec3 cameraOrigin = vec3(time*0.1, 0, 0);
+	vec3 upDirection = vec3(0., 1., 0);
+	vec3 cameraDir = vec3(1., 0., 0.);
+	vec3 cameraOrigin = vec3(time * (.1 + uSlider * .001), 0, 0.);
 	
 	vec3 u = normalize(cross(upDirection, cameraOrigin));
 	vec3 v = normalize(cross(cameraDir, u));
@@ -176,5 +182,5 @@ void main()
 	
 	gl_FragColor = vec4(intersect(cameraOrigin, rayDir), 1.0);
 	gl_FragColor.rgb += vec3(.125);
-} 
+}
 `
