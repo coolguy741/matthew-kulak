@@ -63,7 +63,7 @@ const About = ({ width, height, toolbar }) => {
                     <h2>Connect</h2>
                 </div>
                 <div className={`${styles.aboutDesc} ${styles.connect}`}>
-                    <a href="mailto:contact@frmr.dev">
+                    <a href="mailto:frmr@frmr.dev">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 384"

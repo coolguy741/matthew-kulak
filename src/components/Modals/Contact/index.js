@@ -8,7 +8,7 @@ const Contact = ({ width, height, toolbar }) => {
         <Modal name={"Contact"} width={width} height={height} toolbar={toolbar}>
             <ul className={styles.contact}>
                 <li>
-                    <a href="mailto:contact@frmr.dev">
+                    <a href="mailto:frmr@frmr.dev">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 384"
@@ -21,7 +21,7 @@ const Contact = ({ width, height, toolbar }) => {
                                 transform="translate(0 -64)"
                             />
                         </svg>{" "}
-                        contact@frmr.dev
+                        frmr@frmr.dev
                     </a>
                 </li>
                 <li>
