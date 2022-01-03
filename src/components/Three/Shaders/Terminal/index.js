@@ -2,7 +2,6 @@ export const termFrag = `
 precision highp float;
 
 uniform vec2 uResolution;
-uniform vec2 uMouse;
 uniform float uTime;
 
 vec3 objcol;
@@ -25,8 +24,6 @@ float de(vec3 pos)
     float t = mod(uTime, 17.);
     float a=smoothstep(13.,15.,t)*1.-smoothstep(4.,0.,t)*4.;
     float f=sin(uTime*5.+sin(uTime*20.)*.2);
-    pos.xz *= rot(uMouse.x+.5);
-    pos.yz *= rot(uMouse.y);
     vec3 p = pos;
     float s=1.;
     for (int i=0; i<4; i++){

@@ -45,13 +45,25 @@ const About = ({ width, height, toolbar }) => {
                     <h2>Class</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Developer/designer</span>
+                    <span>Developer</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Location</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Canada</span>
+                    <span>Calgary, Canada</span>
+                </div>
+                <div className={styles.aboutTitle}>
+                    <h2>Tech</h2>
+                </div>
+                <div className={styles.aboutDesc}>
+                    <span>WebGL, ThreeJS, React Three Fiber, AR/VR</span>
+                </div>
+                <div className={styles.aboutTitle}>
+                    <h2>Clients</h2>
+                </div>
+                <div className={styles.aboutDesc}>
+                    <span>NBC, AT&T, NCAA, ExxonMobil</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Status</h2>

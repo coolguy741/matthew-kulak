@@ -8,7 +8,7 @@ import styles from "../../../styles/canvas.module.scss"
 
 const Quad = loadable(() => import("../Quad"))
 
-const MainCanvas = ({ hudRef, mouseX, mouseY, ...props }) => {
+const MainCanvas = ({ hudRef, ...props }) => {
     return (
         <Canvas
             className={styles.Canvas}
@@ -21,8 +21,6 @@ const MainCanvas = ({ hudRef, mouseX, mouseY, ...props }) => {
                 theme={props.theme}
                 sliderPos={props.sliderPos}
                 hudRef={hudRef}
-                mouseX={mouseX}
-                mouseY={mouseY}
             />
             <Effects fxaa={props.fxaa} />
         </Canvas>

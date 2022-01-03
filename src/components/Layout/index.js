@@ -11,6 +11,7 @@ import UserSettings from "../../components/Modals/UserSettings"
 import Design from "../../components/Modals/Design"
 // import GNOS from "../../components/Modals/Work/GNOS"
 import Cadillac from "../../components/Modals/Work/Cadillac"
+import ExxonMobil from "../../components/Modals/Work/ExxonMobil"
 import Tripwire from "../../components/Modals/Work/Tripwire"
 import { useMediaQuery } from "react-responsive"
 import styled from "styled-components"
@@ -81,7 +82,7 @@ const Layout = props => {
         ) {
             return 140
         } else if (isLandscape) {
-            return 302
+            return 400
         } else {
             return 130
         }
@@ -93,11 +94,11 @@ const Layout = props => {
             (isTabletPortrait && isTabletPortraitHeight) ||
             isLaptop
         ) {
-            return 300
+            return 400
         } else if (isLandscape) {
             return 140
         } else {
-            return 300
+            return 400
         }
     }
 
@@ -235,6 +236,11 @@ const Layout = props => {
                 height={getProjectHeight()}
                 toolbar={getToolbarHeight()}
             /> */}
+            <ExxonMobil
+                width={getProjectWidth()}
+                height={getProjectHeight()}
+                toolbar={getToolbarHeight()}
+            />
             <Cadillac
                 width={getProjectWidth()}
                 height={getProjectHeight()}

@@ -8,6 +8,7 @@ const initialState = {
         gnos: 0,
         cadillac: 0,
         tripwire: 0,
+        exxon: 0,
     },
     aboutAnchor: {
         top: 0,
@@ -23,6 +24,7 @@ const initialState = {
     isDesignOpen: false,
     isGnosOpen: false,
     isCadillacOpen: false,
+    isExxonMobilOpen: false,
     isTripwireOpen: false,
     isThemePickerOpen: false,
     isSliderOpen: false,
@@ -92,6 +94,14 @@ const reducer = (state = initialState, action) => {
                 zIndexes: {
                     ...state.zIndexes,
                     cadillac: getNextZ(state.zIndexes),
+                },
+            }
+        case "INC_Z_EXXON":
+            return {
+                ...state,
+                zIndexes: {
+                    ...state.zIndexes,
+                    exxon: getNextZ(state.zIndexes),
                 },
             }
         case "INC_Z_TRIPWIRE":
@@ -186,6 +196,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isGnosOpen: false,
+            }
+        case "OPEN_EXXON":
+            return {
+                ...state,
+                isExxonMobilOpen: true,
+            }
+        case "CLOSE_EXXON":
+            return {
+                ...state,
+                isExxonMobilOpen: false,
             }
         case "OPEN_CADILLAC":
             return {

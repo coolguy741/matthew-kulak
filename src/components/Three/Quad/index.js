@@ -10,7 +10,7 @@ import { darkFrag } from "../Shaders/Dark"
 import FBO from "../FBO"
 import HUD from "../HUD"
 
-const Quad = ({ animating, theme, sliderPos, hudRef, mouseX, mouseY }) => {
+const Quad = ({ animating, theme, sliderPos, hudRef }) => {
     // Dimensions and aspect ratio
     const width = window.innerWidth
     const height = window.innerHeight
@@ -37,7 +37,6 @@ const Quad = ({ animating, theme, sliderPos, hudRef, mouseX, mouseY }) => {
             uRatio: {
                 value: aspect,
             },
-            uMouse: { value: new THREE.Vector2() },
             uSlider: {
                 value: sliderPos,
             },
@@ -87,13 +86,6 @@ const Quad = ({ animating, theme, sliderPos, hudRef, mouseX, mouseY }) => {
     if (!animating) clock.stop()
     if (animating) clock.start()
 
-    // Normalize pointer values
-    mouseX = mouseX / width
-    mouseY = 1 - mouseY / height
-
-    mouseX = mouseX * 2 - 1
-    mouseY = mouseY * 2 - 1
-
     // RAF
     useFrame((state, delta) => {
         uniforms.uTime.value += delta
@@ -101,10 +93,6 @@ const Quad = ({ animating, theme, sliderPos, hudRef, mouseX, mouseY }) => {
         // Resolution and aspect ratio
         uniforms.uResolution.value = { x: width, y: height }
         uniforms.uRatio.value = width / height
-
-        // Update mouse positon
-        uniforms.uMouse.value.x = mouseX
-        uniforms.uMouse.value.y = mouseY
 
         // Update slider uniform
         uniforms.uSlider.value = sliderPos

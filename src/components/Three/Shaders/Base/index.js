@@ -17,7 +17,6 @@ export const baseFrag = `
 precision highp float;
 
 uniform vec2 uResolution;
-uniform vec2 uMouse;
 uniform float uTime;
 uniform float uSlider;
 
@@ -62,8 +61,6 @@ float de(vec3 pos)
     float t = uTime;
     float a=smoothstep(13.,1.,t)*2.-smoothstep(4.,0.,t)*1.;
     float f=sin(uTime*5.+sin(uTime*20.)*.2);
-    // pos.xz *= rot(uMouse.x * .5);
-    pos.yz *= rot(uMouse.y * .5);
     // pos.yz *= rot(uTime);
     vec3 p = pos;
     float s=4.;

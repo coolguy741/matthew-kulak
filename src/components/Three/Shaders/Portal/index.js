@@ -17,7 +17,6 @@ precision highp float;
 uniform vec2 uResolution;
 uniform float uTime;
 uniform float uSlider;
-uniform vec2 uMouse;
 
 varying vec2 uUv;
 varying vec3 vPosition;

@@ -20,7 +20,6 @@ const FBO = props => {
     const uniforms = useMemo(
         () => ({
             uTime: { value: 0.0 },
-            uMouse: { value: new THREE.Vector3() },
             uResolution: { value: { x: width, y: height } },
             uRatio: {
                 value: window.innerWidth / window.innerHeight,
@@ -31,21 +30,6 @@ const FBO = props => {
         }),
         []
     )
-
-    // Update pointer value
-    const pointer = useMemo(() => {
-        return new THREE.Vector3()
-    })
-
-    const pointerMove = e => {
-        pointer.set(e.x / width, 1 - e.y / height)
-
-        pointer.x = (e.clientX / width) * 2 - 1
-        pointer.y = -(e.clientY / height) * 2 + 1
-
-        uniforms.uMouse.value.x = pointer.x
-        uniforms.uMouse.value.y = pointer.y
-    }
 
     // Scene/target
     const [scene, target] = useMemo(() => {
@@ -86,9 +70,6 @@ const FBO = props => {
         uniforms.uResolution.value = { x: width, y: height }
         uniforms.uRatio.value = aspectRatio
 
-        // Update mouse pointer uniform
-        uniforms.uMouse.value.lerp(pointer, 0.2)
-
         // Update slider uniform
         uniforms.uSlider.value = props.sliderPos
 
@@ -99,7 +80,7 @@ const FBO = props => {
     })
 
     return (
-        <mesh onPointerMove={pointerMove}>
+        <mesh>
             <planeBufferGeometry args={[width, height, 1, 1]} />
             <shaderMaterial
                 ref={mat}

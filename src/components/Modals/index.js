@@ -27,6 +27,8 @@ const Modal = ({
                 return props.isSettingsOpen
             case "Cadillac":
                 return props.isCadillacOpen
+            case "ExxonMobil":
+                return props.isExxonMobilOpen
             case "GNOS":
                 return props.isGnosOpen
             case "Tripwire":
@@ -49,6 +51,8 @@ const Modal = ({
                 return props.zIndexSettings
             case "Cadillac":
                 return props.zIndexCadillac
+            case "ExxonMobil":
+                return props.zIndexExxonMobil
             case "GNOS":
                 return props.zIndexGnos
             case "Tripwire":
@@ -73,6 +77,8 @@ const Modal = ({
                 return styles.projectModal
             case "GNOS":
                 return styles.projectModal
+            case "ExxonMobil":
+                return styles.projectModal
             case "Tripwire":
                 return styles.projectModal
         }
@@ -92,6 +98,8 @@ const Modal = ({
                 return props.onModalClose("CLOSE_SETTINGS")
             case "Cadillac":
                 return props.onModalClose("CLOSE_CADILLAC")
+            case "ExxonMobil":
+                return props.onModalClose("CLOSE_EXXON")
             case "GNOS":
                 return props.onModalClose("CLOSE_GNOS")
             case "Tripwire":
@@ -113,6 +121,8 @@ const Modal = ({
                 return props.onIncZIndex("INC_Z_SETTINGS")
             case "Cadillac":
                 return props.onIncZIndex("INC_Z_CADILLAC")
+            case "ExxonMobil":
+                return props.onIncZIndex("INC_Z_EXXON")
             case "GNOS":
                 return props.onIncZIndex("INC_Z_GNOS")
             case "Tripwire":
@@ -241,6 +251,8 @@ const mapStateToProps = state => {
         zIndexDesign: state.zIndexes.design,
         isSettingsOpen: state.isSettingsOpen,
         zIndexSettings: state.zIndexes.settings,
+        isExxonMobilOpen: state.isExxonMobilOpen,
+        zIndexExxonMobil: state.zIndexes.exxon,
         isCadillacOpen: state.isCadillacOpen,
         zIndexCadillac: state.zIndexes.cadillac,
         isGnosOpen: state.isGnosOpen,

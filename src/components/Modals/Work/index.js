@@ -11,6 +11,12 @@ const Work = ({ width, height, toolbar, ...props }) => {
     //     props.onIncZIndexGNOS()
     // }
 
+    const onClickExxonMobil = e => {
+        e.stopPropagation()
+        props.onExxonMobilOpen()
+        props.onIncZIndexExxonMobil()
+    }
+
     const onClickCadillac = e => {
         e.stopPropagation()
         props.onCadillacOpen()
@@ -84,6 +90,19 @@ const Work = ({ width, height, toolbar, ...props }) => {
                     <br />
                     <span>GNOS</span>
                 </div> */}
+                <div className={styles.workIcon} onClick={onClickExxonMobil}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 49.29 44.15"
+                    >
+                        <path
+                            className={styles.exxonPath}
+                            d="M0,31.08H8.56l7.69-9.89,4.8,4.86-11,13.74h8.59l7-9.11L38.92,44.15H49.29L30.27,25l15-18.92H36.66L25.59,20.32,20.8,15.5,33.11,0H24.54L16.13,10.82,11.57,6.11H1.34l10.3,10.4L0,31.08"
+                        />
+                    </svg>
+                    <br />
+                    <span>ExxonMobil</span>
+                </div>
                 <div className={styles.workIcon} onClick={onClickCadillac}>
                     <svg
                         version="1.1"
@@ -213,10 +232,12 @@ const mapDispatchToProps = dispatch => {
         onWorkClose: () => dispatch({ type: "CLOSE_WORK" }),
         onGNOSOpen: () => dispatch({ type: "OPEN_GNOS" }),
         onCadillacOpen: () => dispatch({ type: "OPEN_CADILLAC" }),
+        onExxonMobilOpen: () => dispatch({ type: "OPEN_EXXON" }),
         onTripwireOpen: () => dispatch({ type: "OPEN_TRIPWIRE" }),
         onDesignOpen: () => dispatch({ type: "OPEN_DESIGN" }),
         onIncZIndex: () => dispatch({ type: "INC_Z_WORK" }),
         onIncZIndexGNOS: () => dispatch({ type: "INC_Z_GNOS" }),
+        onIncZIndexExxonMobil: () => dispatch({ type: "INC_Z_EXXON" }),
         onIncZIndexCadillac: () => dispatch({ type: "INC_Z_CADILLAC" }),
         onIncZIndexTripwire: () => dispatch({ type: "INC_Z_TRIPWIRE" }),
         onIncZIndexDesign: () => dispatch({ type: "INC_Z_DESIGN" }),

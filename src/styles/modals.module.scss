@@ -81,7 +81,7 @@ $breakpoint-tablet-portrait: 481px;
     &.workModal .body {
         width: 130px;
         min-width: 130px;
-        height: 310px;
+        height: 400px;
     }
     &.contactModal .body {
         width: 190px;
@@ -248,11 +248,14 @@ $breakpoint-tablet-portrait: 481px;
         .aboutTitle {
             margin-bottom: 10px;
         }
+        .aboutDesc {
+            margin-bottom: 10px;
+        }
         .connect {
             margin-top: 15px;
         }
         .about .copyright {
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 0;
         }
         .about .aboutDesc a {
@@ -274,7 +277,7 @@ $breakpoint-tablet-portrait: 481px;
         padding: 10px 0;
         display: flex;
         flex-wrap: wrap;
-        justify-content: left;
+        justify-content: center;
         text-align: center;
     }
     .workIcon {
@@ -302,6 +305,7 @@ $breakpoint-tablet-portrait: 481px;
     .githubPath,
     .twitterPath,
     .cadillacPath,
+    .exxonPath,
     .xPath,
     .logoPath,
     .frmrPath,
@@ -386,6 +390,7 @@ $breakpoint-tablet-portrait: 481px;
         .logoPath,
         .frmrPath,
         .cadillacPath,
+        .exxonPath,
         .gnosPathDark,
         .gnosPathR,
         .mailPath,
@@ -473,6 +478,7 @@ $breakpoint-tablet-portrait: 481px;
         .designPath,
         .twitterPath,
         .cadillacPath,
+        .exxonPath,
         .gnosPathLight,
         .gnosPathR {
             fill: $dark-heading;
@@ -546,6 +552,7 @@ $breakpoint-tablet-portrait: 481px;
         .mailPath,
         .designPath,
         .cadillacPath,
+        .exxonPath,
         .githubPath,
         .twitterPath,
         .gnosPathR {
@@ -612,6 +619,7 @@ $breakpoint-tablet-portrait: 481px;
         }
         .gnosPathR,
         .cadillacPath,
+        .exxonPath,
         .designPath,
         .gnosPathLight,
         .gnosPathOutline {
@@ -698,6 +706,7 @@ $breakpoint-tablet-portrait: 481px;
         .gnosPathDark,
         .logoPath,
         .cadillacPath,
+        .exxonPath,
         .designPath,
         .frmrPath,
         .mailPath,
@@ -751,12 +760,11 @@ $breakpoint-tablet-portrait: 481px;
                 font-size: 12px;
             }
             .connect {
-                margin-top: 30px;
+                margin-top: 20px;
             }
             .about {
                 grid-template-columns: 90px auto;
                 .copyright {
-                    margin-top: 50px;
                     padding: 0;
                 }
             }
@@ -794,7 +802,7 @@ $breakpoint-tablet-portrait: 481px;
             padding: 20px 20px;
             width: 140px;
             min-width: 140px;
-            height: 310px;
+            height: 400px;
         }
         &.contactModal .body {
             width: 230px;

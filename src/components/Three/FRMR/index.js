@@ -14,7 +14,6 @@ export default function Model(props) {
 
     const uniforms = useMemo(
         () => ({
-            u_mouse: { value: new THREE.Vector2() },
             u_time: { value: 0.0 },
             u_texture: {
                 value: new THREE.DataTexture(new Float32Array(width * height)),
