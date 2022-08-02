@@ -8,20 +8,25 @@ const Contact = ({ width, height, toolbar }) => {
         <Modal name={"Contact"} width={width} height={height} toolbar={toolbar}>
             <ul className={styles.contact}>
                 <li>
-                    <a href="mailto:frmr@frmr.dev">
+                    <a
+                        href="https://www.linkedin.com/in/frmr"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <svg
+                            height="20"
+                            viewBox="0 0 72 72"
+                            width="20"
                             xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 384"
-                            className={styles.mail}
-                            width="16"
                         >
                             <path
-                                className={styles.mailPath}
-                                d="M464,64H48A48.05,48.05,0,0,0,0,112V400a48.05,48.05,0,0,0,48,48H464a48.05,48.05,0,0,0,48-48V112A48.05,48.05,0,0,0,464,64Zm0,32a15.91,15.91,0,0,1,6.13,1.24L256,282.83,41.87,97.24A15.93,15.93,0,0,1,48,96H464Zm0,320H48a16,16,0,0,1-16-16V131l213.52,185a16,16,0,0,0,21,0L480,131V400A16,16,0,0,1,464,416Z"
-                                transform="translate(0 -64)"
+                                className={styles.linkedInPath}
+                                d="M64,0H8C3.6,0,0,3.6,0,8v56c0,4.4,3.6,8,8,8h56c4.4,0,8-3.6,8-8V8C72,3.6,68.4,0,64,0z M21.8,62H11V27.3h10.7
+                                V62z M16.3,22.8c-3.5,0-6.3-2.9-6.3-6.4c0-3.5,2.8-6.4,6.3-6.4c3.5,0,6.3,2.9,6.3,6.4C22.7,19.9,19.9,22.8,16.3,22.8z M62,62H51.3
+                                V43.8c0-5-1.9-7.8-5.8-7.8c-4.3,0-6.5,2.9-6.5,7.8V62H28.6V27.3h10.3V32c0,0,3.1-5.7,10.5-5.7c7.4,0,12.6,4.5,12.6,13.8V62z"
                             />
                         </svg>{" "}
-                        frmr@frmr.dev
+                        @frmr
                     </a>
                 </li>
                 <li>

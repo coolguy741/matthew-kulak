@@ -307,15 +307,11 @@ $breakpoint-tablet-portrait: 481px;
     .mailPath,
     .githubPath,
     .twitterPath,
+    .linkedInPath,
     .cadillacPath,
     .exxonPath,
     .xPath,
-    .logoPath,
-    .frmrPath,
     .designPath,
-    .mailPath,
-    .githubPath,
-    .twitterPath,
     .xPath,
     .tripwirePath {
         transition: fill 0.3s ease-out;
@@ -399,7 +395,8 @@ $breakpoint-tablet-portrait: 481px;
         .mailPath,
         .designPath,
         .githubPath,
-        .twitterPath {
+        .twitterPath,
+        .linkedInPath {
             fill: #202020;
         }
         .xPath {
@@ -480,6 +477,7 @@ $breakpoint-tablet-portrait: 481px;
         .githubPath,
         .designPath,
         .twitterPath,
+        .linkedInPath,
         .cadillacPath,
         .exxonPath,
         .gnosPathLight,
@@ -558,6 +556,7 @@ $breakpoint-tablet-portrait: 481px;
         .exxonPath,
         .githubPath,
         .twitterPath,
+        .linkedInPath,
         .gnosPathR {
             fill: $solis-heading;
         }
@@ -636,6 +635,7 @@ $breakpoint-tablet-portrait: 481px;
         .mailPath,
         .githubPath,
         .twitterPath,
+        .linkedInPath,
         .xPath {
             fill: $terminal-x;
         }
@@ -714,7 +714,8 @@ $breakpoint-tablet-portrait: 481px;
         .frmrPath,
         .mailPath,
         .githubPath,
-        .twitterPath {
+        .twitterPath,
+        .linkedInPath {
             fill: $acid-svg;
         }
     }
