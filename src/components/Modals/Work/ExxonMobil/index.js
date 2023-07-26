@@ -41,7 +41,7 @@ const ExxonMobil = ({ width, height, toolbar }) => {
                     className={styles.btn}
                     href="https://ccs-ar.exxonmobil.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="coolguy"
                 >
                     View Live (mobile)
                 </a>{" "}

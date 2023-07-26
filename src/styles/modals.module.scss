@@ -767,10 +767,10 @@ $breakpoint-tablet-portrait: 481px;
                 margin-top: 20px;
             }
             .about {
-                grid-template-columns: 90px auto;
-                .copyright {
-                    padding: 0;
-                }
+                grid-template-columns: 100px auto;
+            }
+            .copyright {
+                padding: 0;
             }
         }
         .workIcon {

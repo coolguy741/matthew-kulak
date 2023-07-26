@@ -59,7 +59,7 @@ const Tripwire = ({ width, height, toolbar }) => {
                 </a> */}
                 <a
                     className={styles.btn}
-                    href="https://github.com/frmr1/tripwire"
+                    href="https://github.com/coolguy741/tripwire"
                     target="_blank"
                     rel="noreferrer"
                 >

@@ -81,7 +81,7 @@ const Cadillac = ({ width, height, toolbar }) => {
                 </a>
                 <a
                     className={styles.btn}
-                    href="https://github.com/FRMR1/cadillac"
+                    href="https://github.com/coolguy741/cadillac"
                     target="_blank"
                     rel="noreferrer"
                 >

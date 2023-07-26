@@ -55,7 +55,7 @@ const GNOS = ({ width, height, toolbar }) => {
                 />
             </svg>
             <p className={styles.workDesc}>
-                GNOS is a clothing brand founded and operated by FRMR.
+                GNOS is a clothing brand founded and operated by CoolGuy.
             </p>
             <h4>Tech Stack</h4>
             <ul className={styles.tech}>

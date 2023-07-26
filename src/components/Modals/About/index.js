@@ -45,13 +45,13 @@ const About = ({ width, height, toolbar }) => {
                     <h2>Class</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Developer</span>
+                    <span>Front End Developer</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Location</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Calgary, Canada</span>
+                    <span>Lafayette, IN, United States</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Tech</h2>
@@ -76,9 +76,9 @@ const About = ({ width, height, toolbar }) => {
                 </div>
                 <div className={`${styles.aboutDesc} ${styles.connect}`}>
                     <a
-                        href="https://www.linkedin.com/in/frmr"
+                        href="https://www.linkedin.com/in/steven-l-montoya/"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="coolguy"
                     >
                         <svg
                             height="20"
@@ -95,7 +95,7 @@ const About = ({ width, height, toolbar }) => {
                         </svg>
                     </a>
                     <a
-                        href="https://twitter.com/frmr_"
+                        href=""
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -116,9 +116,9 @@ const About = ({ width, height, toolbar }) => {
                         </svg>
                     </a>
                     <a
-                        href="https://github.com/frmr1"
+                        href="https://github.com/coolguy741"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="coolguy"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +132,8 @@ const About = ({ width, height, toolbar }) => {
                         </svg>
                     </a>
                 </div>
-                <span className={styles.copyright}>©{year} FRMR.</span>
             </div>
+            <span className={styles.copyright}>©{year} Steven L Montoya</span>
         </Modal>
     )
 }

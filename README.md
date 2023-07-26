@@ -1,8 +1,8 @@
-# FRMR
+# CoolGuy
 
 ## Summary
 
-Portfolio for FRMR.
+Portfolio for Steven L Montoya.
 
 ---
 
@@ -14,7 +14,4 @@ Portfolio for FRMR.
 
 ---
 
-## Contact
-
--   Twitter: <a href="http://twitter.com/frmr_" target="_blank">`@frmr_`</a>
 

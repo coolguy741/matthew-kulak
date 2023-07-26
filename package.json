@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "description": "FRMR portfolio",
+  "description": "Steven L Montoya portfolio",
   "version": "0.1.0",
   "dependencies": {
     "@loadable/component": "^5.14.1",
