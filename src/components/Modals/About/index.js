@@ -51,7 +51,7 @@ const About = ({ width, height, toolbar }) => {
                     <h2>Location</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Lafayette, IN, United States</span>
+                    <span>Niš, Centralna Srbija, Serbia</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Tech</h2>
@@ -76,7 +76,7 @@ const About = ({ width, height, toolbar }) => {
                 </div>
                 <div className={`${styles.aboutDesc} ${styles.connect}`}>
                     <a
-                        href="https://www.linkedin.com/in/steven-l-montoya/"
+                        href="https://www.linkedin.com/in/petar-ristic/"
                         target="_blank"
                         rel="coolguy"
                     >
@@ -133,7 +133,7 @@ const About = ({ width, height, toolbar }) => {
                     </a>
                 </div>
             </div>
-            <span className={styles.copyright}>©{year} Steven L Montoya</span>
+            <span className={styles.copyright}>©{year} Petar Ristic</span>
         </Modal>
     )
 }

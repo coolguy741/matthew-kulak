@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "description": "Steven L Montoya portfolio",
+  "description": "Petar Ristic portfolio",
   "version": "0.1.0",
   "dependencies": {
     "@loadable/component": "^5.14.1",

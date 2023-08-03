@@ -2,7 +2,7 @@
 
 ## Summary
 
-Portfolio for Steven L Montoya.
+Portfolio for Petar Ristic.
 
 ---
 

@@ -9,7 +9,7 @@ const Contact = ({ width, height, toolbar }) => {
             <ul className={styles.contact}>
                 <li>
                     <a
-                        href="https://www.linkedin.com/in/steven-l-montoya/"
+                        href="https://www.linkedin.com/in/petar-ristic/"
                         target="_blank"
                         rel="coolguy"
                     >
