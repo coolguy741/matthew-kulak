@@ -76,7 +76,7 @@ const About = ({ width, height, toolbar }) => {
                 </div>
                 <div className={`${styles.aboutDesc} ${styles.connect}`}>
                     <a
-                        href="https://www.linkedin.com/in/petar-ristic/"
+                        href="https://linkedin.com/in/matthew-kulak-tech/"
                         target="_blank"
                         rel="coolguy"
                     >
@@ -94,7 +94,7 @@ const About = ({ width, height, toolbar }) => {
                             />
                         </svg>
                     </a>
-                    <a
+                    {/* <a
                         href=""
                         target="_blank"
                         rel="noreferrer"
@@ -114,7 +114,7 @@ const About = ({ width, height, toolbar }) => {
                                             c-4.1,0-8.2-0.3-12.2-0.7C23.5,195.2,50.7,203.1,78.6,203.1"
                             />
                         </svg>
-                    </a>
+                    </a> */}
                     <a
                         href="https://github.com/coolguy741"
                         target="_blank"
@@ -133,7 +133,7 @@ const About = ({ width, height, toolbar }) => {
                     </a>
                 </div>
             </div>
-            <span className={styles.copyright}>©{year} Petar Ristic</span>
+            <span className={styles.copyright}>©{year} Matthew Kulak</span>
         </Modal>
     )
 }

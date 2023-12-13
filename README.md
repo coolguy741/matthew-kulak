@@ -2,7 +2,7 @@
 
 ## Summary
 
-Portfolio for Petar Ristic.
+Portfolio for Matthew Kulak.
 
 ---
 
