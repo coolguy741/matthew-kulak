@@ -51,7 +51,7 @@ const About = ({ width, height, toolbar }) => {
                     <h2>Location</h2>
                 </div>
                 <div className={styles.aboutDesc}>
-                    <span>Niš, Centralna Srbija, Serbia</span>
+                    <span>Medford, NJ, United States</span>
                 </div>
                 <div className={styles.aboutTitle}>
                     <h2>Tech</h2>
